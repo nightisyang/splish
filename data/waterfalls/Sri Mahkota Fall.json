@@ -1,0 +1,64 @@
+{
+  "name": "Sri Mahkota Fall",
+  "description": "The northern part of the Endau Rompin National Park is located in the state of Pahang and has its own entry point. Either from Johore Baharu via Mersing, or from Kuala Lumpur via Kuantan and Pekan, is is a long route to Kuala Rompin.From there a good tar road brings you after another 30 km to the entrance of the park.After registration at the park office (entrance fee RM 5) you continue for another km to the signboard for the Seri Mahkota fall.The trail to the fall is easy, after going down a staircase there is a hanging bridge. The path keeps going down, because this is one of the relatively few waterfalls, where you start higher than the fall. The trail is not more than a few hundred meters, then the fall becomes visible.It is a very beautiful fall, almost vertical. Not a lot of water during our visit, but the setting is very romantic and there is a big pool, perfect for a bath. It takes an effort to reach this remote fall, but it is definitely worth it.Very nice, deep poolCheck if you need a permit before planning a waterfall trip. More information hereWaterfalls can be dangerous ! Always take care about your safetyVisitor Comments",
+  "state": "Pahang",
+  "location": {
+    "verbatimCoordinates": "N02 37.08' E103 20.97'",
+    "verbatimLatitude": "N02 37.08'",
+    "verbatimLongitude": "E103 20.97'",
+    "decimalLatitude": 2.618,
+    "decimalLongitude": 103.3495,
+    "decimalCoordinates": "2.618,103.3495"
+  },
+  "coordinates": "N02 37.08'  E103 20.97'",
+  "waterSource": "River",
+  "waterfallProfile": "Near Vertical fall",
+  "accessibility": "From car park",
+  "imgDetails": {
+    "imgFilename": [
+      "TNDSC_0059.JPG",
+      "TNDSC_0053.JPG",
+      "TNDSC_0029.JPG",
+      "TNDSC_0030.JPG",
+      "TNDSC_0034.JPG",
+      "TNDSC_0041.JPG",
+      "TNDSC_0032.JPG",
+      "TNDSC_0047.JPG",
+      "TNDSC_0046.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0059.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0053.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0029.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0030.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0034.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0041.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0032.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0047.JPG",
+      "http://waterfallsofmalaysia.com/images/130srimahkota/tn/TNDSC_0046.JPG"
+    ],
+    "imgDesc": [
+      "The Pahang entrance of Endau Rompin",
+      "Start of the trail",
+      "A nice hanging bridge",
+      "Descending to the waterfall.",
+      "The Sri Mahkota fall",
+      "Notice the size of the human figure",
+      "A beautiful waterfall",
+      "Lower part of the fall"
+    ],
+    "imgFullResFilename": [
+      "DSC_0029.JPG",
+      "srimahkota00.jpg",
+      "DSC_0059.JPG",
+      "DSC_0047.JPG",
+      "DSC_0053.JPG",
+      "DSC_0030.JPG",
+      "DSC_0032.JPG",
+      "DSC_0034.JPG",
+      "DSC_0046.JPG",
+      "DSC_0041.JPG"
+    ]
+  },
+  "url": "130srimahkota.php"
+}

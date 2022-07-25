@@ -1,0 +1,65 @@
+{
+  "name": "Temurun Fall",
+  "description": "The Temurun waterfall is the tallest waterfall in Langkawi. It is a seasonal fall, best to be visited in September-October. To reach the fall, you follow the signs for the Damai Bay resort. The waterfall is visible from the road. You can park your car and then it is only a short walk to the first tier of the fall.The waterfall consist of a few tiers. The lower ones are small, the main one is quite impressive. Impossible to take a picture of the whole fall.We did not see a way to climb to the top of the waterfall. The pool is rather shallow, but deep enough for a swim and a bath.",
+  "state": "Kedah",
+  "location": {
+    "verbatimCoordinates": "N06 25.87' E99 42.50'",
+    "verbatimLatitude": "N06 25.87'",
+    "verbatimLongitude": "E99 42.50'",
+    "decimalLatitude": 6.43117,
+    "decimalLongitude": 99.70833,
+    "decimalCoordinates": "6.43117,99.70833"
+  },
+  "coordinates": "N06 25.87'  E99 42.50'",
+  "waterSource": "Stream",
+  "waterfallProfile": "Vertical Fall",
+  "accessibility": "From carpark",
+  "imgDetails": {
+    "imgFilename": [
+      "TNIMG_5259.jpg",
+      "TNIMG_5260.jpg",
+      "TNIMG_5261.jpg",
+      "TNIMG_5274.jpg",
+      "TNIMG_5270.jpg",
+      "TNIMG_5265.jpg",
+      "TNIMG_5268.jpg",
+      "TNtemurun.jpg",
+      "TNIMG_5269.jpg"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5259.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5260.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5261.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5274.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5270.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5265.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5268.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNtemurun.jpg",
+      "http://waterfallsofmalaysia.com/images/68temurun/tn/TNIMG_5269.jpg"
+    ],
+    "imgDesc": [
+      "Visible from the road",
+      "Explanation about the geological background of the fall",
+      "Only a short walk to the fall",
+      "The lower tiers",
+      "The main fall",
+      "With a nice pool",
+      "Detail of the fall",
+      "Composite picture of the fall",
+      "A spray of water"
+    ],
+    "imgFullResFilename": [
+      "langkawi.gif",
+      "temurun.jpg",
+      "IMG_5259.jpg",
+      "IMG_5261.jpg",
+      "IMG_5260.jpg",
+      "IMG_5265.jpg",
+      "IMG_5270.jpg",
+      "IMG_5268.jpg",
+      "IMG_5269.jpg",
+      "IMG_5274.jpg"
+    ]
+  },
+  "url": "68temurun.php"
+}

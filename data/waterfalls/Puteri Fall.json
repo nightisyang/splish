@@ -1,0 +1,62 @@
+{
+  "name": "Puteri Fall",
+  "description": "Gunung Ledang, lonely mountain in JohoreA Popular Weekend DestinationThe Puteri FallBut even in the crowd you can find the beauty of the forest.Archived Page AvailableCheck if you need a permit before planning a waterfall trip. More information hereWaterfalls can be dangerous ! Always take care about your safetyVisitor Comments",
+  "imgDetails": {
+    "imgFilename": [
+      "TNledang01.JPG",
+      "TNledang02.JPG",
+      "TNledang03.JPG",
+      "TNledang05.JPG",
+      "TNledang04.JPG",
+      "TNledang06.JPG",
+      "TNledang08.JPG",
+      "TNledang09.JPG",
+      "TNledang10.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang01.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang02.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang03.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang05.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang04.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang06.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang08.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang09.JPG",
+      "http://waterfallsofmalaysia.com/images/58ledang/tn/TNledang10.JPG"
+    ],
+    "imgDesc": [
+      "Gunung Ledang, formerly know as Mount Ophir is with a height of 1276 m the highest mountain in the state of Johore. To climb this mountain you need permission from the Park HQ, where you also can hire a (compulsory) guide . There are many legends about the Princess (Puteri) of Gunung Ledang, click here",
+      "The Puteri Fall is named after this legendary Princess. The fall is located on the lower slopes of the mountain which are easily accessible by a cemented walkway.They attract a big crowd, especially during weekends.Nice swimmingpools and picknick places in a surrounding of imposing tropical forest.",
+      "The Puteri Fall itself is more a cascade, about 60 m tall.As the cascade is curved, it is not really possible to get a complete view of it.Not spectacular, but an attractive place to spend a lazy Sunday.",
+      "At the top of the cascade there is another small fall, with a nice swimmingpool. Don't expect to be alone here during a weekend!The cemented walkway ends here, and the real climbing of the mountains starts. There is another, smaller waterfall, along the trail to the top.",
+      "The small waterfall at the top of the Puteri cascade",
+      "Weekend Fun. Don't expect to be alone here."
+    ],
+    "imgFullResFilename": [
+      "ledang00.gif",
+      "ledang04.JPG",
+      "ledang06.JPG",
+      "ledang08.JPG",
+      "ledang01.JPG",
+      "ledang05.JPG",
+      "ledang03.JPG",
+      "ledang09.JPG",
+      "ledang10.JPG",
+      "ledang02.JPG"
+    ]
+  },
+  "url": "58ledang.php",
+  "state": "Johore",
+  "location": {
+    "verbatimCoordinates": "N02 21.29' E102 37.93'",
+    "verbatimLatitude": "N02 21.29'",
+    "verbatimLongitude": "E102 37.93'",
+    "decimalLatitude": 2.35483,
+    "decimalLongitude": 102.63217,
+    "decimalCoordinates": "2.35483,102.63217"
+  },
+  "coordinates": "N02 21.29' E102 37.93' ",
+  "waterSource": "Stream",
+  "waterfallProfile": "Cascade + small falls",
+  "accessibility": "Cemented pathway"
+}

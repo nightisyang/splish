@@ -1,0 +1,72 @@
+{
+  "name": "Air Terjun Harimau Berjemur",
+  "description": "Harimau Berjemur in Malay Language means tiger basking in the sunshine. Somebody said that tigers love to hang around at this waterfall on a hot day. Can we really meet wild tigers here? It really depends on your luck.The Harimau Berjemur Waterfall is located in the north area of Lesong Forest Reserve at Rompin and it is a famous camping destination for local 4WD groups. The easiest & fastest way is from Segamat by using road no.12 to Bandar Muadzam Sha. Turn right into an oil palm plantation after Ulu Keratong.FInally you enter the Lesong Forest Reserve using a logging roadThe logging road can be muddy and slippery, especially after rainAt some places guidance is needed to avoid hazards. After ~ 50 km you reach the campsite which can easily take about 30 people. There is a small cascade near the campsite, just nice for those who don’t like to walk too far away from the campsite.The trail to the main fall starts at the opposite side of the river. The jungle trail goes through bushes and then follows the riverbank again, forcing everybody to trek carefully on the wet slippery rock surface. After about 15 minutes you will reach already the Harimau Berjemur main tier.The adventurous can scramble up the trail at the left of the waterfall to the upper tier. ",
+  "state": "Pahang",
+  "location": {
+    "verbatimCoordinates": "N2 46.89 E103 11.59",
+    "verbatimLatitude": "N2 46.89",
+    "verbatimLongitude": "E103 11.59",
+    "decimalLatitude": 2.7815,
+    "decimalLongitude": 103.19317,
+    "decimalCoordinates": "2.7815,103.19317"
+  },
+  "coordinates": "N2 46.89 E103 11.59",
+  "waterSource": "Stream",
+  "waterfallProfile": "Cascade, Vertical Fall ",
+  "accessibility": "4WD, light jungle trekking",
+  "imgDetails": {
+    "imgFilename": [
+      "TNP2117839.jpg",
+      "TNP2117841.jpg",
+      "TNP2128043.jpg",
+      "TNP2117873.jpg",
+      "TNP2117886.jpg",
+      "TNP2128037.jpg",
+      "TNP2117891.jpg",
+      "TNP2117903.jpg",
+      "TNP2127985.jpg",
+      "TNP2117916.jpg",
+      "TNP2128013.jpg"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2117839.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2117841.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2128043.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2117873.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2117886.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2128037.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2117891.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2117903.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2127985.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2117916.jpg",
+      "http://waterfallsofmalaysia.com/images/155harimauberjemur/tn/TNP2128013.jpg"
+    ],
+    "imgDesc": [
+      "Crossing an oil palm plantation.",
+      "Entering the Lesong Forest Reserve ",
+      "The logging road ",
+      "A difficult passage",
+      "The campsite ",
+      "Cascade near campsite",
+      "Crossing the river",
+      "The rocks can be slippery!",
+      "The Harimau Berjemur Waterfall. ",
+      "Below the platform is a small shelter, great for escaping the heat of the sun. Amazingly, the upper tier is a vertical waterfall which is not often seen in Peninsular Malaysia."
+    ],
+    "imgFullResFilename": [
+      "Harimau00.JPG",
+      "P2128043.jpg",
+      "P2117886.jpg",
+      "P2128013.jpg",
+      "P2117903.jpg",
+      "P2117873.jpg",
+      "P2117891.jpg",
+      "P2117839.jpg",
+      "P2117916.jpg",
+      "P2127985.jpg",
+      "P2128037.jpg",
+      "P2117841.jpg"
+    ]
+  },
+  "url": "155harimauberjemur.php"
+}

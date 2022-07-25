@@ -1,0 +1,65 @@
+{
+  "name": "Jeram Tinggi",
+  "description": "Jementah is located at the north east side of Gunung Ledang. Here is another less famous Gunung Ledang summit trail - Ulu Jementah trail. It takes the longest time and is the toughest trail to the summit. Normally hikers take only 1 day up & down from the summit, but via Ulu Jementah yout need 2 days to reach the summit. Along the route there are 5 checkpoints and Jeram Tinggi Fall is the first checkpoint.Take road no.23 from Tangkak to Jementah. Then turn into Jalan Kolam Air near Kampung Paya Jakas, follow the country road and drive all the way to the jungle border. Generally, the terrain is quite flat. The only steep ascent is the slope after the first river crossing. Because of the fallen leaves it can be quite slippery.One hour trekking from the carpark, you should reach the Jeram Tinggi Fall. There is a small campsite near the waterfall. ",
+  "imgDetails": {
+    "imgFilename": [
+      "TNP8040694.jpg",
+      "TNP8040696.jpg",
+      "TNP8040697.jpg",
+      "TNP8040710.jpg",
+      "TNP8040704.jpg",
+      "TNP8040707.jpg",
+      "TNP8040711.jpg",
+      "TNP8040734.jpg",
+      "TNP8040760.jpg"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040694.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040696.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040697.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040710.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040704.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040707.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040711.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040734.jpg",
+      "http://waterfallsofmalaysia.com/images/161jeramtinggi/tn/TNP8040760.jpg"
+    ],
+    "imgDesc": [
+      "The trailhead is from the parking lot where you will find this noticeboard",
+      "The first river crossing, not too far away from the trailhead.",
+      "Steep ascent",
+      "Common fungus",
+      "Unusual fungus",
+      "Second river crossing. From here the trail to the waterfall is straight forward.",
+      "Almost there",
+      "The Jeram Tinggi fall",
+      "Another view"
+    ],
+    "imgFullResFilename": [
+      "P8040694.jpg",
+      "jeramtinggi00.JPG",
+      "P8040734.jpg",
+      "P8040707.jpg",
+      "P8040710.jpg",
+      "P8040696.jpg",
+      "P8040697.jpg",
+      "P8040760.jpg",
+      "P8040704.jpg",
+      "P8040711.jpg"
+    ]
+  },
+  "state": "Johore",
+  "location": {
+    "verbatimCoordinates": "N2 23.90 E102 38.53",
+    "verbatimLatitude": "N2 23.90",
+    "verbatimLongitude": "E102 38.53",
+    "decimalLatitude": 2.39833,
+    "decimalLongitude": 102.64217,
+    "decimalCoordinates": "2.39833,102.64217"
+  },
+  "coordinates": "N2 23.90 E102 38.53",
+  "waterSource": "Stream",
+  "waterfallProfile": "Cascade",
+  "accessibility": "Moderate jungle trekking",
+  "url": "161jeramtinggi.php"
+}

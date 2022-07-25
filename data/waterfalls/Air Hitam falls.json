@@ -1,0 +1,76 @@
+{
+  "name": "Air Hitam falls",
+  "description": "From Kuala Lumpur take the North South Expressway. Exit 148 Taiping Utara. Follow the road for 9km to Kamunting and turn left to the A4 and after that the A5. Follow this road for another 22km to Kg Jelai and turn right on the A206. Follow this road until the end. You will pass a gate which is normally open. Park your car at the water catchment area. From here the clear trail starts. It follows the river, which you can hear all the time, down in the ravine. The river has lots of cascades and small waterfalls, but access from the trail is difficult because of the steep slopes. It is possible to river trek, when the water level is not too high, but this will be slow going.The trail passes several durian plantations and fruit orchards. Here and there you will see temporary shelters. Occasionally a vague trail leads down to the river, to a cascade or waterfall. After about 1 km you will see the main fall through the trees. You will have to scramble down the ravine here, the easiest way is to follow a small stream which crosses the trail, when you are near the fall. Be prepared for leeches.The main fall is impressive, especially after rain. Be careful, however, the rocks are slippery and the current is strong. The trail continues after the main fall, after a while you will reach a confluence of two rivers, with nice cascades.THere may be more waterfalls and cascades upstream, there is a lot to explore here. The whole river is pristine and unspoilt. Keep it that way!!More cascades upstreamCheck if you need a permit before planning a waterfall trip. More information hereWaterfalls can be dangerous ! Always take care about your safetyVisitor Comments",
+  "state": "Perak",
+  "location": {
+    "verbatimCoordinates": "N 05 01.21' E 100 50.83'",
+    "verbatimLatitude": "N 05 01.21'",
+    "verbatimLongitude": "E 100 50.83'",
+    "decimalLatitude": 5.02017,
+    "decimalLongitude": 100.84717,
+    "decimalCoordinates": "5.02017,100.84717"
+  },
+  "coordinates": "N 05 01.21'  E 100 50.83'",
+  "waterSource": "River",
+  "waterfallProfile": "Near Vertical fall, cascades",
+  "accessibility": "Trekking",
+  "imgDetails": {
+    "imgFilename": [
+      "TNP9030001copy.jpg",
+      "TNP9030003copy.jpg",
+      "TNP9030005copy.jpg",
+      "TNP9030007copy.jpg",
+      "TNP9030009copy.jpg",
+      "TNDSC_0004.JPG",
+      "TNP9030010copy.jpg",
+      "TNDSC_0036.JPG",
+      "TNP9030034copy.jpg",
+      "TNP9030044copy.jpg",
+      "TNP9030049copy.jpg",
+      "TNDSC_0018.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030001copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030003copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030005copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030007copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030009copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNDSC_0004.JPG",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030010copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNDSC_0036.JPG",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030034copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030044copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNP9030049copy.jpg",
+      "http://waterfallsofmalaysia.com/images/131airhitam/tn/TNDSC_0018.JPG"
+    ],
+    "imgDesc": [
+      "Follow the A5 until Kg Jelai",
+      "Turn right here",
+      "The gate",
+      "The water catchment",
+      "Start of the trail",
+      "A clear trail connecting orchards",
+      "A temporary shelter",
+      "One of the many cascades",
+      "The main fall",
+      "The fall is very impressive",
+      "A perfect hydro massage!"
+    ],
+    "imgFullResFilename": [
+      "P9030044copy.jpg",
+      "P9030049copy.jpg",
+      "P9030003copy.jpg",
+      "P9030007copy.jpg",
+      "P9030009copy.jpg",
+      "P9030010copy.jpg",
+      "airhitam00.jpg",
+      "P9030001copy.jpg",
+      "DSC_0036.JPG",
+      "DSC_0018.JPG",
+      "P9030034copy.jpg",
+      "DSC_0004.JPG",
+      "P9030005copy.jpg"
+    ]
+  },
+  "url": "131airhitam.php"
+}

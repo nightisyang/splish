@@ -1,0 +1,65 @@
+{
+  "name": "Air Terjun Junjong",
+  "description": "The hills south of Kulim reach an altitude of about 300 m only. Not very high, but high enough for a waterfall, the Junjong fall. From Kulim it's only a 15 km drive. Coming from the NS highway, take exit 158 direction Simpang Ampat. From there take the direction of Kulim until you reach the K145. There are sign boards to the waterfall. From the carpark it is a short walk to the falls. The place is popular with the locals, there are stalls, and, unfortunately, also quite a lot of rubbish. The lower part of the park has been landscaped, with pools and bridges.  is not spectacular, but attractiveThe main fallA path leads along the main fall upstream to more cascades and waterfalls, which have not been developed and therefore are more quiet. ",
+  "state": "Kedah",
+  "location": {
+    "verbatimCoordinates": "N5 16.59 E100 33.84",
+    "verbatimLatitude": "N5 16.59",
+    "verbatimLongitude": "E100 33.84",
+    "decimalLatitude": 5.2765,
+    "decimalLongitude": 100.564,
+    "decimalCoordinates": "5.2765,100.564"
+  },
+  "coordinates": "N5 16.59 E100 33.84",
+  "waterSource": "Stream",
+  "waterfallProfile": "Falls and cascades",
+  "accessibility": "From carpark",
+  "imgDetails": {
+    "imgFilename": [
+      "TNDSC_4247.JPG",
+      "TNDSC_4214.JPG",
+      "TNDSC_4246.JPG",
+      "TNDSC_4245.JPG",
+      "TNDSC_4215.JPG",
+      "TNDSC_4242.JPG",
+      "TNDSC_4218.JPG",
+      "TNDSC_4229.JPG",
+      "TNDSC_4234.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4247.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4214.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4246.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4245.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4215.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4242.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4218.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4229.JPG",
+      "http://waterfallsofmalaysia.com/images/144junjong/tn/TNDSC_4234.JPG"
+    ],
+    "imgDesc": [
+      "Sign for the waterfall on the K 145",
+      "Entrance of the Junjong park",
+      "Stalls near the carpark",
+      "Landscaped with shelters",
+      "One of the small falls",
+      "The main fall",
+      "Quite attractive",
+      "Upstream there are more cascades",
+      "And nice unspoiled waterfalls"
+    ],
+    "imgFullResFilename": [
+      "DSC_4215.JPG",
+      "junjong00.JPG",
+      "DSC_4214.JPG",
+      "DSC_4246.JPG",
+      "DSC_4218.JPG",
+      "DSC_4234.JPG",
+      "DSC_4245.JPG",
+      "DSC_4229.JPG",
+      "DSC_4247.JPG",
+      "DSC_4242.JPG"
+    ]
+  },
+  "url": "144junjong.php"
+}

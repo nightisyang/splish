@@ -1,0 +1,53 @@
+{
+  "name": "Ayer Puteh",
+  "description": "The new official Gunung Ledang trail head is located at Taman Negara Gunung Ledang Operation Centre, which is 17km from Tangkak town. There’s a cascade at the backyard of the Operation Centre . Take road no. 23 from Tangkak towards Sagil. After Sagil town, prepare to turn left when you see the Gunung Ledang signboard. The tar road is straight all the way and ends at the Taman Negara Gunung Ledang Operation Centre.",
+  "imgDetails": {
+    "imgFilename": [
+      "TNP8064815.jpg",
+      "TNP8064734.jpg",
+      "TNP8064736.jpg",
+      "TNP8064740.jpg",
+      "TNP8064765.jpg",
+      "TNP8064747.jpg"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/164ayerputeri/tn/TNP8064815.jpg",
+      "http://waterfallsofmalaysia.com/images/164ayerputeri/tn/TNP8064734.jpg",
+      "http://waterfallsofmalaysia.com/images/164ayerputeri/tn/TNP8064736.jpg",
+      "http://waterfallsofmalaysia.com/images/164ayerputeri/tn/TNP8064740.jpg",
+      "http://waterfallsofmalaysia.com/images/164ayerputeri/tn/TNP8064765.jpg",
+      "http://waterfallsofmalaysia.com/images/164ayerputeri/tn/TNP8064747.jpg"
+    ],
+    "imgDesc": [
+      "Entrance of the operation centre.",
+      "The building of Taman Negara Gunung Ledang Operation Centre",
+      "Just follow the signboard and the cemented path to the left of the building.",
+      "Climb up this staircase, Ayer Puteh Fall is at the end.",
+      "The Ayer Puteh Fall, the fall will dry up during dry season.",
+      "A nice rest hut has been built beside the waterfall."
+    ],
+    "imgFullResFilename": [
+      "map.JPG",
+      "P8064815.jpg",
+      "P8064765.jpg",
+      "P8064740.jpg",
+      "P8064734.jpg",
+      "P8064736.jpg",
+      "P8064747.jpg"
+    ]
+  },
+  "url": "164ayerputeri.php",
+  "state": "Johore",
+  "location": {
+    "verbatimCoordinates": "N2 20.62 E102 37.08",
+    "verbatimLatitude": "N2 20.62",
+    "verbatimLongitude": "E102 37.08",
+    "decimalLatitude": 2.34367,
+    "decimalLongitude": 102.618,
+    "decimalCoordinates": "2.34367,102.618"
+  },
+  "coordinates": "N2 20.62 E102 37.08",
+  "waterSource": "Stream",
+  "waterfallProfile": "Cascade",
+  "accessibility": "Short walk for car park"
+}

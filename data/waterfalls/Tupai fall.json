@@ -1,0 +1,65 @@
+{
+  "name": "Tupai fall",
+  "description": "When you visit the Sasanarakkha Buddhist Sanctuary in Taiping, you can see deep down the Tupai river with waterfalls and cascades. It is possible to walk down from here to the river. An easier way is to start from the town center, follow Jalan Tupai to the Chinese cemeteries. Try to keep as close as possible to the right bank of the river. See the map for the details. The road ends at a few abandoned houses.The flow of water is not a big one, what makes the falls attractive are the beautiful rock faces. Not many visitors here, only vague trails going down from the road to the falls. A pity, as the location is very pleasant.",
+  "state": "Perak",
+  "location": {
+    "verbatimCoordinates": "N 4 49.93 E 100 45.88",
+    "verbatimLatitude": "N 4 49.93",
+    "verbatimLongitude": "E 100 45.88",
+    "decimalLatitude": 4.83217,
+    "decimalLongitude": 100.76467,
+    "decimalCoordinates": "4.83217,100.76467"
+  },
+  "coordinates": "N 4 49.93 E 100 45.88",
+  "waterSource": "Stream",
+  "waterfallProfile": "Near Vertical Fall, cascades",
+  "accessibility": "From the road",
+  "imgDetails": {
+    "imgFilename": [
+      "TNDSC_0058.JPG",
+      "TNDSC_0060.JPG",
+      "TNDSC_0065.JPG",
+      "TNDSC_0073.JPG",
+      "TNDSC_0074.JPG",
+      "TNDSC_0081.JPG",
+      "TNDSC_0082.JPG",
+      "TNDSC_0084.JPG",
+      "TNDSC_0087.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0058.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0060.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0065.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0073.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0074.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0081.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0082.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0084.JPG",
+      "http://waterfallsofmalaysia.com/images/138tupai/tn/TNDSC_0087.JPG"
+    ],
+    "imgDesc": [
+      "Abandoned houses near the fall",
+      "Is it a cascade or a fall?",
+      "Attractive rock faces",
+      "Must be powerful after a downpour",
+      "Detail",
+      "A good place for fishing",
+      "One of the lower cascades",
+      "The Tupai river downstream",
+      "Bridge to the Buddhist sanctuary"
+    ],
+    "imgFullResFilename": [
+      "tupai00.GIF",
+      "DSC_0065.JPG",
+      "DSC_0060.JPG",
+      "DSC_0082.JPG",
+      "DSC_0073.JPG",
+      "DSC_0084.JPG",
+      "DSC_0058.JPG",
+      "DSC_0074.JPG",
+      "DSC_0081.JPG",
+      "DSC_0087.JPG"
+    ]
+  },
+  "url": "138tupai.php"
+}

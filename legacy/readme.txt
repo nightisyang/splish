@@ -1,0 +1,1 @@
+legacy code used to scrape and sanitize data from www.waterfallsofmalaysia.com

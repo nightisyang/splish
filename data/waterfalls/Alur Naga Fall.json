@@ -1,0 +1,53 @@
+{
+  "name": "Alur Naga Fall",
+  "description": "On the slopes of Gunung Jerai several waterfalls can be found.  is located almost at the top of the mountain, about 900 meter above sea level. Access is easy, because a (winding!) road is leading from Gurun to the Gunung Jerai Regency resort.Just before you reach the resort, the trail starts to the right. Concrete steps bring you in about half an hour to the fall. Quite a steep descent. You approach the waterfall in an interesting, rather unusual way: from above! Take care when you go down to the bottom, the rocks can be slippery. Not a big water flow, probably seasonal, but the setting of the fall is romantic, with a nice (shallow) pool.The Alur Naga fallThere should be a trail between this fall and the Puteri Mandi fall, hundreds of meters lower, but we did not try to find it.Here is a video of the fall",
+  "state": "Kedah",
+  "location": {
+    "verbatimCoordinates": "N05 47.63' E100 25.88'",
+    "verbatimLatitude": "N05 47.63'",
+    "verbatimLongitude": "E100 25.88'",
+    "decimalLatitude": 5.79383,
+    "decimalLongitude": 100.43133,
+    "decimalCoordinates": "5.79383,100.43133"
+  },
+  "coordinates": "N05 47.63' E100 25.88'",
+  "waterSource": "Stream",
+  "waterfallProfile": "Vertical fall",
+  "accessibility": "Short hike from car park",
+  "imgDetails": {
+    "imgFilename": [
+      "TNP7120439.JPG",
+      "TNIMG_9014.JPG",
+      "TNIMG_9002.JPG",
+      "TNIMG_9011.JPG",
+      "TNIMG_9007.JPG",
+      "TNIMG_9004.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/168alurnaga/tn/TNP7120439.JPG",
+      "http://waterfallsofmalaysia.com/images/168alurnaga/tn/TNIMG_9014.JPG",
+      "http://waterfallsofmalaysia.com/images/168alurnaga/tn/TNIMG_9002.JPG",
+      "http://waterfallsofmalaysia.com/images/168alurnaga/tn/TNIMG_9011.JPG",
+      "http://waterfallsofmalaysia.com/images/168alurnaga/tn/TNIMG_9007.JPG",
+      "http://waterfallsofmalaysia.com/images/168alurnaga/tn/TNIMG_9004.JPG"
+    ],
+    "imgDesc": [
+      "Beautiful views from Gunung Jerai",
+      "Trail head just outside the resort",
+      "Concrete steps leading to the fall",
+      "Top of the fall",
+      "The Alur Naga fall",
+      "Vertical fall"
+    ],
+    "imgFullResFilename": [
+      "map.JPG",
+      "IMG_9004.JPG",
+      "IMG_9011.JPG",
+      "IMG_9007.JPG",
+      "P7120439.JPG",
+      "IMG_9002.JPG",
+      "IMG_9014.JPG"
+    ]
+  },
+  "url": "168alurnaga.php"
+}

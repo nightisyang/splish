@@ -1,0 +1,70 @@
+{
+  "name": "Air Terjun Siong",
+  "description": "Unknown jewel in the Genting Paras regionJungle trekking needed!A Very tall CascadeThis will be a Powerful Fall in the Rainy Season!Archived Page Available",
+  "state": "Selangor",
+  "location": {
+    "verbatimCoordinates": "N03° 07.87' E101° 57.17'",
+    "verbatimLatitude": "N03° 07.87'",
+    "verbatimLongitude": "E101° 57.17'",
+    "decimalLatitude": 3.13117,
+    "decimalLongitude": 101.95283,
+    "decimalCoordinates": "3.13117,101.95283"
+  },
+  "coordinates": "N03°  07.87'  E101°  57.17'",
+  "waterSource": "Stream",
+  "waterfallProfile": "Steep Cascade",
+  "accessibility": "Jungle Trekking",
+  "imgDetails": {
+    "imgFilename": [
+      "TNsiong01.JPG",
+      "TNsiong02.JPG",
+      "TNsiong03.JPG",
+      "TNsiong04.jpg",
+      "TNsiong05.JPG",
+      "TNsiong06.JPG",
+      "TNsiong07.JPG",
+      "TNsiong08.JPG",
+      "TNsiong10.JPG",
+      "TNsiong11.JPG",
+      "TNsiong12.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong01.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong02.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong03.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong04.jpg",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong05.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong06.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong07.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong08.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong10.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong11.JPG",
+      "http://waterfallsofmalaysia.com/images/43siong/tn/TNsiong12.JPG"
+    ],
+    "imgDesc": [
+      "To reach this beautiful cascade, you first have to take road B32, leading from the Ulu Langat region to K. Kelawang. A few km before reaching the pass (also the state boundary between Selangor and Negeri Sembilan), there is a small tar road to the left. It will lead to an Orang Asli kampung, Kg Rembai.",
+      "From the kampung several trails lead to the waterfall. It is advisable to use a local guide. That way you will also manage to avoid the wild-boar traps, set up by the Orang Asli!The trail starts in an easy way, but becomes an overgrown jungle track later.",
+      "It is not a long trek. The trail follows more or less the right bank of the stream and after less than one hour trekking, you descend into the ravine to the main cascade. A shady spot, no pool, but a pristine envoronment. ",
+      "This is a tall waterfall/cascade, not a large volume of water during our visit, but that will be very different in the rainy season. Large logs of trees and broken bamboo show the destructive power water can have. Take care then! Flash flooding could be dangerous here.",
+      "It is possible to scramble up at the left side of the fall, but don't expect any trail here.",
+      "At the top of the fall.From here it goes steep down",
+      "Far away the access road is visible. Contrast between nature and civilisation!",
+      "This waterfall is completely unspoilt. No rubbish anywhere. Please keep it that way!"
+    ],
+    "imgFullResFilename": [
+      "siong00.gif",
+      "siong04.jpg",
+      "siong06.JPG",
+      "siong05.JPG",
+      "siong01.JPG",
+      "siong02.JPG",
+      "siong03.JPG",
+      "siong08.JPG",
+      "siong10.JPG",
+      "siong12.JPG",
+      "siong11.JPG",
+      "siong07.JPG"
+    ]
+  },
+  "url": "43siong.php"
+}

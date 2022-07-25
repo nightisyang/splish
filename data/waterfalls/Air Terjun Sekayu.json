@@ -1,0 +1,83 @@
+{
+  "name": "Air Terjun Sekayu",
+  "description": "From the main road (nr 14) you take the road to Kuala Berang. Turn left, just before reaching this village. Clear signposting. After about 15 km you will reach Hutan Lipur SekayuThere are waterfalls and cascades along the 2 kilometers stretch of the river. A trail follows the river bank.On weekdays the park is quiet, but during weekends it can be crowdedFollowing the trail you will encounter several waterfalls.This is a beautiful park and you can easily spend many hours enjoying nature.Archived page availableCheck if you need a permit before planning a waterfall trip. More information hereWaterfalls can be dangerous ! Always take care about your safetyVisitor Comments",
+  "state": "Terengganu",
+  "location": {
+    "verbatimCoordinates": "N04° 57.85' E102° 56.71'",
+    "verbatimLatitude": "N04° 57.85'",
+    "verbatimLongitude": "E102° 56.71'",
+    "decimalLatitude": 4.96417,
+    "decimalLongitude": 102.94517,
+    "decimalCoordinates": "4.96417,102.94517"
+  },
+  "coordinates": "N04° 57.85'  E102° 56.71'",
+  "waterSource": "Small River",
+  "waterfallProfile": "Vertical Falls & Cascades",
+  "accessibility": "From carpark & river trekking",
+  "imgDetails": {
+    "imgFilename": [
+      "TNsekayu01.JPG",
+      "TNsekayu02.JPG",
+      "TNsekayu03.JPG",
+      "TNsekayu04.JPG",
+      "TNsekayu05.JPG",
+      "TNsekayu06.JPG",
+      "TNsekayu07.JPG",
+      "TNsekayu08.JPG",
+      "TNsekayu09.JPG",
+      "TNsekayu10.JPG",
+      "TNsekayu11.JPG",
+      "TNsekayu12.JPG",
+      "TNsekayu13.JPG",
+      "TNsekayu14.JPG",
+      "TNsekayu15.JPG"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu01.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu02.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu03.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu04.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu05.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu06.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu07.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu08.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu09.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu10.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu11.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu12.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu13.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu14.JPG",
+      "http://waterfallsofmalaysia.com/images/35sekayu/tn/TNsekayu15.JPG"
+    ],
+    "imgDesc": [
+      "This is a well organised nature park",
+      "The Tersat river has a fair size and plenty of water",
+      "Chalets for an overnight stay are available",
+      "Beautiful flowers abound",
+      "The first of the many waterfalls, with an inviting pool",
+      "This fall is quite powerful",
+      "The elephant dung shows that you are not the only visitor!",
+      "An interesting mushroom along the track",
+      "The falls are interspersed by quiet stretches of water"
+    ],
+    "imgFullResFilename": [
+      "sekayu00.gif",
+      "sekayu02.JPG",
+      "sekayu06.JPG",
+      "sekayu13.JPG",
+      "sekayu15.JPG",
+      "sekayu04.JPG",
+      "sekayu10.JPG",
+      "sekayu09.JPG",
+      "sekayu12.JPG",
+      "sekayu03.JPG",
+      "sekayu11.JPG",
+      "sekayu07.JPG",
+      "sekayu08.JPG",
+      "sekayu01.JPG",
+      "sekayu14.JPG",
+      "sekayu05.JPG"
+    ]
+  },
+  "url": "35sekayu.php"
+}
