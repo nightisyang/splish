@@ -49,6 +49,11 @@ waterfallSchema.pre('save', function(next) {
   next();
 });
 
+waterfallSchema.pre(/^find/, function(next) {
+  this.start = Date.now();
+  next();
+});
+
 waterfallSchema.post(/^find/, function(docs, next) {
   // eslint-disable-next-line no-console
   console.log(`Query took ${Date.now() - this.start} milliseconds!`);

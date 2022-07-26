@@ -1,305 +1,144 @@
+// const path = require('path');
 const express = require('express');
-const axios = require('axios');
-const cheerio = require('cheerio');
-const fs = require('fs');
-const path = require('path');
+const morgan = require('morgan');
+// const rateLimit = require('express-rate-limit');
+// const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+// const hpp = require('hpp');
+const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
+
+const waterfallRouter = require('./routes/waterfallRoutes');
+
+dotenv.config({ path: './config.env' });
 
 const app = express();
 
-const PORT = process.env.port || 3000;
+// app.set('view engine', 'pug');
+// app.set('views', path.join(__dirname, 'views'));
 
-app.listen(PORT, () => {
-  console.log(`server is running on PORT:${PORT}`);
-});
+// 1) GLOBAL MIDDLEWARES
+// serving static files
+// app.use(express.static(path.join(__dirname, 'public')));
 
-const filePath = path.join(__dirname, 'data');
-const stateArr = [
-  'Johor',
-  'Kedah',
-  'Kelantan',
-  'Malacca',
-  'Negri Sembilan',
-  'Pahang',
-  'Perak',
-  'Perlis',
-  'Penang',
-  'Sabah',
-  'Sarawak',
-  'Selangor',
-  'Terengganu'
-];
+// SET SECURITY HTTP HEADERS
+// const scriptSrcUrls = [
+//   'https://unpkg.com/',
+//   'https://tile.openstreetmap.org',
+//   'https://js.stripe.com',
+//   'https://m.stripe.network',
+//   'https://*.cloudflare.com'
+// ];
+// const styleSrcUrls = [
+//   'https://unpkg.com/',
+//   'https://tile.openstreetmap.org',
+//   'https://fonts.googleapis.com/'
+// ];
+// const connectSrcUrls = [
+//   'https://unpkg.com',
+//   'https://tile.openstreetmap.org',
+//   'https://*.stripe.com',
+//   'https://bundle.js:*',
+//   'ws://127.0.0.1:*/'
+// ];
+// const fontSrcUrls = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
-// eslint-disable-next-line node/no-unsupported-features/es-syntax
-async function downloadImage(url, filepath) {
-  const response = await axios({
-    url,
-    method: 'GET',
-    responseType: 'stream'
-  });
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     directives: {
+//       defaultSrc: ["'self'", 'data:', 'blob:', 'https:', 'ws:'],
+//       baseUri: ["'self'"],
+//       fontSrc: ["'self'", ...fontSrcUrls],
+//       scriptSrc: ["'self'", 'https:', 'http:', 'blob:', ...scriptSrcUrls],
+//       frameSrc: ["'self'", 'https://js.stripe.com'],
+//       objectSrc: ["'none'"],
+//       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+//       workerSrc: ["'self'", 'blob:', 'https://m.stripe.network'],
+//       childSrc: ["'self'", 'blob:'],
+//       imgSrc: ["'self'", 'blob:', 'data:', 'https:'],
+//       formAction: ["'self'"],
+//       connectSrc: [
+//         "'self'",
+//         "'unsafe-inline'",
+//         'data:',
+//         'blob:',
+//         ...connectSrcUrls
+//       ],
+//       upgradeInsecureRequests: []
+//     }
+//   })
+// );
 
-  return new Promise((resolve, reject) => {
-    response.data
-      .pipe(fs.createWriteStream(filepath))
-      .on('error', reject)
-      .once('close', () => {
-        resolve(filepath);
-        console.log('Download completed!');
-      });
-  });
+// development logging
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
 }
 
-const url = JSON.parse(fs.readFileSync(`${filePath}/compiledURL.json`));
-const filename = path.join(__dirname, 'data', 'waterfalls');
-const missing = [
-  '164ayerputeri.php',
-  '98kotatinggi.php',
-  '58ledang.php',
-  '99pulai.php',
-  '128takamelor.php',
-  '159asahan.php',
-  '161jeramtinggi.php'
-];
+// rate-limiter to prevent DDoS attacks
+// const limiter = rateLimit({
+//   max: 100,
+//   windowMs: 60 * 60 * 1000,
+//   message: 'Too many requests from this IP, please try again in an hour!'
+// });
+// app.use('/api', limiter);
 
-let counter = 0;
+// body parser, reading data from body into req.body, limits size to prevent malicious payload
+app.use(express.json({ limit: '10kb' }));
 
-// setInterval(() => {
-// if (counter < url.length) {
+// parses data from html form submit
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
-missing.forEach(val => {
-  let name;
-  let description;
-  let details = [];
-  let imgDetails;
-  let imgUrl = [];
-  let imgDesc;
+// parse data from cookie
+app.use(cookieParser());
 
-  try {
-    axios(`https://waterfallsofmalaysia.com/${val}`).then(res => {
-      const data = res.data;
-      // console.log(data);
-      const $ = cheerio.load(data);
+// data sanitization against NoSQL query injection
+// removes operators ($) from body
+app.use(mongoSanitize());
 
-      $('title', data).each(function(i, el) {
-        name = $(this).text();
-      });
+// data sanitization against XSS (cross site service) attacks
+app.use(xss());
 
-      // const jsonObj = JSON.parse(
-      //   fs.readFileSync(
-      //     path.join(__dirname, "data", "waterfalls", `${name}.json`)
-      //   )
-      // );
+// prevent parameter pollution - clears up query string
+// app.use(
+//   hpp({
+//     whitelist: [
+//       'duration',
+//       'ratingsQuantity',
+//       'average',
+//       'maxGroupSize',
+//       'difficulty',
+//       'price'
+//     ]
+//   })
+// );
 
-      // if (!jsonObj) return;
-
-      // jsonObj.url = url[counter];
-
-      // fs.writeFileSync(
-      //   path.join(__dirname, "data", "waterfalls", `${name}.json`),
-      //   JSON.stringify(jsonObj)
-      // );
-
-      let tableTemp = [];
-      $('tr', 'table', data).each(function() {
-        tableTemp.push(
-          $(this)
-            .find('font')
-            .text()
-        );
-      });
-
-      const tableHeader = [
-        'State',
-        'Location',
-        'Coordinates and map',
-        'Water Source',
-        'Waterfall Profile',
-        'Accessibility'
-      ];
-
-      tableTemp.splice(1, 6).forEach((val, i) => {
-        const header = tableHeader[i];
-        const value = val.slice(header.length);
-
-        let altHeader;
-
-        if (header === 'Coordinates and map') {
-          altHeader = 'coordinates';
-        } else if (header === 'Water Source') {
-          altHeader = 'waterSource';
-        } else if (header === 'Waterfall Profile') {
-          altHeader = 'waterfallProfile';
-        } else {
-          altHeader = header.toLowerCase();
-        }
-        details.push({ [`${altHeader}`]: value });
-      });
-
-      let imgFilename = [];
-      $('td', data).each(function() {
-        let imgUrltemp = $(this)
-          .find('img')
-          .attr('src');
-
-        if (
-          imgUrltemp !== undefined &&
-          imgUrltemp !==
-            'https://waterfallsofmalaysia.com/images/waterfalls01_small.jpg'
-        ) {
-          imgUrl.push(imgUrltemp);
-          let filename = imgUrltemp.split('/').pop();
-          imgFilename.push(filename);
-          downloadImage(imgUrltemp, path.join(filePath, 'images', filename));
-        }
-      });
-
-      let imgDescTemp = [];
-      $('font', 'p', data).each(function() {
-        const temp = $(this).text();
-
-        imgDescTemp.push(temp);
-      });
-      imgDesc = imgDescTemp.slice(0, -6);
-
-      imgDetails = {
-        imgFilename: imgFilename,
-        imgUrl: imgUrl,
-        imgDesc: imgDesc
-      };
-
-      // $("td", data).each(function () {
-      //   const summary = $(this).find("p").text();
-      //   console.log(summary);
-      // });
-      const rawText = $('tr', 'table', data)
-        .find('p')
-        .text();
-
-      const cleanUp = rawText.split(' ');
-
-      cleanUp.forEach((str, i, arr) => {
-        result = str.trim().replace(/\n+|\s/g, '');
-        // console.log(result);
-        arr[i] = result;
-      });
-
-      for (let i = cleanUp.length; i > -1; i--) {
-        if (cleanUp[i] === '') cleanUp.splice(i, 1);
-      }
-
-      let summary = cleanUp.join(' ');
-
-      imgDesc.forEach(val => {
-        summary = summary.replace(`${val}`, '');
-      });
-
-      description = summary.replace(
-        "Check if you need a permit before planning a waterfall trip. More information hereWaterfalls can be dangerous ! Always take care about your safety To add a comment you must logon/register firstrmb_ki101('79qfmgtj4fu','','26','26',1,'ffffff','010020','00fff6');",
-        ''
-      );
-
-      const waterfall = {
-        name: name,
-        description: description,
-        details: details,
-        imgDetails: imgDetails,
-        url: val
-      };
-
-      fs.writeFileSync(
-        path.join(__dirname, 'data', 'waterfalls', `${waterfall.name}.json`),
-        JSON.stringify(waterfall),
-        'utf8'
-      );
-      console.log(`${waterfall.name}.json file saved`);
-      // counter++;
-      console.log(`Counter is currently: ${counter}`);
-
-      // console.log(compile);
-      // console.log($("td", data).find("img").attr("src"));
-
-      // $("table", data).each(function () {
-      // });
-      // console.log(table);
-    });
-  } catch (err) {
-    console.log(err);
-    console.log(`Job error with ${url[counter]} ${name} Counter: ${counter}`);
-    // counter++;
-  }
+// test middleware
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  // console.log(req.headers);
+  // console.log(req.cookies);
+  next();
 });
-// } else {
-//   console.log(`Job completed!`);
 
-//   return;
-// }
-// }, 1000 * 10);
+// 3) ROUTES
+app.use('/api/v1/waterfalls', waterfallRouter);
+// app.use('/', viewRouter);
+// app.use('/api/v1/users', userRouter);
+// app.use('/api/v1/reviews', reviewRouter);
 
-// scraping data
+app.all('*', (req, res, next) => {
+  // const err = new Error(`Can't find ${req.originalUrl} on this server!`);
+  // err.status = 'fail';
+  // err.statusCode = 404;
 
-// /*
-// for (let i = 1; i < 14; i++) {
-//   let content = [];
-//   // let i = 10;
-//   let website = `https://waterfallsofmalaysia.com/state.php?state_id=${i}`;
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
 
-//   let state = stateArr[i - 1];
+// if use has 4 parameters, express recognises it as error handling middleware
+// global handling middleware
+app.use(globalErrorHandler);
 
-//   try {
-//     axios(website)
-//       .then((res) => {
-//         const data = res.data;
-
-//         // console.log(data);
-//         const $ = cheerio.load(data);
-
-//         $("tr", data).each(function (i, el) {
-//           let textArr = [];
-//           //   console.log(this);
-//           //   const title = $(this).text();
-//           const url = $(this).find("a").attr("href");
-//           const text = $(this).find("font").text();
-//           const img = $(this).find("img").attr("src");
-
-//           if (!textArr.includes(text) && text !== undefined) {
-//             textArr.push(text);
-//           }
-
-//           if (url) {
-//             if (!content.includes(url)) {
-//               content.push({
-//                 url,
-//                 textArr,
-//                 img,
-//               });
-//             }
-//           }
-
-//           // app.get("/", (req, res) => {
-//           //   res.json(content);
-//           // });
-//         });
-//       })
-//       .then(() => {
-//         console.log(state);
-//         const stateLowerCase = state.toLowerCase();
-
-//         fs.writeFileSync(
-//           path.join(`${filePath}`, `${stateLowerCase}.json`),
-//           JSON.stringify(content),
-//           {
-//             encoding: "utf-8",
-//           },
-//           (err) => {
-//             if (err) console.log(err);
-//             else {
-//               console.log("File written successfully\n");
-//             }
-//           }
-//         );
-//       })
-//       .then(() => console.log(content));
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
-// */
+module.exports = app;
