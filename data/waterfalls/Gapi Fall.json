@@ -1,1 +1,47 @@
-{"name":"Gapi Fall","description":"A tall sloped cascade fall with a spread single drop. Spectacular during wet seasons. Small pools downriver and misty breeze around the fall.From the main road, drive into the dirt road off Jln Antara Gapi-Ulu Yam. Pass the housing in construction and proceed till the end of a forked road with a gated access on the right. Park here without obstructing passing vehicles. Tractors & lorries may use this road to access the palm oil estate inside.Proceed by foot and take the left junction into the palm estate. Stay on the main path and around 25mins later there will be a shallow river crossing. After the river crossing, there will be 2 different trails to the falls.AerialDroneViewHumanfigureforscale\"Rubbish exist when there is an imbalance of those willing to take action.\"If you plan to visit this waterfall, do bring a plastic bag along. In the event there is rubbish left by irresponsible individuals, you can contribute and do our part to keep nature's paradise clean. Thank you~","state":"Selangor","location":{"verbatimCoordinates":"3.40700, 101.64722","verbatimLatitude":"3.40700","verbatimLongitude":"101.64722","decimalLatitude":3.407,"decimalLongitude":101.64722,"decimalCoordinates":"3.407,101.64722"},"coordinates":"3.40700, 101.64722","waterSource":"Sg. Pedang, Natural Stream","waterfallProfile":"Cascade Fall","accessibility":"Trekking, <1hour","imgDetails":{"imgFilename":["TNairterjungapiportraitfinalresizedweb.jpg","TNantaragapifallaerial1finalresizedweb.jpg","TNdsc07047.jpg","TNantaragapifallaerial2finalresizedweb.jpg"],"imgUrl":["http://waterfallsofmalaysia.com/images/173gapi/tn/TNairterjungapiportraitfinalresizedweb.jpg","http://waterfallsofmalaysia.com/images/173gapi/tn/TNantaragapifallaerial1finalresizedweb.jpg","http://waterfallsofmalaysia.com/images/173gapi/tn/TNdsc07047.jpg","http://waterfallsofmalaysia.com/images/173gapi/tn/TNantaragapifallaerial2finalresizedweb.jpg"],"imgDesc":["Air Terjun Gapi","Proceed straight uphill if you wish to circle around to the top of the fall and scale down at the side of the fall. You will have to crawl under a gate with a rather big gap due to erosion. At the top of the fall there is ropes to help climb the sloped rocky section.","Or look for the side trail on your right that leads to the river. The trail inside is quite clear but will require several river crossings. There are several scenic cascades along the way.","Aerial Drone View","Human figure for scale","Aerial Top Down View"],"imgFullResFilename":["airterjungapiportraitfinalresizedweb.jpg","dsc07047.jpg","antaragapifallaerial1finalresizedweb.jpg","screenshot(409).png","antaragapifallaerial2finalresizedweb.jpg"]},"url":"173gapi.php"}
+{
+  "name": "Gapi Fall",
+  "description": "A tall sloped cascade fall with a spread single drop. Spectacular during wet seasons. Small pools downriver and misty breeze around the fall.From the main road, drive into the dirt road off Jln Antara Gapi-Ulu Yam. Pass the housing in construction and proceed till the end of a forked road with a gated access on the right. Park here without obstructing passing vehicles. Tractors & lorries may use this road to access the palm oil estate inside.Proceed by foot and take the left junction into the palm estate. Stay on the main path and around 25mins later there will be a shallow river crossing. After the river crossing, there will be 2 different trails to the falls.AerialDroneViewHumanfigureforscale\"Rubbish exist when there is an imbalance of those willing to take action.\"If you plan to visit this waterfall, do bring a plastic bag along. In the event there is rubbish left by irresponsible individuals, you can contribute and do our part to keep nature's paradise clean. Thank you~",
+  "state": "Selangor",
+  "location": {
+    "verbatimCoordinates": "3.40700, 101.64722",
+    "verbatimLatitude": "3.40700",
+    "verbatimLongitude": "101.64722",
+    "decimalLatitude": 3.407,
+    "decimalLongitude": 101.64722,
+    "decimalCoordinates": "3.407,101.64722"
+  },
+  "coordinates": "3.40700, 101.64722",
+  "waterSource": "Sg. Pedang, Natural Stream",
+  "waterfallProfile": "Cascade Fall",
+  "accessibility": "Trekking, <1hour",
+  "imgDetails": {
+    "imgFilename": [
+      "TNairterjungapiportraitfinalresizedweb.jpg",
+      "TNantaragapifallaerial1finalresizedweb.jpg",
+      "TNdsc07047.jpg",
+      "TNantaragapifallaerial2finalresizedweb.jpg"
+    ],
+    "imgUrl": [
+      "http://waterfallsofmalaysia.com/images/173gapi/tn/TNairterjungapiportraitfinalresizedweb.jpg",
+      "http://waterfallsofmalaysia.com/images/173gapi/tn/TNantaragapifallaerial1finalresizedweb.jpg",
+      "http://waterfallsofmalaysia.com/images/173gapi/tn/TNdsc07047.jpg",
+      "http://waterfallsofmalaysia.com/images/173gapi/tn/TNantaragapifallaerial2finalresizedweb.jpg"
+    ],
+    "imgDesc": [
+      "Air Terjun Gapi",
+      "Proceed straight uphill if you wish to circle around to the top of the fall and scale down at the side of the fall. You will have to crawl under a gate with a rather big gap due to erosion. At the top of the fall there is ropes to help climb the sloped rocky section.",
+      "Or look for the side trail on your right that leads to the river. The trail inside is quite clear but will require several river crossings. There are several scenic cascades along the way.",
+      "Aerial Drone View",
+      "Human figure for scale",
+      "Aerial Top Down View"
+    ],
+    "imgFullResFilename": [
+      "airterjungapiportraitfinalresizedweb.jpg",
+      "dsc07047.jpg",
+      "antaragapifallaerial1finalresizedweb.jpg",
+      "screenshot(409).png",
+      "antaragapifallaerial2finalresizedweb.jpg"
+    ]
+  },
+  "url": "173gapi.php"
+}

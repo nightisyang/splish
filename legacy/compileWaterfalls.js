@@ -26,6 +26,11 @@ files.forEach((objEl, i, arr) => {
   } = file;
 
   const { decimalCoordinates } = location;
+  const coordinates = decimalCoordinates.split(',');
+
+  coordinates.forEach((val, n, coorArr) => {
+    coorArr[n] = Number(val);
+  });
 
   const str1 = 'Check if you need a permit before planning a waterfall trip.';
   const str2 = 'More information hereWaterfalls can be dangerous ! ';
@@ -36,24 +41,24 @@ files.forEach((objEl, i, arr) => {
   if (file.description.includes(str1)) {
     console.log('replacing str 1');
 
-    changeDescription = file.description.replace(str1, '');
+    changeDescription = changeDescription.replace(str1, '');
   }
   if (file.description.includes(str2)) {
     console.log('replacing str 2');
 
-    changeDescription = file.description.replace(str2, '');
+    changeDescription = changeDescription.replace(str2, '');
   }
   if (file.description.includes(str3)) {
     console.log('replacing str 3');
 
-    changeDescription = file.description.replace(str3, '');
+    changeDescription = changeDescription.replace(str3, '');
   }
 
   const formattedFile = {
     name,
     description: changeDescription,
     state,
-    coordinates: { type: 'Point', decimalCoordinates },
+    location: { type: 'Point', coordinates: coordinates },
     waterSource,
     waterfallProfile,
     accessibility,

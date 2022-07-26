@@ -2,9 +2,9 @@
   "name": "waterfalls",
   "version": "1.0.0",
   "description": "Go chase waterfalls!",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "Chin Shenyang",
@@ -58,5 +58,8 @@
       "db/*"
     ],
     "delay": "2"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

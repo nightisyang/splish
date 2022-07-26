@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const express = require('express');
+
+const app = express();
+// const app = require('./app');
 
 process.on('uncaughtException', err => {
   console.log('UNHANDLED EXCEPTION! Shutting down!');
@@ -9,7 +13,6 @@ process.on('uncaughtException', err => {
 });
 
 dotenv.config({ path: './config.env' });
-const app = require('./app');
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
