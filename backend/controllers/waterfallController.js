@@ -18,7 +18,7 @@ exports.getAllWaterfalls = catchAsync(async (req, res, next) => {
     status: 'success',
     results: waterfalls.length,
     data: {
-      data: waterfalls
+      waterfalls
     }
   });
 });
@@ -33,7 +33,7 @@ exports.getWaterfall = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: {
-      data: waterfall
+      waterfall
     }
   });
 });

@@ -10,16 +10,16 @@ import React from 'react';
 // import {Node} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
+  // ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
+  // Text,
   useColorScheme,
   View,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Card from './component/Card';
+import ListCards from './component/ListCards';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,25 +31,18 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Card title="Waterfall name" />
-          <Card title="Waterfall name" />
-          <Card title="Waterfall name" />
-          <Card title="Waterfall name" />
-          <Card title="Waterfall name" />
-        </View>
-      </ScrollView>
+      <View style={styles.background}>
+        <ListCards />
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor: 'grey',
+  },
+
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,

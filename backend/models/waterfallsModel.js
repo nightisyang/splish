@@ -41,7 +41,11 @@ const waterfallSchema = new mongoose.Schema({
     imgFullResFilename: { type: [String] }
   },
 
-  url: { type: String }
+  url: { type: String },
+  locality: { type: String },
+  summary: { type: String },
+  lastUpdate: { type: String },
+  difficulty: { type: String }
 });
 
 waterfallSchema.pre('save', function(next) {

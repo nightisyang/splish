@@ -16,24 +16,7 @@ const waterfall = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'waterfalls.json'), 'utf-8')
 );
 
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  })
-  .then(() => console.log('DB connection successful!'))
-  .then(() => {
-    if (process.argv[2] === '--import') {
-      importData();
-    } else if (process.argv[2] === '--delete') {
-      deleteData();
-    }
-  });
-
-// READ JSON FILE
-
-// IMPORT DATA INTO DB
+console.log(waterfall[0]);
 
 const importData = async () => {
   try {
@@ -59,3 +42,18 @@ const deleteData = async () => {
 
   process.exit();
 };
+
+mongoose
+  .connect(DB, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .then(() => console.log('DB connection successful!'))
+  .then(() => {
+    if (process.argv[2] === '--import') {
+      importData();
+    } else if (process.argv[2] === '--delete') {
+      deleteData();
+    }
+  });

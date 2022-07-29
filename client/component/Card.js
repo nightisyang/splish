@@ -8,121 +8,97 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Photo',
-    img: {
-      source: require('../assets/img1.jpg'),
-      //   width: 64,
-      //   height: 64,
-    },
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Photo',
-    img: {
-      source: require('../assets/img2.jpg'),
-      //   width: 64,
-      //   height: 64,
-    },
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Photo',
-    img: {
-      source: require('../assets/img3.jpg'),
-      //   width: 64,
-      //   height: 64,
-    },
-  },
-];
+const Item = ({item, onPress}) => {
+  const [width, setWidth] = useState({width: Number});
 
-const Item = ({item, onPress, backgroundColor, textColor}) => (
-  <TouchableOpacity
-    onPress={onPress}
-    style={[styles.itemContainer, backgroundColor]}>
-    <View style={styles.item}>
-      {/* <Text style={[styles.title, textColor]}>{item.title}</Text> */}
-      <Image source={item.img.source} />
-    </View>
-  </TouchableOpacity>
-);
-
-const Card = ({title, imgArr, desc}) => {
-  const [selectedId, setSelectedId] = useState(null);
-
-  const renderItem = ({item}) => {
-    const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
-    const color = item.id === selectedId ? 'white' : 'black';
-
-    return (
-      <Item
-        item={item}
-        onPress={() => setSelectedId(item.id)}
-        backgroundColor={{backgroundColor}}
-        textColor={{color}}
-      />
-    );
-  };
+  Image.getSize(item.uri, (width, height) => {
+    const heightRatio = height / 140;
+    const widthRatio = Math.floor(width / heightRatio);
+    setWidth({width: widthRatio});
+  });
 
   return (
-    <View style={styles.appContainer}>
+    <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
+      <View style={styles.imgContainer}>
+        <Image source={item} style={[styles.imgCenter, width]} />
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+const Card = ({name, imgArr, desc}) => {
+  const [selectedId, setSelectedId] = useState(null);
+  //   console.log(imgArr);
+
+  return (
+    <View style={styles.cardContainer}>
       <View style={styles.titleContainer}>
-        <Text>{title}</Text>
+        <Text style={styles.titleText}>{name}</Text>
       </View>
 
       {/* horizontal scroll box for images */}
-      <View style={styles.imageContainer}>
+      <View style={styles.imageScrollContainer}>
         <FlatList
           horizontal
           pagingEnabled={false}
           showsHorizontalScrollIndicator={false}
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          extraData={selectedId}>
-          {/* <Text>Image Container</Text>
-            <Image source={logo} />
-            <Image source={logo} />
-            <Image source={logo} />
-            <Image source={logo} />
-            <Image source={logo} />
-            <Image source={logo} /> */}
-        </FlatList>
+          data={imgArr}
+          renderItem={({item, index}) => {
+            // console.log(item);
+
+            return <Item item={item} onPress={() => setSelectedId(index)} />;
+          }}
+          //   renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          extraData={selectedId}
+        />
       </View>
 
-      <View style={styles.description}>
-        <Text>Description {desc}</Text>
+      <View style={styles.descContainer}>
+        {/* <Text style={styles.descTitle}>Description</Text> */}
+        <Text style={styles.descText}>{desc}</Text>
       </View>
     </View>
   );
 };
 
+// const compiledCards = () => {
+//   return <View></View>;
+// };
+
 export default Card;
 
 const styles = StyleSheet.create({
-  appContainer: {
+  cardContainer: {
     flex: 1,
     justifyContent: 'space-evenly',
     // alignItems: 'center',
-    backgroundColor: '#3B6CD4',
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 10,
-    margin: 5,
-    padding: 5,
-    height: 350,
+    backgroundColor: 'white',
+    // borderWidth: 1,
+    // borderColor: 'black',
+    // borderRadius: 10,
+    marginTop: 5,
+    // padding: 5,
+    // height: 350,
   },
 
   titleContainer: {
-    backgroundColor: 'orange',
-    height: 50,
-    // fontSize: 32,
+    // backgroundColor: 'orange',
+    // height: 50,
+    margin: 5,
+    padding: 5,
   },
 
-  item: {
-    // backgroundColor: '#f9c2ff',
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+
+  imgContainer: {
+    overflow: 'hidden',
+    // borderWidth: 1,
+    // borderColor: 'black',
+    borderRadius: 3,
     // padding: 20,
     // margin: 8,
     // height: 150,
@@ -133,28 +109,38 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: '#f9c2ff',
+    // backgroundColor: 'black',
     // padding: 20,
+    marginRight: 5,
+    // width: 250,
+  },
+
+  imageScrollContainer: {
+    // width: '100%',
+    // backgroundColor: 'yellow',
     margin: 5,
+    // borderWidth: 1,
+    // borderColor: 'black',
+    // borderRadius: 10,
+    // height: 150,
+  },
+
+  imgCenter: {
+    resizeMode: 'center',
     width: 250,
   },
 
-  imageContainer: {
-    // height: 150,
-    // width: '100%',
-    backgroundColor: 'yellow',
-    // margin: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 10,
-    height: 150,
+  descTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 
-  description: {
-    backgroundColor: 'purple',
-    height: 100,
-    width: '100%',
+  descContainer: {
+    // backgroundColor: 'purple',
+    margin: 5,
+    // height: 100,
+    padding: 5,
   },
 
-  text: {},
+  descText: {fontSize: 15},
 });

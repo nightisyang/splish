@@ -1,0 +1,1922 @@
+[
+  {
+    "Name": "*Ayer Puteh*",
+    "Locality": "Slope of Gunung Ledang north of Sagil",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Cascade near the Gunung Ledang Visitor Center. Seasonal",
+    "Lastupdate": "March 2013",
+    "Accessability": "Easy",
+    "URL": "164ayerputeri.php"
+  },
+  {
+    "Name": "*Kota Tinggi*",
+    "Locality": "15 km north-west of Kota Tinggi town",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Attractive waterfalls in over-commercialised surroundings. Ridiculous entrance fee",
+    "Lastupdate": "December 2005",
+    "Accessability": "Easy",
+    "URL": "98kotatinggi.php"
+  },
+  {
+    "Name": "*Puteri Fall*",
+    "Locality": "Between Tangkak and Labis",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Waterfall on the slopes of the Gunung Ledang. The Puteri Fall is a popular family destination. The upper fall requires trekking (guide compulsory)",
+    "Lastupdate": "April 2004",
+    "Accessability": "Easy",
+    "URL": "58ledang.php"
+  },
+  {
+    "Name": "*Sg Pulai*",
+    "Locality": "15 km north of Pekan Nenas on the slopes of Gunung Pulai",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Hardly visited nice falls in derelict recreation park",
+    "Lastupdate": "October 2012",
+    "Accessability": "Easy",
+    "URL": "99pulai.php"
+  },
+  {
+    "Name": "*Taka Melor*",
+    "Locality": "Kampung Tenang near Labis",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Hardly visited waterfall and unspoilt too due to its remote location.",
+    "Lastupdate": "July 2009",
+    "Accessability": "Easy",
+    "URL": "128takamelor.php"
+  },
+  {
+    "Name": "*Asahan fall*",
+    "Locality": "Western slope of Gunung ledang",
+    "Type": "Cascades Single fall ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Not a lot of water but a nice pool",
+    "Lastupdate": "May 2012",
+    "Accessability": "Moderate",
+    "URL": "159asahan.php"
+  },
+  {
+    "Name": "*Jeram Tinggi*",
+    "Locality": "Kampung Ulu Jementah Jementah",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Waterfall on the northern slope of Gunung Ledang",
+    "Lastupdate": "November 2012",
+    "Accessability": "Moderate",
+    "URL": "161jeramtinggi.php"
+  },
+  {
+    "Name": "*Lemako Falls*",
+    "Locality": "Endau Rompin National Park",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Unspoilt waterfalls in Endau Rompin N.P.",
+    "Lastupdate": "June 2008",
+    "Accessability": "Moderate",
+    "URL": "122lemako.php"
+  },
+  {
+    "Name": "*Pelepah Falls*",
+    "Locality": "Near Kota Tinggi",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Relatively unknown falls near the Kota Tinggi falls. Nice series of many falls and Cascades ",
+    "Lastupdate": "June 2009",
+    "Accessability": "Moderate",
+    "URL": "24pelapah.php"
+  },
+  {
+    "Name": "*Selai falls*",
+    "Locality": "Taman Negara Endau Rompin 20 km NE of Bekok",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Waterfalls of the Selai river in an unknown part of Endau Rompin. Takah TInggi is an impressive fall with high volume. Smaller falls in tributaries",
+    "Lastupdate": "September 2012",
+    "Accessability": "Moderate",
+    "URL": "85selai.php"
+  },
+  {
+    "Name": "*Sg Yong*",
+    "Locality": "On the slopes of Gunung Belumut off the Kluang Mersing Road",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "A seven tiers waterfall on the slopes of Gunung Belumut in pristine surroundings",
+    "Lastupdate": "August 2013",
+    "Accessability": "Moderate",
+    "URL": "100yong.php"
+  },
+  {
+    "Name": "*Upeh Guling*",
+    "Locality": "Endau Rompin National park",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Impressive waterfall in the Jasin river",
+    "Lastupdate": "June 2008",
+    "Accessability": "Moderate",
+    "URL": "121upehguling.php"
+  },
+  {
+    "Name": "*Buaya Sangkut*",
+    "Locality": "Taman Negara Endau Rompin",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Most people will visit this dramatic fall on a trekking along the river with overnight camping",
+    "Lastupdate": "June 2008",
+    "Accessability": "Difficult",
+    "URL": "64buayasangkut.php"
+  },
+  {
+    "Name": "*Tengkil Falls*",
+    "Locality": "Near Kota Tinggi",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Remote series of Cascades  and falls. Unspoilt.",
+    "Lastupdate": "June 2009",
+    "Accessability": "Difficult",
+    "URL": "127tengkil.php"
+  },
+  {
+    "Name": "*Alur Naga Fall*",
+    "Locality": "Gunung Jerai",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Nice vertical fall and easily accessible from the Gunung Jerai Regency resort",
+    "Lastupdate": "July 2015",
+    "Accessability": "Easy",
+    "URL": "168alurnaga.php"
+  },
+  {
+    "Name": "*Badak Fall*",
+    "Locality": "Hutan Lipur Sungai Badak near Gurun",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Unknown waterfall in pretty surroundings",
+    "Lastupdate": "April 2014",
+    "Accessability": "Easy",
+    "URL": "167badak.php"
+  },
+  {
+    "Name": "*Batu Hampar Yan*",
+    "Locality": "Gunung Jerai",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Recreation park with a few small waterfalls",
+    "Lastupdate": "August 2005",
+    "Accessability": "Easy",
+    "URL": "95batuhampar.php"
+  },
+  {
+    "Name": "*Bukit Hijau*",
+    "Locality": "Near Malau",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "A well maintained recreation park with beautiful Cascades  and falls",
+    "Lastupdate": "August 2005",
+    "Accessability": "Easy",
+    "URL": "63bukithijau.php"
+  },
+  {
+    "Name": "*Durian Perangin*",
+    "Locality": "Pulau Langkawi Gunung Raya",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Attractive and well-maintained recreational park with some nice falls. Seasonal.",
+    "Lastupdate": "September 2007",
+    "Accessability": "Easy",
+    "URL": "62durianperangin.php"
+  },
+  {
+    "Name": "*Junjong waterfall*",
+    "Locality": "15 km South of Kulim",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Popular waterfalls not far from Kulim",
+    "Lastupdate": "December 2010",
+    "Accessability": "Easy",
+    "URL": "144junjong.php"
+  },
+  {
+    "Name": "*Lata Bayu*",
+    "Locality": "Baling",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Well maintained park and a popular weekend destination.",
+    "Lastupdate": "August 2005",
+    "Accessability": "Easy",
+    "URL": "74latabayu.php"
+  },
+  {
+    "Name": "*Lata Hujan Lebat*",
+    "Locality": "40 km north of Baling",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Remote fall in Northern Kedah. Clear water and pristine surroundings",
+    "Lastupdate": "February 2012",
+    "Accessability": "Easy",
+    "URL": "154hujanlebat.php"
+  },
+  {
+    "Name": "*Lata Mengkuang*",
+    "Locality": "12 km from Sik near the Thai border",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "A nice waterfall in remote surroundings",
+    "Lastupdate": "August 2005",
+    "Accessability": "Easy",
+    "URL": "75mengkuang.php"
+  },
+  {
+    "Name": "*Perangin Sik*",
+    "Locality": "Near Sik",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "A recreation park with a cascade and a small fall",
+    "Lastupdate": "August 2005",
+    "Accessability": "Easy",
+    "URL": "93peranginsik.php"
+  },
+  {
+    "Name": "*Puteri Mandi*",
+    "Locality": "Gunung Jerai",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Seasonal Fall",
+    "Lastupdate": "August 2005",
+    "Accessability": "Easy",
+    "URL": "92puterimandi.php"
+  },
+  {
+    "Name": "*Serdang Falls*",
+    "Locality": "Near Serdang",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Popular recreation park. Fals also know as Batu Hampar falls",
+    "Lastupdate": "January 2008",
+    "Accessability": "Easy",
+    "URL": "119serdang.php"
+  },
+  {
+    "Name": "*Telaga Tujoh*",
+    "Locality": "Pulau Langkawi",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "The fall is at its best in the rainy season September/October. The name comes from the seven pools at the top of the fall",
+    "Lastupdate": "September 2007",
+    "Accessability": "Easy",
+    "URL": "69telagatujoh.php"
+  },
+  {
+    "Name": "*Temurun Waterfall*",
+    "Locality": "Pulau Langkawi road to Damay Bay Resort",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Tallest fall of Langkawi. Seasonal",
+    "Lastupdate": "September 2007",
+    "Accessability": "Easy",
+    "URL": "68temurun.php"
+  },
+  {
+    "Name": "*Ulu Paip*",
+    "Locality": "East of Kulim",
+    "Type": "Rapids Cascades ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Recreational Forest with some rapids and a small waterfall.",
+    "Lastupdate": "July 2006",
+    "Accessability": "Easy",
+    "URL": "103ulupaip.php"
+  },
+  {
+    "Name": "*Batu Hampar*",
+    "Locality": "near Gurun",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Situated in a Rubber Estate",
+    "Lastupdate": "N/A",
+    "Accessability": "Moderate",
+    "URL": "Nfalls/txn76bhrd.php"
+  },
+  {
+    "Name": "*Perigi Falls*",
+    "Locality": "Yan Kechil",
+    "Type": "Cascades ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Seasonal Fall. Climbing up will be problematic during the rainy season",
+    "Lastupdate": "August 2005",
+    "Accessability": "Moderate",
+    "URL": "73perigi.php"
+  },
+  {
+    "Name": "*Sg Jagong Falls*",
+    "Locality": "Not in Kedah but in Croatia!",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "An email about these falls has been circulating on the Internet for years already. It is a hoax. There are no Sg Jagong waterfalls.",
+    "Lastupdate": "July 2007",
+    "Accessability": "Difficult",
+    "URL": "113jagong.php"
+  },
+  {
+    "Name": "*Jeram Linang*",
+    "Locality": "Between Jertih and Machang",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Popular nature park with some small waterfalls",
+    "Lastupdate": "March 2005",
+    "Accessability": "Easy",
+    "URL": "88linang.php"
+  },
+  {
+    "Name": "*Jeram Pasu*",
+    "Locality": "Eight km south-west of Pasir Puteh",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "A popular waterfall near Kota Baharu. A bit over-developed but a nice destination for a relaxing bath",
+    "Lastupdate": "October 2006",
+    "Accessability": "Easy",
+    "URL": "05jerampasu.php"
+  },
+  {
+    "Name": "*Lata Berangin*",
+    "Locality": "20 km south-east of Kuala Krai",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "A powerful fall in a remote region. Easy access",
+    "Lastupdate": "February 2007",
+    "Accessability": "Easy",
+    "URL": "09berangin.php"
+  },
+  {
+    "Name": "*Lata Janggut*",
+    "Locality": "12 km south-west of Jeli",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic ",
+    "Description": "Easy access. Waterfall not spectacular but beautiful erosion of the rocks",
+    "Lastupdate": "October 2015",
+    "Accessability": "Easy",
+    "URL": "170janggut.php"
+  },
+  {
+    "Name": "*Lata Kertas*",
+    "Locality": "20 km south of Dabong",
+    "Type": "Rapids Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Easy access from the D29 road. Rundown place but the waterfall is nice",
+    "Lastupdate": "October 2015",
+    "Accessability": "Easy",
+    "URL": "169kertas.php"
+  },
+  {
+    "Name": "*Lata Rek*",
+    "Locality": "Between Gua Musang and Kuala Krai",
+    "Type": "Cascades ",
+    "Activities": "Swimming Camping ",
+    "Description": "Seasonal water flow. Impressive when flow is big enough",
+    "Lastupdate": "March 2005",
+    "Accessability": "Easy",
+    "URL": "34rek.php"
+  },
+  {
+    "Name": "*Stong Fall*",
+    "Locality": "near Dabong",
+    "Type": "Multiple falls ",
+    "Activities": "Trekking  Camping ",
+    "Description": "Also known as Jelawang Fall. Supposedly the tallest waterfall in South-East Asia",
+    "Lastupdate": "July 2011",
+    "Accessability": "Moderate",
+    "URL": "148stong.php"
+  },
+  {
+    "Name": "*Jeram Belihoi*",
+    "Locality": "North Seremban Near Mantin",
+    "Type": "Cascades Single fall ",
+    "Activities": "",
+    "Description": "A small roadside falls spoilt by rubbish dumping",
+    "Lastupdate": "March 2022",
+    "Accessability": "Easy",
+    "URL": "183Belihoi.php"
+  },
+  {
+    "Name": "*Jeram Dagang (Gajah)*",
+    "Locality": "North-East Kuala Klawang",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Small waterfall with easy access. Limited parking",
+    "Lastupdate": "July 2022",
+    "Accessability": "Easy",
+    "URL": "61JDagang.php"
+  },
+  {
+    "Name": "*Jeram Kedah*",
+    "Locality": "near Lenggeng",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Idyllic small waterfalls",
+    "Lastupdate": "January 2009",
+    "Accessability": "Easy",
+    "URL": "12jeramkedah.php"
+  },
+  {
+    "Name": "*Jeram Rusa*",
+    "Locality": "Ulu Beranang Lenggeng",
+    "Type": "Single fall ",
+    "Activities": "Picnic ",
+    "Description": "Small scenic waterfall for a quiet nature retreat. Short hike.",
+    "Lastupdate": "July 2021",
+    "Accessability": "Easy",
+    "URL": "176JeramRusa.php"
+  },
+  {
+    "Name": "*Jeram Tebrau*",
+    "Locality": "Near Seremban",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Camping ",
+    "Description": "Baby fall near Seremban",
+    "Lastupdate": "January 2009",
+    "Accessability": "Easy",
+    "URL": "11jeramtebrau.php"
+  },
+  {
+    "Name": "*Jeram Tengkek*",
+    "Locality": "North of Kuala Pilah",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Small attractive waterfall in recreation park",
+    "Lastupdate": "September 2010",
+    "Accessability": "Easy",
+    "URL": "14jeramtengkek.php"
+  },
+  {
+    "Name": "*Jeram Toi*",
+    "Locality": "Between Seremban and Kuala Kelawang",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Well maintained park. Can be crowded during weekends",
+    "Lastupdate": "September 2005",
+    "Accessability": "Easy",
+    "URL": "13jeramtoi.php"
+  },
+  {
+    "Name": "*Pasong Falls*",
+    "Locality": "Pertang - Batu Kikir Route N19 Simpang Pertang",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Trekking  ",
+    "Description": "5 small multi-level falls in quiet surroundings easily accessible from the road.",
+    "Lastupdate": "January 2022",
+    "Accessability": "Easy",
+    "URL": "180Pasong.php"
+  },
+  {
+    "Name": "*Serting Ulu*",
+    "Locality": "North of Kuala Pilah",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Recreation park with some small falls",
+    "Lastupdate": "April 2006",
+    "Accessability": "Easy",
+    "URL": "15serting.php"
+  },
+  {
+    "Name": "*Tambak Fall*",
+    "Locality": "Pertang - Batu Kikir Route N19 Simpang Pertang",
+    "Type": "Single fall ",
+    "Activities": "",
+    "Description": "Small falls in quiet surroundings easily accessible from the road.",
+    "Lastupdate": "January 2022",
+    "Accessability": "Easy",
+    "URL": "179Tambak.php"
+  },
+  {
+    "Name": "*Ulu Bendol*",
+    "Locality": "Near Seremban on the road to Kuala Pilah",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Well visited recreation park with a small waterfall. Trailhead to Gunung Angsi",
+    "Lastupdate": "April 2005",
+    "Accessability": "Easy",
+    "URL": "16ulubendol.php"
+  },
+  {
+    "Name": "*Bukit Tampin Falls*",
+    "Locality": "Tampin Tengah Tampin",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "A decently sized waterfall in free to access Tampin Forest Reserve",
+    "Lastupdate": "July 2022",
+    "Accessability": "Moderate",
+    "URL": "76BktTampin.php"
+  },
+  {
+    "Name": "*Jeram Glami*",
+    "Locality": "Near Titi Town Jelebu",
+    "Type": "Cascades ",
+    "Activities": "Trekking  ",
+    "Description": "A low height wide river cascade. Interesting spot to visit once recovered from flood devastation.",
+    "Lastupdate": "February 2022",
+    "Accessability": "Moderate",
+    "URL": "178Glami.php"
+  },
+  {
+    "Name": "*Jeram Lambar*",
+    "Locality": "Near Seremban",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Small slopped falls with a pool in oil palm estate backyard",
+    "Lastupdate": "March 2022",
+    "Accessability": "Moderate",
+    "URL": "184Lambar.php"
+  },
+  {
+    "Name": "*Jeram Nerai Falls*",
+    "Locality": "North Tampin Tampin FR",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "A quiet and forgotten falls 1st documented and published in WoM Book",
+    "Lastupdate": "July 2022",
+    "Accessability": "Moderate",
+    "URL": "137JNerai.php"
+  },
+  {
+    "Name": "*Lata Berembun (Closed)*",
+    "Locality": "Pantai town",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Flood damage during the Dec 2021 has severely effected the area and entrance access.",
+    "Lastupdate": "September 2018",
+    "Accessability": "Moderate",
+    "URL": "194LBerembunN9.php"
+  },
+  {
+    "Name": "*Lata Kijang*",
+    "Locality": "Kg Esok",
+    "Type": "Single fall ",
+    "Activities": "Trekking  Camping ",
+    "Description": "Access has become easier recently. Possibly the tallest fall in the western part of Peninsular Malaysia",
+    "Lastupdate": "May 2008",
+    "Accessability": "Moderate",
+    "URL": "42kijang.php"
+  },
+  {
+    "Name": "*Bertangga Fall*",
+    "Locality": "North of Lake Bera",
+    "Type": "Rapids Single fall ",
+    "Activities": "Picnic ",
+    "Description": "A small but attractive waterfall hidden deep in the hills of Central Pahang",
+    "Lastupdate": "August 2009",
+    "Accessability": "Easy",
+    "URL": "22bertangga.php"
+  },
+  {
+    "Name": "*Chamang Fall*",
+    "Locality": "Near Bentong",
+    "Type": "Rapids Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "A powerful waterfall. Be aware of strong currents. Accidents have happened here.",
+    "Lastupdate": "July 2004",
+    "Accessability": "Easy",
+    "URL": "25chamang.php"
+  },
+  {
+    "Name": "*Jeriau Fall*",
+    "Locality": "Frasers Hill",
+    "Type": "Rapids Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "In a very landscaped park the nice waterfall comes as a surprise. Pool more suitable for wading than for swimming",
+    "Lastupdate": "July 2004",
+    "Accessability": "Easy",
+    "URL": "56jeriau.php"
+  },
+  {
+    "Name": "*Lata Jarum*",
+    "Locality": "North of Raub at Kg Ulu Dong",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Popular weekend destination",
+    "Lastupdate": "February 2007",
+    "Accessability": "Easy",
+    "URL": "26jarum.php"
+  },
+  {
+    "Name": "*Lata Lembik*",
+    "Locality": "40 km North West of Raub",
+    "Type": "Rapids ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Not a waterfall. Some rapids suitable for white water rafting",
+    "Lastupdate": "April 2005",
+    "Accessability": "Easy",
+    "URL": "90lembik.php"
+  },
+  {
+    "Name": "*Lata Meraung*",
+    "Locality": "Near Jerantut",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Small but very scenic waterfall",
+    "Lastupdate": "April 2008",
+    "Accessability": "Easy",
+    "URL": "21meraung.php"
+  },
+  {
+    "Name": "*Lentang*",
+    "Locality": "Off the KL-Karak highway",
+    "Type": "Rapids Cascades ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Attractive Hutan Lipur with some rapids and Cascades ",
+    "Lastupdate": "December 2005",
+    "Accessability": "Easy",
+    "URL": "101lentang.php"
+  },
+  {
+    "Name": "*Pandan Fall*",
+    "Locality": "On the road from Kuantan to Panching",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "The waterfall is impressive tall broad and near vertical drop. Water volume depends on the season.",
+    "Lastupdate": "May 2007",
+    "Accessability": "Easy",
+    "URL": "17pandan.php"
+  },
+  {
+    "Name": "*Parit Fall*",
+    "Locality": "Cameron Highlands Tanah Rata",
+    "Type": "Single fall ",
+    "Activities": "Picnic Trekking  ",
+    "Description": "Small attractive fall but quite polluted",
+    "Lastupdate": "October 2006",
+    "Accessability": "Easy",
+    "URL": "08parit.php"
+  },
+  {
+    "Name": "*Robinson Falls*",
+    "Locality": "Cameron Highlands Tanah Rata",
+    "Type": "Cascades Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Nice waterfall on walking distance of the village",
+    "Lastupdate": "August 2006",
+    "Accessability": "Easy",
+    "URL": "79robinson.php"
+  },
+  {
+    "Name": "*Sg Dua falls (Lata Khong)*",
+    "Locality": "Near Kg Sg Dua",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Camping ",
+    "Description": "Unknown beautiful series of waterfalls not far from Karak. The lower tier is also known as Lata Khong",
+    "Lastupdate": "January 2010",
+    "Accessability": "Easy",
+    "URL": "91khong.php"
+  },
+  {
+    "Name": "*Sri Mahkota Fall*",
+    "Locality": "Endau Rompin National Park",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Remote waterfall in the Pahang section of Endau Rompin.",
+    "Lastupdate": "August 2009",
+    "Accessability": "Easy",
+    "URL": "130srimahkota.php"
+  },
+  {
+    "Name": "*Teladas Falls*",
+    "Locality": "Near Maran",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "The waterfalls have known better times. Very murky water",
+    "Lastupdate": "N/A",
+    "Accessability": "Easy",
+    "URL": "136teladas.php"
+  },
+  {
+    "Name": "*Berkelah Falls*",
+    "Locality": "Between Maran and Kuantan",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Beautiful series of waterfalls and Cascades  in the Berkelah river.",
+    "Lastupdate": "December 2003",
+    "Accessability": "Moderate",
+    "URL": "19berkelah.php"
+  },
+  {
+    "Name": "*Gapoi Fall*",
+    "Locality": "Near Gapoi on the road from Karak to Simpang Pertang",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Not often you will find such a large fall near to an inhabited area. Odeal for picnic and swimming",
+    "Lastupdate": "April 2005",
+    "Accessability": "Moderate",
+    "URL": "39gapoi.php"
+  },
+  {
+    "Name": "*Genuai Fall*",
+    "Locality": "Near Kuala Krau",
+    "Type": "Cascades Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "A rather tall near vertical fall in rocky surroundings",
+    "Lastupdate": "March 2022",
+    "Accessability": "Moderate",
+    "URL": "186Genuai.php"
+  },
+  {
+    "Name": "*Jerangkang falls*",
+    "Locality": "Kamping Paya Bungor",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Spectacular series of waterfalls. Similar to Berkelah but even more impressive.",
+    "Lastupdate": "July 2004",
+    "Accessability": "Moderate",
+    "URL": "87jerangkang.php"
+  },
+  {
+    "Name": "*Lata Tampit*",
+    "Locality": "near Janda Baik",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Charming 7-tier waterfalls near Janda Baik",
+    "Lastupdate": "March 2010",
+    "Accessability": "Moderate",
+    "URL": "123lattocaruk.php"
+  },
+  {
+    "Name": "*Lata Woh Falls*",
+    "Locality": "Between Karak & Mentakab",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Multi-level falls with pools. Can be seasonal.",
+    "Lastupdate": "March 2022",
+    "Accessability": "Moderate",
+    "URL": "185LataWoh.php"
+  },
+  {
+    "Name": "*Perting Fall*",
+    "Locality": "Off the Gombak-Bentong road",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Beautiful unspoilt waterfall. Descending to the fall from the path is not easy. Also known as Lata Hammers",
+    "Lastupdate": "July 2006",
+    "Accessability": "Moderate",
+    "URL": "104hammers.php"
+  },
+  {
+    "Name": "*Rainbow Fall*",
+    "Locality": "Near Sungei Lembing",
+    "Type": "Single fall ",
+    "Activities": "Swimming ",
+    "Description": "The famous rainbow is best seen in the morning",
+    "Lastupdate": "September 2008",
+    "Accessability": "Moderate",
+    "URL": "18rainbow.php"
+  },
+  {
+    "Name": "*Seminyang Fall*",
+    "Locality": "12 km from Karak on the road to Kuala Pilah",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "A powerful waterfall on the Pahang side of the Gunung Hantu Besar",
+    "Lastupdate": "November 2010",
+    "Accessability": "Moderate",
+    "URL": "65seminyang.php"
+  },
+  {
+    "Name": "*Tanglir Falls*",
+    "Locality": "Near Bukit Tinggi Genting Highlands",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming ",
+    "Description": "One of the most spectacular falls near Kuala Lumpur",
+    "Lastupdate": "April 2003",
+    "Accessability": "Moderate",
+    "URL": "38tanglir.php"
+  },
+  {
+    "Name": "*Terapai Fall*",
+    "Locality": "30 km south of Tasek Chini",
+    "Type": "Single fall ",
+    "Activities": "Swimming ",
+    "Description": "Deep within the hills of Southern Pahang. Romantic setting.",
+    "Lastupdate": "August 2009",
+    "Accessability": "Moderate",
+    "URL": "40terapai.php"
+  },
+  {
+    "Name": "*Air Terjun Harimau Berjemur*",
+    "Locality": "100 km north of Segamat",
+    "Type": "Cascades Single fall ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Remote fall long 4WD access. Trekking easy",
+    "Lastupdate": "February 2012",
+    "Accessability": "Difficult",
+    "URL": "155harimauberjemur.php"
+  },
+  {
+    "Name": "*Berembun Fall*",
+    "Locality": "13 km from Kg Klau on the slopes of Gunung Benom",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "This powerful fall can only be reached with a 4WD",
+    "Lastupdate": "March 2003",
+    "Accessability": "Difficult",
+    "URL": "41berembun.php"
+  },
+  {
+    "Name": "*Cemperoh Fall*",
+    "Locality": "Janda Baik",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Nice waterfall hidden in the jungle",
+    "Lastupdate": "August 2005",
+    "Accessability": "Difficult",
+    "URL": "94cemperoh.php"
+  },
+  {
+    "Name": "*Kenip Fall*",
+    "Locality": "East of Sungei Koyan north of Raub",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Remote fall in Orang Asli country. Guide needed",
+    "Lastupdate": "August 2006",
+    "Accessability": "Difficult",
+    "URL": "105kenip.php"
+  },
+  {
+    "Name": "*Lata Nyangung*",
+    "Locality": "South of Karak on the road to Simpang Pertang",
+    "Type": "Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "Intimidating tall waterfall",
+    "Lastupdate": "October 2009",
+    "Accessability": "Difficult",
+    "URL": "66nyangung.php"
+  },
+  {
+    "Name": "*Sg Salan Falls*",
+    "Locality": "Jerantut",
+    "Type": "Single fall ",
+    "Activities": "Trekking  Camping ",
+    "Description": "A wide single drop falls with a double Olympic size pool. But NO SWIMMING.",
+    "Lastupdate": "July 2011",
+    "Accessability": "Difficult",
+    "URL": "145salan.php"
+  },
+  {
+    "Name": "*Batu Berangkai Falls*",
+    "Locality": "Near Kampar",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Gentle Cascades  with crystal clear water",
+    "Lastupdate": "January 2006",
+    "Accessability": "Easy",
+    "URL": "80berangkai.php"
+  },
+  {
+    "Name": "*Bukit Jana fall*",
+    "Locality": "Near Kamunting",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Baby fall with a nice pool",
+    "Lastupdate": "September 2009",
+    "Accessability": "Easy",
+    "URL": "132bukitjana.php"
+  },
+  {
+    "Name": "*Buntong Falls*",
+    "Locality": "Near Ipoh",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Close to the town only known to locals. Surprisingly tall fall",
+    "Lastupdate": "January 2009",
+    "Accessability": "Easy",
+    "URL": "45buntong.php"
+  },
+  {
+    "Name": "*Gepai Falls*",
+    "Locality": "Near Bidor",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "A nice small waterfall near Bidor. Can be crowded during weekends.",
+    "Lastupdate": "July 2004",
+    "Accessability": "Easy",
+    "URL": "28gepai.php"
+  },
+  {
+    "Name": "*Geruntum Fall*",
+    "Locality": "Near Gopeng",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Interesting unspoilt waterfalls",
+    "Lastupdate": "October 2007",
+    "Accessability": "Easy",
+    "URL": "82geruntum.php"
+  },
+  {
+    "Name": "*Lata Batu Pecah*",
+    "Locality": "near Manong 25 km west of Ipoh",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Unspoilt waterfall. Remote location",
+    "Lastupdate": "January 2012",
+    "Accessability": "Easy",
+    "URL": "156batupecah.php"
+  },
+  {
+    "Name": "*Lata Iskandar*",
+    "Locality": "On the route from Tapah to the Cameron Highlands",
+    "Type": "Rapids Cascades Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "A popular stop on the way to the Cameron Highlands. Suitable place for family outings",
+    "Lastupdate": "August 2007",
+    "Accessability": "Easy",
+    "URL": "27iskandar.php"
+  },
+  {
+    "Name": "*Lata Kekabu*",
+    "Locality": "Near Lenggong and the Chenderoh Lake",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Formerly know as the Sungei Tampan falls",
+    "Lastupdate": "December 2004",
+    "Accessability": "Easy",
+    "URL": "31latakekabu.php"
+  },
+  {
+    "Name": "*Lata Kinjang*",
+    "Locality": "Near Chenderiang",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Dramatic Cascades. Prominent view from the North-South Highway. The upper part is of moderate difficulty.",
+    "Lastupdate": "August 2005",
+    "Accessability": "Easy",
+    "URL": "29kinjang.php"
+  },
+  {
+    "Name": "*Lata Perahu*",
+    "Locality": "20 km north of Kuala Kangsar",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Unspoilt waterfall in pristine surroundings",
+    "Lastupdate": "August 2007",
+    "Accessability": "Easy",
+    "URL": "115perahu.php"
+  },
+  {
+    "Name": "*Lata Tebing Tinggi*",
+    "Locality": "Near Selama",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "The main waterfall is wide but not tall.",
+    "Lastupdate": "November 2009",
+    "Accessability": "Easy",
+    "URL": "139tebingtinggi.php"
+  },
+  {
+    "Name": "*Lata Tengkoh Penyel*",
+    "Locality": "Between Kampung Bawong and Kuala Mu",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Remote waterfall but easy access from carpark",
+    "Lastupdate": "July 2019",
+    "Accessability": "Easy",
+    "URL": "171penyel.php"
+  },
+  {
+    "Name": "*Lata Ulu Chepor*",
+    "Locality": "Kg Ulu Chepor near Jelepang",
+    "Type": "Rapids Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "Recreational site with Cascades  and small waterfalls. Popular during weekends. Crystal clear water",
+    "Lastupdate": "January 2012",
+    "Accessability": "Easy",
+    "URL": "153chepor.php"
+  },
+  {
+    "Name": "*Lubuk Timah*",
+    "Locality": "Near Simpang Pulai Route 181",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Popular waterfalls and hot springs",
+    "Lastupdate": "July 2022",
+    "Accessability": "Easy",
+    "URL": "81lubuktimah.php"
+  },
+  {
+    "Name": "*Papan Cascades *",
+    "Locality": "near Papan south-west of Ipoh",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Attractive Cascades  near the scenic ghost town of Papan",
+    "Lastupdate": "October 2007",
+    "Accessability": "Easy",
+    "URL": "60papan.php"
+  },
+  {
+    "Name": "*Salu Falls*",
+    "Locality": "Between Kampar and Gopeng",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic ",
+    "Description": "Small pleasant falls in well maintained park",
+    "Lastupdate": "June 2009",
+    "Accessability": "Easy",
+    "URL": "10salu.php"
+  },
+  {
+    "Name": "*Sg Lalang Fall*",
+    "Locality": "along the road from Simpang Pulai to the Cameron Highlands",
+    "Type": "Single fall ",
+    "Activities": "Picnic ",
+    "Description": "A small waterfall within easy reach of the road. Previously Sinju Fall",
+    "Lastupdate": "August 2010",
+    "Accessability": "Easy",
+    "URL": "46sinju.php"
+  },
+  {
+    "Name": "*Tupai Fall*",
+    "Locality": "In Taiping",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Small attractive waterfalls near Taiping",
+    "Lastupdate": "November 2010",
+    "Accessability": "Easy",
+    "URL": "138tupai.php"
+  },
+  {
+    "Name": "*Ulu Licin falls*",
+    "Locality": "Norht of Beruas",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Unspoiled multi-tiered falls",
+    "Lastupdate": "May 2013",
+    "Accessability": "Easy",
+    "URL": "165ululecin.php"
+  },
+  {
+    "Name": "*Air Hitam Fall*",
+    "Locality": "Near Batu Kurau north of Taiping",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Powerfull fall and Cascades . Pristine environment.",
+    "Lastupdate": "September 2009",
+    "Accessability": "Moderate",
+    "URL": "131airhitam.php"
+  },
+  {
+    "Name": "*Belum falls*",
+    "Locality": "Royal Belum & South Belum 30 km east of Gerik",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Many waterfalls. Access by boat only. Permit needed",
+    "Lastupdate": "May 2012",
+    "Accessability": "Moderate",
+    "URL": "158belum.php"
+  },
+  {
+    "Name": "*Bersih Falls*",
+    "Locality": "Near Bidor",
+    "Type": "Cascades Single fall ",
+    "Activities": "",
+    "Description": "Small falls near OS village",
+    "Lastupdate": "May 2022",
+    "Accessability": "Moderate",
+    "URL": "195Bersih.php"
+  },
+  {
+    "Name": "*Chelik Fall*",
+    "Locality": "near Simpang Pulai and the new road to the Cameron Highlands",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Remote Fall possibly the tallest fall in the western part of Peninsular Malaysia.",
+    "Lastupdate": "August 2005",
+    "Accessability": "Moderate",
+    "URL": "57chelik.php"
+  },
+  {
+    "Name": "*Damak Fall*",
+    "Locality": "Ulu Geroh near Gopeng",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "A small attractive waterfall in Orang Asli country.",
+    "Lastupdate": "July 2005",
+    "Accessability": "Moderate",
+    "URL": "97damak.php"
+  },
+  {
+    "Name": "*Kait Fall*",
+    "Locality": "15 km from Simpang Pulai along the CH road",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Pristine vertical fall",
+    "Lastupdate": "March 2013",
+    "Accessability": "Moderate",
+    "URL": "163kait.php"
+  },
+  {
+    "Name": "*Kamunting Fall*",
+    "Locality": "Kamunting",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Tall unspoiled fall visible from Kamunting",
+    "Lastupdate": "January 2009",
+    "Accessability": "Moderate",
+    "URL": "37kamunting.php"
+  },
+  {
+    "Name": "*Lata Payong / Bayas*",
+    "Locality": "Near Kg Kuak West of Lake Cenderoh",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "Unknown waterfalls in the Bintang range",
+    "Lastupdate": "March 2013",
+    "Accessability": "Moderate",
+    "URL": "166payong.php"
+  },
+  {
+    "Name": "*Lata Tanjung Kala*",
+    "Locality": "near Grik",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Located in beautiful and serene jungle. Not easy to find",
+    "Lastupdate": "August 2005",
+    "Accessability": "Moderate",
+    "URL": "49latakala.php"
+  },
+  {
+    "Name": "*Lata Yuk*",
+    "Locality": "near Chenderiang and Lata Kinjang",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Small brother of Lata Kinjang",
+    "Lastupdate": "October 2008",
+    "Accessability": "Moderate",
+    "URL": "67yuk.php"
+  },
+  {
+    "Name": "*Lon Rapids*",
+    "Locality": "near Sungkai",
+    "Type": "Rapids ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Rapids in a tributary of the mighty Sungkai river. Located in pristine jungle",
+    "Lastupdate": "N/A",
+    "Accessability": "Moderate",
+    "URL": "Nfalls/txn55lond.php"
+  },
+  {
+    "Name": "*Maxwell Hill*",
+    "Locality": "Near Taiping",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Remote place but popular with locals. In this mountain range (Banjaran Bintang) there must be more waterfallsBintang) there must be more waterfalls",
+    "Lastupdate": "January 2007",
+    "Accessability": "Moderate",
+    "URL": "36maxwell.php"
+  },
+  {
+    "Name": "*Tebing Tinggi Fall*",
+    "Locality": "Between Selama and Lenggong",
+    "Type": "Cascades ",
+    "Activities": "Swimming ",
+    "Description": "Remote place but popular with locals. In this mountain range (Banjaran Bintang) there must be more waterfalls",
+    "Lastupdate": "January 2005",
+    "Accessability": "Moderate",
+    "URL": "47tebingtinggi.php"
+  },
+  {
+    "Name": "*Trong Falls*",
+    "Locality": "near Trong",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Remote waterfall. Unspoiled",
+    "Lastupdate": "July 2006",
+    "Accessability": "Moderate",
+    "URL": "30trong.php"
+  },
+  {
+    "Name": "*Lata Puteh*",
+    "Locality": "On the A6 between Selama and Lenggong",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Remote spectacular fall in the Ulu Gedong region.",
+    "Lastupdate": "June 2007",
+    "Accessability": "Difficult",
+    "URL": "48lataputeh.php"
+  },
+  {
+    "Name": "*Strata Falls*",
+    "Locality": "10 km north of Tg Malim",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Beautiful and relatively unknown series of waterfalls on the slopes of G. Behrang.",
+    "Lastupdate": "February 2006",
+    "Accessability": "Difficult",
+    "URL": "102strata.php"
+  },
+  {
+    "Name": "*Tibang Fall*",
+    "Locality": "Ulu Slim region",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Remote waterfall. Unspoiled",
+    "Lastupdate": "June 2008",
+    "Accessability": "Difficult",
+    "URL": "54tibang.php"
+  },
+  {
+    "Name": "*Tigok Fall*",
+    "Locality": "Near Pos Gedong north-east of Bidor",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Remote spectacular fall in the Ulu Gedong region.",
+    "Lastupdate": "July 2009",
+    "Accessability": "Difficult",
+    "URL": "129tigok.php"
+  },
+  {
+    "Name": "*Batu Ferringi*",
+    "Locality": "opposite Bayview Pacific Hotel",
+    "Type": "Cascades ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Historically the most famous waterfall of Malaysia. Now out of bounds. A permit is needed for a visit.",
+    "Lastupdate": "August 2004",
+    "Accessability": "Easy",
+    "URL": "32batuferringhi.php"
+  },
+  {
+    "Name": "*Titi Kerawang*",
+    "Locality": "Western side of the Island",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Carlson is on the trail to Kinabalu. Kipungit has easy access from the Poring Resort. For Langanan trekking is needed. The Kadamaian fall still has to be explored",
+    "Lastupdate": "August 2004",
+    "Accessability": "Easy",
+    "URL": "33kerawang.php"
+  },
+  {
+    "Name": "*Waterfall*",
+    "Locality": "In the Botanical Garden",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Historically the most famous waterfall of Malaysia. Now out of bounds a permit is needed for a visit",
+    "Lastupdate": "August 2004",
+    "Accessability": "Moderate",
+    "URL": "78waterfall.php"
+  },
+  {
+    "Name": "*Kinabalu Park Falls*",
+    "Locality": "Kinabalu National Park",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Carlson is on the trail to Kinabalu. Kipungit has easy access from the Poring Resort. For Langanan trekking is needed. The Kadamaian fall still has to be xplored",
+    "Lastupdate": "December 2011",
+    "Accessability": "Easy",
+    "URL": "112kinabalu.php"
+  },
+  {
+    "Name": "*Kionsom Fall*",
+    "Locality": "Kampung Kobuni Ulu Kionsom Inanam Kota Kinabalu",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Popular waterfall near Kota Kinabalu",
+    "Lastupdate": "December 2011",
+    "Accessability": "Easy",
+    "URL": "151kionsom.php"
+  },
+  {
+    "Name": "*Madai Fall*",
+    "Locality": "Near Kunak town",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Small romantic waterfalls in an unspoilt region within easy reach of Kuching",
+    "Lastupdate": "February 2010",
+    "Accessability": "Easy",
+    "URL": "140madai.php"
+  },
+  {
+    "Name": "*Mahua Fall*",
+    "Locality": "near Kg Patau 15 minutes from Tambunan",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Beautiful vertical waterfall",
+    "Lastupdate": "November 2006",
+    "Accessability": "Moderate",
+    "URL": "106mahua.php"
+  },
+  {
+    "Name": "*The Maliau Basin*",
+    "Locality": "6 hours by 4WD from Tawau",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Beautiful falls in the as yet unspoilt interior of Sabah",
+    "Lastupdate": "May 2005",
+    "Accessability": "Difficult",
+    "URL": "96maliau.php"
+  },
+  {
+    "Name": "*Bobak Falls*",
+    "Locality": "West of Kuching near Kg Bobak",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Small romantic waterfalls in an unspoilt region within easy reach of Kuching",
+    "Lastupdate": "March 2007",
+    "Accessability": "Easy",
+    "URL": "111bobak.php"
+  },
+  {
+    "Name": "*Kubah Fall*",
+    "Locality": "Kubah National park 20 km from Kuching",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Easily accessible fall in National park",
+    "Lastupdate": "March 2011",
+    "Accessability": "Easy",
+    "URL": "147kubah.php"
+  },
+  {
+    "Name": "*Latak Falls*",
+    "Locality": "Along the Bentulu-Miri road 30 km from Miri",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Clean and well maintained",
+    "Lastupdate": "November 2007",
+    "Accessability": "Easy",
+    "URL": "116latak.php"
+  },
+  {
+    "Name": "*Ranchan Falls*",
+    "Locality": "Near Serian",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Well maintained Recreational Forest with nice waterfalls.",
+    "Lastupdate": "December 2007",
+    "Accessability": "Easy",
+    "URL": "118ranchan.php"
+  },
+  {
+    "Name": "*Santubong falls*",
+    "Locality": "Santubong Peninsula north of Kuching",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Small attractive waterfalls near Kuching",
+    "Lastupdate": "December 2006",
+    "Accessability": "Easy",
+    "URL": "107santubong.php"
+  },
+  {
+    "Name": "*Giam Klimau*",
+    "Locality": "SE of Niah National Park",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "Powerful remote waterfall near the Inodesian border",
+    "Lastupdate": "July 2010",
+    "Accessability": "Moderate",
+    "URL": "143klimau.php"
+  },
+  {
+    "Name": "*Gunung Gading Falls*",
+    "Locality": "Near Lundu",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "There are six waterfalls in the Park but some of them are temporarily closed to the public.",
+    "Lastupdate": "December 2007",
+    "Accessability": "Moderate",
+    "URL": "117gading.php"
+  },
+  {
+    "Name": "*Jangkar Fall*",
+    "Locality": "West of Lundu near Indonesian border",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Powerful remote waterfall near the Inodesian border",
+    "Lastupdate": "June 2009",
+    "Accessability": "Moderate",
+    "URL": "125jangkar.php"
+  },
+  {
+    "Name": "*Kg Sadir falls*",
+    "Locality": "near Kg Sadir 50 km south of Kuching",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Four waterfalls in the remote Penrissen Range.Two of them have easy access. For the other two trekking is required.",
+    "Lastupdate": "November 2011",
+    "Accessability": "Moderate",
+    "URL": "110banbuan.php"
+  },
+  {
+    "Name": "*Pantu Fall*",
+    "Locality": "Lambir Hills NP 30 km from Miri",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Remote waterfalls difficult access. The Julan fall is the tallest fall of Sarawak",
+    "Lastupdate": "January 2007",
+    "Accessability": "Moderate",
+    "URL": "109lambir.php"
+  },
+  {
+    "Name": "*Sebarau Fall*",
+    "Locality": "Near Kg Bidak south of Kuching",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Nice waterfall in unspoiled rural surroundings",
+    "Lastupdate": "June 2009",
+    "Accessability": "Moderate",
+    "URL": "126sebarau.php"
+  },
+  {
+    "Name": "*Tajor Fall*",
+    "Locality": "20 km NE of Kuching",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "This is a popular waterfall suitable for families but can be crowded during weekends",
+    "Lastupdate": "April 2010",
+    "Accessability": "Moderate",
+    "URL": "142tajor.php"
+  },
+  {
+    "Name": "*Usun Apau falls*",
+    "Locality": "170 km SSE of Miri",
+    "Type": "Multiple falls ",
+    "Activities": "Trekking  Camping ",
+    "Description": "Remote waterfalls with difficult access. The Julan fall is the tallest fall of Sarawak",
+    "Lastupdate": "April 2010",
+    "Accessability": "Difficult",
+    "URL": "141julan.php"
+  },
+  {
+    "Name": "*Cheh Cascade Fall*",
+    "Locality": "Ulu Yam Bahru Batang Kali",
+    "Type": "Cascades ",
+    "Activities": "Picnic Camping ",
+    "Description": "This recreation park is within easy access from KL. The lower part is easy suitable for families. The upper falls require trekking.",
+    "Lastupdate": "March 2022",
+    "Accessability": "Easy",
+    "URL": "200Cheh.php"
+  },
+  {
+    "Name": "*Gabai Falls*",
+    "Locality": "Hulu Langat",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "This is a popular waterfall. Suitable for families but can be crowded during weekends",
+    "Lastupdate": "June 2004",
+    "Accessability": "Easy",
+    "URL": "06gabai.php"
+  },
+  {
+    "Name": "*Jeram Anjang Fall*",
+    "Locality": "Hulu Langat",
+    "Type": "Single fall ",
+    "Activities": "Picnic Camping ",
+    "Description": "Private land access",
+    "Lastupdate": "October 2021",
+    "Accessability": "Easy",
+    "URL": "191JAnjang.php"
+  },
+  {
+    "Name": "*Kanching Falls*",
+    "Locality": "Between Selayang and Rawang",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Still unspoilt but for how long?",
+    "Lastupdate": "December 2010",
+    "Accessability": "Easy",
+    "URL": "01kanching.php"
+  },
+  {
+    "Name": "*Komanwel Fall*",
+    "Locality": "Between KL and Rawang",
+    "Type": "Single fall ",
+    "Activities": "Picnic Trekking  ",
+    "Description": "Small waterfall in quiet surroundings",
+    "Lastupdate": "September 2009",
+    "Accessability": "Easy",
+    "URL": "134komanwel.php"
+  },
+  {
+    "Name": "*Perigi Tujuh*",
+    "Locality": "North of Rawang near Serendah",
+    "Type": "Single fall ",
+    "Activities": "Picnic ",
+    "Description": "Not a real waterfall anymore. It has been replaced by seven wells and a dam. The effect however is quite picturesque",
+    "Lastupdate": "December 2003",
+    "Accessability": "Easy",
+    "URL": "03perigitujoh.php"
+  },
+  {
+    "Name": "*Sendat Falls*",
+    "Locality": "5 km from Ulu Yam Baharu",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Still unspoilt but for how long?",
+    "Lastupdate": "April 2005",
+    "Accessability": "Easy",
+    "URL": "04sendat.php"
+  },
+  {
+    "Name": "*Serendah Fall*",
+    "Locality": "near Serendah",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming ",
+    "Description": "A beautiful vertical drop. But ruined by developers....",
+    "Lastupdate": "April 2010",
+    "Accessability": "Easy",
+    "URL": "52serendah.php"
+  },
+  {
+    "Name": "*Sungei Tua*",
+    "Locality": "Near Selayang",
+    "Type": "Rapids Cascades Single fall ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "A couple of nice waterfalls besides the road. Recreation park on the other side of the road",
+    "Lastupdate": "April 2005",
+    "Accessability": "Easy",
+    "URL": "53sungeitua.php"
+  },
+  {
+    "Name": "*Tekala Falls*",
+    "Locality": "near the Semenyih Dam",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming ",
+    "Description": "A popular recreation park in Hulu Langat. Suitable for families",
+    "Lastupdate": "June 2004",
+    "Accessability": "Easy",
+    "URL": "07tekala.php"
+  },
+  {
+    "Name": "*Batangsi Fall*",
+    "Locality": "near Semenyih",
+    "Type": "Rapids Cascades ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Cascades and rapids in the Sungei Batangsi.",
+    "Lastupdate": "April 2010",
+    "Accessability": "Moderate",
+    "URL": "86batangsi.php"
+  },
+  {
+    "Name": "*Batu Asah Falls*",
+    "Locality": "Ampang Near KL",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "A series of 6 small waterfalls near Zoo Negara",
+    "Lastupdate": "March 2022",
+    "Accessability": "Moderate",
+    "URL": "177BatuAsah.php"
+  },
+  {
+    "Name": "*Batu Berayun Fall*",
+    "Locality": "Batang Kali",
+    "Type": "Cascades Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "A long hike and virtually unknown waterfall",
+    "Lastupdate": "September 2021",
+    "Accessability": "Moderate",
+    "URL": "192BBerayun.php"
+  },
+  {
+    "Name": "*Batu Bertengkek Falls*",
+    "Locality": "Kerling Hulu Selangor",
+    "Type": "Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "A rare contrast of a tall & a wide fall within stone throw reach of each other. Features unique rock boulders.",
+    "Lastupdate": "April 2021",
+    "Accessability": "Moderate",
+    "URL": "174BatuBertengkek.php"
+  },
+  {
+    "Name": "*Batu Cherandong Dam Falls*",
+    "Locality": "Kuala Kubu Baru",
+    "Type": "Rapids Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "A pre-independence water catchment dam fall with several smaller natural waterfalls on the same stream",
+    "Lastupdate": "April 2022",
+    "Accessability": "Moderate",
+    "URL": "187BtCherandong.php"
+  },
+  {
+    "Name": "*Batu Kapal Falls*",
+    "Locality": "North Batu Caves",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "A beautiful fall at the end of an interesting river Trekking  during which you have to cross the river several times",
+    "Lastupdate": "March 2021",
+    "Accessability": "Moderate",
+    "URL": "193BKapal.php"
+  },
+  {
+    "Name": "*Bukit Apeh Fall*",
+    "Locality": "Ulu Langat FR access from Cheras",
+    "Type": "Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Attractive fall near to the town",
+    "Lastupdate": "January 2009",
+    "Accessability": "Moderate",
+    "URL": "114bukitapeh.php"
+  },
+  {
+    "Name": "*Chiling Falls*",
+    "Locality": "Between KKB and the Gap",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "A beautiful fall at the end of an interesting river Trekking during which you have to cross the river several times",
+    "Lastupdate": "August 2015",
+    "Accessability": "Moderate",
+    "URL": "51chiling.php"
+  },
+  {
+    "Name": "*Gapi Fall*",
+    "Locality": "Antara Gapi Hulu Selangor",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Scenic & tall waterfall. Majestic during wet seasons.",
+    "Lastupdate": "December 2021",
+    "Accessability": "Moderate",
+    "URL": "173gapi.php"
+  },
+  {
+    "Name": "*Gapok Falls*",
+    "Locality": "Kg Paya Lebar Hulu Langat",
+    "Type": "Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "Waterfall series with 11 falls of different presentation. Popular during weekends.",
+    "Lastupdate": "October 2021",
+    "Accessability": "Moderate",
+    "URL": "172gapok.php"
+  },
+  {
+    "Name": "*Jeram Perlus*",
+    "Locality": "Ulu Langat region",
+    "Type": "Single fall ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Unspoilt waterfall",
+    "Lastupdate": "May 2008",
+    "Accessability": "Moderate",
+    "URL": "120jeramperlus.php"
+  },
+  {
+    "Name": "*Kedondong Fall*",
+    "Locality": "Alongside the road between Batang Kali and Gohtong Jaya",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "Unknown waterfall near popular recreation park",
+    "Lastupdate": "March 2009",
+    "Accessability": "Moderate",
+    "URL": "124kedongdong.php"
+  },
+  {
+    "Name": "*Lata Beringin Falls*",
+    "Locality": "Hulu Langat",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Interesting multi-level falls beside a river campsite",
+    "Lastupdate": "April 2022",
+    "Accessability": "Moderate",
+    "URL": "189LBeringinSemungkis.php"
+  },
+  {
+    "Name": "*Lata Medang*",
+    "Locality": "Near Kg Pertak",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Two unspoilt waterfalls Bomoh Ali and Berembun. You must be able to swim to reach Berembun.",
+    "Lastupdate": "December 2011",
+    "Accessability": "Moderate",
+    "URL": "150medang.php"
+  },
+  {
+    "Name": "*Lawing Falls*",
+    "Locality": "Near Kg Sg Lui Ulu Langat region",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Unknown pristine waterfall in the backyard of KL",
+    "Lastupdate": "November 2009",
+    "Accessability": "Moderate",
+    "URL": "133lawing.php"
+  },
+  {
+    "Name": "*Lepok Fall*",
+    "Locality": "in Ulu Langat near Kg Pangsun",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Lonely beautiful fall in Ulu Langat. A two hour trek is needed - worth the effort",
+    "Lastupdate": "June 2004",
+    "Accessability": "Moderate",
+    "URL": "83lepok.php"
+  },
+  {
+    "Name": "*Lolo Falls*",
+    "Locality": "Near Kg Pangsun",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Two unspoilt waterfalls - Bomoh Ali and Berembun. You must be able to swim to reach Berembun.",
+    "Lastupdate": "May 2013",
+    "Accessability": "Moderate",
+    "URL": "84lolo.php"
+  },
+  {
+    "Name": "*Lubuk Kawah Fall*",
+    "Locality": "Near Tanjung Malim",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Small unknown waterfall in the Ulu Langat region",
+    "Lastupdate": "June 2009",
+    "Accessability": "Moderate",
+    "URL": "20lubukkawah.php"
+  },
+  {
+    "Name": "*Masai Falls*",
+    "Locality": "Near Semenyih",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "Unconventional cascade falls series in pristine jungle",
+    "Lastupdate": "August 2021",
+    "Accessability": "Moderate",
+    "URL": "182Masai.php"
+  },
+  {
+    "Name": "*Pangsun Fall*",
+    "Locality": "Kg Kuala Pangsun Hulu Langat",
+    "Type": "Cascades Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "Small waterfall upriver of old hydro dam",
+    "Lastupdate": "November 2019",
+    "Accessability": "Moderate",
+    "URL": "175Pangsun.php"
+  },
+  {
+    "Name": "*Perdik Fall*",
+    "Locality": "Ulu Langat region",
+    "Type": "Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "Small unknown waterfall in the Ulu Langat region",
+    "Lastupdate": "January 2010",
+    "Accessability": "Moderate",
+    "URL": "44perdik.php"
+  },
+  {
+    "Name": "*Pisang Fall*",
+    "Locality": "Near Gombak and the Karak Highway",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Remote powerful fall. Long access trail",
+    "Lastupdate": "November 2003",
+    "Accessability": "Moderate",
+    "URL": "50pisang.php"
+  },
+  {
+    "Name": "*Setinggi Fall*",
+    "Locality": "Between Rawang and Serendah",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Unspoilt waterfall",
+    "Lastupdate": "November 2011",
+    "Accessability": "Moderate",
+    "URL": "149setinggi.php"
+  },
+  {
+    "Name": "*Sg Ampang Falls*",
+    "Locality": "Ulu Klang near KL",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  ",
+    "Description": "Unspoilt waterfalls in scenic surroundings. The first fall also known as Kemansah Fall",
+    "Lastupdate": "May 2011",
+    "Accessability": "Moderate",
+    "URL": "77ampang.php"
+  },
+  {
+    "Name": "*Sg Luit Falls*",
+    "Locality": "Near Kg Pertak",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Remote powerful fall. Long access trail",
+    "Lastupdate": "February 2012",
+    "Accessability": "Moderate",
+    "URL": "152luit.php"
+  },
+  {
+    "Name": "*Siong Fall*",
+    "Locality": "Semenyih Dam to Negri Sembilan",
+    "Type": "Single fall ",
+    "Activities": "Trekking  ",
+    "Description": "The tall cascade can be seen from the main road. An Orang Asli guide is advisable. Pristine conditions",
+    "Lastupdate": "September 2004",
+    "Accessability": "Moderate",
+    "URL": "43siong.php"
+  },
+  {
+    "Name": "*Tarun Falls*",
+    "Locality": "Near Broga",
+    "Type": "Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "A majestic falls can be seasonal during low rainfall.",
+    "Lastupdate": "December 2021",
+    "Accessability": "Moderate",
+    "URL": "181Tarun.php"
+  },
+  {
+    "Name": "*Templer Falls*",
+    "Locality": "Between KL and Rawang",
+    "Type": "Cascades Single fall ",
+    "Activities": "Picnic Trekking  Camping ",
+    "Description": "A nice family site near to the better known Kanching Falls",
+    "Lastupdate": "May 2022",
+    "Accessability": "Moderate",
+    "URL": "02templar.php"
+  },
+  {
+    "Name": "*Ulu Tamu Falls*",
+    "Locality": "Near Batang Kali",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  ",
+    "Description": "No waterfall some rapids only",
+    "Lastupdate": "February 2012",
+    "Accessability": "Moderate",
+    "URL": "157ulutamu.php"
+  },
+  {
+    "Name": "*Air Terjun Sekayu*",
+    "Locality": "South of Kuala Berang",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Well maintained park with river Trekking",
+    "Lastupdate": "  March 2005",
+    "Accessability": "Easy",
+    "URL": "35sekayu.php"
+  },
+  {
+    "Name": "*Belukar Bukit*",
+    "Locality": "20 km south of Kuala Berang",
+    "Type": "Rapids ",
+    "Activities": "Picnic Swimming Camping ",
+    "Description": "No waterfall some rapids only",
+    "Lastupdate": "March 2005",
+    "Accessability": "Easy",
+    "URL": "89belukar.php"
+  },
+  {
+    "Name": "*Lata Belatan*",
+    "Locality": "Between Setiu and Jerteh",
+    "Type": "Single fall ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Recreation Park. Seasonal water flow",
+    "Lastupdate": "March 2005",
+    "Accessability": "Easy",
+    "URL": "70belatan.php"
+  },
+  {
+    "Name": "*Lata Tembakah*",
+    "Locality": "25 km south of Jertih",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Well visited and maintained park. Beautiful series of waterfalls",
+    "Lastupdate": "March 2005",
+    "Accessability": "Easy",
+    "URL": "71tembakah.php"
+  },
+  {
+    "Name": "*Jeram Penitih*",
+    "Locality": "West of Kemasik",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "Remote series of waterfalls in pristine surroundings",
+    "Lastupdate": "January 2010",
+    "Accessability": "Moderate",
+    "URL": "135penitih.php"
+  },
+  {
+    "Name": "*Kenyir Lake Falls*",
+    "Locality": "Kenyir Lake",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Swimming Camping ",
+    "Description": "Remote fall pristine. Not very tall but almost vertical",
+    "Lastupdate": "June 2012",
+    "Accessability": "Moderate",
+    "URL": "59kenyir.php"
+  },
+  {
+    "Name": "*Lata Cemerung*",
+    "Locality": "Kg Pasir Raya along the inner road from Kuantan to Kuala Terengganu",
+    "Type": "Multiple falls ",
+    "Activities": "Swimming Trekking  Camping ",
+    "Description": "A very tall waterfall. Well maintained park",
+    "Lastupdate": "February 2007",
+    "Accessability": "Moderate",
+    "URL": "72cemerong.php"
+  },
+  {
+    "Name": "*Lata Seru*",
+    "Locality": "West of Kemasik",
+    "Type": "Rapids Cascades Multiple falls ",
+    "Activities": "Picnic Swimming Trekking  Camping ",
+    "Description": "Remote fall. Pristine. Not very tall but almost vertical",
+    "Lastupdate": "August 2012",
+    "Accessability": "Moderate",
+    "URL": "160seru.php"
+  },
+  {
+    "Name": "*Belawan Falls*",
+    "Locality": "Ulu Besut valley",
+    "Type": "Cascades Multiple falls ",
+    "Activities": "Trekking  ",
+    "Description": "Very remote powerful waterfall. Pristine surroundings",
+    "Lastupdate": "September 2010",
+    "Accessability": "Difficult",
+    "URL": "146belawan.php"
+  }
+]
