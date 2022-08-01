@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -9,18 +9,33 @@ import {
 } from 'react-native';
 
 const Item = ({item, onPress}) => {
-  const [width, setWidth] = useState({width: Number});
+  const ref = useRef(null);
+  const count = useRef(0);
 
-  Image.getSize(item.uri, (width, height) => {
-    const heightRatio = height / 140;
-    const widthRatio = Math.floor(width / heightRatio);
-    setWidth({width: widthRatio});
-  });
+  useEffect(() => {
+    const getImageSize = async () => {
+      // if (!ref.current) {
+      const {imgWidth, imgHeight} = await new Promise(resolve => {
+        Image.getSize(item.uri, (_width, height) => {
+          resolve({imgWidth: _width, imgHeight: height});
+        });
+      });
+
+      ref.current = Math.floor((imgWidth / imgHeight) * 140);
+
+      // console.log(`${item.uri.split('/')[4]}`, count.current);
+    };
+    if (!ref.current) {
+      getImageSize();
+      count.current++;
+    }
+  }, []);
+  // console.log('current count', count.current);
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
       <View style={styles.imgContainer}>
-        <Image source={item} style={[styles.imgCenter, width]} />
+        <Image source={item} style={[styles.imgCenter, {width: ref.current}]} />
       </View>
     </TouchableOpacity>
   );
@@ -28,7 +43,10 @@ const Item = ({item, onPress}) => {
 
 const Card = ({name, imgArr, desc}) => {
   const [selectedId, setSelectedId] = useState(null);
-  //   console.log(imgArr);
+
+  const renderItem = ({item, index}) => {
+    return <Item item={item} onPress={() => setSelectedId(index)} />;
+  };
 
   return (
     <View style={styles.cardContainer}>
@@ -43,12 +61,7 @@ const Card = ({name, imgArr, desc}) => {
           pagingEnabled={false}
           showsHorizontalScrollIndicator={false}
           data={imgArr}
-          renderItem={({item, index}) => {
-            // console.log(item);
-
-            return <Item item={item} onPress={() => setSelectedId(index)} />;
-          }}
-          //   renderItem={renderItem}
+          renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
           extraData={selectedId}
         />

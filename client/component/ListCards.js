@@ -1,18 +1,31 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 import Card from './Card';
 
-const ListCards = () => {
+const ListCards = props => {
   const [waterfalls, setWaterfalls] = useState([
     {name: '', summary: '', imgFilename: [{uri: '', height: Number}]},
   ]);
+  const [fetchState, setFetchState] = useState('');
+  // const fetchState = useRef('');
+
+  function onDragHandler(text) {
+    props.onDrag(text);
+  }
+
+  // function setFetchStateHandler(obj) {
+  //   props.onStateChange(obj);
+  // }
 
   async function getWaterfall() {
     try {
       // fetching json from API
-      const response = await fetch('http://127.0.0.1:3000/api/v1/waterfalls/', {
-        method: 'GET',
-      });
+      const response = await fetch(
+        `http://127.0.0.1:3000/api/v1/waterfalls/?state=${fetchState}`,
+        {
+          method: 'GET',
+        },
+      );
 
       // resolving json
       const json = await response.json();
@@ -52,15 +65,27 @@ const ListCards = () => {
   };
 
   useEffect(() => {
+    setFetchState(props.onStateChange);
     getWaterfall();
-  }, []);
+    console.log('filtered state:', fetchState);
+  }, [props.onStateChange]);
 
   return (
     <View>
       <FlatList
+        contentInset={{top: 0, bottom: 100, left: 0, right: 0}}
+        contentInsetAdjustmentBehavior="automatic"
         data={waterfalls}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
+        onScrollBeginDrag={() => {
+          // console.log('drag');
+          onDragHandler('false');
+        }}
+        onScrollToTop={() => {
+          console.log('scroll to top');
+          onDragHandler('true');
+        }}
       />
     </View>
   );
