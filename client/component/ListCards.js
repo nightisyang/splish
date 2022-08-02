@@ -1,10 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
+
 import Card from './Card';
 
 const ListCards = props => {
   const [waterfalls, setWaterfalls] = useState([
-    {name: '', summary: '', imgFilename: [{uri: '', height: Number}]},
+    {name: '', summary: '', imgFilename: [{uri: ''}]},
   ]);
   const [fetchState, setFetchState] = useState('');
   // const fetchState = useRef('');
@@ -13,9 +14,10 @@ const ListCards = props => {
     props.onDrag(text);
   }
 
-  // function setFetchStateHandler(obj) {
-  //   props.onStateChange(obj);
-  // }
+  useEffect(() => {
+    // changes state when new prop is passed down
+    setFetchState(props.onStateChange);
+  }, [props.onStateChange]);
 
   async function getWaterfall() {
     try {
@@ -41,7 +43,7 @@ const ListCards = props => {
           imgFilename => {
             const obj = {};
             obj.uri = `http://127.0.0.1:3000/images/${imgFilename}`;
-            obj.height = 140;
+            // obj.height = 140;
 
             return obj;
           },
@@ -57,6 +59,8 @@ const ListCards = props => {
     }
   }
 
+  console.log(`No of waterfalls in ${fetchState}`, waterfalls.length);
+
   // render each card in flatlist
   const renderItem = ({item}) => {
     return (
@@ -65,16 +69,19 @@ const ListCards = props => {
   };
 
   useEffect(() => {
-    setFetchState(props.onStateChange);
+    // runs function when new state has changed
     getWaterfall();
     console.log('filtered state:', fetchState);
-  }, [props.onStateChange]);
+  }, [fetchState]);
 
   return (
     <View>
       <FlatList
         contentInset={{top: 0, bottom: 100, left: 0, right: 0}}
         contentInsetAdjustmentBehavior="automatic"
+        // maxToRenderPerBatch={20}
+        // pagingEnabled={true}
+        centerContent={true}
         data={waterfalls}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}

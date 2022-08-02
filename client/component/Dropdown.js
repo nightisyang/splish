@@ -15,8 +15,10 @@ function Dropdown(props) {
   const [state, setState] = useState('');
 
   function onStateChangeHandler(obj) {
-    props.onStateChange(obj);
+    // passes obj to parent App
     console.log('child', obj);
+    props.onStateChange(obj);
+    setState(obj);
   }
 
   const stateList = [
@@ -65,12 +67,8 @@ function Dropdown(props) {
       value: 'Selangor',
     },
     {
-      label: 'Terrenganu',
-      value: 'Terrenganu',
-    },
-    {
-      label: 'Kuala Lumpur',
-      value: 'Kuala Lumpur',
+      label: 'Terengganu',
+      value: 'Terengganu',
     },
   ];
 

@@ -7,10 +7,12 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 const Item = ({item, onPress}) => {
-  const ref = useRef(null);
-  const count = useRef(0);
+  const refWidth = useRef(null);
+
+  // const count = useRef(0);
 
   useEffect(() => {
     const getImageSize = async () => {
@@ -21,21 +23,25 @@ const Item = ({item, onPress}) => {
         });
       });
 
-      ref.current = Math.floor((imgWidth / imgHeight) * 140);
-
-      // console.log(`${item.uri.split('/')[4]}`, count.current);
+      refWidth.current = Math.floor((imgWidth / imgHeight) * 150);
     };
-    if (!ref.current) {
+    if (!refWidth.current) {
       getImageSize();
-      count.current++;
+      // count.current++;
     }
   }, []);
-  // console.log('current count', count.current);
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
       <View style={styles.imgContainer}>
-        <Image source={item} style={[styles.imgCenter, {width: ref.current}]} />
+        <FastImage
+          source={{
+            uri: item.uri.toString(),
+            priority: FastImage.priority.normal,
+          }}
+          style={{width: refWidth.current, height: 150}}
+          resizeMode={FastImage.resizeMode.contain}
+        />
       </View>
     </TouchableOpacity>
   );
@@ -58,7 +64,7 @@ const Card = ({name, imgArr, desc}) => {
       <View style={styles.imageScrollContainer}>
         <FlatList
           horizontal
-          pagingEnabled={false}
+          pagingEnabled={true}
           showsHorizontalScrollIndicator={false}
           data={imgArr}
           renderItem={renderItem}
@@ -74,10 +80,6 @@ const Card = ({name, imgArr, desc}) => {
     </View>
   );
 };
-
-// const compiledCards = () => {
-//   return <View></View>;
-// };
 
 export default Card;
 
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     // padding: 20,
     // margin: 8,
-    // height: 150,
+    height: 150,
     // width: 200,
   },
 
@@ -122,7 +124,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'black',
+    backgroundColor: 'black',
     // padding: 20,
     marginRight: 5,
     // width: 250,
@@ -139,8 +141,8 @@ const styles = StyleSheet.create({
   },
 
   imgCenter: {
-    resizeMode: 'center',
-    width: 250,
+    // resizeMode: 'center',
+    // width: 250,
   },
 
   descTitle: {
