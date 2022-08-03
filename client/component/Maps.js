@@ -44,6 +44,15 @@ const Maps = () => {
         </Appbar.Header>
         <SafeAreaView style={styles.container}>
           <LeafletView
+            mapLayers={[
+              {
+                attribution:
+                  '&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                baseLayerIsChecked: true,
+                baseLayerName: 'OpenStreetMap.Mapnik',
+                url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+              },
+            ]}
             mapMarkers={[
               {
                 position: DEFAULT_COORDINATE,
@@ -52,8 +61,8 @@ const Maps = () => {
               },
             ]}
             mapCenterPosition={DEFAULT_COORDINATE}
-            doDebug={false}
-            zoom={10}
+            // doDebug={false}
+            zoom={5}
           />
         </SafeAreaView>
       </ThemeProvider>
