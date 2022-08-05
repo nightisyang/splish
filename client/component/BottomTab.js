@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {SafeAreaView} from 'react-native';
+import React, {useState} from 'react';
 import {BottomNavigation, Text} from 'react-native-paper';
 import List from './List';
+// import Maps from './OLDMaps';
 import Maps from './Maps';
 
 const WaterfallRoute = () => {
@@ -9,6 +9,7 @@ const WaterfallRoute = () => {
 };
 
 const MapRoute = () => <Maps />;
+// const Map2Route = () => <MapsNew />;
 
 const RecentsRoute = () => <Text>Recents</Text>;
 
@@ -23,6 +24,8 @@ const BottomTab = () => {
     },
     {key: 'maps', title: 'Maps', icon: 'map'},
     {key: 'recents', title: 'Recents', icon: 'history'},
+    // {key: 'maps2', title: 'Better Maps', icon: 'map'},
+
     // {
     //   key: 'notifications',
     //   title: 'Notifications',

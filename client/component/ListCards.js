@@ -1,7 +1,15 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet, Platform} from 'react-native';
 
 import Card from './Card';
+
+let localhost;
+
+if (Platform.OS === 'ios') {
+  localhost = '127.0.0.1:3000';
+} else {
+  localhost = '10.0.2.2:3000';
+}
 
 const ListCards = props => {
   const [waterfalls, setWaterfalls] = useState([
@@ -22,12 +30,23 @@ const ListCards = props => {
   async function getWaterfall() {
     try {
       // fetching json from API
-      const response = await fetch(
-        `http://127.0.0.1:3000/api/v1/waterfalls/?state=${fetchState}`,
+      let response;
+
+      // if (Platform.OS === 'ios') {
+      response = await fetch(
+        `http://${localhost}/api/v1/waterfalls/?state=${fetchState}`,
         {
           method: 'GET',
         },
       );
+      // } else {
+      //   response = await fetch(
+      //     `http://10.0.2.2:3000/api/v1/waterfalls/?state=${fetchState}`,
+      //     {
+      //       method: 'GET',
+      //     },
+      //   );
+      // }
 
       // resolving json
       const json = await response.json();
@@ -42,7 +61,7 @@ const ListCards = props => {
         info.imgFilenameArr = val.imgDetails.imgFullResFilename.map(
           imgFilename => {
             const obj = {};
-            obj.uri = `http://127.0.0.1:3000/images/${imgFilename}`;
+            obj.uri = `http://${localhost}/images/${imgFilename}`;
             // obj.height = 140;
 
             return obj;

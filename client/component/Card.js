@@ -12,11 +12,8 @@ import FastImage from 'react-native-fast-image';
 const Item = ({item, onPress}) => {
   const refWidth = useRef(null);
 
-  // const count = useRef(0);
-
   useEffect(() => {
     const getImageSize = async () => {
-      // if (!ref.current) {
       const {imgWidth, imgHeight} = await new Promise(resolve => {
         Image.getSize(item.uri, (_width, height) => {
           resolve({imgWidth: _width, imgHeight: height});
@@ -27,7 +24,6 @@ const Item = ({item, onPress}) => {
     };
     if (!refWidth.current) {
       getImageSize();
-      // count.current++;
     }
   }, []);
 

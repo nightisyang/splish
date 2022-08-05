@@ -1,87 +1,74 @@
-import React, {useState, useRef, useEffect} from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  Button,
-  View,
-  Text,
-  StyleSheet,
-  Platform,
-} from 'react-native';
-import {
-  Appbar,
-  DarkTheme,
-  DefaultTheme,
-  Provider,
-  Surface,
-  ThemeProvider,
-} from 'react-native-paper';
+import React, {useState, useRef, useCallback, useEffect} from 'react';
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
-import {LatLng, LeafletView} from 'react-native-leaflet-view';
+import MapView, {
+  Marker,
+  PROVIDER_DEFAULT,
+  PROVIDER_GOOGLE,
+} from 'react-native-maps';
 
-const DEFAULT_COORDINATE = {
-  lat: 3.140853,
-  lng: 101.693207,
-};
+import StatusBarTheme from './StatusBarTheme';
 
 const Maps = () => {
-  const [nightMode, setNightmode] = useState(false);
+  const [isMapReady, setMapReady] = useState(false);
+  const mapRef = useRef(null);
+
+  const handleMapReady = useCallback(() => {
+    setMapReady(true);
+  });
+
+  const animateToRegionHolder = (lat, lng) => {
+    useEffect(() => {
+      if (mapRef.current) {
+        mapRef.current.animateToRegion(
+          {
+            latitude: lat,
+            longitude: lng,
+            latitudeDelta: 0,
+            longitudeDelta: 0.004,
+          },
+          2000,
+        );
+      }
+    });
+  };
 
   return (
-    <Provider theme={nightMode ? DarkTheme : DefaultTheme}>
-      <ThemeProvider theme={nightMode ? DarkTheme : DefaultTheme}>
-        <StatusBar
-          // animated={true}
-          backgroundColor={
-            nightMode ? DarkTheme.colors.surface : DefaultTheme.colors.primary
-          }
-          barStyle="default"
-          // showHideTransition={statusBarTransition}
-          // hidden={hidden}
-        />
-        <Appbar.Header statusBarHeight={0}>
-          {/* <Appbar.Content title="Maps" /> */}
-        </Appbar.Header>
-        <SafeAreaView style={styles.container}>
-          <LeafletView
-            mapLayers={[
-              {
-                attribution:
-                  '&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-                baseLayerIsChecked: true,
-                baseLayerName: 'OpenStreetMap.Mapnik',
-                url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-              },
-            ]}
-            mapMarkers={[
-              {
-                position: DEFAULT_COORDINATE,
-                icon: '📍',
-                size: [32, 32],
-              },
-            ]}
-            mapCenterPosition={DEFAULT_COORDINATE}
-            // doDebug={false}
-            zoom={5}
+    <StatusBarTheme>
+      <SafeAreaView style={styles.container}>
+        <MapView
+          ref={mapRef}
+          style={isMapReady ? styles.map : {}}
+          provider={PROVIDER_DEFAULT}
+          onMapReady={e => {
+            handleMapReady();
+            console.log('map ready, initializing region...');
+            animateToRegionHolder(5.02017, 100.84717);
+          }}
+          zoomControlEnabled={true}>
+          <Marker
+            title="test"
+            description="testing"
+            coordinate={{latitude: 5.02017, longitude: 100.84717}}
           />
-        </SafeAreaView>
-      </ThemeProvider>
-    </Provider>
+          <Text>TEXT</Text>
+        </MapView>
+      </SafeAreaView>
+    </StatusBarTheme>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    position: 'relative',
+    // justifyContent: 'center',
     backgroundColor: '#ECF0F1',
   },
-
-  bottom: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
+  map: {
+    width: '100%',
+    height: '100%',
+    // backgroundColor: 'black',
   },
 });
 
