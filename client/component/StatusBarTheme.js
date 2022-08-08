@@ -7,6 +7,8 @@ import {
   ThemeProvider,
 } from 'react-native-paper';
 
+//https://stackoverflow.com/questions/60022475/react-native-how-to-change-the-color-of-the-top-portion-of-the-iphone-where-the
+
 const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? 44 : StatusBar.currentHeight;
 const HEADER_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 

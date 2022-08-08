@@ -1,5 +1,12 @@
 import React, {useState, useRef, useCallback, useEffect} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Platform,
+} from 'react-native';
 
 import MapView, {
   Marker,
@@ -7,7 +14,16 @@ import MapView, {
   PROVIDER_GOOGLE,
 } from 'react-native-maps';
 
+import waterfallCoords from '../assets/waterfallMapCoords.json';
+
 import StatusBarTheme from './StatusBarTheme';
+
+const LATITUD_DELTA = 2;
+let LONGITUDE_DELTA;
+
+const window = Dimensions.get('window');
+const {width, height} = window;
+LONGITUDE_DELTA = LATITUD_DELTA * (width / height);
 
 const Maps = () => {
   const [isMapReady, setMapReady] = useState(false);
@@ -15,44 +31,74 @@ const Maps = () => {
 
   const handleMapReady = useCallback(() => {
     setMapReady(true);
-  });
+    console.log('Map ready, loading animation...');
+  }, []);
 
   const animateToRegionHolder = (lat, lng) => {
-    useEffect(() => {
-      if (mapRef.current) {
-        mapRef.current.animateToRegion(
-          {
-            latitude: lat,
-            longitude: lng,
-            latitudeDelta: 0,
-            longitudeDelta: 0.004,
-          },
-          2000,
-        );
-      }
-    });
+    console.log('executing animation');
+
+    if (!mapRef.current) {
+      console.log('Map ref is undefined');
+      console.log(mapRef.current);
+    }
+
+    if (mapRef.current) {
+      console.log('waiting...');
+      mapRef.current.animateToRegion(
+        {
+          latitude: lat,
+          longitude: lng,
+          latitudeDelta: LATITUD_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
+        },
+        2000,
+      );
+    }
   };
+
+  useEffect(() => {
+    // console.log(mapRef.current);
+
+    let animationDelay;
+    if (mapRef) {
+      animationDelay = setTimeout(() => {
+        animateToRegionHolder(5.02017, 100.84717);
+      }, 200);
+    }
+    return () => {
+      clearTimeout(animationDelay);
+      console.log('Clearing timeout...');
+    };
+  }, [mapRef]);
+
+  function padding() {
+    // hack to get maps to show on ios
+    if (Platform.OS === 'ios') {
+      return <Text />;
+    }
+  }
 
   return (
     <StatusBarTheme>
       <SafeAreaView style={styles.container}>
-        <MapView
-          ref={mapRef}
-          style={isMapReady ? styles.map : {}}
-          provider={PROVIDER_DEFAULT}
-          onMapReady={e => {
-            handleMapReady();
-            console.log('map ready, initializing region...');
-            animateToRegionHolder(5.02017, 100.84717);
-          }}
-          zoomControlEnabled={true}>
-          <Marker
-            title="test"
-            description="testing"
-            coordinate={{latitude: 5.02017, longitude: 100.84717}}
-          />
-          <Text>TEXT</Text>
-        </MapView>
+        <View style={{flex: 1, position: 'relative'}}>
+          <MapView
+            ref={mapRef}
+            style={isMapReady ? styles.map : {}}
+            provider={PROVIDER_DEFAULT}
+            onMapReady={e => {
+              handleMapReady();
+              console.log('map ready, initializing region...');
+            }}
+            zoomControlEnabled={true}>
+            {waterfallCoords.map((el, i) => {
+              return (
+                <Marker key={i} title={el.title} coordinate={el.coordinates} />
+              );
+            })}
+            {padding()}
+          </MapView>
+        </View>
       </SafeAreaView>
     </StatusBarTheme>
   );
@@ -66,6 +112,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ECF0F1',
   },
   map: {
+    // flex: 1,
     width: '100%',
     height: '100%',
     // backgroundColor: 'black',

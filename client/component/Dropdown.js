@@ -1,13 +1,4 @@
-// import {
-//   Appbar,
-//   DarkTheme,
-//   DefaultTheme,
-//   Provider,
-//   Surface,
-//   ThemeProvider,
-// } from 'react-native-paper';
 import React, {useState} from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 import DropDown from 'react-native-paper-dropdown';
 
 function Dropdown(props) {

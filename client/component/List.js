@@ -25,6 +25,7 @@ import {
 
 import Dropdown from './Dropdown';
 import ListCards from './ListCards';
+import StatusBarTheme from './StatusBarTheme';
 
 const List = () => {
   const [nightMode, setNightmode] = useState(false);
@@ -64,51 +65,42 @@ const List = () => {
   }
 
   return (
-    <Provider theme={nightMode ? DarkTheme : DefaultTheme}>
-      <ThemeProvider theme={nightMode ? DarkTheme : DefaultTheme}>
-        <StatusBar
-          backgroundColor={
-            nightMode ? DarkTheme.colors.surface : DefaultTheme.colors.primary
-          }
-          barStyle={'light-content'}
+    <StatusBarTheme style={{zIndex: 1}}>
+      <Appbar.Header mode="small" style={{zIndex: 1}}>
+        <Appbar.BackAction />
+        <Appbar.Content title="Title" />
+        <Appbar.Action
+          icon={nightMode ? 'brightness-7' : 'brightness-3'}
+          onPress={() => setNightmode(!nightMode)}
         />
-
-        <Appbar.Header mode="small" style={{zIndex: 1}}>
-          <Appbar.BackAction />
-          <Appbar.Content title="Title" />
-          <Appbar.Action
-            icon={nightMode ? 'brightness-7' : 'brightness-3'}
-            onPress={() => setNightmode(!nightMode)}
-          />
-          <Appbar.Action
-            icon="magnify"
-            onPress={() => setToggleSearchBar(!toggleSearchBar)}
-          />
-          <Appbar.Action icon="dots-vertical" />
-        </Appbar.Header>
-        <Surface style={styles.appContainer}>
-          <SafeAreaView>
-            <Animated.View
-              style={{
-                transform: [{translateY: searchBarAnim}],
-                paddingHorizontal: 10,
-                paddingBottom: 3,
-              }}>
-              <Dropdown onStateChange={filterStateHandler} />
-            </Animated.View>
-            <Animated.View
-              style={{
-                transform: [{translateY: searchBarAnim}],
-              }}>
-              <ListCards
-                onStateChange={state}
-                onDrag={setToggleSearchBarHandler}
-              />
-            </Animated.View>
-          </SafeAreaView>
-        </Surface>
-      </ThemeProvider>
-    </Provider>
+        <Appbar.Action
+          icon="magnify"
+          onPress={() => setToggleSearchBar(!toggleSearchBar)}
+        />
+        <Appbar.Action icon="dots-vertical" />
+      </Appbar.Header>
+      <Surface style={styles.appContainer}>
+        <SafeAreaView>
+          <Animated.View
+            style={{
+              transform: [{translateY: searchBarAnim}],
+              paddingHorizontal: 10,
+              paddingBottom: 3,
+            }}>
+            <Dropdown onStateChange={filterStateHandler} />
+          </Animated.View>
+          <Animated.View
+            style={{
+              transform: [{translateY: searchBarAnim}],
+            }}>
+            <ListCards
+              onStateChange={state}
+              onDrag={setToggleSearchBarHandler}
+            />
+          </Animated.View>
+        </SafeAreaView>
+      </Surface>
+    </StatusBarTheme>
   );
 };
 

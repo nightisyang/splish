@@ -9,7 +9,6 @@ const WaterfallRoute = () => {
 };
 
 const MapRoute = () => <Maps />;
-// const Map2Route = () => <MapsNew />;
 
 const RecentsRoute = () => <Text>Recents</Text>;
 
