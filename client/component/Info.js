@@ -17,6 +17,7 @@ import MapView, {Marker} from 'react-native-maps';
 
 let viewHeight;
 let calcWidth = Dimensions.get('window').width;
+const halfcalcWidth = calcWidth / 2;
 let screenIndex = 0;
 
 const LATITUD_DELTA = 0.3;
@@ -31,7 +32,6 @@ const region = {
 };
 
 const Info = () => {
-  const [nightMode, setNightmode] = useState(false);
   const [isMapReady, setMapReady] = useState(false);
   // const [screenIndex, setScreenIndex] = useState(1);
   const mapRef = useRef(null);
@@ -57,7 +57,6 @@ const Info = () => {
         animated: true,
       });
     }
-    console.log(screenIndex);
   };
 
   const scrollPrev = () => {
@@ -66,13 +65,8 @@ const Info = () => {
         x: calcWidth * (screenIndex - 1),
         animated: true,
       });
-
-      // setScreenIndex(prev => prev - 1);
       screenIndex -= 1;
     }
-
-    // if (screenIndex === 1) setScreenIndex(1);
-    console.log(screenIndex);
   };
 
   return (
@@ -80,7 +74,7 @@ const Info = () => {
       <Appbar.Header>
         <Appbar.BackAction />
         <Appbar.Content title="Title" />
-        <Appbar.Action icon={nightMode ? 'brightness-7' : 'brightness-3'} />
+        <Appbar.Action />
         <Appbar.Action icon="magnify" />
         <Appbar.Action icon="dots-vertical" />
       </Appbar.Header>
@@ -92,61 +86,21 @@ const Info = () => {
             <Text style={styles.subheadingText}>Pasir Puteh, Kelantan</Text>
           </View>
         </View>
-        <View
-          style={[
-            styles.mediaContainer,
-            {flexDirection: 'row', justifyContent: 'center'},
-          ]}>
+        <View style={styles.mediaContainer}>
           <Pressable
-            style={{
-              justifyContent: 'center',
-              position: 'absolute',
-              zIndex: 1,
-              left: 0,
-              width: 50,
-              height: '100%',
-              // backgroundColor: 'pink',
-            }}
+            style={styles.arrowLeft}
             onPress={() => {
-              console.log('Left Press');
               scrollPrev();
             }}>
-            <IconButton
-              icon="chevron-left"
-              style={{backgroundColor: '#CBDCCB'}}
-            />
-
-            {/* {({pressed}) => (
-              <Text style={styles.text}>
-                {pressed ? 'Pressed!' : 'Press Me'}
-              </Text>
-            )} */}
+            <IconButton icon="chevron-left" style={styles.arrow} />
           </Pressable>
 
           <Pressable
-            style={{
-              flex: 1,
-              justifyContent: 'center',
-              position: 'absolute',
-              zIndex: 1,
-              right: 0,
-              width: 50,
-              height: '100%',
-              // backgroundColor: 'pink',
-            }}
+            style={styles.arrowRight}
             onPress={() => {
-              console.log('Right Press');
               scrollNext();
             }}>
-            <IconButton
-              icon="chevron-right"
-              style={{backgroundColor: '#CBDCCB'}}
-            />
-            {/* {({pressed}) => (
-              <Text style={styles.text}>
-                {pressed ? 'Pressed!' : 'Press Me'}
-              </Text>
-            )} */}
+            <IconButton icon="chevron-right" style={styles.arrow} />
           </Pressable>
 
           <ScrollView
@@ -212,15 +166,15 @@ const Info = () => {
         </View>
 
         <View style={styles.detailsContainer}>
-          <Text style={{fontSize: 20, fontWeight: '600'}}>Description</Text>
-          <Text style={{textAlign: 'justify'}}>
+          <Text style={styles.descriptionTitle}>Description</Text>
+          <Text style={styles.descriptionContent}>
             The Hutan Lipur Jeram Linang is located a few km south of road nr 4
             to Machang. It is popular with locals and has many facilities like a
             wading pool, chalets, etc.Most visitors will stay near to the pools,
             but there is a trail leading uphill to a number of waterfalls. The
             falls are not spectacular, but located in nice forest.
           </Text>
-          <View style={{padding: 10}} />
+          <View style={styles.spacing} />
           <View style={styles.flexRow}>
             <View style={styles.flex}>
               <View style={styles.profileBottomSeperator}>
@@ -329,10 +283,49 @@ const styles = StyleSheet.create({
 
   mediaContainer: {
     flex: 9,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  arrowLeft: {
+    justifyContent: 'center',
+    position: 'absolute',
+    zIndex: 1,
+    left: 0,
+    width: halfcalcWidth,
+    height: '100%',
+  },
+
+  arrowRight: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    position: 'absolute',
+    zIndex: 1,
+    right: 0,
+    width: halfcalcWidth,
+    height: '100%',
+  },
+
+  arrow: {
+    backgroundColor: '#CBDCCB',
   },
 
   image: {
     backgroundColor: 'black',
+  },
+
+  descriptionTitle: {
+    fontSize: 20,
+    fontWeight: '600',
+  },
+
+  descriptionContent: {
+    textAlign: 'justify',
+  },
+
+  spacing: {
+    padding: 10,
   },
 
   detailsContainer: {
