@@ -1,28 +1,27 @@
 import React, {useState} from 'react';
 import {BottomNavigation, Text} from 'react-native-paper';
 import List from './List';
-// import Maps from './OLDMaps';
 import Maps from './Maps';
+import Info from './Info';
 
 const WaterfallRoute = () => {
   return <List />;
 };
 
 const MapRoute = () => <Maps />;
-
-const RecentsRoute = () => <Text>Recents</Text>;
+const InfoRoute = () => <Info />;
 
 const BottomTab = () => {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
+    {key: 'maps', title: 'Maps', icon: 'map'},
     {
       key: 'waterfall',
       title: 'Waterfalls',
-      icon: 'water',
+      icon: 'waves',
       unfocusedIcon: 'heart-outline',
     },
-    {key: 'maps', title: 'Maps', icon: 'map'},
-    {key: 'recents', title: 'Recents', icon: 'history'},
+    {key: 'info', title: 'Info', icon: 'information-outline'},
     // {key: 'maps2', title: 'Better Maps', icon: 'map'},
 
     // {
@@ -36,7 +35,7 @@ const BottomTab = () => {
   const renderScene = BottomNavigation.SceneMap({
     waterfall: WaterfallRoute,
     maps: MapRoute,
-    recents: RecentsRoute,
+    info: InfoRoute,
   });
 
   return (

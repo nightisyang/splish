@@ -25,6 +25,13 @@ const window = Dimensions.get('window');
 const {width, height} = window;
 LONGITUDE_DELTA = LATITUD_DELTA * (width / height);
 
+const region = {
+  latitude: 3.945651,
+  longitude: 108.142868,
+  latitudeDelta: 30,
+  longitudeDelta: 30,
+};
+
 const Maps = () => {
   const [isMapReady, setMapReady] = useState(false);
   const mapRef = useRef(null);
@@ -51,7 +58,7 @@ const Maps = () => {
           latitudeDelta: LATITUD_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
         },
-        2000,
+        5000,
       );
     }
   };
@@ -84,8 +91,11 @@ const Maps = () => {
         <View style={{flex: 1, position: 'relative'}}>
           <MapView
             ref={mapRef}
+            region={region}
             style={isMapReady ? styles.map : {}}
-            provider={PROVIDER_DEFAULT}
+            provider={PROVIDER_GOOGLE}
+            mapType="terrain"
+            minZoomLevel={5}
             onMapReady={e => {
               handleMapReady();
               console.log('map ready, initializing region...');
