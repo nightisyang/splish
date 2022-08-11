@@ -32,7 +32,7 @@ const region = {
   longitudeDelta: 30,
 };
 
-const Maps = () => {
+const Maps = ({navigation}) => {
   const [isMapReady, setMapReady] = useState(false);
   const mapRef = useRef(null);
 

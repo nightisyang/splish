@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-let waterfallMapCoords = [];
+const waterfallMapCoords = [];
 
 const fileObj = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'waterfalls.json'))

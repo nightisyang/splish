@@ -22,31 +22,27 @@ const ListCards = props => {
     props.onDrag(text);
   }
 
+  function cardClickHandler(id) {
+    console.log('ID coming from ListCards:', id);
+    props.passingWaterfallID(id);
+  }
+
   useEffect(() => {
     // changes state when new prop is passed down
     setFetchState(props.onStateChange);
   }, [props.onStateChange]);
 
-  async function getWaterfall() {
+  async function getWaterfalls() {
     try {
       // fetching json from API
       let response;
 
-      // if (Platform.OS === 'ios') {
       response = await fetch(
         `http://${localhost}/api/v1/waterfalls/?state=${fetchState}`,
         {
           method: 'GET',
         },
       );
-      // } else {
-      //   response = await fetch(
-      //     `http://10.0.2.2:3000/api/v1/waterfalls/?state=${fetchState}`,
-      //     {
-      //       method: 'GET',
-      //     },
-      //   );
-      // }
 
       // resolving json
       const json = await response.json();
@@ -55,6 +51,7 @@ const ListCards = props => {
       const extractInfo = json.data.waterfalls.map((val, i, arr) => {
         const info = {};
 
+        info.id = val._id;
         info.name = val.name;
         info.summary = val.summary;
 
@@ -83,13 +80,19 @@ const ListCards = props => {
   // render each card in flatlist
   const renderItem = ({item}) => {
     return (
-      <Card name={item.name} imgArr={item.imgFilenameArr} desc={item.summary} />
+      <Card
+        onCardClick={cardClickHandler}
+        id={item.id}
+        name={item.name}
+        imgArr={item.imgFilenameArr}
+        desc={item.summary}
+      />
     );
   };
 
   useEffect(() => {
     // runs function when new state has changed
-    getWaterfall();
+    getWaterfalls();
     console.log('filtered state:', fetchState);
   }, [fetchState]);
 
@@ -109,7 +112,7 @@ const ListCards = props => {
           onDragHandler('false');
         }}
         onScrollToTop={() => {
-          console.log('scroll to top');
+          // console.log('scroll to top');
           onDragHandler('true');
         }}
       />

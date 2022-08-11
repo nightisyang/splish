@@ -27,7 +27,7 @@ import Dropdown from './Dropdown';
 import ListCards from './ListCards';
 import StatusBarTheme from './StatusBarTheme';
 
-const List = () => {
+const List = ({navigation, passIDToApp}) => {
   const [nightMode, setNightmode] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const [state, setState] = useState('');
@@ -64,6 +64,11 @@ const List = () => {
     setState(obj);
   }
 
+  function passingWaterfallIDHandler(id) {
+    console.log('ID passed to List:', id);
+    passIDToApp(id);
+  }
+
   return (
     <StatusBarTheme style={{zIndex: 1}}>
       <Appbar.Header mode="small" style={{zIndex: 1}}>
@@ -94,6 +99,7 @@ const List = () => {
               transform: [{translateY: searchBarAnim}],
             }}>
             <ListCards
+              passingWaterfallID={passingWaterfallIDHandler}
               onStateChange={state}
               onDrag={setToggleSearchBarHandler}
             />

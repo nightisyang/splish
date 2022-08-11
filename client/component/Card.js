@@ -1,3 +1,4 @@
+import {useLinkProps} from '@react-navigation/native';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   View,
@@ -8,8 +9,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import {useNavigation} from '@react-navigation/native';
 
-const Item = ({item, onPress}) => {
+const Images = ({item, onPress}) => {
   const refWidth = useRef(null);
 
   useEffect(() => {
@@ -43,37 +45,48 @@ const Item = ({item, onPress}) => {
   );
 };
 
-const Card = ({name, imgArr, desc}) => {
+const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const [selectedId, setSelectedId] = useState(null);
 
-  const renderItem = ({item, index}) => {
-    return <Item item={item} onPress={() => setSelectedId(index)} />;
+  const navigation = useNavigation();
+
+  const renderImages = ({item, index}) => {
+    return <Images item={item} onPress={() => setSelectedId(index)} />;
+  };
+
+  const onCardClickHandler = id => {
+    // console.log('click on item', item);
+    console.log('id of waterfall:', id);
+    onCardClick(id);
+    navigation.navigate('Info');
   };
 
   return (
-    <View style={styles.cardContainer}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{name}</Text>
-      </View>
+    <TouchableOpacity onPress={() => onCardClickHandler(id)}>
+      <View style={styles.cardContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>{name}</Text>
+        </View>
 
-      {/* horizontal scroll box for images */}
-      <View style={styles.imageScrollContainer}>
-        <FlatList
-          horizontal
-          pagingEnabled={true}
-          showsHorizontalScrollIndicator={false}
-          data={imgArr}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          extraData={selectedId}
-        />
-      </View>
+        {/* horizontal scroll box for images */}
+        <View style={styles.imageScrollContainer}>
+          <FlatList
+            horizontal
+            pagingEnabled={true}
+            showsHorizontalScrollIndicator={false}
+            data={imgArr}
+            renderItem={renderImages}
+            keyExtractor={(item, index) => index.toString()}
+            extraData={selectedId}
+          />
+        </View>
 
-      <View style={styles.descContainer}>
-        {/* <Text style={styles.descTitle}>Description</Text> */}
-        <Text style={styles.descText}>{desc}</Text>
+        <View style={styles.descContainer}>
+          {/* <Text style={styles.descTitle}>Description</Text> */}
+          <Text style={styles.descText}>{desc}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

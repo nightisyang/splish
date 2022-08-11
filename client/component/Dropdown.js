@@ -6,7 +6,7 @@ function Dropdown(props) {
   const [state, setState] = useState('');
 
   function onStateChangeHandler(obj) {
-    // passes obj to parent App
+    // passes obj to parent List
     console.log('child', obj);
     props.onStateChange(obj);
     setState(obj);
