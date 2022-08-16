@@ -33,6 +33,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import List from './component/List';
 import Maps from './component//Maps';
 import Info from './component//Info';
+import Info2 from './component//Info2';
+
 const Tab = createMaterialBottomTabNavigator();
 
 function HomeScreen({navigation}) {
@@ -77,10 +79,11 @@ const App = () => {
 
   const WaterfallRoute = () => <List passIDToApp={navigateWaterfallDetails} />;
   const MapRoute = () => <Maps />;
-  const InfoRoute = () => <Info waterfallID={waterfallID} />;
+  // const InfoRoute = () => <Info waterfallID={waterfallID} />;
+  const Info2Route = () => <Info2 waterfallID={waterfallID} />;
 
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator initialRouteName="Waterfalls">
       {/* <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Details" component={DetailsScreen} /> */}
       <Tab.Screen
@@ -103,11 +106,25 @@ const App = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Info"
         component={InfoRoute}
         options={{
           tabBarLabel: 'Info',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons
+              name="information-outline"
+              color={color}
+              size={26}
+            />
+          ),
+        }}
+      /> */}
+      <Tab.Screen
+        name="Info2"
+        component={Info2Route}
+        options={{
+          tabBarLabel: 'Info2',
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons
               name="information-outline"

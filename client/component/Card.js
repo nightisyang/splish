@@ -58,7 +58,7 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
     // console.log('click on item', item);
     console.log('id of waterfall:', id);
     onCardClick(id);
-    navigation.navigate('Info');
+    navigation.navigate('Info2');
   };
 
   return (

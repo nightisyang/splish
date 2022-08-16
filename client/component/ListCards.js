@@ -3,13 +3,13 @@ import {View, Text, FlatList, StyleSheet, Platform} from 'react-native';
 
 import Card from './Card';
 
-let localhost;
+let localhost = '192.168.101.24:3000';
 
-if (Platform.OS === 'ios') {
-  localhost = '127.0.0.1:3000';
-} else {
-  localhost = '10.0.2.2:3000';
-}
+// if (Platform.OS === 'ios') {
+//   localhost = '127.0.0.1:3000';
+// } else {
+//   localhost = '192.168.101.24:3000';
+// }
 
 const ListCards = props => {
   const [waterfalls, setWaterfalls] = useState([
@@ -23,7 +23,7 @@ const ListCards = props => {
   }
 
   function cardClickHandler(id) {
-    console.log('ID coming from ListCards:', id);
+    // console.log('ID coming from ListCards:', id);
     props.passingWaterfallID(id);
   }
 
@@ -75,7 +75,7 @@ const ListCards = props => {
     }
   }
 
-  console.log(`No of waterfalls in ${fetchState}`, waterfalls.length);
+  // console.log(`No of waterfalls in ${fetchState}`, waterfalls.length);
 
   // render each card in flatlist
   const renderItem = ({item}) => {

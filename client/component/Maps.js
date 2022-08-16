@@ -38,11 +38,11 @@ const Maps = ({navigation}) => {
 
   const handleMapReady = useCallback(() => {
     setMapReady(true);
-    console.log('Map ready, loading animation...');
-  }, []);
+    // console.log('Map ready, loading animation...');
+  }, [mapRef]);
 
   const animateToRegionHolder = (lat, lng) => {
-    console.log('executing animation');
+    // console.log('executing animation');
 
     if (!mapRef.current) {
       console.log('Map ref is undefined');
@@ -50,7 +50,7 @@ const Maps = ({navigation}) => {
     }
 
     if (mapRef.current) {
-      console.log('waiting...');
+      // console.log('waiting...');
       mapRef.current.animateToRegion(
         {
           latitude: lat,
@@ -70,11 +70,11 @@ const Maps = ({navigation}) => {
     if (mapRef) {
       animationDelay = setTimeout(() => {
         animateToRegionHolder(5.02017, 100.84717);
-      }, 200);
+      }, 500);
     }
     return () => {
       clearTimeout(animationDelay);
-      console.log('Clearing timeout...');
+      // console.log('Clearing timeout...');
     };
   }, [mapRef]);
 
@@ -98,7 +98,7 @@ const Maps = ({navigation}) => {
             minZoomLevel={5}
             onMapReady={e => {
               handleMapReady();
-              console.log('map ready, initializing region...');
+              // console.log('map ready, initializing region...');
             }}
             zoomControlEnabled={true}>
             {waterfallCoords.map((el, i) => {

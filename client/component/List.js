@@ -13,6 +13,7 @@ import {
   useColorScheme,
   Animated,
   StatusBar,
+  View,
 } from 'react-native';
 import {
   Appbar,
@@ -65,7 +66,7 @@ const List = ({navigation, passIDToApp}) => {
   }
 
   function passingWaterfallIDHandler(id) {
-    console.log('ID passed to List:', id);
+    // console.log('ID passed to List:', id);
     passIDToApp(id);
   }
 
@@ -98,11 +99,13 @@ const List = ({navigation, passIDToApp}) => {
             style={{
               transform: [{translateY: searchBarAnim}],
             }}>
-            <ListCards
-              passingWaterfallID={passingWaterfallIDHandler}
-              onStateChange={state}
-              onDrag={setToggleSearchBarHandler}
-            />
+            <View>
+              <ListCards
+                passingWaterfallID={passingWaterfallIDHandler}
+                onStateChange={state}
+                onDrag={setToggleSearchBarHandler}
+              />
+            </View>
           </Animated.View>
         </SafeAreaView>
       </Surface>
