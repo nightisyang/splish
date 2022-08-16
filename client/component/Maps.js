@@ -15,6 +15,7 @@ import MapView, {
 } from 'react-native-maps';
 
 import waterfallCoords from '../assets/waterfallMapCoords.json';
+import MapComponent from './MapComponent';
 
 import StatusBarTheme from './StatusBarTheme';
 
@@ -32,82 +33,26 @@ const region = {
   longitudeDelta: 30,
 };
 
+const animateTo = {
+  latitude: 5.02017,
+  longitude: 100.84717,
+  latitudeDelta: LATITUD_DELTA,
+  longitudeDelta: LONGITUDE_DELTA,
+};
+
 const Maps = ({navigation}) => {
-  const [isMapReady, setMapReady] = useState(false);
-  const mapRef = useRef(null);
-
-  const handleMapReady = useCallback(() => {
-    setMapReady(true);
-    // console.log('Map ready, loading animation...');
-  }, [mapRef]);
-
-  const animateToRegionHolder = (lat, lng) => {
-    // console.log('executing animation');
-
-    if (!mapRef.current) {
-      console.log('Map ref is undefined');
-      console.log(mapRef.current);
-    }
-
-    if (mapRef.current) {
-      // console.log('waiting...');
-      mapRef.current.animateToRegion(
-        {
-          latitude: lat,
-          longitude: lng,
-          latitudeDelta: LATITUD_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        },
-        5000,
-      );
-    }
-  };
-
-  useEffect(() => {
-    // console.log(mapRef.current);
-
-    let animationDelay;
-    if (mapRef) {
-      animationDelay = setTimeout(() => {
-        animateToRegionHolder(5.02017, 100.84717);
-      }, 500);
-    }
-    return () => {
-      clearTimeout(animationDelay);
-      // console.log('Clearing timeout...');
-    };
-  }, [mapRef]);
-
-  function padding() {
-    // hack to get maps to show on ios
-    if (Platform.OS === 'ios') {
-      return <Text />;
-    }
-  }
-
   return (
     <StatusBarTheme>
       <SafeAreaView style={styles.container}>
         <View style={{flex: 1, position: 'relative'}}>
-          <MapView
-            ref={mapRef}
-            region={region}
-            style={isMapReady ? styles.map : {}}
-            provider={PROVIDER_GOOGLE}
-            mapType="terrain"
-            minZoomLevel={5}
-            onMapReady={e => {
-              handleMapReady();
-              // console.log('map ready, initializing region...');
-            }}
-            zoomControlEnabled={true}>
-            {waterfallCoords.map((el, i) => {
-              return (
-                <Marker key={i} title={el.title} coordinate={el.coordinates} />
-              );
-            })}
-            {padding()}
-          </MapView>
+          <MapComponent
+            type="main"
+            regionInput={region}
+            animateToInput={animateTo}
+            styleInput={styles.map}
+            zoomLevelInput={5}
+            liteModeInput={false}
+          />
         </View>
       </SafeAreaView>
     </StatusBarTheme>

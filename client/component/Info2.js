@@ -15,6 +15,7 @@ import FastImage from 'react-native-fast-image';
 
 import StatusBarTheme from './StatusBarTheme';
 import MapView, {Marker} from 'react-native-maps';
+import MapComponent from './MapComponent';
 
 let localhost = '192.168.101.24:3000';
 
@@ -32,20 +33,31 @@ let screenIndex = 0;
 const LATITUD_DELTA = 0.3;
 let LONGITUDE_DELTA;
 LONGITUDE_DELTA = LATITUD_DELTA * (calcWidth / 250);
+let locLat;
+let locLng;
 
-const region = {
-  latitude: 5.742,
-  longitude: 102.37567,
-  latitudeDelta: 0.09,
-  longitudeDelta: LONGITUDE_DELTA,
+const camera = {
+  center: {
+    latitude: 5.742,
+    longitude: 102.37567,
+  },
+  pitch: 0,
+  heading: 0,
+
+  // Only on iOS MapKit, in meters. The property is ignored by Google Maps.
+  // altitude: number,
+
+  // Only when using Google Maps.
+  zoom: 8,
 };
 
 const Info = ({navigation, waterfallID}) => {
-  const [isMapReady, setMapReady] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [onLayoutReady, setLayoutReady] = useState(false);
   // const [screenIndex, setScreenIndex] = useState(1);
   const mapRef = useRef(null);
+  const [isMapReady, setMapReady] = useState(false);
   const scrollRef = useRef(null);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [waterfall, setWaterfall] = useState(null);
 
   async function getWaterfall() {
@@ -57,6 +69,11 @@ const Info = ({navigation, waterfallID}) => {
         `http://${localhost}/api/v1/waterfalls/${waterfallID}`,
         {
           method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json', // I added this line
+          },
+          // body: JSON.stringify(data),
         },
       );
 
@@ -77,6 +94,11 @@ const Info = ({navigation, waterfallID}) => {
       info.accessibility = val.accessibility;
       info.lastUpdate = val.lastUpdate;
       info.difficulty = val.difficulty;
+
+      const [arrLat, arrLng] = info.coordinate;
+
+      locLat = arrLat;
+      locLng = arrLng;
 
       info.imgFilenameArr = val.imgDetails.imgFullResFilename.map(
         imgFilename => {
@@ -99,18 +121,29 @@ const Info = ({navigation, waterfallID}) => {
     }
   }
 
-  const handleMapReady = useCallback(() => {
-    setMapReady(true);
-    console.log('Map ready, loading animation...');
-  }, []);
+  const region = {
+    latitude: locLat,
+    longitude: locLng,
+    latitudeDelta: 1,
+    longitudeDelta: LONGITUDE_DELTA,
+  };
+
+  const animateTo = {
+    latitude: locLat,
+    longitude: locLng,
+    latitudeDelta: LATITUD_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+  };
 
   const onLayoutImage = event => {
     const {height} = event.nativeEvent.layout;
     viewHeight = Math.floor(height);
     console.log('viewHeight:', viewHeight);
+    setLayoutReady(true);
   };
 
   const scrollNext = () => {
+    console.log('Next', screenIndex);
     if (screenIndex < 3) {
       // setScreenIndex(prev => prev + 1);
       screenIndex += 1;
@@ -122,6 +155,7 @@ const Info = ({navigation, waterfallID}) => {
   };
 
   const scrollPrev = () => {
+    console.log('Prev', screenIndex);
     if (screenIndex > 0) {
       scrollRef.current?.scrollTo({
         x: calcWidth * (screenIndex - 1),
@@ -145,177 +179,201 @@ const Info = ({navigation, waterfallID}) => {
         <Appbar.Action icon="magnify" />
         <Appbar.Action icon="dots-vertical" />
       </Appbar.Header>
-      <SafeAreaView style={styles.container}>
-        {isLoaded ? (
-          <>
-            <View style={styles.headerContainer}>
-              <Text style={styles.headerText}>{waterfall.name}</Text>
-              <View style={styles.subheadingContainer}>
-                <IconButton icon="map-marker" style={styles.subheadingIcon} />
-                <Text style={styles.subheadingText}>
-                  {waterfall.disctrict} {waterfall.state}
-                </Text>
-              </View>
+      {isLoaded ? (
+        <SafeAreaView style={styles.container}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>{waterfall.name}</Text>
+            <View style={styles.subheadingContainer}>
+              <IconButton icon="map-marker" style={styles.subheadingIcon} />
+              <Text style={styles.subheadingText}>
+                {waterfall.disctrict} {waterfall.state}
+              </Text>
             </View>
-            <View style={styles.mediaContainer}>
-              <Pressable
-                style={styles.arrowLeft}
-                onPress={() => {
-                  scrollPrev();
-                }}>
-                <IconButton icon="chevron-left" style={styles.arrow} />
-              </Pressable>
+          </View>
+          <View style={styles.mediaContainer}>
+            <Pressable
+              style={styles.arrowLeft}
+              onPress={() => {
+                scrollPrev();
+              }}>
+              <IconButton icon="chevron-left" style={styles.arrow} />
+            </Pressable>
 
-              <Pressable
-                style={styles.arrowRight}
-                onPress={() => {
-                  scrollNext();
+            <Pressable
+              style={styles.arrowRight}
+              onPress={() => {
+                scrollNext();
+              }}>
+              <IconButton icon="chevron-right" style={styles.arrow} />
+            </Pressable>
+            <ScrollView
+              ref={scrollRef}
+              style={styles.flex}
+              horizontal={true}
+              pagingEnabled={true}
+              onLayout={onLayoutImage}>
+              <View
+                style={{
+                  flex: 1,
+                  width: calcWidth,
+                  height: '100%',
+                  backgroundColor: 'purple',
                 }}>
-                <IconButton icon="chevron-right" style={styles.arrow} />
-              </Pressable>
-              <ScrollView
-                ref={scrollRef}
-                style={styles.flex}
-                horizontal={true}
-                pagingEnabled={true}
-                onLayout={onLayoutImage}>
-                {/* <View styles={[styles.flex, {width: calcWidth}]}> */}
-                <MapView
+                <MapComponent
+                  type={'info'}
+                  regionInput={region}
+                  animateToInput={animateTo}
+                  styleInput={{
+                    flex: 1,
+                  }}
+                  coordInput={{latitude: locLat, longitude: locLng}}
+                  zoomLevelInput={6}
+                  liteModeInput={true}
+                />
+                {/* <MapView
                   ref={mapRef}
-                  region={region}
+                  onMapReady={e => {
+                    console.log('onMapReady callback');
+                    handleMapReady();
+                  }}
                   style={
-                    isMapReady ? {...{width: calcWidth, height: '100%'}} : {}
+                    isMapReady
+                      ? styles.map
+                      : {
+                          flex: 1,
+                          width: calcWidth,
+                          height: '100%',
+                          backgroundColor: 'purple',
+                        }
                   }
+                  region={region}
                   provider={PROVIDER_GOOGLE}
                   mapType="terrain"
-                  minZoomLevel={9}
+                  // minZoomLevel={9}
                   zoomEnabled={false}
                   scrollEnabled={false}
                   loadingEnabled={true}
                   // zoomControlEnabled={true}
-                  liteMode={true}
-                  onMapReady={e => {
-                    handleMapReady();
-                    console.log('map ready, initializing region...');
-                  }}>
-                  <Marker
-                    coordinate={{latitude: 5.742, longitude: 102.37567}}
-                  />
-                </MapView>
-                {/* </View> */}
-                <FastImage
-                  source={require('../assets/img1.jpg')}
-                  resizeMode={FastImage.resizeMode.contain}
-                  style={[
-                    styles.image,
-                    {
-                      width: calcWidth,
-                      height: viewHeight,
-                    },
-                  ]}
-                />
-                <FastImage
-                  source={require('../assets/img2.jpg')}
-                  style={[
-                    styles.image,
-                    {
-                      width: calcWidth,
-                      height: viewHeight,
-                    },
-                  ]}
-                  resizeMode={FastImage.resizeMode.contain}
-                />
-                <FastImage
-                  source={require('../assets/img3.jpg')}
-                  style={[
-                    styles.image,
-                    {
-                      width: calcWidth,
-                      height: viewHeight,
-                    },
-                  ]}
-                  resizeMode={FastImage.resizeMode.contain}
-                />
-              </ScrollView>
-            </View>
+                  // liteMode={true}
+                >
+                  {console.log('at JSX isMapReady:', isMapReady)}
+                  {isMapReady && (
+                    <Marker
+                      coordinate={{latitude: 5.742, longitude: 102.37567}}
+                    />
+                  )}
+                </MapView> */}
+              </View>
+              <FastImage
+                source={require('../assets/img1.jpg')}
+                resizeMode={FastImage.resizeMode.contain}
+                style={[
+                  styles.image,
+                  {
+                    width: calcWidth,
+                    height: viewHeight,
+                  },
+                ]}
+              />
+              <FastImage
+                source={require('../assets/img2.jpg')}
+                style={[
+                  styles.image,
+                  {
+                    width: calcWidth,
+                    height: viewHeight,
+                  },
+                ]}
+                resizeMode={FastImage.resizeMode.contain}
+              />
+              <FastImage
+                source={require('../assets/img3.jpg')}
+                style={[
+                  styles.image,
+                  {
+                    width: calcWidth,
+                    height: viewHeight,
+                  },
+                ]}
+                resizeMode={FastImage.resizeMode.contain}
+              />
+            </ScrollView>
+          </View>
 
-            <View style={styles.detailsContainer}>
-              <ScrollView>
-                <Text style={styles.descriptionTitle}>Description</Text>
-                <Text style={styles.descriptionContent}>
-                  {waterfall.description}
-                </Text>
-                <View style={styles.spacing} />
-                <View style={styles.flexRow}>
-                  <View style={styles.flex}>
-                    <View style={styles.profileBottomSeperator}>
-                      <View style={styles.flex}>
-                        <Text style={styles.profileTextTitle}>Distance</Text>
-                        <Text style={styles.profileTextContent}>10km</Text>
-                      </View>
-                      <View style={styles.profileMiddleSeperator} />
+          <View style={styles.detailsContainer}>
+            <ScrollView>
+              <View style={[styles.flexRow, {paddingTop: 5}]}>
+                <View style={styles.flex}>
+                  <View style={styles.profileBottomSeperator}>
+                    <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>Distance</Text>
+                      <Text style={styles.profileTextContent}>10km</Text>
                     </View>
-                    <View style={styles.profileBottomSeperator}>
-                      <View style={styles.flex}>
-                        <Text style={styles.profileTextTitle}>
-                          Accessibility
-                        </Text>
-                        <Text style={styles.profileTextContent}>
-                          {waterfall.accessibility}
-                        </Text>
-                      </View>
-                      <View style={styles.profileMiddleSeperator} />
+                    <View style={styles.profileMiddleSeperator} />
+                  </View>
+                  <View style={styles.profileBottomSeperator}>
+                    <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>Accessibility</Text>
+                      <Text style={styles.profileTextContent}>
+                        {waterfall.accessibility}
+                      </Text>
                     </View>
-                    <View style={styles.profileBottomSeperator}>
-                      <View style={styles.flex}>
-                        <Text style={styles.profileTextTitle}>Difficulty</Text>
-                        <Text style={styles.profileTextContent}>
-                          {waterfall.difficulty}
-                        </Text>
-                      </View>
-                      <View style={styles.profileMiddleSeperator} />
+                    <View style={styles.profileMiddleSeperator} />
+                  </View>
+                  <View style={styles.profileBottomSeperator}>
+                    <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>Difficulty</Text>
+                      <Text style={styles.profileTextContent}>
+                        {waterfall.difficulty}
+                      </Text>
+                    </View>
+                    <View style={styles.profileMiddleSeperator} />
+                  </View>
+                </View>
+                <View style={styles.flex}>
+                  <View style={styles.profileBottomSeperator}>
+                    <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>
+                        Waterfall Profile
+                      </Text>
+                      <Text style={styles.profileTextContent}>
+                        {waterfall.waterfallProfile}
+                      </Text>
                     </View>
                   </View>
-                  <View style={styles.flex}>
-                    <View style={styles.profileBottomSeperator}>
-                      <View style={styles.flex}>
-                        <Text style={styles.profileTextTitle}>
-                          Waterfall Profile
-                        </Text>
-                        <Text style={styles.profileTextContent}>
-                          {waterfall.waterfallProfile}
-                        </Text>
-                      </View>
+                  <View style={styles.profileBottomSeperator}>
+                    <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>Water source</Text>
+                      <Text style={styles.profileTextContent}>
+                        {waterfall.waterSource}
+                      </Text>
                     </View>
-                    <View style={styles.profileBottomSeperator}>
-                      <View style={styles.flex}>
-                        <Text style={styles.profileTextTitle}>
-                          Water source
-                        </Text>
-                        <Text style={styles.profileTextContent}>
-                          {waterfall.waterSource}
-                        </Text>
-                      </View>
-                    </View>
-                    <View style={styles.profileBottomSeperator}>
-                      <View style={styles.flex}>
-                        <Text style={styles.profileTextTitle}>Last update</Text>
-                        <Text style={styles.profileTextContent}>
-                          {waterfall.lastUpdate}
-                        </Text>
-                      </View>
+                  </View>
+                  <View style={styles.profileBottomSeperator}>
+                    <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>Last update</Text>
+                      <Text style={styles.profileTextContent}>
+                        {waterfall.lastUpdate}
+                      </Text>
                     </View>
                   </View>
                 </View>
-              </ScrollView>
-            </View>
-          </>
-        ) : (
+              </View>
+              <View style={styles.spacing} />
+              <Text style={styles.descriptionTitle}>Description</Text>
+              <Text style={styles.descriptionContent}>
+                {waterfall.description}
+              </Text>
+            </ScrollView>
+          </View>
+        </SafeAreaView>
+      ) : (
+        <SafeAreaView style={styles.container}>
           <View style={styles.loadingContainer}>
             <Text style={styles.loadingText}>Loading...</Text>
           </View>
-        )}
-      </SafeAreaView>
+        </SafeAreaView>
+      )}
     </StatusBarTheme>
   );
 };
@@ -348,10 +406,16 @@ const styles = StyleSheet.create({
   },
 
   map: {
+    ...StyleSheet.absoluteFillObject,
+    flex: 1,
     // flex: 1,
-    width: '100%',
-    height: '100%',
+    // width: '100%',
+    // height: '100%',
     // backgroundColor: 'black',
+    // position: 'absolute',
+    width: Dimensions.get('window').width,
+    // height: Dimensions.get('window').height,
+    // flex: 1,
   },
 
   headerContainer: {
@@ -392,21 +456,25 @@ const styles = StyleSheet.create({
   arrowLeft: {
     justifyContent: 'center',
     position: 'absolute',
+    alignSelf: 'center',
     zIndex: 1,
     left: 0,
-    width: halfcalcWidth,
-    height: '100%',
+    // width: 50,
+    // height: '100%',
+    // backgroundColor: 'purple',
   },
 
   arrowRight: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'flex-end',
+    alignSelf: 'center',
     position: 'absolute',
     zIndex: 1,
     right: 0,
-    width: halfcalcWidth,
-    height: '100%',
+    // width: 50,
+    // height: '100%',
+    // backgroundColor: 'purple',
   },
 
   arrow: {
@@ -420,6 +488,7 @@ const styles = StyleSheet.create({
   descriptionTitle: {
     fontSize: 20,
     fontWeight: '600',
+    paddingBottom: 5,
   },
 
   descriptionContent: {
@@ -427,7 +496,7 @@ const styles = StyleSheet.create({
   },
 
   spacing: {
-    padding: 10,
+    padding: 5,
   },
 
   detailsContainer: {

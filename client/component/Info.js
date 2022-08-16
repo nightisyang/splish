@@ -9,12 +9,12 @@ import {
   Pressable,
   Platform,
 } from 'react-native';
-// import {PROVIDER_GOOGLE} from 'react-native-maps';
+import {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Appbar, IconButton, Text} from 'react-native-paper';
 import FastImage from 'react-native-fast-image';
 
 import StatusBarTheme from './StatusBarTheme';
-// import MapView, {Marker} from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 
 let localhost = '192.168.101.24:3000';
 
@@ -125,44 +125,44 @@ const Info = ({navigation, waterfallID}) => {
     console.log('Map ready...');
   }, [mapRef]);
 
-  // const animateToRegionHolder = (lat, lng) => {
-  //   console.log('executing animation');
-  //   console.log('at animate isMapReady:', isMapReady);
+  const animateToRegionHolder = (lat, lng) => {
+    console.log('executing animation');
+    console.log('at animate isMapReady:', isMapReady);
 
-  //   if (!mapRef.current) {
-  //     console.log('Map ref is undefined');
-  //     console.log(mapRef.current);
-  //   }
+    if (!mapRef.current) {
+      console.log('Map ref is undefined');
+      console.log(mapRef.current);
+    }
 
-  //   if (mapRef.current) {
-  //     console.log('waiting...');
-  //     mapRef.current.animateToRegion(
-  //       {
-  //         latitude: lat,
-  //         longitude: lng,
-  //         latitudeDelta: LATITUD_DELTA,
-  //         longitudeDelta: LONGITUDE_DELTA,
-  //       },
-  //       5000,
-  //     );
-  //   }
-  // };
+    if (mapRef.current) {
+      console.log('waiting...');
+      mapRef.current.animateToRegion(
+        {
+          latitude: lat,
+          longitude: lng,
+          latitudeDelta: LATITUD_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
+        },
+        5000,
+      );
+    }
+  };
 
-  // useEffect(() => {
-  //   // console.log(mapRef.current);
+  useEffect(() => {
+    // console.log(mapRef.current);
 
-  //   let animationDelay;
-  //   if (isMapReady) {
-  //     animationDelay = setTimeout(() => {
-  //       animateToRegionHolder(5.742, 102.37567);
-  //       console.log('animating to region..');
-  //     }, 500);
-  //   }
-  //   return () => {
-  //     clearTimeout(animationDelay);
-  //     console.log('Clearing timeout...');
-  //   };
-  // }, [isMapReady]);
+    let animationDelay;
+    if (isMapReady) {
+      animationDelay = setTimeout(() => {
+        animateToRegionHolder(5.742, 102.37567);
+        console.log('animating to region..');
+      }, 500);
+    }
+    return () => {
+      clearTimeout(animationDelay);
+      console.log('Clearing timeout...');
+    };
+  }, [isMapReady]);
 
   const onLayoutImage = event => {
     const {height} = event.nativeEvent.layout;
@@ -248,7 +248,7 @@ const Info = ({navigation, waterfallID}) => {
                   height: '100%',
                   backgroundColor: 'purple',
                 }}>
-                {/* <MapView
+                <MapView
                   ref={mapRef}
                   onMapReady={e => {
                     console.log('onMapReady callback');
@@ -273,14 +273,14 @@ const Info = ({navigation, waterfallID}) => {
                   loadingEnabled={true}
                   // zoomControlEnabled={true}
                   // liteMode={true}
-                > */}
-                {/* {console.log('at JSX isMapReady:', isMapReady)}
+                >
+                  {console.log('at JSX isMapReady:', isMapReady)}
                   {isMapReady && (
                     <Marker
                       coordinate={{latitude: 5.742, longitude: 102.37567}}
                     />
-                  )} */}
-                {/* </MapView> */}
+                  )}
+                </MapView>
               </View>
               <FastImage
                 source={require('../assets/img1.jpg')}
