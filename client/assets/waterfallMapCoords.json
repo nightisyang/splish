@@ -1,746 +1,932 @@
 [
   {
     "title": "Air Hitam falls",
-    "coordinates": { "latitude": 5.02017, "longitude": 100.84717 }
+    "coordinates": {"latitude": 5.02017, "longitude": 100.84717},
+    "id": "62e257d0a55e10ce136039ee"
   },
   {
     "title": "Air Terjun Harimau Berjemur",
-    "coordinates": { "latitude": 2.7815, "longitude": 103.19317 }
+    "coordinates": {"latitude": 2.7815, "longitude": 103.19317},
+    "id": "62e257d0a55e10ce136039ef"
   },
   {
     "title": "Air Terjun Junjong",
-    "coordinates": { "latitude": 5.2765, "longitude": 100.564 }
+    "coordinates": {"latitude": 5.2765, "longitude": 100.564},
+    "id": "62e257d0a55e10ce136039f0"
   },
   {
     "title": "Air Terjun Sekayu",
-    "coordinates": { "latitude": 4.96417, "longitude": 102.94517 }
+    "coordinates": {"latitude": 4.96417, "longitude": 102.94517},
+    "id": "62e257d0a55e10ce136039f1"
   },
   {
     "title": "Air Terjun Siong",
-    "coordinates": { "latitude": 3.13117, "longitude": 101.95283 }
+    "coordinates": {"latitude": 3.13117, "longitude": 101.95283},
+    "id": "62e257d0a55e10ce136039f2"
   },
   {
     "title": "Alur Naga Fall",
-    "coordinates": { "latitude": 5.79383, "longitude": 100.43133 }
+    "coordinates": {"latitude": 5.79383, "longitude": 100.43133},
+    "id": "62e257d0a55e10ce136039f3"
   },
   {
     "title": "Asahan Fall",
-    "coordinates": { "latitude": 2.397, "longitude": 102.60183 }
+    "coordinates": {"latitude": 2.397, "longitude": 102.60183},
+    "id": "62e257d0a55e10ce136039f4"
   },
   {
     "title": "Ayer Puteh",
-    "coordinates": { "latitude": 2.34367, "longitude": 102.618 }
+    "coordinates": {"latitude": 2.34367, "longitude": 102.618},
+    "id": "62e257d0a55e10ce136039f5"
   },
   {
     "title": "Badak Fall",
-    "coordinates": { "latitude": 5.82205, "longitude": 100.46083 }
+    "coordinates": {"latitude": 5.82205, "longitude": 100.46083},
+    "id": "62e257d0a55e10ce136039f6"
   },
   {
     "title": "Ban Buan Kukuot",
-    "coordinates": { "latitude": 1.11533, "longitude": 110.25783 }
+    "coordinates": {"latitude": 1.11533, "longitude": 110.25783},
+    "id": "62e257d0a55e10ce136039f7"
   },
   {
     "title": "Batangsi Fall",
-    "coordinates": { "latitude": 3.03033, "longitude": 101.90433 }
+    "coordinates": {"latitude": 3.03033, "longitude": 101.90433},
+    "id": "62e257d0a55e10ce136039f8"
   },
   {
     "title": "Batu Asah Falls",
-    "coordinates": { "latitude": 3.22195, "longitude": 101.79277 }
+    "coordinates": {"latitude": 3.22195, "longitude": 101.79277},
+    "id": "62e257d0a55e10ce136039f9"
   },
   {
     "title": "Batu Berangkai",
-    "coordinates": { "latitude": 4.30783, "longitude": 101.16867 }
+    "coordinates": {"latitude": 4.30783, "longitude": 101.16867},
+    "id": "62e257d0a55e10ce136039fa"
   },
   {
     "title": "Batu Berayun Fall",
-    "coordinates": { "latitude": 3.40726, "longitude": 101.73337 }
+    "coordinates": {"latitude": 3.40726, "longitude": 101.73337},
+    "id": "62e257d0a55e10ce136039fb"
   },
   {
     "title": "Batu Bertengkek Falls",
-    "coordinates": { "latitude": 3.60833, "longitude": 101.62503 }
+    "coordinates": {"latitude": 3.60833, "longitude": 101.62503},
+    "id": "62e257d0a55e10ce136039fc"
   },
   {
     "title": "Batu Cherandong",
-    "coordinates": { "latitude": 3.55531, "longitude": 101.69049 }
+    "coordinates": {"latitude": 3.55531, "longitude": 101.69049},
+    "id": "62e257d0a55e10ce136039fd"
   },
   {
     "title": "Batu Ferringhi",
-    "coordinates": { "latitude": 5.46017, "longitude": 100.242 }
+    "coordinates": {"latitude": 5.46017, "longitude": 100.242},
+    "id": "62e257d0a55e10ce136039fe"
   },
   {
     "title": "Batu Hampar",
-    "coordinates": { "latitude": 5.77533, "longitude": 100.40217 }
+    "coordinates": {"latitude": 5.77533, "longitude": 100.40217},
+    "id": "62e257d0a55e10ce136039ff"
   },
   {
     "title": "Batu Kapal Falls",
-    "coordinates": { "latitude": 3.34716, "longitude": 101.71999 }
+    "coordinates": {"latitude": 3.34716, "longitude": 101.71999},
+    "id": "62e257d0a55e10ce13603a00"
   },
   {
     "title": "Belawan Falls",
-    "coordinates": { "latitude": 5.42883, "longitude": 102.4375 }
+    "coordinates": {"latitude": 5.42883, "longitude": 102.4375},
+    "id": "62e257d0a55e10ce13603a01"
   },
   {
     "title": "Belihoi Fall",
-    "coordinates": { "latitude": 2.76912, "longitude": 101.9085 }
+    "coordinates": {"latitude": 2.76912, "longitude": 101.9085},
+    "id": "62e257d0a55e10ce13603a02"
   },
   {
     "title": "Belukar Bukit",
-    "coordinates": { "latitude": 4.8905, "longitude": 102.99117 }
+    "coordinates": {"latitude": 4.8905, "longitude": 102.99117},
+    "id": "62e257d0a55e10ce13603a03"
   },
   {
     "title": "Berkelah Falls",
-    "coordinates": { "latitude": 3.75367, "longitude": 102.97983 }
+    "coordinates": {"latitude": 3.75367, "longitude": 102.97983},
+    "id": "62e257d0a55e10ce13603a04"
   },
   {
     "title": "Bersih Falls",
-    "coordinates": { "latitude": 4.10295, "longitude": 101.34439 }
+    "coordinates": {"latitude": 4.10295, "longitude": 101.34439},
+    "id": "62e257d0a55e10ce13603a05"
   },
   {
     "title": "Bertangga Fall",
-    "coordinates": { "latitude": 3.29933, "longitude": 102.67067 }
+    "coordinates": {"latitude": 3.29933, "longitude": 102.67067},
+    "id": "62e257d0a55e10ce13603a06"
   },
   {
     "title": "Bobak falls",
-    "coordinates": { "latitude": 1.54167, "longitude": 110.18617 }
+    "coordinates": {"latitude": 1.54167, "longitude": 110.18617},
+    "id": "62e257d0a55e10ce13603a07"
   },
   {
     "title": "Buaya Sangkut",
-    "coordinates": { "latitude": 2.4965, "longitude": 103.31933 }
+    "coordinates": {"latitude": 2.4965, "longitude": 103.31933},
+    "id": "62e257d0a55e10ce13603a08"
   },
   {
     "title": "Bukit Apeh",
-    "coordinates": { "latitude": 3.1035, "longitude": 101.78233 }
+    "coordinates": {"latitude": 3.1035, "longitude": 101.78233},
+    "id": "62e257d0a55e10ce13603a09"
   },
   {
     "title": "Bukit Hijau",
-    "coordinates": { "latitude": 5.49767, "longitude": 100.77317 }
+    "coordinates": {"latitude": 5.49767, "longitude": 100.77317},
+    "id": "62e257d0a55e10ce13603a0a"
   },
   {
     "title": "Bukit Jana Fall",
-    "coordinates": { "latitude": 4.89667, "longitude": 100.75233 }
+    "coordinates": {"latitude": 4.89667, "longitude": 100.75233},
+    "id": "62e257d0a55e10ce13603a0b"
   },
   {
     "title": "Bukit Tampin Falls",
-    "coordinates": { "latitude": 2.48727, "longitude": 102.22151 }
+    "coordinates": {"latitude": 2.48727, "longitude": 102.22151},
+    "id": "62e257d0a55e10ce13603a0c"
   },
   {
     "title": "Buntong falls",
-    "coordinates": { "latitude": 4.59633, "longitude": 101.03767 }
+    "coordinates": {"latitude": 4.59633, "longitude": 101.03767},
+    "id": "62e257d0a55e10ce13603a0d"
   },
   {
     "title": "Cemperoh Fall",
-    "coordinates": { "latitude": 3.281, "longitude": 101.88783 }
+    "coordinates": {"latitude": 3.281, "longitude": 101.88783},
+    "id": "62e257d0a55e10ce13603a0e"
   },
   {
     "title": "Chamang Fall",
-    "coordinates": { "latitude": 3.50933, "longitude": 101.85783 }
+    "coordinates": {"latitude": 3.50933, "longitude": 101.85783},
+    "id": "62e257d0a55e10ce13603a0f"
   },
   {
     "title": "Cheh Cascade Fall",
-    "coordinates": { "latitude": 3.40594, "longitude": 101.65883 }
+    "coordinates": {"latitude": 3.40594, "longitude": 101.65883},
+    "id": "62e257d0a55e10ce13603a10"
   },
   {
     "title": "Chelik Fall",
-    "coordinates": { "latitude": 4.58283, "longitude": 101.27683 }
+    "coordinates": {"latitude": 4.58283, "longitude": 101.27683},
+    "id": "62e257d0a55e10ce13603a11"
   },
   {
     "title": "Chiling Falls",
-    "coordinates": { "latitude": 3.59517, "longitude": 101.75083 }
+    "coordinates": {"latitude": 3.59517, "longitude": 101.75083},
+    "id": "62e257d0a55e10ce13603a12"
   },
   {
     "title": "Damak Fall",
-    "coordinates": { "latitude": 4.43917, "longitude": 101.26433 }
+    "coordinates": {"latitude": 4.43917, "longitude": 101.26433},
+    "id": "62e257d0a55e10ce13603a13"
   },
   {
     "title": "Durian Perangin",
-    "coordinates": { "latitude": 6.40183, "longitude": 99.82033 }
+    "coordinates": {"latitude": 6.40183, "longitude": 99.82033},
+    "id": "62e257d0a55e10ce13603a14"
   },
   {
     "title": "Gabai Falls",
-    "coordinates": { "latitude": 3.16617, "longitude": 101.90867 }
+    "coordinates": {"latitude": 3.16617, "longitude": 101.90867},
+    "id": "62e257d0a55e10ce13603a15"
   },
   {
     "title": "Gapi Fall",
-    "coordinates": { "latitude": 3.407, "longitude": 101.64722 }
+    "coordinates": {"latitude": 3.407, "longitude": 101.64722},
+    "id": "62e257d0a55e10ce13603a16"
   },
   {
     "title": "Gapoi Fall",
-    "coordinates": { "latitude": 3.2565, "longitude": 102.103 }
+    "coordinates": {"latitude": 3.2565, "longitude": 102.103},
+    "id": "62e257d0a55e10ce13603a17"
   },
   {
     "title": "Gapok Falls",
-    "coordinates": { "latitude": 3.1556, "longitude": 101.93082 }
+    "coordinates": {"latitude": 3.1556, "longitude": 101.93082},
+    "id": "62e257d0a55e10ce13603a18"
   },
   {
     "title": "Genuai Fall",
-    "coordinates": { "latitude": 3.79229, "longitude": 102.24422 }
+    "coordinates": {"latitude": 3.79229, "longitude": 102.24422},
+    "id": "62e257d0a55e10ce13603a19"
   },
   {
     "title": "Gepai Falls",
-    "coordinates": { "latitude": 4.11983, "longitude": 101.33117 }
+    "coordinates": {"latitude": 4.11983, "longitude": 101.33117},
+    "id": "62e257d0a55e10ce13603a1a"
   },
   {
     "title": "Geruntum",
-    "coordinates": { "latitude": 4.46683, "longitude": 101.223 }
+    "coordinates": {"latitude": 4.46683, "longitude": 101.223},
+    "id": "62e257d0a55e10ce13603a1b"
   },
   {
     "title": "Giam Klimau",
-    "coordinates": { "latitude": 3.72317, "longitude": 113.92733 }
+    "coordinates": {"latitude": 3.72317, "longitude": 113.92733},
+    "id": "62e257d0a55e10ce13603a1c"
   },
   {
     "title": "Jangkar Fall",
-    "coordinates": { "latitude": 1.665, "longitude": 109.69533 }
+    "coordinates": {"latitude": 1.665, "longitude": 109.69533},
+    "id": "62e257d0a55e10ce13603a1d"
   },
   {
     "title": "Jeram Anjang",
-    "coordinates": { "latitude": 3.16578, "longitude": 101.80951 }
+    "coordinates": {"latitude": 3.16578, "longitude": 101.80951},
+    "id": "62e257d0a55e10ce13603a1e"
   },
   {
     "title": "Jeram Dagang",
-    "coordinates": { "latitude": 2.96052, "longitude": 102.12097 }
+    "coordinates": {"latitude": 2.96052, "longitude": 102.12097},
+    "id": "62e257d0a55e10ce13603a1f"
   },
   {
     "title": "Jeram Glami",
-    "coordinates": { "latitude": 3.03782, "longitude": 102.02635 }
+    "coordinates": {"latitude": 3.03782, "longitude": 102.02635},
+    "id": "62e257d0a55e10ce13603a20"
   },
   {
     "title": "Jeram Kedah",
-    "coordinates": { "latitude": 2.9055, "longitude": 101.95767 }
+    "coordinates": {"latitude": 2.9055, "longitude": 101.95767},
+    "id": "62e257d0a55e10ce13603a21"
   },
   {
     "title": "Jeram Lambar",
-    "coordinates": { "latitude": 2.77114, "longitude": 101.8342 }
+    "coordinates": {"latitude": 2.77114, "longitude": 101.8342},
+    "id": "62e257d0a55e10ce13603a22"
   },
   {
     "title": "Jeram Linang",
-    "coordinates": { "latitude": 5.742, "longitude": 102.37567 }
+    "coordinates": {"latitude": 5.742, "longitude": 102.37567},
+    "id": "62e257d0a55e10ce13603a23"
   },
   {
     "title": "Jeram Nerai Falls",
-    "coordinates": { "latitude": 2.51059, "longitude": 102.23215 }
+    "coordinates": {"latitude": 2.51059, "longitude": 102.23215},
+    "id": "62e257d0a55e10ce13603a24"
   },
   {
     "title": "Jeram Pasu",
-    "coordinates": { "latitude": 5.79383, "longitude": 102.33683 }
+    "coordinates": {"latitude": 5.79383, "longitude": 102.33683},
+    "id": "62e257d0a55e10ce13603a25"
   },
   {
     "title": "Jeram Penitih",
-    "coordinates": { "latitude": 4.44783, "longitude": 103.36067 }
+    "coordinates": {"latitude": 4.44783, "longitude": 103.36067},
+    "id": "62e257d0a55e10ce13603a26"
   },
   {
     "title": "Jeram Perlus",
-    "coordinates": { "latitude": 3.20033, "longitude": 101.92333 }
+    "coordinates": {"latitude": 3.20033, "longitude": 101.92333},
+    "id": "62e257d0a55e10ce13603a27"
   },
   {
     "title": "Jeram Rusa",
-    "coordinates": { "latitude": 2.8973, "longitude": 101.95736 }
+    "coordinates": {"latitude": 2.8973, "longitude": 101.95736},
+    "id": "62e257d0a55e10ce13603a28"
   },
   {
     "title": "Jeram Tebrau",
-    "coordinates": { "latitude": 2.7555, "longitude": 101.8795 }
+    "coordinates": {"latitude": 2.7555, "longitude": 101.8795},
+    "id": "62e257d0a55e10ce13603a29"
   },
   {
     "title": "Jeram Tengkek",
-    "coordinates": { "latitude": 2.87317, "longitude": 102.183 }
+    "coordinates": {"latitude": 2.87317, "longitude": 102.183},
+    "id": "62e257d0a55e10ce13603a2a"
   },
   {
     "title": "Jeram Tinggi",
-    "coordinates": { "latitude": 2.39833, "longitude": 102.64217 }
+    "coordinates": {"latitude": 2.39833, "longitude": 102.64217},
+    "id": "62e257d0a55e10ce13603a2b"
   },
   {
     "title": "Jeram Toi",
-    "coordinates": { "latitude": 2.86433, "longitude": 102.01567 }
+    "coordinates": {"latitude": 2.86433, "longitude": 102.01567},
+    "id": "62e257d0a55e10ce13603a2c"
   },
   {
     "title": "Jerangkang Falls",
-    "coordinates": { "latitude": 3.77633, "longitude": 102.93767 }
+    "coordinates": {"latitude": 3.77633, "longitude": 102.93767},
+    "id": "62e257d0a55e10ce13603a2d"
   },
   {
     "title": "Jeriau Fall",
-    "coordinates": { "latitude": 3.728, "longitude": 101.71133 }
+    "coordinates": {"latitude": 3.728, "longitude": 101.71133},
+    "id": "62e257d0a55e10ce13603a2e"
   },
   {
     "title": "Kait Fall",
-    "coordinates": { "latitude": 4.57464, "longitude": 101.23112 }
+    "coordinates": {"latitude": 4.57464, "longitude": 101.23112},
+    "id": "62e257d0a55e10ce13603a2f"
   },
   {
     "title": "Kamunting Fall",
-    "coordinates": { "latitude": 4.8785, "longitude": 100.77133 }
+    "coordinates": {"latitude": 4.8785, "longitude": 100.77133},
+    "id": "62e257d0a55e10ce13603a30"
   },
   {
     "title": "Kanching Falls",
-    "coordinates": { "latitude": 3.30217, "longitude": 101.61983 }
+    "coordinates": {"latitude": 3.30217, "longitude": 101.61983},
+    "id": "62e257d0a55e10ce13603a31"
   },
   {
     "title": "Kedondong fall",
-    "coordinates": { "latitude": 3.43033, "longitude": 101.731 }
+    "coordinates": {"latitude": 3.43033, "longitude": 101.731},
+    "id": "62e257d0a55e10ce13603a32"
   },
   {
     "title": "Kekabu Falls",
-    "coordinates": { "latitude": 5.0495, "longitude": 100.945 }
+    "coordinates": {"latitude": 5.0495, "longitude": 100.945},
+    "id": "62e257d0a55e10ce13603a33"
   },
   {
     "title": "Kenip Fall",
-    "coordinates": { "latitude": 4.25067, "longitude": 101.62583 }
+    "coordinates": {"latitude": 4.25067, "longitude": 101.62583},
+    "id": "62e257d0a55e10ce13603a34"
   },
   {
     "title": "Kinabalu Falls",
-    "coordinates": { "latitude": 6.03133, "longitude": 116.54733 }
+    "coordinates": {"latitude": 6.03133, "longitude": 116.54733},
+    "id": "62e257d0a55e10ce13603a35"
   },
   {
     "title": "Kionsom Fall",
-    "coordinates": { "latitude": 5.972, "longitude": 116.20867 }
+    "coordinates": {"latitude": 5.972, "longitude": 116.20867},
+    "id": "62e257d0a55e10ce13603a36"
   },
   {
     "title": "Komanwel Fall",
-    "coordinates": { "latitude": 3.291, "longitude": 101.61267 }
+    "coordinates": {"latitude": 3.291, "longitude": 101.61267},
+    "id": "62e257d0a55e10ce13603a37"
   },
   {
     "title": "Kota Tinggi",
-    "coordinates": { "latitude": 1.83017, "longitude": 103.83267 }
+    "coordinates": {"latitude": 1.83017, "longitude": 103.83267},
+    "id": "62e257d0a55e10ce13603a38"
   },
   {
     "title": "Kubah Fall",
-    "coordinates": { "latitude": 1.596, "longitude": 110.18083 }
+    "coordinates": {"latitude": 1.596, "longitude": 110.18083},
+    "id": "62e257d0a55e10ce13603a39"
   },
   {
     "title": "Lata Batu Pecah",
-    "coordinates": { "latitude": 4.62117, "longitude": 100.84767 }
+    "coordinates": {"latitude": 4.62117, "longitude": 100.84767},
+    "id": "62e257d0a55e10ce13603a3a"
   },
   {
     "title": "Lata Bayu",
-    "coordinates": { "latitude": 5.72033, "longitude": 100.81467 }
+    "coordinates": {"latitude": 5.72033, "longitude": 100.81467},
+    "id": "62e257d0a55e10ce13603a3b"
   },
   {
     "title": "Lata Belatan",
-    "coordinates": { "latitude": 5.63767, "longitude": 102.58933 }
+    "coordinates": {"latitude": 5.63767, "longitude": 102.58933},
+    "id": "62e257d0a55e10ce13603a3c"
   },
   {
     "title": "Lata Berangin",
-    "coordinates": { "latitude": 5.447, "longitude": 102.3265 }
+    "coordinates": {"latitude": 5.447, "longitude": 102.3265},
+    "id": "62e257d0a55e10ce13603a3d"
   },
   {
     "title": "Lata Berembun Fall",
-    "coordinates": { "latitude": 2.80453, "longitude": 102.03433 }
+    "coordinates": {"latitude": 2.80453, "longitude": 102.03433},
+    "id": "62e257d0a55e10ce13603a3e"
   },
   {
     "title": "Lata Beringin Falls Series",
-    "coordinates": { "latitude": 3.17438, "longitude": 101.8245 }
+    "coordinates": {"latitude": 3.17438, "longitude": 101.8245},
+    "id": "62e257d0a55e10ce13603a3f"
   },
   {
     "title": "Lata Berumbun",
-    "coordinates": { "latitude": 3.77733, "longitude": 102.05967 }
+    "coordinates": {"latitude": 3.77733, "longitude": 102.05967},
+    "id": "62e257d0a55e10ce13603a40"
   },
   {
     "title": "Lata Cemerong",
-    "coordinates": { "latitude": 4.66, "longitude": 103.00083 }
+    "coordinates": {"latitude": 4.66, "longitude": 103.00083},
+    "id": "62e257d0a55e10ce13603a41"
   },
   {
     "title": "Lata Hammers",
-    "coordinates": { "latitude": 3.45683, "longitude": 101.86417 }
+    "coordinates": {"latitude": 3.45683, "longitude": 101.86417},
+    "id": "62e257d0a55e10ce13603a42"
   },
   {
     "title": "Lata Hujan Lebat",
-    "coordinates": { "latitude": 5.9835, "longitude": 100.86133 }
+    "coordinates": {"latitude": 5.9835, "longitude": 100.86133},
+    "id": "62e257d0a55e10ce13603a43"
   },
   {
     "title": "Lata Iskandar",
-    "coordinates": { "latitude": 4.3255, "longitude": 101.32367 }
+    "coordinates": {"latitude": 4.3255, "longitude": 101.32367},
+    "id": "62e257d0a55e10ce13603a44"
   },
   {
     "title": "Lata Janggut",
-    "coordinates": { "latitude": 5.6715, "longitude": 101.7705 }
+    "coordinates": {"latitude": 5.6715, "longitude": 101.7705},
+    "id": "62e257d0a55e10ce13603a45"
   },
   {
     "title": "Lata Jarum",
-    "coordinates": { "latitude": 3.932, "longitude": 102.03317 }
+    "coordinates": {"latitude": 3.932, "longitude": 102.03317},
+    "id": "62e257d0a55e10ce13603a46"
   },
   {
     "title": "Lata Kertas",
-    "coordinates": { "latitude": 5.24333, "longitude": 101.95585 }
+    "coordinates": {"latitude": 5.24333, "longitude": 101.95585},
+    "id": "62e257d0a55e10ce13603a47"
   },
   {
     "title": "Lata Khong",
-    "coordinates": { "latitude": 3.434, "longitude": 101.98617 }
+    "coordinates": {"latitude": 3.434, "longitude": 101.98617},
+    "id": "62e257d0a55e10ce13603a48"
   },
   {
     "title": "Lata Kijang",
-    "coordinates": { "latitude": 3.19533, "longitude": 101.98767 }
+    "coordinates": {"latitude": 3.19533, "longitude": 101.98767},
+    "id": "62e257d0a55e10ce13603a49"
   },
   {
     "title": "Lata Kinjang",
-    "coordinates": { "latitude": 4.30233, "longitude": 101.25633 }
+    "coordinates": {"latitude": 4.30233, "longitude": 101.25633},
+    "id": "62e257d0a55e10ce13603a4a"
   },
   {
     "title": "Lata Lembik",
-    "coordinates": { "latitude": 3.982, "longitude": 101.64917 }
+    "coordinates": {"latitude": 3.982, "longitude": 101.64917},
+    "id": "62e257d0a55e10ce13603a4b"
   },
   {
     "title": "Lata Medang",
-    "coordinates": { "latitude": 3.54067, "longitude": 101.75333 }
+    "coordinates": {"latitude": 3.54067, "longitude": 101.75333},
+    "id": "62e257d0a55e10ce13603a4c"
   },
   {
     "title": "Lata Mengkuang",
-    "coordinates": { "latitude": 5.8665, "longitude": 100.83683 }
+    "coordinates": {"latitude": 5.8665, "longitude": 100.83683},
+    "id": "62e257d0a55e10ce13603a4d"
   },
   {
     "title": "Lata Meraung",
-    "coordinates": { "latitude": 3.86333, "longitude": 102.295 }
+    "coordinates": {"latitude": 3.86333, "longitude": 102.295},
+    "id": "62e257d0a55e10ce13603a4e"
   },
   {
     "title": "Lata Nyangung",
-    "coordinates": { "latitude": 3.291, "longitude": 102.03517 }
+    "coordinates": {"latitude": 3.291, "longitude": 102.03517},
+    "id": "62e257d0a55e10ce13603a4f"
   },
   {
     "title": "Lata Payong",
-    "coordinates": { "latitude": 5.00922, "longitude": 100.92092 }
+    "coordinates": {"latitude": 5.00922, "longitude": 100.92092},
+    "id": "62e257d0a55e10ce13603a50"
   },
   {
     "title": "Lata Perahu",
-    "coordinates": { "latitude": 4.90567, "longitude": 100.8905 }
+    "coordinates": {"latitude": 4.90567, "longitude": 100.8905},
+    "id": "62e257d0a55e10ce13603a51"
   },
   {
     "title": "Lata Puteh",
-    "coordinates": { "latitude": 5.155, "longitude": 100.8845 }
+    "coordinates": {"latitude": 5.155, "longitude": 100.8845},
+    "id": "62e257d0a55e10ce13603a52"
   },
   {
     "title": "Lata Rek",
-    "coordinates": { "latitude": 5.31117, "longitude": 102.2995 }
+    "coordinates": {"latitude": 5.31117, "longitude": 102.2995},
+    "id": "62e257d0a55e10ce13603a53"
   },
   {
     "title": "Lata Seru",
-    "coordinates": { "latitude": 4.48367, "longitude": 103.37633 }
+    "coordinates": {"latitude": 4.48367, "longitude": 103.37633},
+    "id": "62e257d0a55e10ce13603a54"
   },
   {
     "title": "Lata Tampit",
-    "coordinates": { "latitude": 3.3105, "longitude": 101.8455 }
+    "coordinates": {"latitude": 3.3105, "longitude": 101.8455},
+    "id": "62e257d0a55e10ce13603a55"
   },
   {
     "title": "Lata Tanjung Kala",
-    "coordinates": { "latitude": 5.4435, "longitude": 101.08467 }
+    "coordinates": {"latitude": 5.4435, "longitude": 101.08467},
+    "id": "62e257d0a55e10ce13603a56"
   },
   {
     "title": "Lata Tebing Tinggi",
-    "coordinates": { "latitude": 5.20667, "longitude": 100.7805 }
+    "coordinates": {"latitude": 5.20667, "longitude": 100.7805},
+    "id": "62e257d0a55e10ce13603a57"
   },
   {
     "title": "Lata Tembakah",
-    "coordinates": { "latitude": 5.58617, "longitude": 102.44717 }
+    "coordinates": {"latitude": 5.58617, "longitude": 102.44717},
+    "id": "62e257d0a55e10ce13603a58"
   },
   {
     "title": "Lata Tengkoh Penyel",
-    "coordinates": { "latitude": 4.9325, "longitude": 101.32817 }
+    "coordinates": {"latitude": 4.9325, "longitude": 101.32817},
+    "id": "62e257d0a55e10ce13603a59"
   },
   {
     "title": "Lata Ulu Chepor",
-    "coordinates": { "latitude": 4.70967, "longitude": 101.06867 }
+    "coordinates": {"latitude": 4.70967, "longitude": 101.06867},
+    "id": "62e257d0a55e10ce13603a5a"
   },
   {
     "title": "Lata Woh Falls",
-    "coordinates": { "latitude": 3.48426, "longitude": 102.20961 }
+    "coordinates": {"latitude": 3.48426, "longitude": 102.20961},
+    "id": "62e257d0a55e10ce13603a5b"
   },
   {
     "title": "Lata Yuk",
-    "coordinates": { "latitude": 4.3, "longitude": 101.25967 }
+    "coordinates": {"latitude": 4.3, "longitude": 101.25967},
+    "id": "62e257d0a55e10ce13603a5c"
   },
   {
     "title": "Latak Falls",
-    "coordinates": { "latitude": 4.20458, "longitude": 114.0369 }
+    "coordinates": {"latitude": 4.20458, "longitude": 114.0369},
+    "id": "62e257d0a55e10ce13603a5d"
   },
   {
     "title": "Lawing falls",
-    "coordinates": { "latitude": 3.165, "longitude": 101.92967 }
+    "coordinates": {"latitude": 3.165, "longitude": 101.92967},
+    "id": "62e257d0a55e10ce13603a5e"
   },
   {
     "title": "Lemako Falls",
-    "coordinates": { "latitude": 2.4895, "longitude": 103.44167 }
+    "coordinates": {"latitude": 2.4895, "longitude": 103.44167},
+    "id": "62e257d0a55e10ce13603a5f"
   },
   {
     "title": "Lentang",
-    "coordinates": { "latitude": 3.37517, "longitude": 101.88417 }
+    "coordinates": {"latitude": 3.37517, "longitude": 101.88417},
+    "id": "62e257d0a55e10ce13603a60"
   },
   {
     "title": "Lepok Fall",
-    "coordinates": { "latitude": 3.2505, "longitude": 101.86567 }
+    "coordinates": {"latitude": 3.2505, "longitude": 101.86567},
+    "id": "62e257d0a55e10ce13603a61"
   },
   {
     "title": "Lolo falls",
-    "coordinates": { "latitude": 3.23067, "longitude": 101.9015 }
+    "coordinates": {"latitude": 3.23067, "longitude": 101.9015},
+    "id": "62e257d0a55e10ce13603a62"
   },
   {
     "title": "Lubuk Kawah fall",
-    "coordinates": { "latitude": 3.7175, "longitude": 101.58933 }
+    "coordinates": {"latitude": 3.7175, "longitude": 101.58933},
+    "id": "62e257d0a55e10ce13603a63"
   },
   {
     "title": "Lubuk Timah",
-    "coordinates": { "latitude": 4.5585, "longitude": 101.16483 }
+    "coordinates": {"latitude": 4.5585, "longitude": 101.16483},
+    "id": "62e257d0a55e10ce13603a64"
   },
   {
     "title": "Madai Fall",
-    "coordinates": { "latitude": 4.7515, "longitude": 118.11567 }
+    "coordinates": {"latitude": 4.7515, "longitude": 118.11567},
+    "id": "62e257d0a55e10ce13603a65"
   },
   {
     "title": "Mahua Fall",
-    "coordinates": { "latitude": 5.79684, "longitude": 116.40846 }
+    "coordinates": {"latitude": 5.79684, "longitude": 116.40846},
+    "id": "62e257d0a55e10ce13603a66"
   },
   {
     "title": "Maliau Basin",
-    "coordinates": { "latitude": 4.73905, "longitude": 116.96399 }
+    "coordinates": {"latitude": 4.73905, "longitude": 116.96399},
+    "id": "62e257d0a55e10ce13603a67"
   },
   {
     "title": "Masai Falls",
-    "coordinates": { "latitude": 3.02096, "longitude": 101.92126 }
+    "coordinates": {"latitude": 3.02096, "longitude": 101.92126},
+    "id": "62e257d0a55e10ce13603a68"
   },
   {
     "title": "Maxwell Hill Fall",
-    "coordinates": { "latitude": 4.86733, "longitude": 100.76383 }
+    "coordinates": {"latitude": 4.86733, "longitude": 100.76383},
+    "id": "62e257d0a55e10ce13603a69"
   },
   {
     "title": "Pandan Fall",
-    "coordinates": { "latitude": 3.78983, "longitude": 103.14117 }
+    "coordinates": {"latitude": 3.78983, "longitude": 103.14117},
+    "id": "62e257d0a55e10ce13603a6a"
   },
   {
     "title": "Pangsun Falls",
-    "coordinates": { "latitude": 3.24415, "longitude": 101.88258 }
+    "coordinates": {"latitude": 3.24415, "longitude": 101.88258},
+    "id": "62e257d0a55e10ce13603a6b"
   },
   {
     "title": "Pantu Falls",
-    "coordinates": { "latitude": 4.2025, "longitude": 114.02867 }
+    "coordinates": {"latitude": 4.2025, "longitude": 114.02867},
+    "id": "62e257d0a55e10ce13603a6c"
   },
   {
     "title": "Papan Fall",
-    "coordinates": { "latitude": 4.53583, "longitude": 101.00367 }
+    "coordinates": {"latitude": 4.53583, "longitude": 101.00367},
+    "id": "62e257d0a55e10ce13603a6d"
   },
   {
     "title": "Parit Fall",
-    "coordinates": { "latitude": 4.47533, "longitude": 101.38367 }
+    "coordinates": {"latitude": 4.47533, "longitude": 101.38367},
+    "id": "62e257d0a55e10ce13603a6e"
   },
   {
     "title": "Pasong Falls",
-    "coordinates": { "latitude": 2.91298, "longitude": 102.23041 }
+    "coordinates": {"latitude": 2.91298, "longitude": 102.23041},
+    "id": "62e257d0a55e10ce13603a6f"
   },
   {
     "title": "Pelepah Falls",
-    "coordinates": { "latitude": 1.82167, "longitude": 103.81883 }
+    "coordinates": {"latitude": 1.82167, "longitude": 103.81883},
+    "id": "62e257d0a55e10ce13603a70"
   },
   {
     "title": "Perangin Sik",
-    "coordinates": { "latitude": 5.84183, "longitude": 100.73833 }
+    "coordinates": {"latitude": 5.84183, "longitude": 100.73833},
+    "id": "62e257d0a55e10ce13603a71"
   },
   {
     "title": "Perdik Fall",
-    "coordinates": { "latitude": 3.21233, "longitude": 101.82617 }
+    "coordinates": {"latitude": 3.21233, "longitude": 101.82617},
+    "id": "62e257d0a55e10ce13603a72"
   },
   {
     "title": "Perigi Falls",
-    "coordinates": { "latitude": 5.8088, "longitude": 100.4074 }
+    "coordinates": {"latitude": 5.8088, "longitude": 100.4074},
+    "id": "62e257d0a55e10ce13603a73"
   },
   {
     "title": "Perigi Tujoh",
-    "coordinates": { "latitude": 3.36367, "longitude": 101.61267 }
+    "coordinates": {"latitude": 3.36367, "longitude": 101.61267},
+    "id": "62e257d0a55e10ce13603a74"
   },
   {
     "title": "Pisang Waterfall",
-    "coordinates": { "latitude": 3.31683, "longitude": 101.73277 }
+    "coordinates": {"latitude": 3.31683, "longitude": 101.73277},
+    "id": "62e257d0a55e10ce13603a75"
   },
   {
     "title": "Powerful Seminyang",
-    "coordinates": { "latitude": 3.27913, "longitude": 102.0332 }
+    "coordinates": {"latitude": 3.27913, "longitude": 102.0332},
+    "id": "62e257d0a55e10ce13603a76"
   },
   {
     "title": "Pulai Falls",
-    "coordinates": { "latitude": 1.5925, "longitude": 103.5335 }
+    "coordinates": {"latitude": 1.5925, "longitude": 103.5335},
+    "id": "62e257d0a55e10ce13603a77"
   },
   {
     "title": "Puteri Fall",
-    "coordinates": { "latitude": 2.35483, "longitude": 102.63217 }
+    "coordinates": {"latitude": 2.35483, "longitude": 102.63217},
+    "id": "62e257d0a55e10ce13603a78"
   },
   {
     "title": "Puteri Mandi",
-    "coordinates": { "latitude": 5.79233, "longitude": 100.4125 }
+    "coordinates": {"latitude": 5.79233, "longitude": 100.4125},
+    "id": "62e257d0a55e10ce13603a79"
   },
   {
     "title": "Rainbow fall",
-    "coordinates": { "latitude": 3.92217, "longitude": 102.94733 }
+    "coordinates": {"latitude": 3.92217, "longitude": 102.94733},
+    "id": "62e257d0a55e10ce13603a7a"
   },
   {
     "title": "Ranchan Falls",
-    "coordinates": { "latitude": 1.14317, "longitude": 110.58367 }
+    "coordinates": {"latitude": 1.14317, "longitude": 110.58367},
+    "id": "62e257d0a55e10ce13603a7b"
   },
   {
     "title": "Robinson Falls",
-    "coordinates": { "latitude": 4.46467, "longitude": 101.38667 }
+    "coordinates": {"latitude": 4.46467, "longitude": 101.38667},
+    "id": "62e257d0a55e10ce13603a7c"
   },
   {
     "title": "Salu Falls",
-    "coordinates": { "latitude": 4.37682, "longitude": 101.1743 }
+    "coordinates": {"latitude": 4.37682, "longitude": 101.1743},
+    "id": "62e257d0a55e10ce13603a7d"
   },
   {
     "title": "Santubong Falls",
-    "coordinates": { "latitude": 1.74417, "longitude": 110.31983 }
+    "coordinates": {"latitude": 1.74417, "longitude": 110.31983},
+    "id": "62e257d0a55e10ce13603a7e"
   },
   {
     "title": "Sebarau Fall",
-    "coordinates": { "latitude": 1.21817, "longitude": 110.31417 }
+    "coordinates": {"latitude": 1.21817, "longitude": 110.31417},
+    "id": "62e257d0a55e10ce13603a7f"
   },
   {
     "title": "Sendat Falls",
-    "coordinates": { "latitude": 3.4035, "longitude": 101.6865 }
+    "coordinates": {"latitude": 3.4035, "longitude": 101.6865},
+    "id": "62e257d0a55e10ce13603a80"
   },
   {
     "title": "Serdang Falls",
-    "coordinates": { "latitude": 5.19867, "longitude": 100.58217 }
+    "coordinates": {"latitude": 5.19867, "longitude": 100.58217},
+    "id": "62e257d0a55e10ce13603a81"
   },
   {
     "title": "Serendah Fall",
-    "coordinates": { "latitude": 3.36183, "longitude": 101.64667 }
+    "coordinates": {"latitude": 3.36183, "longitude": 101.64667},
+    "id": "62e257d0a55e10ce13603a82"
   },
   {
     "title": "Serting Ulu",
-    "coordinates": { "latitude": 2.91283, "longitude": 102.255 }
+    "coordinates": {"latitude": 2.91283, "longitude": 102.255},
+    "id": "62e257d0a55e10ce13603a83"
   },
   {
     "title": "Setinggi waterfall",
-    "coordinates": { "latitude": 3.34383, "longitude": 101.64017 }
+    "coordinates": {"latitude": 3.34383, "longitude": 101.64017},
+    "id": "62e257d0a55e10ce13603a84"
   },
   {
     "title": "Sg Ampang",
-    "coordinates": { "latitude": 3.2115, "longitude": 101.79533 }
+    "coordinates": {"latitude": 3.2115, "longitude": 101.79533},
+    "id": "62e257d0a55e10ce13603a85"
   },
   {
     "title": "Sg Luit falls",
-    "coordinates": { "latitude": 3.56417, "longitude": 101.77767 }
+    "coordinates": {"latitude": 3.56417, "longitude": 101.77767},
+    "id": "62e257d0a55e10ce13603a86"
   },
   {
     "title": "Sg Salan Fall",
-    "coordinates": { "latitude": 4.01593, "longitude": 102.47008 }
+    "coordinates": {"latitude": 4.01593, "longitude": 102.47008},
+    "id": "62e257d0a55e10ce13603a87"
   },
   {
     "title": "Sinju Fall",
-    "coordinates": { "latitude": 4.56952, "longitude": 101.2381 }
+    "coordinates": {"latitude": 4.56952, "longitude": 101.2381},
+    "id": "62e257d0a55e10ce13603a88"
   },
   {
     "title": "Sri Mahkota Fall",
-    "coordinates": { "latitude": 2.618, "longitude": 103.3495 }
+    "coordinates": {"latitude": 2.618, "longitude": 103.3495},
+    "id": "62e257d0a55e10ce13603a89"
   },
   {
     "title": "Stong waterfalls",
-    "coordinates": { "latitude": 5.3405, "longitude": 101.9655 }
+    "coordinates": {"latitude": 5.3405, "longitude": 101.9655},
+    "id": "62e257d0a55e10ce13603a8a"
   },
   {
     "title": "Strata Falls",
-    "coordinates": { "latitude": 3.76383, "longitude": 101.5495 }
+    "coordinates": {"latitude": 3.76383, "longitude": 101.5495},
+    "id": "62e257d0a55e10ce13603a8b"
   },
   {
-    "title": "Sungei Tua ",
-    "coordinates": { "latitude": 3.33183, "longitude": 101.7025 }
+    "title": "Sungei Tua",
+    "coordinates": {"latitude": 3.33183, "longitude": 101.7025},
+    "id": "62e257d0a55e10ce13603a8c"
   },
   {
     "title": "Tajor Fall",
-    "coordinates": { "latitude": 1.723, "longitude": 110.47083 }
+    "coordinates": {"latitude": 1.723, "longitude": 110.47083},
+    "id": "62e257d0a55e10ce13603a8d"
   },
   {
     "title": "Taka Melor",
-    "coordinates": { "latitude": 2.47335, "longitude": 103.10789 }
+    "coordinates": {"latitude": 2.47335, "longitude": 103.10789},
+    "id": "62e257d0a55e10ce13603a8e"
   },
   {
     "title": "Takah Tinggi",
-    "coordinates": { "latitude": 2.45347, "longitude": 103.23768 }
+    "coordinates": {"latitude": 2.45347, "longitude": 103.23768},
+    "id": "62e257d0a55e10ce13603a8f"
   },
   {
     "title": "Tambak Fall",
-    "coordinates": { "latitude": 2.91891, "longitude": 102.23157 }
+    "coordinates": {"latitude": 2.91891, "longitude": 102.23157},
+    "id": "62e257d0a55e10ce13603a90"
   },
   {
     "title": "Tanglir Falls",
-    "coordinates": { "latitude": 3.3755, "longitude": 101.79433 }
+    "coordinates": {"latitude": 3.3755, "longitude": 101.79433},
+    "id": "62e257d0a55e10ce13603a91"
   },
   {
     "title": "Tarun Falls",
-    "coordinates": { "latitude": 2.95178, "longitude": 101.91422 }
+    "coordinates": {"latitude": 2.95178, "longitude": 101.91422},
+    "id": "62e257d0a55e10ce13603a92"
   },
   {
     "title": "Tebing Tinggi",
-    "coordinates": { "latitude": 5.15983, "longitude": 100.89533 }
+    "coordinates": {"latitude": 5.15983, "longitude": 100.89533},
+    "id": "62e257d0a55e10ce13603a93"
   },
   {
     "title": "Tekala Fall",
-    "coordinates": { "latitude": 3.06033, "longitude": 101.86883 }
+    "coordinates": {"latitude": 3.06033, "longitude": 101.86883},
+    "id": "62e257d0a55e10ce13603a94"
   },
   {
     "title": "Teladas Falls",
-    "coordinates": { "latitude": 3.58983, "longitude": 102.76533 }
+    "coordinates": {"latitude": 3.58983, "longitude": 102.76533},
+    "id": "62e257d0a55e10ce13603a95"
   },
   {
     "title": "Telaga Tujuh",
-    "coordinates": { "latitude": 6.38183, "longitude": 99.673 }
+    "coordinates": {"latitude": 6.38183, "longitude": 99.673},
+    "id": "62e257d0a55e10ce13603a96"
   },
   {
     "title": "Templer Falls",
-    "coordinates": { "latitude": 3.29333, "longitude": 101.65417 }
+    "coordinates": {"latitude": 3.29333, "longitude": 101.65417},
+    "id": "62e257d0a55e10ce13603a97"
   },
   {
     "title": "Temurun Fall",
-    "coordinates": { "latitude": 6.43117, "longitude": 99.70833 }
+    "coordinates": {"latitude": 6.43117, "longitude": 99.70833},
+    "id": "62e257d0a55e10ce13603a98"
   },
   {
     "title": "Tengkil Falls",
-    "coordinates": { "latitude": 1.853, "longitude": 103.78783 }
+    "coordinates": {"latitude": 1.853, "longitude": 103.78783},
+    "id": "62e257d0a55e10ce13603a99"
   },
   {
     "title": "Terapai Fall",
-    "coordinates": { "latitude": 3.39767, "longitude": 102.8025 }
+    "coordinates": {"latitude": 3.39767, "longitude": 102.8025},
+    "id": "62e257d0a55e10ce13603a9a"
   },
   {
     "title": "The Waterfall",
-    "coordinates": { "latitude": 5.44033, "longitude": 100.2855 }
+    "coordinates": {"latitude": 5.44033, "longitude": 100.2855},
+    "id": "62e257d0a55e10ce13603a9b"
   },
   {
     "title": "Tibang Fall",
-    "coordinates": { "latitude": 3.97067, "longitude": 101.485 }
+    "coordinates": {"latitude": 3.97067, "longitude": 101.485},
+    "id": "62e257d0a55e10ce13603a9c"
   },
   {
     "title": "Tigok Fall",
-    "coordinates": { "latitude": 4.17317, "longitude": 101.421 }
+    "coordinates": {"latitude": 4.17317, "longitude": 1.421},
+    "id": "62e257d0a55e10ce13603a9d"
   },
   {
     "title": "Titi Kerawang",
-    "coordinates": { "latitude": 5.40383, "longitude": 100.2235 }
+    "coordinates": {"latitude": 5.40383, "longitude": 100.2235},
+    "id": "62e257d0a55e10ce13603a9e"
   },
   {
     "title": "Trong Fall",
-    "coordinates": { "latitude": 4.692, "longitude": 100.75517 }
+    "coordinates": {"latitude": 4.692, "longitude": 100.75517},
+    "id": "62e257d0a55e10ce13603a9f"
   },
   {
     "title": "Tupai fall",
-    "coordinates": { "latitude": 4.83217, "longitude": 100.76467 }
+    "coordinates": {"latitude": 4.83217, "longitude": 100.76467},
+    "id": "62e257d0a55e10ce13603aa0"
   },
   {
     "title": "Ulu Bendol",
-    "coordinates": { "latitude": 2.71117, "longitude": 102.0655 }
+    "coordinates": {"latitude": 2.71117, "longitude": 102.0655},
+    "id": "62e257d0a55e10ce13603aa1"
   },
   {
     "title": "Ulu Lecin Falls",
-    "coordinates": { "latitude": 4.525, "longitude": 100.78333 }
+    "coordinates": {"latitude": 4.525, "longitude": 100.78333},
+    "id": "62e257d0a55e10ce13603aa2"
   },
   {
     "title": "Ulu Paip",
-    "coordinates": { "latitude": 5.38617, "longitude": 100.66817 }
+    "coordinates": {"latitude": 5.38617, "longitude": 100.66817},
+    "id": "62e257d0a55e10ce13603aa3"
   },
   {
     "title": "Ulu Tamu falls",
-    "coordinates": { "latitude": 3.44783, "longitude": 101.724 }
+    "coordinates": {"latitude": 3.44783, "longitude": 101.724},
+    "id": "62e257d0a55e10ce13603aa4"
   },
   {
     "title": "Upeh Guling",
-    "coordinates": { "latitude": 2.51183, "longitude": 103.34967 }
+    "coordinates": {"latitude": 2.51183, "longitude": 103.34967},
+    "id": "62e257d0a55e10ce13603aa5"
   },
   {
     "title": "Usun Apau",
-    "coordinates": { "latitude": 3.02933, "longitude": 114.64967 }
+    "coordinates": {"latitude": 3.02933, "longitude": 114.64967},
+    "id": "62e257d0a55e10ce13603aa6"
   },
   {
     "title": "Yong Falls",
-    "coordinates": { "latitude": 2.105, "longitude": 103.53667 }
+    "coordinates": {"latitude": 2.105, "longitude": 103.53667},
+    "id": "62e257d0a55e10ce13603aa7"
   }
 ]

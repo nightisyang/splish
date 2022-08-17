@@ -7,13 +7,16 @@ const fileObj = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'waterfalls.json'))
 );
 
+// console.log(fileObj.length);
+
 fileObj.forEach(el => {
   const [lat, long] = el.location.coordinates;
-  const { name } = el;
+  const { name, _id } = el;
 
   const markerArr = {
     title: name,
-    coordinates: { latitude: lat, longitude: long }
+    coordinates: { latitude: lat, longitude: long },
+    id: _id
   };
 
   console.log(markerArr);
