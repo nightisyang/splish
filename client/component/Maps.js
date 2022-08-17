@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback, useEffect} from 'react';
+import React, {memo} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -40,7 +40,12 @@ const animateTo = {
   longitudeDelta: LONGITUDE_DELTA,
 };
 
-const Maps = ({navigation}) => {
+const Maps = ({navigation, onReceiveID}) => {
+  const passIDToAppHandler = id => {
+    onReceiveID(id);
+    // console.log(`${id} passed to parent`);
+  };
+
   return (
     <StatusBarTheme>
       <SafeAreaView style={styles.container}>
@@ -52,6 +57,7 @@ const Maps = ({navigation}) => {
             styleInput={styles.map}
             zoomLevelInput={5}
             liteModeInput={false}
+            onCalloutClick={passIDToAppHandler}
           />
         </View>
       </SafeAreaView>
@@ -74,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Maps;
+export default memo(Maps);

@@ -54,11 +54,11 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
     return <Images item={item} onPress={() => setSelectedId(index)} />;
   };
 
-  const onCardClickHandler = id => {
+  const onCardClickHandler = _id => {
     // console.log('click on item', item);
-    console.log('id of waterfall:', id);
-    onCardClick(id);
-    navigation.navigate('Info2');
+    console.log('id of waterfall:', _id);
+    // onCardClick(_id);
+    navigation.navigate('Info', {waterfallID: _id});
   };
 
   return (

@@ -8,7 +8,7 @@ import MapIDState from './MapIDState';
 
 import waterfallCoords from '../assets/waterfallMapCoords.json';
 
-const MapComponent = ({
+const MapComponentCopy = ({
   navigate,
   type,
   regionInput,
@@ -32,20 +32,6 @@ const MapComponent = ({
     setMapReady(true);
   };
 
-  useEffect(() => {
-    if (type === 'info') {
-      setMarkerRender(null);
-      setNewRegion(regionInput);
-    }
-    // const animate = setTimeout(() => {
-    //   console.log('TRIGGGGERRR');
-    //   mapRef.current.animateToRegion(regionInput, 3500);
-    // }, 500);
-    // return () => {
-    //   clearTimeout(animate);
-    // };
-  }, [coordInput, regionInput]);
-
   // animate to region, used in useEffect and is called when map is ready or region is changed
   const animateToRegionHolder = animateTime => {
     if (!mapRef.current) {
@@ -59,10 +45,9 @@ const MapComponent = ({
 
   const passIdToMapHandler = id => {
     <MapIDState recieveID={id} />;
-    // onCalloutClick(id);
+    onCalloutClick(id);
     // console.log(`Passing to ${id} to Map component`);
-    // navigation.navigate('Info');
-    navigation.navigate('Info', {waterfallID: id});
+    navigation.navigate('Info');
   };
 
   // renders marker and stored in state, only called when region change is complete
@@ -105,7 +90,7 @@ const MapComponent = ({
     return () => {
       clearTimeout(animationDelay);
     };
-  }, [isRegionChange, newRegion]);
+  }, [isRegionChange]);
 
   return (
     <View style={{flex: 1, minHeight: 150, position: 'relative'}}>
@@ -117,15 +102,13 @@ const MapComponent = ({
         mapType="terrain"
         minZoomLevel={zoomLevelInput}
         liteMode={liteModeInput}
-        onRegionChangeComplete={(region, details) => {
-          if (!details?.isGesture) {
-            console.log(`%%%%%%%%% REGION CHANGE COMPLETE %%%%%%%%%%`);
-            MarkerRender();
-            setRegionChange(true);
-          }
+        onRegionChangeComplete={() => {
+          //   console.log(`%%%%%%%%% REGION CHANGE COMPLETE %%%%%%%%%%`);
+          MarkerRender();
+          setRegionChange(true);
         }}
         onMapReady={e => {
-          console.log('########### ONMAPREADY #############');
+          //   console.log('########### ONMAPREADY #############');
           handleMapReady();
           setMarkerRender(null);
         }}
@@ -145,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MapComponent;
+export default memo(MapComponentCopy);

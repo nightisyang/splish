@@ -15,6 +15,8 @@ import FastImage from 'react-native-fast-image';
 
 import StatusBarTheme from './StatusBarTheme';
 import MapView, {Marker} from 'react-native-maps';
+import MapComponent from './MapComponent';
+import MapIDState from './MapIDState';
 
 let localhost = '192.168.101.24:3000';
 
@@ -29,40 +31,26 @@ let calcWidth = Dimensions.get('window').width;
 const halfcalcWidth = calcWidth / 2;
 let screenIndex = 0;
 
-const LATITUD_DELTA = 0.3;
+const LATITUD_DELTA = 0.2;
 let LONGITUDE_DELTA;
 LONGITUDE_DELTA = LATITUD_DELTA * (calcWidth / 250);
+let locLat;
+let locLng;
 
-const region = {
-  latitude: 5.742,
-  longitude: 102.37567,
-  latitudeDelta: 0.09,
-  longitudeDelta: LONGITUDE_DELTA,
-};
-
-const camera = {
-  center: {
-    latitude: 5.742,
-    longitude: 102.37567,
-  },
-  pitch: 0,
-  heading: 0,
-
-  // Only on iOS MapKit, in meters. The property is ignored by Google Maps.
-  // altitude: number,
-
-  // Only when using Google Maps.
-  zoom: 8,
-};
-
-const Info = ({navigation, waterfallID}) => {
+const Info = ({onRoute, navigate}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [onLayoutReady, setLayoutReady] = useState(false);
-  // const [screenIndex, setScreenIndex] = useState(1);
   const mapRef = useRef(null);
   const [isMapReady, setMapReady] = useState(false);
   const scrollRef = useRef(null);
   const [waterfall, setWaterfall] = useState(null);
+  const [waterfallID, setWaterfallID] = useState('');
+
+  useEffect(() => {
+    console.log(onRoute);
+    console.log(`route: ${onRoute?.params?.waterfallID}`);
+    setWaterfallID(onRoute?.params?.waterfallID);
+  }, [onRoute]);
 
   async function getWaterfall() {
     try {
@@ -99,6 +87,11 @@ const Info = ({navigation, waterfallID}) => {
       info.lastUpdate = val.lastUpdate;
       info.difficulty = val.difficulty;
 
+      const [arrLat, arrLng] = info.coordinate;
+
+      locLat = arrLat;
+      locLng = arrLng;
+
       info.imgFilenameArr = val.imgDetails.imgFullResFilename.map(
         imgFilename => {
           const obj = {};
@@ -120,49 +113,19 @@ const Info = ({navigation, waterfallID}) => {
     }
   }
 
-  const handleMapReady = useCallback(() => {
-    setMapReady(true);
-    console.log('Map ready...');
-  }, [mapRef]);
-
-  const animateToRegionHolder = (lat, lng) => {
-    console.log('executing animation');
-    console.log('at animate isMapReady:', isMapReady);
-
-    if (!mapRef.current) {
-      console.log('Map ref is undefined');
-      console.log(mapRef.current);
-    }
-
-    if (mapRef.current) {
-      console.log('waiting...');
-      mapRef.current.animateToRegion(
-        {
-          latitude: lat,
-          longitude: lng,
-          latitudeDelta: LATITUD_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        },
-        5000,
-      );
-    }
+  const region = {
+    latitude: locLat,
+    longitude: locLng,
+    latitudeDelta: 0.5,
+    longitudeDelta: LONGITUDE_DELTA,
   };
 
-  useEffect(() => {
-    // console.log(mapRef.current);
-
-    let animationDelay;
-    if (isMapReady) {
-      animationDelay = setTimeout(() => {
-        animateToRegionHolder(5.742, 102.37567);
-        console.log('animating to region..');
-      }, 500);
-    }
-    return () => {
-      clearTimeout(animationDelay);
-      console.log('Clearing timeout...');
-    };
-  }, [isMapReady]);
+  const animateTo = {
+    latitude: locLat,
+    longitude: locLng,
+    latitudeDelta: LATITUD_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+  };
 
   const onLayoutImage = event => {
     const {height} = event.nativeEvent.layout;
@@ -198,6 +161,10 @@ const Info = ({navigation, waterfallID}) => {
     getWaterfall();
     console.log('retriving waterfall');
   }, [waterfallID]);
+
+  useEffect(() => {
+    console.log(waterfallID);
+  });
 
   return (
     <StatusBarTheme>
@@ -248,39 +215,17 @@ const Info = ({navigation, waterfallID}) => {
                   height: '100%',
                   backgroundColor: 'purple',
                 }}>
-                <MapView
-                  ref={mapRef}
-                  onMapReady={e => {
-                    console.log('onMapReady callback');
-                    handleMapReady();
+                <MapComponent
+                  type={'info'}
+                  regionInput={region}
+                  animateToInput={animateTo}
+                  styleInput={{
+                    flex: 1,
                   }}
-                  style={
-                    isMapReady
-                      ? styles.map
-                      : {
-                          flex: 1,
-                          width: calcWidth,
-                          height: '100%',
-                          backgroundColor: 'purple',
-                        }
-                  }
-                  region={region}
-                  provider={PROVIDER_GOOGLE}
-                  mapType="terrain"
-                  // minZoomLevel={9}
-                  zoomEnabled={false}
-                  scrollEnabled={false}
-                  loadingEnabled={true}
-                  // zoomControlEnabled={true}
-                  // liteMode={true}
-                >
-                  {console.log('at JSX isMapReady:', isMapReady)}
-                  {isMapReady && (
-                    <Marker
-                      coordinate={{latitude: 5.742, longitude: 102.37567}}
-                    />
-                  )}
-                </MapView>
+                  coordInput={{latitude: locLat, longitude: locLng}}
+                  zoomLevelInput={6}
+                  liteModeInput={false}
+                />
               </View>
               <FastImage
                 source={require('../assets/img1.jpg')}
@@ -474,21 +419,25 @@ const styles = StyleSheet.create({
   arrowLeft: {
     justifyContent: 'center',
     position: 'absolute',
+    alignSelf: 'center',
     zIndex: 1,
     left: 0,
-    width: halfcalcWidth,
-    height: '100%',
+    // width: 50,
+    // height: '100%',
+    // backgroundColor: 'purple',
   },
 
   arrowRight: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'flex-end',
+    alignSelf: 'center',
     position: 'absolute',
     zIndex: 1,
     right: 0,
-    width: halfcalcWidth,
-    height: '100%',
+    // width: 50,
+    // height: '100%',
+    // backgroundColor: 'purple',
   },
 
   arrow: {

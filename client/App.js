@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback} from 'react';
 // import {Node} from 'react';
 import {
   SafeAreaView,
@@ -31,40 +31,60 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import List from './component/List';
-import Maps from './component//Maps';
-import Info from './component//Info';
-import Info2 from './component//Info2';
+import Maps from './component/Maps';
+import Info from './component/Info';
 
 const Tab = createMaterialBottomTabNavigator();
 
-function HomeScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Info')}
-      />
-    </View>
-  );
+// function HomeScreen({navigation}) {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Text>Home Screen</Text>
+//       <Button
+//         title="Go to Details"
+//         onPress={() => navigation.navigate('Info')}
+//       />
+//     </View>
+//   );
+// }
+
+// function DetailsScreen() {
+//   return (
+//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+//       <Text>Details Screen</Text>
+//     </View>
+//   );
+// }
+
+function MapRoute() {
+  return <Maps />;
 }
 
-function DetailsScreen() {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Details Screen</Text>
-    </View>
-  );
+function WaterfallRoute(rotue, navigate) {
+  return <List />;
+}
+function InfoRoute({route, navigate}) {
+  console.log(route);
+  return <Info onRoute={route} />;
 }
 
 const App = () => {
   const [nightMode, setNightmode] = useState(false);
-  const [waterfallID, setWaterfallID] = useState('null');
+  // const waterfallIDRef = useRef(null);
 
-  const navigateWaterfallDetails = function (id) {
-    setWaterfallID(id);
-    console.log('passed id to parent:', id);
-  };
+  // const navigateWaterfallDetails = useCallback(function (id) {
+  //   waterfallIDRef.current = id;
+  //   console.log('passed id to parent:', waterfallIDRef.current);
+  // });
+
+  // const UpdateInfo = () => {
+  //   console.log(`In UpdateInfo: ${waterfallIDRef.current}`);
+  //   return <Info waterfallID={waterfallIDRef.current} />;
+  // };
+
+  // useEffect(() => {
+  //   UpdateInfo();
+  // }, [navigateWaterfallDetails]);
 
   // useEffect(() => {
   //   navigation.navigate('Info');
@@ -77,10 +97,10 @@ const App = () => {
   //   setWaterfallDetails;
   // }, [waterfallID]);
 
-  const WaterfallRoute = () => <List passIDToApp={navigateWaterfallDetails} />;
-  const MapRoute = () => <Maps />;
-  // const InfoRoute = () => <Info waterfallID={waterfallID} />;
-  const Info2Route = () => <Info2 waterfallID={waterfallID} />;
+  // const WaterfallRoute = () => <List passIDToApp={navigateWaterfallDetails} />;
+  // const MapRoute = () => <Maps onReceiveID={navigateWaterfallDetails} />;
+  // const InfoRoute = () => <UpdateInfo />;
+  // const Info2Route = () => <Info2 waterfallID={waterfallID} />;
 
   return (
     <Tab.Navigator initialRouteName="Waterfalls">
@@ -106,7 +126,7 @@ const App = () => {
           ),
         }}
       />
-      {/* <Tab.Screen
+      <Tab.Screen
         name="Info"
         component={InfoRoute}
         options={{
@@ -119,8 +139,8 @@ const App = () => {
             />
           ),
         }}
-      /> */}
-      <Tab.Screen
+      />
+      {/* <Tab.Screen
         name="Info2"
         component={Info2Route}
         options={{
@@ -133,7 +153,7 @@ const App = () => {
             />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };
