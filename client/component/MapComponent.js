@@ -31,6 +31,7 @@ const MapComponent = ({
   const mapRef = useRef(null);
   const [mapRender, setMapRender] = useState(null);
   const [isRegionChange, setRegionChange] = useState(false);
+  const [newRegion, setNewRegion] = useState(regionInput);
 
   //   useEffect(() => {
   //     console.log(`setting type: ${type} and resetting state`);
@@ -62,7 +63,7 @@ const MapComponent = ({
     console.log('Map ready, loading animation...');
   };
 
-  const animateToRegionHolder = () => {
+  const animateToRegionHolder = animateTime => {
     // console.log('executing animation');
 
     if (!mapRef.current) {
@@ -72,18 +73,20 @@ const MapComponent = ({
 
     if (mapRef.current) {
       console.log('animating...');
-      //   console.log(animateToInput);
-      mapRef.current.animateToRegion(animateToInput, 3500);
+      console.log(animateToInput);
+      mapRef.current.animateToRegion(animateToInput, animateTime);
     }
   };
 
   useEffect(() => {
-    // console.log(mapRef.current);
+    // if (Platform.OS === 'android' && type === 'info') {
+    //   return;
+    // }
 
     let animationDelay;
     if (isMapReady) {
       animationDelay = setTimeout(() => {
-        animateToRegionHolder();
+        animateToRegionHolder(3500);
       }, 500);
     }
 
@@ -119,25 +122,24 @@ const MapComponent = ({
 
   //     const androidHack = () => {
   //       MarkerRender();
-  //       if (type === 'info') {
-  //         console.log(`MapMarker is ready: ${isMarkerRendered}`);
-  //       } else {
-  //         console.log('Lots of markers rendered');
-  //       }
-
-  //       // setRegionChange(true);
-
-  //       animateToRegionHolder();
-  //       clearTimeout(hackTimeout);
   //     };
 
   //     if (Platform.OS === 'android' && type === 'info') {
   //       hackTimeout = setTimeout(() => {
   //         androidHack();
+  //         if (type === 'info') {
+  //           console.log(`MapMarker is ready: ${isMarkerRendered}`);
+  //         } else {
+  //           console.log('Lots of markers rendered');
+  //         }
+
+  //         setRegionChange(true);
+  //         mapRef.current.animateToRegion(animateToInput, 1500);
   //       }, 500);
 
   //       return () => {
-  //         // console.log('Clearing timeout using hack...');
+  //         clearTimeout(hackTimeout);
+  //         console.log('Clearing timeout using hack...');
   //       };
   //     }
   //   }, [isMapReady]);
@@ -146,7 +148,7 @@ const MapComponent = ({
     <View style={{flex: 1, minHeight: 150, position: 'relative'}}>
       <MapView
         ref={mapRef}
-        region={regionInput}
+        region={newRegion}
         style={{flex: 1}}
         provider={PROVIDER_GOOGLE}
         mapType="terrain"

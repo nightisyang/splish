@@ -30,7 +30,7 @@ let calcWidth = Dimensions.get('window').width;
 const halfcalcWidth = calcWidth / 2;
 let screenIndex = 0;
 
-const LATITUD_DELTA = 0.3;
+const LATITUD_DELTA = 0.2;
 let LONGITUDE_DELTA;
 LONGITUDE_DELTA = LATITUD_DELTA * (calcWidth / 250);
 let locLat;
@@ -124,7 +124,7 @@ const Info = ({navigation, waterfallID}) => {
   const region = {
     latitude: locLat,
     longitude: locLng,
-    latitudeDelta: 1,
+    latitudeDelta: 0.5,
     longitudeDelta: LONGITUDE_DELTA,
   };
 
@@ -227,8 +227,8 @@ const Info = ({navigation, waterfallID}) => {
                     flex: 1,
                   }}
                   coordInput={{latitude: locLat, longitude: locLng}}
-                  zoomLevelInput={6}
-                  liteModeInput={true}
+                  zoomLevelInput={10}
+                  liteModeInput={false}
                 />
                 {/* <MapView
                   ref={mapRef}
