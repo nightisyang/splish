@@ -36,25 +36,9 @@ LONGITUDE_DELTA = LATITUD_DELTA * (calcWidth / 250);
 let locLat;
 let locLng;
 
-const camera = {
-  center: {
-    latitude: 5.742,
-    longitude: 102.37567,
-  },
-  pitch: 0,
-  heading: 0,
-
-  // Only on iOS MapKit, in meters. The property is ignored by Google Maps.
-  // altitude: number,
-
-  // Only when using Google Maps.
-  zoom: 8,
-};
-
 const Info = ({navigation, waterfallID}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [onLayoutReady, setLayoutReady] = useState(false);
-  // const [screenIndex, setScreenIndex] = useState(1);
   const mapRef = useRef(null);
   const [isMapReady, setMapReady] = useState(false);
   const scrollRef = useRef(null);
@@ -227,42 +211,9 @@ const Info = ({navigation, waterfallID}) => {
                     flex: 1,
                   }}
                   coordInput={{latitude: locLat, longitude: locLng}}
-                  zoomLevelInput={10}
+                  zoomLevelInput={6}
                   liteModeInput={false}
                 />
-                {/* <MapView
-                  ref={mapRef}
-                  onMapReady={e => {
-                    console.log('onMapReady callback');
-                    handleMapReady();
-                  }}
-                  style={
-                    isMapReady
-                      ? styles.map
-                      : {
-                          flex: 1,
-                          width: calcWidth,
-                          height: '100%',
-                          backgroundColor: 'purple',
-                        }
-                  }
-                  region={region}
-                  provider={PROVIDER_GOOGLE}
-                  mapType="terrain"
-                  // minZoomLevel={9}
-                  zoomEnabled={false}
-                  scrollEnabled={false}
-                  loadingEnabled={true}
-                  // zoomControlEnabled={true}
-                  // liteMode={true}
-                >
-                  {console.log('at JSX isMapReady:', isMapReady)}
-                  {isMapReady && (
-                    <Marker
-                      coordinate={{latitude: 5.742, longitude: 102.37567}}
-                    />
-                  )}
-                </MapView> */}
               </View>
               <FastImage
                 source={require('../assets/img1.jpg')}
