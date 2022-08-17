@@ -1,18 +1,7 @@
-import React, {useState, useRef, useCallback, useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  Platform,
-} from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
+import {StyleSheet, View} from 'react-native';
 
-import MapView, {
-  Marker,
-  PROVIDER_DEFAULT,
-  PROVIDER_GOOGLE,
-} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 import waterfallCoords from '../assets/waterfallMapCoords.json';
 
@@ -25,38 +14,11 @@ const MapComponent = ({
   zoomLevelInput,
   liteModeInput,
 }) => {
-  const [isMapReady, setMapReady] = useState(false);
-  const [isType, setType] = useState();
-  const [isMarkerRendered, setMarkerRender] = useState(null);
   const mapRef = useRef(null);
-  const [mapRender, setMapRender] = useState(null);
+  const [isMapReady, setMapReady] = useState(false);
+  const [isMarkerRendered, setMarkerRender] = useState(null);
   const [isRegionChange, setRegionChange] = useState(false);
   const [newRegion, setNewRegion] = useState(regionInput);
-
-  //   useEffect(() => {
-  //     console.log(`setting type: ${type} and resetting state`);
-  //     setType(type);
-  //     setMarkerRender(null);
-  // setMapReady(false);
-  // mapRef.current = null;
-  //   }, [type]);
-
-  //   useEffect(() => {}, [isType]);
-
-  //   if (type === 'main') {
-  //     mapRef.current = null;
-  //     console.log(type);
-  //     setType('main');
-  //     return;
-  //   }
-
-  //   if (type === 'info') {
-  //     mapRef.current = null;
-  //     console.log(`type is: ${type}`);
-  //     console.log(`coordInput is: ${coordInput}`);
-  //     setType('info');
-  //     return;
-  //   }
 
   const handleMapReady = () => {
     setMapReady(true);
@@ -64,11 +26,8 @@ const MapComponent = ({
   };
 
   const animateToRegionHolder = animateTime => {
-    // console.log('executing animation');
-
     if (!mapRef.current) {
       console.log('Map ref is undefined');
-      //   console.log(mapRef.current);
     }
 
     if (mapRef.current) {
@@ -79,10 +38,6 @@ const MapComponent = ({
   };
 
   useEffect(() => {
-    // if (Platform.OS === 'android' && type === 'info') {
-    //   return;
-    // }
-
     let animationDelay;
     if (isMapReady) {
       animationDelay = setTimeout(() => {
@@ -105,44 +60,12 @@ const MapComponent = ({
     }
 
     if (type === 'info') {
-      //   const [lat, lng] = coordInput;
-      //   console.log(`Input coordinates are ${lat}, ${lng}`);
       markerRenderResult = <Marker coordinate={coordInput} />;
     }
-
     setMarkerRender(markerRenderResult);
     console.log(`Map is ready: ${isMapReady}`);
-
-    // console.log(markerRenderResult);
     return;
   };
-
-  //   useEffect(() => {
-  //     let hackTimeout;
-
-  //     const androidHack = () => {
-  //       MarkerRender();
-  //     };
-
-  //     if (Platform.OS === 'android' && type === 'info') {
-  //       hackTimeout = setTimeout(() => {
-  //         androidHack();
-  //         if (type === 'info') {
-  //           console.log(`MapMarker is ready: ${isMarkerRendered}`);
-  //         } else {
-  //           console.log('Lots of markers rendered');
-  //         }
-
-  //         setRegionChange(true);
-  //         mapRef.current.animateToRegion(animateToInput, 1500);
-  //       }, 500);
-
-  //       return () => {
-  //         clearTimeout(hackTimeout);
-  //         console.log('Clearing timeout using hack...');
-  //       };
-  //     }
-  //   }, [isMapReady]);
 
   return (
     <View style={{flex: 1, minHeight: 150, position: 'relative'}}>
@@ -168,7 +91,6 @@ const MapComponent = ({
         onMapReady={e => {
           console.log('########### ONMAPREADY #############');
           handleMapReady();
-          // console.log('map ready, initializing region...');
         }}
         zoomControlEnabled={true}>
         {isMarkerRendered}
