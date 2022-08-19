@@ -53,7 +53,11 @@ const FetchImages = ({reqSource, item, onPress, containerHeight}) => {
                 priority: FastImage.priority.normal,
                 cache: FastImage.cacheControl.web,
               }}
-              style={{width: refWidth.current, height: containerHeight}}
+              style={{
+                width: refWidth.current,
+                height: containerHeight,
+                alignSelf: 'center',
+              }}
               resizeMode={FastImage.resizeMode.contain}
             />
           </View>
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     // borderColor: 'black',
     // borderRadius: 3,
-    width: '100%',
+    // width: '100%',
     // padding: 20,
     // margin: 8,
     // width: 200,
@@ -79,12 +83,12 @@ const styles = StyleSheet.create({
   itemContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
+    // alignItems: 'center',
+    // backgroundColor: 'black',
     // padding: 20,
     // marginRight: 5,
     // width: 250,
-    width: '100%',
+    // width: '100%',
   },
 });
 export default FetchImages;

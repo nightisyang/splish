@@ -20,12 +20,14 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
 
   const renderImages = ({item, index}) => {
     return (
-      <FetchImages
-        reqSource={'card'}
-        item={item}
-        onPress={() => setSelectedId(index)}
-        containerHeight={150}
-      />
+      <View style={{flex: 1, paddingRight: 5}}>
+        <FetchImages
+          reqSource={'card'}
+          item={item}
+          onPress={() => setSelectedId(index)}
+          containerHeight={150}
+        />
+      </View>
     );
   };
 

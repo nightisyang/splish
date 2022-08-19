@@ -180,13 +180,13 @@ const Info = ({onRoute, navigate}) => {
 
   return (
     <StatusBarTheme>
-      <Appbar.Header>
-        <Appbar.BackAction />
-        <Appbar.Content title="Title" />
-        <Appbar.Action />
-        <Appbar.Action icon="magnify" />
-        <Appbar.Action icon="dots-vertical" />
-      </Appbar.Header>
+      {/* <Appbar.Header> */}
+      {/* <Appbar.BackAction /> */}
+      {/* <Appbar.Content title="Info" /> */}
+      {/* <Appbar.Action /> */}
+      {/* <Appbar.Action icon="magnify" /> */}
+      {/* <Appbar.Action icon="dots-vertical" /> */}
+      {/* </Appbar.Header> */}
       {isLoaded ? (
         <SafeAreaView style={styles.container}>
           <View style={styles.headerContainer}>
