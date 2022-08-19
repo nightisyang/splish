@@ -4,8 +4,6 @@ import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
-import MapIDState from './MapIDState';
-
 import waterfallCoords from '../assets/waterfallMapCoords.json';
 
 const MapComponent = ({
@@ -58,10 +56,6 @@ const MapComponent = ({
   };
 
   const passIdToMapHandler = id => {
-    <MapIDState recieveID={id} />;
-    // onCalloutClick(id);
-    // console.log(`Passing to ${id} to Map component`);
-    // navigation.navigate('Info');
     navigation.navigate('Info', {waterfallID: id});
   };
 

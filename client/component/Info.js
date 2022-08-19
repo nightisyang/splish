@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
+  FlatList,
   Dimensions,
   Pressable,
   Platform,
@@ -16,7 +17,7 @@ import FastImage from 'react-native-fast-image';
 import StatusBarTheme from './StatusBarTheme';
 import MapView, {Marker} from 'react-native-maps';
 import MapComponent from './MapComponent';
-import MapIDState from './MapIDState';
+import FetchImages from './FetchImages';
 
 let localhost = '192.168.101.24:3000';
 
@@ -26,10 +27,8 @@ let localhost = '192.168.101.24:3000';
 //   localhost = '10.0.2.2:3000';
 // }
 
-let viewHeight;
 let calcWidth = Dimensions.get('window').width;
 const halfcalcWidth = calcWidth / 2;
-let screenIndex = 0;
 
 const LATITUD_DELTA = 0.2;
 let LONGITUDE_DELTA;
@@ -43,13 +42,22 @@ const Info = ({onRoute, navigate}) => {
   const mapRef = useRef(null);
   const [isMapReady, setMapReady] = useState(false);
   const scrollRef = useRef(null);
+  const screenIndex = useRef(0);
+  const viewHeight = useRef(null);
   const [waterfall, setWaterfall] = useState(null);
   const [waterfallID, setWaterfallID] = useState('');
+  const [selectedId, setSelectedId] = useState(null);
+  const [imgLength, setImgLength] = useState(1);
 
   useEffect(() => {
     console.log(onRoute);
     console.log(`route: ${onRoute?.params?.waterfallID}`);
     setWaterfallID(onRoute?.params?.waterfallID);
+    screenIndex.current = 0;
+    scrollRef.current?.scrollTo({
+      x: 0,
+    });
+    console.log('onLayoutReady:', onLayoutReady);
   }, [onRoute]);
 
   async function getWaterfall() {
@@ -101,7 +109,8 @@ const Info = ({onRoute, navigate}) => {
           return obj;
         },
       );
-      // console.log(info);
+
+      setImgLength(info.imgFilenameArr.length);
 
       // return info;
       // });
@@ -128,32 +137,35 @@ const Info = ({onRoute, navigate}) => {
   };
 
   const onLayoutImage = event => {
-    const {height} = event.nativeEvent.layout;
-    viewHeight = Math.floor(height);
-    console.log('viewHeight:', viewHeight);
+    if (!viewHeight.current) {
+      const {height} = event.nativeEvent.layout;
+      viewHeight.current = Math.floor(height);
+      console.log('viewHeight:', viewHeight.current);
+    }
     setLayoutReady(true);
+    console.log('viewHeight:', viewHeight.current);
   };
 
   const scrollNext = () => {
-    console.log('Next', screenIndex);
-    if (screenIndex < 3) {
-      // setScreenIndex(prev => prev + 1);
-      screenIndex += 1;
+    console.log('Next', screenIndex, imgLength);
+    if (screenIndex.current < imgLength) {
+      screenIndex.current += 1;
+      console.log(screenIndex.current);
       scrollRef.current?.scrollTo({
-        x: calcWidth * screenIndex,
+        x: calcWidth * screenIndex.current,
         animated: true,
       });
     }
   };
 
   const scrollPrev = () => {
-    console.log('Prev', screenIndex);
-    if (screenIndex > 0) {
+    console.log('Prev', screenIndex, imgLength);
+    if (screenIndex.current > 0) {
       scrollRef.current?.scrollTo({
-        x: calcWidth * (screenIndex - 1),
+        x: calcWidth * (screenIndex.current - 1),
         animated: true,
       });
-      screenIndex -= 1;
+      screenIndex.current -= 1;
     }
   };
 
@@ -163,7 +175,7 @@ const Info = ({onRoute, navigate}) => {
   }, [waterfallID]);
 
   useEffect(() => {
-    console.log(waterfallID);
+    // console.log(waterfallID);
   });
 
   return (
@@ -213,7 +225,7 @@ const Info = ({onRoute, navigate}) => {
                   flex: 1,
                   width: calcWidth,
                   height: '100%',
-                  backgroundColor: 'purple',
+                  // backgroundColor: 'purple',
                 }}>
                 <MapComponent
                   type={'info'}
@@ -227,7 +239,32 @@ const Info = ({onRoute, navigate}) => {
                   liteModeInput={false}
                 />
               </View>
-              <FastImage
+              {onLayoutReady &&
+                waterfall.imgFilenameArr.map((val, i, arr) => {
+                  return (
+                    <View
+                      style={[styles.flex, {width: calcWidth, height: '100%'}]}>
+                      <FetchImages
+                        reqSource={'info'}
+                        item={val}
+                        onPress={() => setSelectedId(i)}
+                        containerHeight={viewHeight.current}
+                      />
+                    </View>
+                  );
+                })}
+
+              {/* <FlatList
+                horizontal
+                pagingEnabled={true}
+                showsHorizontalScrollIndicator={false}
+                data={waterfall.imgFilenameArr}
+                renderItem={renderImages}
+                keyExtractor={(item, index) => index.toString()}
+                extraData={selectedId}
+              /> */}
+
+              {/* <FastImage
                 source={require('../assets/img1.jpg')}
                 resizeMode={FastImage.resizeMode.contain}
                 style={[
@@ -259,7 +296,7 @@ const Info = ({onRoute, navigate}) => {
                   },
                 ]}
                 resizeMode={FastImage.resizeMode.contain}
-              />
+              /> */}
             </ScrollView>
           </View>
 
@@ -445,6 +482,7 @@ const styles = StyleSheet.create({
   },
 
   image: {
+    flex: 1,
     backgroundColor: 'black',
   },
 

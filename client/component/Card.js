@@ -11,39 +11,7 @@ import {
 import FastImage from 'react-native-fast-image';
 import {useNavigation} from '@react-navigation/native';
 
-const Images = ({item, onPress}) => {
-  const refWidth = useRef(null);
-
-  useEffect(() => {
-    const getImageSize = async () => {
-      const {imgWidth, imgHeight} = await new Promise(resolve => {
-        Image.getSize(item.uri, (_width, height) => {
-          resolve({imgWidth: _width, imgHeight: height});
-        });
-      });
-
-      refWidth.current = Math.floor((imgWidth / imgHeight) * 150);
-    };
-    if (!refWidth.current) {
-      getImageSize();
-    }
-  }, []);
-
-  return (
-    <TouchableOpacity onPress={onPress} style={styles.itemContainer}>
-      <View style={styles.imgContainer}>
-        <FastImage
-          source={{
-            uri: item.uri.toString(),
-            priority: FastImage.priority.normal,
-          }}
-          style={{width: refWidth.current, height: 150}}
-          resizeMode={FastImage.resizeMode.contain}
-        />
-      </View>
-    </TouchableOpacity>
-  );
-};
+import FetchImages from './FetchImages';
 
 const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const [selectedId, setSelectedId] = useState(null);
@@ -51,7 +19,14 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const navigation = useNavigation();
 
   const renderImages = ({item, index}) => {
-    return <Images item={item} onPress={() => setSelectedId(index)} />;
+    return (
+      <FetchImages
+        reqSource={'card'}
+        item={item}
+        onPress={() => setSelectedId(index)}
+        containerHeight={150}
+      />
+    );
   };
 
   const onCardClickHandler = _id => {
