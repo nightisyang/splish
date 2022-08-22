@@ -16,11 +16,20 @@ const waterfall = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'waterfalls.json'), 'utf-8')
 );
 
-console.log(waterfall[0]);
+const waterfallCoordsInvert = waterfall.map(el => {
+  const { location } = el;
+  // console.log(location.coordinates);
+
+  const lng = location.coordinates.pop();
+  location.coordinates.splice(0, 0, lng);
+  return el;
+});
+
+console.log(waterfallCoordsInvert);
 
 const importData = async () => {
   try {
-    await Waterfall.create(waterfall);
+    await Waterfall.create(waterfallCoordsInvert);
 
     console.log('Data successfully loaded!');
   } catch (err) {

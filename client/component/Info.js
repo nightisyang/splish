@@ -46,6 +46,8 @@ const Info = ({onRoute, navigate}) => {
   const viewHeight = useRef(null);
   const [waterfall, setWaterfall] = useState(null);
   const [waterfallID, setWaterfallID] = useState('');
+  const [latlng, setLatLng] = useState('');
+  const [distance, setDistance] = useState('');
   const [selectedId, setSelectedId] = useState(null);
   const [imgLength, setImgLength] = useState(1);
 
@@ -53,6 +55,10 @@ const Info = ({onRoute, navigate}) => {
     console.log(onRoute);
     console.log(`route: ${onRoute?.params?.waterfallID}`);
     setWaterfallID(onRoute?.params?.waterfallID);
+    setLatLng(
+      `${onRoute.params.userLoc.latitude},${onRoute.params.userLoc.longitude}`,
+    );
+
     screenIndex.current = 0;
     scrollRef.current?.scrollTo({
       x: 0,
@@ -66,7 +72,7 @@ const Info = ({onRoute, navigate}) => {
       let response;
 
       response = await fetch(
-        `http://${localhost}/api/v1/waterfalls/${waterfallID}`,
+        `http://${localhost}/api/v1/waterfalls/${waterfallID}/${latlng}`,
         {
           method: 'GET',
           headers: {
@@ -81,9 +87,8 @@ const Info = ({onRoute, navigate}) => {
       const json = await response.json();
 
       const val = json.data.waterfall;
+      console.log('DISTANCE!!!!:', json.data.distance);
       const info = {};
-
-      // const extractInfo = json.data.waterfall.map((val, i, arr) => {
 
       info.name = val.name;
       info.description = val.description;
@@ -95,7 +100,7 @@ const Info = ({onRoute, navigate}) => {
       info.lastUpdate = val.lastUpdate;
       info.difficulty = val.difficulty;
 
-      const [arrLat, arrLng] = info.coordinate;
+      const [arrLng, arrLat] = info.coordinate;
 
       locLat = arrLat;
       locLng = arrLng;
@@ -114,7 +119,7 @@ const Info = ({onRoute, navigate}) => {
 
       // return info;
       // });
-
+      setDistance(json.data.distance);
       setWaterfall(info);
       setIsLoaded(true);
     } catch (err) {
@@ -243,6 +248,7 @@ const Info = ({onRoute, navigate}) => {
                   coordInput={{latitude: locLat, longitude: locLng}}
                   zoomLevelInput={6}
                   liteModeInput={false}
+                  showsUserLocationInput={false}
                 />
               </View>
               {onLayoutReady &&
@@ -259,48 +265,6 @@ const Info = ({onRoute, navigate}) => {
                     </View>
                   );
                 })}
-              {/* <FlatList
-                horizontal
-                pagingEnabled={true}
-                showsHorizontalScrollIndicator={false}
-                data={waterfall.imgFilenameArr}
-                renderItem={renderImages}
-                keyExtractor={(item, index) => index.toString()}
-                extraData={selectedId}
-              /> */}
-              {/* <FastImage
-                source={require('../assets/img1.jpg')}
-                resizeMode={FastImage.resizeMode.contain}
-                style={[
-                  styles.image,
-                  {
-                    width: calcWidth,
-                    height: viewHeight,
-                  },
-                ]}
-              />
-              <FastImage
-                source={require('../assets/img2.jpg')}
-                style={[
-                  styles.image,
-                  {
-                    width: calcWidth,
-                    height: viewHeight,
-                  },
-                ]}
-                resizeMode={FastImage.resizeMode.contain}
-              />
-              <FastImage
-                source={require('../assets/img3.jpg')}
-                style={[
-                  styles.image,
-                  {
-                    width: calcWidth,
-                    height: viewHeight,
-                  },
-                ]}
-                resizeMode={FastImage.resizeMode.contain}
-              /> */}
             </ScrollView>
           </View>
 
@@ -311,7 +275,9 @@ const Info = ({onRoute, navigate}) => {
                   <View style={styles.profileBottomSeperator}>
                     <View style={styles.flex}>
                       <Text style={styles.profileTextTitle}>Distance</Text>
-                      <Text style={styles.profileTextContent}>10km</Text>
+                      <Text style={styles.profileTextContent}>
+                        {distance} km
+                      </Text>
                     </View>
                     <View style={styles.profileMiddleSeperator} />
                   </View>

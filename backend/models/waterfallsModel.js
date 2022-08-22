@@ -21,15 +21,9 @@ const waterfallSchema = new mongoose.Schema({
     required: [true, 'Please enter the state of the waterfall']
   },
   location: {
-    type: {
-      type: String,
-      default: 'Point',
-      enum: ['Point']
-    },
-    coordinates: {
-      type: [Number],
-      required: [true, 'Please specify the coordinates of the waterfall']
-    }
+    // GeoJSON
+    type: { type: String, default: 'Point', enum: ['Point'] },
+    coordinates: [Number]
   },
   waterSource: { type: String },
   waterfallProfile: { type: String },
@@ -47,6 +41,8 @@ const waterfallSchema = new mongoose.Schema({
   lastUpdate: { type: String },
   difficulty: { type: String }
 });
+
+waterfallSchema.index({ location: '2dsphere' });
 
 waterfallSchema.pre('save', function(next) {
   this.slug = slugify(this.name, { lower: true });

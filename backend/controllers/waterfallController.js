@@ -3,6 +3,18 @@ const APIFeatures = require('../utils/apiFeatures');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
+function geoDistance(lat1, lon1, lat2, lon2) {
+  // source https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula/27943#27943
+  const p = 0.017453292519943295; // Math.PI / 180
+  const c = Math.cos;
+  const a =
+    0.5 -
+    c((lat2 - lat1) * p) / 2 +
+    (c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p))) / 2;
+
+  return 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+}
+
 exports.getAllWaterfalls = catchAsync(async (req, res, next) => {
   // get all waterfalls
   const features = new APIFeatures(Waterfall.find(), req.query)
@@ -24,16 +36,28 @@ exports.getAllWaterfalls = catchAsync(async (req, res, next) => {
 });
 
 exports.getWaterfall = catchAsync(async (req, res, next) => {
-  const waterfall = await Waterfall.findById(req.params.id);
+  let distance;
+  const { id, latlng } = req.params;
+
+  const waterfall = await Waterfall.findById(id);
 
   if (!waterfall) {
     return next(new AppError('No document found with that ID', 404));
   }
 
+  if (latlng) {
+    const [userLat, userLng] = latlng.split(',');
+    const [waterfallLng, waterfallLat] = waterfall.location.coordinates;
+
+    distance = geoDistance(userLat, userLng, waterfallLat, waterfallLng);
+    distance = Math.round(distance * 10) / 10;
+  }
+
   res.status(200).json({
     status: 'success',
     data: {
-      waterfall
+      waterfall,
+      distance
     }
   });
 });

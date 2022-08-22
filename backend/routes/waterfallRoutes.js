@@ -25,4 +25,6 @@ router
   .route('/distances/:latlng/unit/:unit')
   .get(waterfallController.getDistances);
 
+router.route('/:id/:latlng/').get(waterfallController.getWaterfall);
+
 module.exports = router;

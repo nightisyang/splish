@@ -48,11 +48,6 @@ const Maps = ({navigation, onReceiveID}) => {
 
   const watchId = useRef(null);
 
-  const passIDToAppHandler = id => {
-    onReceiveID(id);
-    // console.log(`${id} passed to parent`);
-  };
-
   useEffect(() => {
     getLocation();
   }, []);
@@ -254,8 +249,8 @@ const Maps = ({navigation, onReceiveID}) => {
             styleInput={styles.map}
             zoomLevelInput={5}
             liteModeInput={false}
-            onCalloutClick={passIDToAppHandler}
             userCoords={location?.coords || null}
+            showsUserLocationInput={true}
           />
         </View>
       </SafeAreaView>

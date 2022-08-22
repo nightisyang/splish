@@ -22,6 +22,7 @@ const MapComponent = ({
   liteModeInput,
   onCalloutClick,
   userCoords,
+  showsUserLocationInput,
 }) => {
   const mapRef = useRef(null);
   const [isMapReady, setMapReady] = useState(false);
@@ -61,8 +62,11 @@ const MapComponent = ({
     }
   };
 
-  const passIdToMapHandler = id => {
-    navigation.navigate('Info', {waterfallID: id});
+  const passIdToParam = id => {
+    navigation.navigate('Info', {
+      waterfallID: id,
+      userLoc: {latitude: userCoords.latitude, longitude: userCoords.longitude},
+    });
   };
 
   // renders marker and stored in state, only called when region change is complete
@@ -75,7 +79,7 @@ const MapComponent = ({
             <Callout
               onPress={() => {
                 // console.log(el.id);
-                passIdToMapHandler(el.id);
+                passIdToParam(el.id);
               }}>
               <Text>{el.title}</Text>
             </Callout>
@@ -133,7 +137,7 @@ const MapComponent = ({
         rotateEnabled={false}
         pitchEnabled={false}
         loadingEnabled={true}
-        showsUserLocation={true}>
+        showsUserLocation={showsUserLocationInput}>
         {isMarkerRendered}
         {!!userCoords && (
           <>
