@@ -1,21 +1,16 @@
 import React from 'react';
-import {useState, useRef, useCallback, useEffect} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import {
   View,
   SafeAreaView,
   StyleSheet,
   ScrollView,
-  FlatList,
   Dimensions,
   Pressable,
-  Platform,
 } from 'react-native';
-import {PROVIDER_GOOGLE} from 'react-native-maps';
 import {Appbar, IconButton, Text} from 'react-native-paper';
-import FastImage from 'react-native-fast-image';
 
 import StatusBarTheme from './StatusBarTheme';
-import MapView, {Marker} from 'react-native-maps';
 import MapComponent from './MapComponent';
 import FetchImages from './FetchImages';
 
@@ -52,19 +47,26 @@ const Info = ({onRoute, navigate}) => {
   const [imgLength, setImgLength] = useState(1);
 
   useEffect(() => {
-    console.log(onRoute);
-    console.log(`route: ${onRoute?.params?.waterfallID}`);
     setWaterfallID(onRoute?.params?.waterfallID);
     setLatLng(
-      `${onRoute.params.userLoc.latitude},${onRoute.params.userLoc.longitude}`,
+      `${onRoute?.params?.userLoc.latitude},${onRoute?.params?.userLoc.longitude}`,
     );
 
     screenIndex.current = 0;
     scrollRef.current?.scrollTo({
       x: 0,
     });
-    console.log('onLayoutReady:', onLayoutReady);
   }, [onRoute]);
+
+  useEffect(() => {
+    if (!onRoute.params) {
+      console.log('no route params received.');
+      return;
+    } else {
+      getWaterfall();
+      console.log('retriving waterfall');
+    }
+  }, [waterfallID]);
 
   async function getWaterfall() {
     try {
@@ -77,9 +79,8 @@ const Info = ({onRoute, navigate}) => {
           method: 'GET',
           headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json', // I added this line
+            'Content-Type': 'application/json',
           },
-          // body: JSON.stringify(data),
         },
       );
 
@@ -87,7 +88,6 @@ const Info = ({onRoute, navigate}) => {
       const json = await response.json();
 
       const val = json.data.waterfall;
-      console.log('DISTANCE!!!!:', json.data.distance);
       const info = {};
 
       info.name = val.name;
@@ -116,9 +116,6 @@ const Info = ({onRoute, navigate}) => {
       );
 
       setImgLength(info.imgFilenameArr.length);
-
-      // return info;
-      // });
       setDistance(json.data.distance);
       setWaterfall(info);
       setIsLoaded(true);
@@ -145,16 +142,12 @@ const Info = ({onRoute, navigate}) => {
     if (!viewHeight.current) {
       const {height} = event.nativeEvent.layout;
       viewHeight.current = Math.floor(height);
-      console.log('viewHeight:', viewHeight.current);
     }
     setLayoutReady(true);
-    console.log('viewHeight:', viewHeight.current);
   };
 
   const scrollNext = () => {
-    console.log('Next', screenIndex, imgLength);
     if (screenIndex.current < imgLength) {
-      console.log(screenIndex.current);
       screenIndex.current += 1;
       scrollRef.current?.scrollTo({
         x: calcWidth * screenIndex.current,
@@ -171,17 +164,7 @@ const Info = ({onRoute, navigate}) => {
       });
       screenIndex.current -= 1;
     }
-    console.log('Prev', screenIndex, imgLength);
   };
-
-  useEffect(() => {
-    getWaterfall();
-    console.log('retriving waterfall');
-  }, [waterfallID]);
-
-  useEffect(() => {
-    // console.log(waterfallID);
-  });
 
   return (
     <StatusBarTheme>
@@ -227,8 +210,6 @@ const Info = ({onRoute, navigate}) => {
               onLayout={onLayoutImage}
               onMomentumScrollEnd={event => {
                 let contentOffset = event.nativeEvent.contentOffset.x;
-                console.log(event.nativeEvent.contentOffset.x);
-                console.log(contentOffset / calcWidth);
                 screenIndex.current = contentOffset / calcWidth;
               }}>
               <View

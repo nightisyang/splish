@@ -6,27 +6,9 @@
  * @flow strict-local
  */
 
-import React, {useState, useRef, useEffect, useCallback} from 'react';
+import React, {useState} from 'react';
 // import {Node} from 'react';
-import {
-  SafeAreaView,
-  // ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Animated,
-  Button,
-} from 'react-native';
-import {
-  Appbar,
-  DarkTheme,
-  DefaultTheme,
-  Provider,
-  Surface,
-  ThemeProvider,
-} from 'react-native-paper';
+import {StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 

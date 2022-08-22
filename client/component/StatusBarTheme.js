@@ -1,4 +1,4 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StatusBar, Platform} from 'react-native';
 import {
   DarkTheme,
@@ -10,7 +10,7 @@ import {
 //https://stackoverflow.com/questions/60022475/react-native-how-to-change-the-color-of-the-top-portion-of-the-iphone-where-the
 
 const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? 46 : StatusBar.currentHeight;
-const HEADER_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
+// const HEADER_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 
 const StatusBarTheme = ({children}) => {
   const [nightMode, setNightmode] = useState(false);

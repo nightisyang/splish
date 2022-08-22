@@ -1,18 +1,10 @@
 import React, {useRef, useEffect, useState} from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Image,
-  StyleSheet,
-  RecyclerViewBackedScrollView,
-} from 'react-native';
+import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 const FetchImages = ({reqSource, item, onPress, containerHeight}) => {
   const refWidth = useRef(null);
   const [isWidthReady, setWidthReady] = useState(false);
-  const [cardWidth, setCardWidth] = useState(null);
-  const [infoWidth, setInfoWidth] = useState(null);
 
   useEffect(() => {
     if (refWidth) {

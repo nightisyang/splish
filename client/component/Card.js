@@ -1,14 +1,5 @@
-import {useLinkProps} from '@react-navigation/native';
-import React, {useEffect, useRef, useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import React, {useState} from 'react';
+import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import FetchImages from './FetchImages';
