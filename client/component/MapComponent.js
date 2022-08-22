@@ -136,7 +136,7 @@ const MapComponent = ({
         zoomControlEnabled={true}
         rotateEnabled={false}
         pitchEnabled={false}
-        loadingEnabled={true}
+        // loadingEnabled={true}
         showsUserLocation={showsUserLocationInput}>
         {isMarkerRendered}
         {!!userCoords && (
