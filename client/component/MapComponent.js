@@ -132,31 +132,11 @@ const MapComponent = ({
         zoomControlEnabled={true}
         rotateEnabled={false}
         pitchEnabled={false}
-        loadingEnabled={true}>
+        loadingEnabled={true}
+        showsUserLocation={true}>
         {isMarkerRendered}
         {!!userCoords && (
           <>
-            <Marker
-              anchor={{x: 0.5, y: 0.6}}
-              coordinate={{
-                latitude: userCoords.latitude,
-                longitude: userCoords.longitude,
-              }}
-              flat
-              style={{
-                ...(userCoords.heading !== -1 && {
-                  transform: [
-                    {
-                      rotate: `${userCoords.heading}deg`,
-                    },
-                  ],
-                }),
-              }}>
-              <View style={styles.dotContainer}>
-                <View style={[styles.arrow]} />
-                <View style={styles.dot} />
-              </View>
-            </Marker>
             <Circle
               center={{
                 latitude: userCoords.latitude,

@@ -33,7 +33,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import List from './component/List';
 import Maps from './component/Maps';
 import Info from './component/Info';
-import GeoExample from './component/Geolocation';
+// import GeoExample from './component/Geolocation';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -69,9 +69,9 @@ function InfoRoute({route, navigate}) {
   return <Info onRoute={route} />;
 }
 
-function GeoExampleRoute() {
-  return <GeoExample />;
-}
+// function GeoExampleRoute() {
+//   return <GeoExample />;
+// }
 
 const App = () => {
   const [nightMode, setNightmode] = useState(false);
@@ -145,7 +145,7 @@ const App = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Geolocation"
         component={GeoExampleRoute}
         options={{
@@ -154,7 +154,7 @@ const App = () => {
             <MaterialCommunityIcons name="target" color={color} size={26} />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };
