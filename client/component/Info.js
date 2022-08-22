@@ -149,8 +149,8 @@ const Info = ({onRoute, navigate}) => {
   const scrollNext = () => {
     console.log('Next', screenIndex, imgLength);
     if (screenIndex.current < imgLength) {
-      screenIndex.current += 1;
       console.log(screenIndex.current);
+      screenIndex.current += 1;
       scrollRef.current?.scrollTo({
         x: calcWidth * screenIndex.current,
         animated: true,
@@ -159,7 +159,6 @@ const Info = ({onRoute, navigate}) => {
   };
 
   const scrollPrev = () => {
-    console.log('Prev', screenIndex, imgLength);
     if (screenIndex.current > 0) {
       scrollRef.current?.scrollTo({
         x: calcWidth * (screenIndex.current - 1),
@@ -167,6 +166,7 @@ const Info = ({onRoute, navigate}) => {
       });
       screenIndex.current -= 1;
     }
+    console.log('Prev', screenIndex, imgLength);
   };
 
   useEffect(() => {
@@ -219,7 +219,13 @@ const Info = ({onRoute, navigate}) => {
               style={styles.flex}
               horizontal={true}
               pagingEnabled={true}
-              onLayout={onLayoutImage}>
+              onLayout={onLayoutImage}
+              onMomentumScrollEnd={event => {
+                let contentOffset = event.nativeEvent.contentOffset.x;
+                console.log(event.nativeEvent.contentOffset.x);
+                console.log(contentOffset / calcWidth);
+                screenIndex.current = contentOffset / calcWidth;
+              }}>
               <View
                 style={{
                   flex: 1,
@@ -253,7 +259,6 @@ const Info = ({onRoute, navigate}) => {
                     </View>
                   );
                 })}
-
               {/* <FlatList
                 horizontal
                 pagingEnabled={true}
@@ -263,7 +268,6 @@ const Info = ({onRoute, navigate}) => {
                 keyExtractor={(item, index) => index.toString()}
                 extraData={selectedId}
               /> */}
-
               {/* <FastImage
                 source={require('../assets/img1.jpg')}
                 resizeMode={FastImage.resizeMode.contain}

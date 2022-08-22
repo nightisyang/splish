@@ -1,42 +1,26 @@
-import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  Platform,
   Alert,
   Button,
   Linking,
   PermissionsAndroid,
+  Platform,
+  SafeAreaView,
   ScrollView,
+  StyleSheet,
   Switch,
+  Text,
   ToastAndroid,
+  View,
 } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import VIForegroundService from '@voximplant/react-native-foreground-service';
+
+import MapView from './MapView';
+import MapComponent from './MapComponent';
 import appConfig from '../app.json';
 
-import MapComponent from './MapComponent';
-
-import StatusBarTheme from './StatusBarTheme';
-
-const LATITUD_DELTA = 2;
-let LONGITUDE_DELTA;
-
-const window = Dimensions.get('window');
-const {width, height} = window;
-LONGITUDE_DELTA = LATITUD_DELTA * (width / height);
-
-const region = {
-  latitude: 3.945651,
-  longitude: 108.142868,
-  latitudeDelta: 30,
-  longitudeDelta: 30,
-};
-
-const Maps = ({navigation, onReceiveID}) => {
+export default function GeoExample() {
   const [forceLocation, setForceLocation] = useState(true);
   const [highAccuracy, setHighAccuracy] = useState(true);
   const [locationDialog, setLocationDialog] = useState(true);
@@ -48,11 +32,7 @@ const Maps = ({navigation, onReceiveID}) => {
 
   const watchId = useRef(null);
 
-  const passIDToAppHandler = id => {
-    onReceiveID(id);
-    // console.log(`${id} passed to parent`);
-  };
-
+  // call getLocation function upon page load
   useEffect(() => {
     getLocation();
   }, []);
@@ -239,43 +219,131 @@ const Maps = ({navigation, onReceiveID}) => {
   }, []);
 
   return (
-    <StatusBarTheme>
-      <SafeAreaView style={styles.container}>
-        <View style={{flex: 1, position: 'relative'}}>
-          <MapComponent
-            type="main"
-            regionInput={region}
-            animateToInput={{
-              latitude: location?.coords.latitude,
-              longitude: location?.coords.longitude,
-              latitudeDelta: LATITUD_DELTA,
-              longitudeDelta: LONGITUDE_DELTA,
-            }}
-            styleInput={styles.map}
-            zoomLevelInput={5}
-            liteModeInput={false}
-            onCalloutClick={passIDToAppHandler}
-            userCoords={location?.coords || null}
-          />
-        </View>
-      </SafeAreaView>
-    </StatusBarTheme>
+    <SafeAreaView style={styles.mainContainer}>
+      <View style={styles.mainContainer}>
+        <MapView coords={location?.coords || null} />
+        <MapComponent userCoords={location?.coords || null} />
+
+        <ScrollView
+          style={styles.container}
+          contentContainerStyle={styles.contentContainer}>
+          <View>
+            <View style={styles.option}>
+              <Text>Enable High Accuracy</Text>
+              <Switch onValueChange={setHighAccuracy} value={highAccuracy} />
+            </View>
+
+            {Platform.OS === 'ios' && (
+              <View style={styles.option}>
+                <Text>Use Significant Changes</Text>
+                <Switch
+                  onValueChange={setSignificantChanges}
+                  value={significantChanges}
+                />
+              </View>
+            )}
+
+            {Platform.OS === 'android' && (
+              <>
+                <View style={styles.option}>
+                  <Text>Show Location Dialog</Text>
+                  <Switch
+                    onValueChange={setLocationDialog}
+                    value={locationDialog}
+                  />
+                </View>
+                <View style={styles.option}>
+                  <Text>Force Location Request</Text>
+                  <Switch
+                    onValueChange={setForceLocation}
+                    value={forceLocation}
+                  />
+                </View>
+                <View style={styles.option}>
+                  <Text>Use Location Manager</Text>
+                  <Switch
+                    onValueChange={setUseLocationManager}
+                    value={useLocationManager}
+                  />
+                </View>
+                <View style={styles.option}>
+                  <Text>Enable Foreground Service</Text>
+                  <Switch
+                    onValueChange={setForegroundService}
+                    value={foregroundService}
+                  />
+                </View>
+              </>
+            )}
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button title="Get Location" onPress={getLocation} />
+            <View style={styles.buttons}>
+              <Button
+                title="Start Observing"
+                onPress={getLocationUpdates}
+                disabled={observing}
+              />
+              <Button
+                title="Stop Observing"
+                onPress={removeLocationUpdates}
+                disabled={!observing}
+              />
+            </View>
+          </View>
+          <View style={styles.result}>
+            <Text>Latitude: {location?.coords?.latitude || ''}</Text>
+            <Text>Longitude: {location?.coords?.longitude || ''}</Text>
+            <Text>Heading: {location?.coords?.heading}</Text>
+            <Text>Accuracy: {location?.coords?.accuracy}</Text>
+            <Text>Altitude: {location?.coords?.altitude}</Text>
+            <Text>Altitude Accuracy: {location?.coords?.altitudeAccuracy}</Text>
+            <Text>Speed: {location?.coords?.speed}</Text>
+            <Text>Provider: {location?.provider || ''}</Text>
+            <Text>
+              Timestamp:{' '}
+              {location?.timestamp
+                ? new Date(location.timestamp).toLocaleString()
+                : ''}
+            </Text>
+          </View>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    position: 'relative',
-    // justifyContent: 'center',
-    backgroundColor: '#ECF0F1',
+    backgroundColor: '#F5FCFF',
   },
-  map: {
-    // flex: 1,
+  contentContainer: {
+    padding: 12,
+  },
+  option: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingBottom: 12,
+  },
+  result: {
+    borderWidth: 1,
+    borderColor: '#666',
     width: '100%',
-    height: '100%',
-    // backgroundColor: 'black',
+    padding: 10,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    marginVertical: 12,
+    width: '100%',
   },
 });
-
-export default memo(Maps);

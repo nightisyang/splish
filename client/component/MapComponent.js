@@ -2,7 +2,12 @@ import React, {useState, useRef, useEffect, memo} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
-import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {
+  Callout,
+  Marker,
+  Circle,
+  PROVIDER_GOOGLE,
+} from 'react-native-maps';
 
 import waterfallCoords from '../assets/waterfallMapCoords.json';
 
@@ -16,6 +21,7 @@ const MapComponent = ({
   zoomLevelInput,
   liteModeInput,
   onCalloutClick,
+  userCoords,
 }) => {
   const mapRef = useRef(null);
   const [isMapReady, setMapReady] = useState(false);
@@ -99,7 +105,7 @@ const MapComponent = ({
     return () => {
       clearTimeout(animationDelay);
     };
-  }, [isRegionChange, newRegion]);
+  }, [isRegionChange, newRegion, userCoords]);
 
   return (
     <View style={{flex: 1, minHeight: 150, position: 'relative'}}>
@@ -123,8 +129,45 @@ const MapComponent = ({
           handleMapReady();
           setMarkerRender(null);
         }}
-        zoomControlEnabled={true}>
+        zoomControlEnabled={true}
+        rotateEnabled={false}
+        pitchEnabled={false}
+        loadingEnabled={true}>
         {isMarkerRendered}
+        {!!userCoords && (
+          <>
+            <Marker
+              anchor={{x: 0.5, y: 0.6}}
+              coordinate={{
+                latitude: userCoords.latitude,
+                longitude: userCoords.longitude,
+              }}
+              flat
+              style={{
+                ...(userCoords.heading !== -1 && {
+                  transform: [
+                    {
+                      rotate: `${userCoords.heading}deg`,
+                    },
+                  ],
+                }),
+              }}>
+              <View style={styles.dotContainer}>
+                <View style={[styles.arrow]} />
+                <View style={styles.dot} />
+              </View>
+            </Marker>
+            <Circle
+              center={{
+                latitude: userCoords.latitude,
+                longitude: userCoords.longitude,
+              }}
+              radius={userCoords.accuracy}
+              strokeColor="rgba(0, 150, 255, 0.5)"
+              fillColor="rgba(0, 150, 255, 0.5)"
+            />
+          </>
+        )}
       </MapView>
     </View>
   );
@@ -136,6 +179,38 @@ const styles = StyleSheet.create({
     position: 'relative',
     // justifyContent: 'center',
     backgroundColor: '#ECF0F1',
+  },
+  dotContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  dot: {
+    backgroundColor: 'rgb(0, 120, 255)',
+    width: 24,
+    height: 24,
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 12,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 1.5,
+    elevation: 4,
+  },
+  arrow: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: 6,
+    borderRightWidth: 6,
+    borderBottomWidth: 10,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: 'rgb(0, 120, 255)',
   },
 });
 

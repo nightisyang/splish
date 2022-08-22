@@ -33,6 +33,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import List from './component/List';
 import Maps from './component/Maps';
 import Info from './component/Info';
+import GeoExample from './component/Geolocation';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -66,6 +67,10 @@ function WaterfallRoute(rotue, navigate) {
 function InfoRoute({route, navigate}) {
   console.log(route);
   return <Info onRoute={route} />;
+}
+
+function GeoExampleRoute() {
+  return <GeoExample />;
 }
 
 const App = () => {
@@ -140,20 +145,16 @@ const App = () => {
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Info2"
-        component={Info2Route}
+      <Tab.Screen
+        name="Geolocation"
+        component={GeoExampleRoute}
         options={{
-          tabBarLabel: 'Info2',
+          tabBarLabel: 'Geolocation',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons
-              name="information-outline"
-              color={color}
-              size={26}
-            />
+            <MaterialCommunityIcons name="target" color={color} size={26} />
           ),
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 };
