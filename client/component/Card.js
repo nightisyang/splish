@@ -19,7 +19,9 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const navigation = useNavigation();
 
   const onImagePress = uri => {
-    onCardClick(uri);
+    const info = [imgArr, uri];
+
+    onCardClick(info);
   };
 
   const renderImages = ({item, index}) => {

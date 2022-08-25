@@ -33,6 +33,7 @@ import Dropdown from './Dropdown';
 import ListCards from './ListCards';
 import StatusBarTheme from './StatusBarTheme';
 import FetchImages from './FetchImages';
+import ModalZoom from './ModalZoom';
 
 const window = Dimensions.get('window');
 const {width, height} = window;
@@ -42,7 +43,8 @@ const List = ({navigation, passIDToApp}) => {
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const [state, setState] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
-  const [imgUri, setImgUri] = useState(null);
+  const [imgArr, setImgArr] = useState(null);
+  const [imgStartIndex, setImgStartIndex] = useState(null);
 
   const searchBarAnim = useRef(new Animated.Value(0)).current;
 
@@ -76,11 +78,15 @@ const List = ({navigation, passIDToApp}) => {
     setState(obj);
   }
 
-  function showModalHandler(uri) {
-    // console.log('ID passed to List:', id);
-    console.log(uri);
+  function showModalHandler(info) {
+    const [_imgArr, urlIndex] = info;
     setModalVisible(true);
-    setImgUri(uri);
+    setImgArr(_imgArr);
+    setImgStartIndex(_imgArr.indexOf(urlIndex));
+  }
+
+  function closeModal() {
+    setModalVisible(false);
   }
 
   return (
@@ -123,32 +129,18 @@ const List = ({navigation, passIDToApp}) => {
             </View>
           </Animated.View>
         </SafeAreaView>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-            setModalVisible(!modalVisible);
-          }}>
-          <Pressable
-            style={[
-              styles.centeredView,
-              {zIndex: 1, backgroundColor: 'rgba(52, 52, 52, 0.8)'},
-            ]}
-            onPress={() => setModalVisible(!modalVisible)}>
-            <View
-              style={{
-                height: 'auto',
-                paddingHorizontal: 5,
-              }}>
-              <FetchImages
-                reqSource={'modal'}
-                item={imgUri}
-                windowWidth={width}
-              />
-            </View>
-          </Pressable>
+        <Modal animationType="fade" transparent={true} visible={modalVisible}>
+          <View
+            style={{
+              flex: 1,
+              // backgroundColor: 'purple',
+            }}>
+            <ModalZoom
+              imgUrl={imgArr}
+              setModalVisibility={closeModal}
+              startWith={imgStartIndex}
+            />
+          </View>
         </Modal>
       </Surface>
     </StatusBarTheme>

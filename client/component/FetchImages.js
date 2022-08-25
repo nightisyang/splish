@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import ZoomableImage from './ZoomableImage';
 
 const FetchImages = ({
   reqSource,
@@ -18,11 +19,16 @@ const FetchImages = ({
   const refWidth = useRef(null);
   const refHeight = useRef(null);
   const [isWidthReady, setWidthReady] = useState(false);
+  const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
     if (refWidth) {
       console.log('refWidth:', refWidth.current);
       console.log(reqSource);
+    }
+
+    if (reqSource === 'modal') {
+      setIsModal(true);
     }
 
     const getImageSize = async () => {
@@ -61,19 +67,28 @@ const FetchImages = ({
       <View style={{flex: 1}}>
         {isWidthReady && (
           <View style={[styles.imgContainer]}>
-            <FastImage
-              source={{
-                uri: item.uri.toString(),
-                priority: FastImage.priority.normal,
-                cache: FastImage.cacheControl.web,
-              }}
-              style={{
-                width: refWidth.current,
-                height: refHeight.current,
-                alignSelf: 'center',
-              }}
-              resizeMode={FastImage.resizeMode.contain}
-            />
+            {isModal ? (
+              <ZoomableImage
+                style={{backgroundColor: 'purple'}}
+                source={{uri: item.uri.toString()}}
+                imageWidth={refWidth.current}
+                imageHeight={refHeight.current}
+              />
+            ) : (
+              <FastImage
+                source={{
+                  uri: item.uri.toString(),
+                  priority: FastImage.priority.normal,
+                  // cache: FastImage.cacheControl.web,
+                }}
+                style={{
+                  width: refWidth.current,
+                  height: refHeight.current,
+                  alignSelf: 'center',
+                }}
+                resizeMode={FastImage.resizeMode.contain}
+              />
+            )}
           </View>
         )}
       </View>
