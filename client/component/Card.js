@@ -1,5 +1,14 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  Alert,
+  Pressable,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import FetchImages from './FetchImages';
@@ -9,14 +18,22 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
 
   const navigation = useNavigation();
 
+  const onImagePress = uri => {
+    onCardClick(uri);
+  };
+
   const renderImages = ({item, index}) => {
     return (
       <View style={{flex: 1, paddingRight: 5}}>
         <FetchImages
           reqSource={'card'}
           item={item}
-          onPress={() => setSelectedId(index)}
           containerHeight={150}
+          onPress={() => {
+            setSelectedId(index);
+            onImagePress(item);
+            // console.log(item);
+          }}
         />
       </View>
     );

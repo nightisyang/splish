@@ -22,9 +22,8 @@ const ListCards = props => {
     props.onDrag(text);
   }
 
-  function cardClickHandler(id) {
-    // console.log('ID coming from ListCards:', id);
-    props.passingWaterfallID(id);
+  function cardClickHandler(uri) {
+    props.showModal(uri);
   }
 
   useEffect(() => {

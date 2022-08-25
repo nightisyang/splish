@@ -14,6 +14,10 @@ import {
   Animated,
   StatusBar,
   View,
+  Modal,
+  Text,
+  Pressable,
+  Dimensions,
 } from 'react-native';
 import {
   Appbar,
@@ -22,16 +26,23 @@ import {
   Provider,
   Surface,
   ThemeProvider,
+  Alert,
 } from 'react-native-paper';
 
 import Dropdown from './Dropdown';
 import ListCards from './ListCards';
 import StatusBarTheme from './StatusBarTheme';
+import FetchImages from './FetchImages';
+
+const window = Dimensions.get('window');
+const {width, height} = window;
 
 const List = ({navigation, passIDToApp}) => {
   const [nightMode, setNightmode] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const [state, setState] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+  const [imgUri, setImgUri] = useState(null);
 
   const searchBarAnim = useRef(new Animated.Value(0)).current;
 
@@ -65,9 +76,11 @@ const List = ({navigation, passIDToApp}) => {
     setState(obj);
   }
 
-  function passingWaterfallIDHandler(id) {
+  function showModalHandler(uri) {
     // console.log('ID passed to List:', id);
-    passIDToApp(id);
+    console.log(uri);
+    setModalVisible(true);
+    setImgUri(uri);
   }
 
   return (
@@ -103,13 +116,40 @@ const List = ({navigation, passIDToApp}) => {
             }}>
             <View>
               <ListCards
-                passingWaterfallID={passingWaterfallIDHandler}
+                showModal={showModalHandler}
                 onStateChange={state}
                 onDrag={setToggleSearchBarHandler}
               />
             </View>
           </Animated.View>
         </SafeAreaView>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
+          }}>
+          <Pressable
+            style={[
+              styles.centeredView,
+              {zIndex: 1, backgroundColor: 'rgba(52, 52, 52, 0.8)'},
+            ]}
+            onPress={() => setModalVisible(!modalVisible)}>
+            <View
+              style={{
+                height: 'auto',
+                paddingHorizontal: 5,
+              }}>
+              <FetchImages
+                reqSource={'modal'}
+                item={imgUri}
+                windowWidth={width}
+              />
+            </View>
+          </Pressable>
+        </Modal>
       </Surface>
     </StatusBarTheme>
   );
@@ -156,6 +196,50 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignSelf: 'stretch',
     // backgroundColor: 'green',
+  },
+
+  centeredView: {
+    flex: 1,
+    flexShrink: 1,
+    justifyContent: 'center',
+    // alignItems: 'center',
+    // marginTop: 22,
+    // backgroundColor: 'purple',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 

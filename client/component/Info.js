@@ -48,9 +48,12 @@ const Info = ({onRoute, navigate}) => {
 
   useEffect(() => {
     setWaterfallID(onRoute?.params?.waterfallID);
-    setLatLng(
-      `${onRoute?.params?.userLoc.latitude},${onRoute?.params?.userLoc.longitude}`,
-    );
+
+    if (onRoute.params.userLoc) {
+      setLatLng(
+        `${onRoute?.params?.userLoc.latitude},${onRoute?.params?.userLoc.longitude}`,
+      );
+    }
 
     screenIndex.current = 0;
     scrollRef.current?.scrollTo({

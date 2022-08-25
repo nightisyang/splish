@@ -1,9 +1,22 @@
 import React, {useRef, useEffect, useState} from 'react';
-import {TouchableOpacity, View, Image, StyleSheet} from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  Image,
+  StyleSheet,
+  TouchableHighlight,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
-const FetchImages = ({reqSource, item, onPress, containerHeight}) => {
+const FetchImages = ({
+  reqSource,
+  item,
+  onPress,
+  containerHeight,
+  windowWidth,
+}) => {
   const refWidth = useRef(null);
+  const refHeight = useRef(null);
   const [isWidthReady, setWidthReady] = useState(false);
 
   useEffect(() => {
@@ -20,10 +33,19 @@ const FetchImages = ({reqSource, item, onPress, containerHeight}) => {
       });
 
       console.log(imgWidth, imgHeight);
-      console.log('containerHeight:', containerHeight);
 
-      refWidth.current = Math.floor((imgWidth / imgHeight) * containerHeight);
-      console.log(refWidth.current);
+      if (reqSource === 'modal') {
+        refWidth.current = windowWidth;
+        refHeight.current = Math.floor((imgHeight / imgWidth) * windowWidth);
+      } else {
+        refWidth.current = Math.floor((imgWidth / imgHeight) * containerHeight);
+        refHeight.current = containerHeight;
+        console.log(refWidth.current);
+      }
+
+      console.log('refWidth', refWidth.current);
+      console.log('refHeight', refHeight.current);
+
       setWidthReady(true);
     };
 
@@ -33,9 +55,9 @@ const FetchImages = ({reqSource, item, onPress, containerHeight}) => {
   }, [item]);
 
   return (
-    <TouchableOpacity
+    <TouchableHighlight
       onPress={onPress}
-      style={[styles.itemContainer, {height: containerHeight}]}>
+      style={[{height: refHeight.current}, styles.itemContainer]}>
       <View style={{flex: 1}}>
         {isWidthReady && (
           <View style={[styles.imgContainer]}>
@@ -47,7 +69,7 @@ const FetchImages = ({reqSource, item, onPress, containerHeight}) => {
               }}
               style={{
                 width: refWidth.current,
-                height: containerHeight,
+                height: refHeight.current,
                 alignSelf: 'center',
               }}
               resizeMode={FastImage.resizeMode.contain}
@@ -55,7 +77,7 @@ const FetchImages = ({reqSource, item, onPress, containerHeight}) => {
           </View>
         )}
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
@@ -63,6 +85,7 @@ const styles = StyleSheet.create({
   imgContainer: {
     flex: 1,
     overflow: 'hidden',
+    justifyContent: 'center',
     // borderWidth: 1,
     // borderColor: 'black',
     // borderRadius: 3,
@@ -73,10 +96,10 @@ const styles = StyleSheet.create({
   },
 
   itemContainer: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     // alignItems: 'center',
-    // backgroundColor: 'black',
+    backgroundColor: 'black',
     // padding: 20,
     // marginRight: 5,
     // width: 250,
