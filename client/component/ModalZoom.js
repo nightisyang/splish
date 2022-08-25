@@ -30,6 +30,7 @@ const ModalZoom = ({imgUrl, setModalVisibility, startWith}) => {
       index={startWith}
       //   useNativeDriver={true}
       enablePreload={true}
+      doubleClickInterval={500}
     />
   );
 };

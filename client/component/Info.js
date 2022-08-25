@@ -52,15 +52,18 @@ const Info = ({onRoute, navigate}) => {
   const [imgStartIndex, setImgStartIndex] = useState(null);
 
   useEffect(() => {
+    // if no params recieved return immediately
     if (!onRoute.params) {
       return;
     }
 
     setWaterfallID(onRoute?.params?.waterfallID);
 
-    setLatLng(
-      `${onRoute?.params?.userLoc.latitude},${onRoute?.params?.userLoc.longitude}`,
-    );
+    if (onRoute.params.userLoc) {
+      setLatLng(
+        `${onRoute?.params?.userLoc?.latitude},${onRoute?.params?.userLoc?.longitude}`,
+      );
+    }
 
     screenIndex.current = 0;
     scrollRef.current?.scrollTo({
@@ -182,13 +185,13 @@ const Info = ({onRoute, navigate}) => {
 
   return (
     <StatusBarTheme>
-      {/* <Appbar.Header> */}
-      {/* <Appbar.BackAction /> */}
-      {/* <Appbar.Content title="Info" /> */}
-      {/* <Appbar.Action /> */}
-      {/* <Appbar.Action icon="magnify" /> */}
-      {/* <Appbar.Action icon="dots-vertical" /> */}
-      {/* </Appbar.Header> */}
+      <Appbar.Header>
+        <Appbar.BackAction />
+        {/* <Appbar.Content title="Info" /> */}
+        {/* <Appbar.Action /> */}
+        {/* <Appbar.Action icon="magnify" /> */}
+        {/* <Appbar.Action icon="dots-vertical" /> */}
+      </Appbar.Header>
       {isLoaded ? (
         <SafeAreaView style={styles.container}>
           <View style={styles.headerContainer}>
