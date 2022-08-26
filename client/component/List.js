@@ -15,12 +15,12 @@ import {
   StatusBar,
   View,
   Modal,
-  Text,
   Pressable,
   Dimensions,
 } from 'react-native';
 import {
   Appbar,
+  Text,
   DarkTheme,
   DefaultTheme,
   Provider,
@@ -39,7 +39,7 @@ const window = Dimensions.get('window');
 const List = ({navigation, passIDToApp}) => {
   const [nightMode, setNightmode] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
-  const [state, setState] = useState('');
+  const [state, setState] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [imgArr, setImgArr] = useState(null);
   const [imgStartIndex, setImgStartIndex] = useState(null);
@@ -107,22 +107,21 @@ const List = ({navigation, passIDToApp}) => {
             transform: [{translateY: searchBarAnim}],
             paddingHorizontal: 10,
             paddingTop: 2,
-            // paddingBottom: 3,
+            paddingBottom: 3,
             zIndex: -1,
           }}>
           <Dropdown onStateChange={filterStateHandler} />
         </Animated.View>
         <SafeAreaView>
-          <Animated.View
-            style={{
-              transform: [{translateY: searchBarAnim}],
-            }}>
+          <Animated.View style={{transform: [{translateY: searchBarAnim}]}}>
             <View>
-              <ListCards
-                showModal={showModalHandler}
-                onStateChange={state}
-                onDrag={setToggleSearchBarHandler}
-              />
+              {state ? (
+                <ListCards
+                  showModal={showModalHandler}
+                  onStateChange={state}
+                  onDrag={setToggleSearchBarHandler}
+                />
+              ) : null}
             </View>
           </Animated.View>
         </SafeAreaView>
@@ -138,6 +137,18 @@ const List = ({navigation, passIDToApp}) => {
             />
           </View>
         </Modal>
+        {state ? null : (
+          <View
+            style={{
+              flex: 1,
+              // backgroundColor: 'purple',
+              justifyContent: 'center',
+              alignItems: 'center',
+              // alignContent: 'center',
+            }}>
+            <Text>Please select a state from the list</Text>
+          </View>
+        )}
       </Surface>
     </StatusBarTheme>
   );

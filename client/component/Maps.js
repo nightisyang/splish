@@ -139,7 +139,7 @@ const Maps = ({navigation, onReceiveID}) => {
     Geolocation.getCurrentPosition(
       position => {
         setLocation(position);
-        console.log(position);
+        // console.log(position);
       },
       error => {
         Alert.alert(`Code ${error.code}`, error.message);
@@ -178,7 +178,7 @@ const Maps = ({navigation, onReceiveID}) => {
     watchId.current = Geolocation.watchPosition(
       position => {
         setLocation(position);
-        console.log(position);
+        // console.log(position);
       },
       error => {
         setLocation(null);

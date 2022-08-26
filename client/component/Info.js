@@ -258,7 +258,8 @@ const Info = ({onRoute, navigate}) => {
                 waterfall.imgFilenameArr.map((val, i, arr) => {
                   return (
                     <View
-                      style={[styles.flex, {width: calcWidth, height: '100%'}]}>
+                      style={[styles.flex, {width: calcWidth, height: '100%'}]}
+                      key={i.toString()}>
                       <FetchImages
                         reqSource={'info'}
                         item={val}

@@ -64,10 +64,10 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
             showsHorizontalScrollIndicator={false}
             data={imgArr}
             renderItem={renderImages}
-            keyExtractor={(item, index) => {
-              console.log(item.uri.split('/').slice(-1)[0]);
-              item.uri.split('/').slice(-1)[0];
-            }}
+            keyExtractor={(item, index) =>
+              // console.log(item.uri.split('/').slice(-1)[0]);
+              item.uri.split('/').slice(-1)[0]
+            }
             listKey={uuid}
           />
         </View>
