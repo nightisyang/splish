@@ -1,13 +1,28 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  Modal,
+  Alert,
+  Pressable,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+// import 'react-native-get-random-values';
+import {v4 as uuidv4} from 'uuid';
 
 import FetchImages from './FetchImages';
 
 const Card = ({id, name, imgArr, desc, onCardClick}) => {
-  const [selectedId, setSelectedId] = useState(null);
-
   const navigation = useNavigation();
+
+  const onImagePress = uri => {
+    const info = [imgArr, uri];
+
+    onCardClick(info);
+  };
 
   const renderImages = ({item, index}) => {
     return (
@@ -15,18 +30,23 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
         <FetchImages
           reqSource={'card'}
           item={item}
-          onPress={() => setSelectedId(index)}
           containerHeight={150}
+          onPress={() => {
+            onImagePress(item);
+          }}
         />
       </View>
     );
   };
 
   const onCardClickHandler = _id => {
-    // console.log('click on item', item);
     console.log('id of waterfall:', _id);
-    // onCardClick(_id);
     navigation.navigate('Info', {waterfallID: _id});
+  };
+
+  const uuid = function () {
+    console.log('uuid called:', Date.now());
+    return uuidv4();
   };
 
   return (
@@ -44,8 +64,11 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
             showsHorizontalScrollIndicator={false}
             data={imgArr}
             renderItem={renderImages}
-            keyExtractor={(item, index) => index.toString()}
-            extraData={selectedId}
+            keyExtractor={(item, index) => {
+              console.log(item.uri.split('/').slice(-1)[0]);
+              item.uri.split('/').slice(-1)[0];
+            }}
+            listKey={uuid}
           />
         </View>
 

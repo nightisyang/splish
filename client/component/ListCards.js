@@ -1,5 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {View, Text, FlatList, StyleSheet, Platform} from 'react-native';
+// import 'react-native-get-random-values';
+import {v4 as uuidv4} from 'uuid';
 
 import Card from './Card';
 
@@ -16,21 +18,23 @@ const ListCards = props => {
     {name: '', summary: '', imgFilename: [{uri: ''}]},
   ]);
   const [fetchState, setFetchState] = useState('');
-  // const fetchState = useRef('');
 
   function onDragHandler(text) {
     props.onDrag(text);
   }
 
-  function cardClickHandler(id) {
-    // console.log('ID coming from ListCards:', id);
-    props.passingWaterfallID(id);
+  function cardClickHandler(uri) {
+    props.showModal(uri);
   }
 
   useEffect(() => {
     // changes state when new prop is passed down
     setFetchState(props.onStateChange);
   }, [props.onStateChange]);
+
+  const uid = function () {
+    uuidv4();
+  };
 
   async function getWaterfalls() {
     try {
@@ -59,7 +63,6 @@ const ListCards = props => {
           imgFilename => {
             const obj = {};
             obj.uri = `http://${localhost}/images/${imgFilename}`;
-            // obj.height = 140;
 
             return obj;
           },
@@ -74,8 +77,6 @@ const ListCards = props => {
       console.log(err);
     }
   }
-
-  // console.log(`No of waterfalls in ${fetchState}`, waterfalls.length);
 
   // render each card in flatlist
   const renderItem = ({item}) => {
@@ -99,14 +100,17 @@ const ListCards = props => {
   return (
     <View>
       <FlatList
-        contentInset={{top: 0, bottom: 100, left: 0, right: 0}}
+        // contentInset={{top: 0, bottom: 0, left: 0, right: 0}}
         contentInsetAdjustmentBehavior="automatic"
         // maxToRenderPerBatch={20}
         // pagingEnabled={true}
         centerContent={true}
         data={waterfalls}
         renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
+        listKey={uid}
+        keyExtractor={(item, index) => {
+          item.id;
+        }}
         onScrollBeginDrag={() => {
           // console.log('drag');
           onDragHandler('false');

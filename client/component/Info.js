@@ -7,12 +7,14 @@ import {
   ScrollView,
   Dimensions,
   Pressable,
+  Modal,
 } from 'react-native';
 import {Appbar, IconButton, Text} from 'react-native-paper';
 
 import StatusBarTheme from './StatusBarTheme';
 import MapComponent from './MapComponent';
 import FetchImages from './FetchImages';
+import ModalZoom from './ModalZoom';
 
 let localhost = '192.168.101.24:3000';
 
@@ -45,12 +47,23 @@ const Info = ({onRoute, navigate}) => {
   const [distance, setDistance] = useState('');
   const [selectedId, setSelectedId] = useState(null);
   const [imgLength, setImgLength] = useState(1);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [imgArr, setImgArr] = useState(null);
+  const [imgStartIndex, setImgStartIndex] = useState(null);
 
   useEffect(() => {
+    // if no params recieved return immediately
+    if (!onRoute.params) {
+      return;
+    }
+
     setWaterfallID(onRoute?.params?.waterfallID);
-    setLatLng(
-      `${onRoute?.params?.userLoc.latitude},${onRoute?.params?.userLoc.longitude}`,
-    );
+
+    if (onRoute.params.userLoc) {
+      setLatLng(
+        `${onRoute?.params?.userLoc?.latitude},${onRoute?.params?.userLoc?.longitude}`,
+      );
+    }
 
     screenIndex.current = 0;
     scrollRef.current?.scrollTo({
@@ -67,6 +80,10 @@ const Info = ({onRoute, navigate}) => {
       console.log('retriving waterfall');
     }
   }, [waterfallID]);
+
+  function closeModal() {
+    setModalVisible(false);
+  }
 
   async function getWaterfall() {
     try {
@@ -168,13 +185,13 @@ const Info = ({onRoute, navigate}) => {
 
   return (
     <StatusBarTheme>
-      {/* <Appbar.Header> */}
-      {/* <Appbar.BackAction /> */}
-      {/* <Appbar.Content title="Info" /> */}
-      {/* <Appbar.Action /> */}
-      {/* <Appbar.Action icon="magnify" /> */}
-      {/* <Appbar.Action icon="dots-vertical" /> */}
-      {/* </Appbar.Header> */}
+      <Appbar.Header>
+        <Appbar.BackAction />
+        {/* <Appbar.Content title="Info" /> */}
+        {/* <Appbar.Action /> */}
+        {/* <Appbar.Action icon="magnify" /> */}
+        {/* <Appbar.Action icon="dots-vertical" /> */}
+      </Appbar.Header>
       {isLoaded ? (
         <SafeAreaView style={styles.container}>
           <View style={styles.headerContainer}>
@@ -240,7 +257,12 @@ const Info = ({onRoute, navigate}) => {
                       <FetchImages
                         reqSource={'info'}
                         item={val}
-                        onPress={() => setSelectedId(i)}
+                        onPress={() => {
+                          setSelectedId(i);
+                          setModalVisible(true);
+                          setImgArr(waterfall.imgFilenameArr);
+                          setImgStartIndex(i);
+                        }}
                         containerHeight={viewHeight.current}
                       />
                     </View>
@@ -325,6 +347,19 @@ const Info = ({onRoute, navigate}) => {
           </View>
         </SafeAreaView>
       )}
+      <Modal animationType="fade" transparent={true} visible={modalVisible}>
+        <View
+          style={{
+            flex: 1,
+            // backgroundColor: 'purple',
+          }}>
+          <ModalZoom
+            imgUrl={imgArr}
+            setModalVisibility={closeModal}
+            startWith={imgStartIndex}
+          />
+        </View>
+      </Modal>
     </StatusBarTheme>
   );
 };

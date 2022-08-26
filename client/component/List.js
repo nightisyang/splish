@@ -14,6 +14,10 @@ import {
   Animated,
   StatusBar,
   View,
+  Modal,
+  Text,
+  Pressable,
+  Dimensions,
 } from 'react-native';
 import {
   Appbar,
@@ -22,21 +26,27 @@ import {
   Provider,
   Surface,
   ThemeProvider,
+  Alert,
 } from 'react-native-paper';
 
 import Dropdown from './Dropdown';
 import ListCards from './ListCards';
 import StatusBarTheme from './StatusBarTheme';
+import ModalZoom from './ModalZoom';
+
+const window = Dimensions.get('window');
 
 const List = ({navigation, passIDToApp}) => {
   const [nightMode, setNightmode] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const [state, setState] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+  const [imgArr, setImgArr] = useState(null);
+  const [imgStartIndex, setImgStartIndex] = useState(null);
 
   const searchBarAnim = useRef(new Animated.Value(0)).current;
 
   function setToggleSearchBarHandler(text) {
-    // console.log('passed to parent App');
     if (text === 'true') {
       setToggleSearchBar(true);
     } else {
@@ -65,9 +75,15 @@ const List = ({navigation, passIDToApp}) => {
     setState(obj);
   }
 
-  function passingWaterfallIDHandler(id) {
-    // console.log('ID passed to List:', id);
-    passIDToApp(id);
+  function showModalHandler(info) {
+    const [_imgArr, urlIndex] = info;
+    setModalVisible(true);
+    setImgArr(_imgArr);
+    setImgStartIndex(_imgArr.indexOf(urlIndex));
+  }
+
+  function closeModal() {
+    setModalVisible(false);
   }
 
   return (
@@ -103,13 +119,25 @@ const List = ({navigation, passIDToApp}) => {
             }}>
             <View>
               <ListCards
-                passingWaterfallID={passingWaterfallIDHandler}
+                showModal={showModalHandler}
                 onStateChange={state}
                 onDrag={setToggleSearchBarHandler}
               />
             </View>
           </Animated.View>
         </SafeAreaView>
+        <Modal animationType="fade" transparent={true} visible={modalVisible}>
+          <View
+            style={{
+              flex: 1,
+            }}>
+            <ModalZoom
+              imgUrl={imgArr}
+              setModalVisibility={closeModal}
+              startWith={imgStartIndex}
+            />
+          </View>
+        </Modal>
       </Surface>
     </StatusBarTheme>
   );
@@ -156,6 +184,50 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignSelf: 'stretch',
     // backgroundColor: 'green',
+  },
+
+  centeredView: {
+    flex: 1,
+    flexShrink: 1,
+    justifyContent: 'center',
+    // alignItems: 'center',
+    // marginTop: 22,
+    // backgroundColor: 'purple',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 
