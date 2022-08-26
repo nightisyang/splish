@@ -19,18 +19,8 @@ const FetchImages = ({
   const refWidth = useRef(null);
   const refHeight = useRef(null);
   const [isWidthReady, setWidthReady] = useState(false);
-  const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
-    if (refWidth) {
-      console.log('refWidth:', refWidth.current);
-      console.log(reqSource);
-    }
-
-    if (reqSource === 'modal') {
-      setIsModal(true);
-    }
-
     const getImageSize = async () => {
       const {imgWidth, imgHeight} = await new Promise(resolve => {
         Image.getSize(item.uri, (_width, height) => {
@@ -38,26 +28,15 @@ const FetchImages = ({
         });
       });
 
-      console.log(imgWidth, imgHeight);
-
-      if (reqSource === 'modal') {
-        refWidth.current = windowWidth;
-        refHeight.current = Math.floor((imgHeight / imgWidth) * windowWidth);
-      } else {
-        refWidth.current = Math.floor((imgWidth / imgHeight) * containerHeight);
-        refHeight.current = containerHeight;
-        console.log(refWidth.current);
-      }
-
-      console.log('refWidth', refWidth.current);
-      console.log('refHeight', refHeight.current);
+      refWidth.current = Math.floor((imgWidth / imgHeight) * containerHeight);
+      refHeight.current = containerHeight;
 
       setWidthReady(true);
     };
 
-    if (!refWidth.current) {
-      getImageSize();
-    }
+    // if (!refWidth.current) {
+    getImageSize();
+    // }
   }, [item]);
 
   return (
@@ -67,28 +46,22 @@ const FetchImages = ({
       <View style={{flex: 1}}>
         {isWidthReady && (
           <View style={[styles.imgContainer]}>
-            {isModal ? (
-              <ZoomableImage
-                style={{backgroundColor: 'purple'}}
-                source={{uri: item.uri.toString()}}
-                imageWidth={refWidth.current}
-                imageHeight={refHeight.current}
-              />
-            ) : (
-              <FastImage
-                source={{
-                  uri: item.uri.toString(),
-                  priority: FastImage.priority.normal,
-                  // cache: FastImage.cacheControl.web,
-                }}
-                style={{
-                  width: refWidth.current,
-                  height: refHeight.current,
-                  alignSelf: 'center',
-                }}
-                resizeMode={FastImage.resizeMode.contain}
-              />
-            )}
+            <FastImage
+              source={{
+                uri: item.uri.toString(),
+                priority: FastImage.priority.normal,
+                cache: FastImage.cacheControl.web,
+              }}
+              style={{
+                width: refWidth.current,
+                height: refHeight.current,
+                alignSelf: 'center',
+              }}
+              resizeMode={FastImage.resizeMode.contain}
+              onLoad={e =>
+                console.log(e.nativeEvent.width, e.nativeEvent.height)
+              }
+            />
           </View>
         )}
       </View>

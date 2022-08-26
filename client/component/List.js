@@ -49,7 +49,6 @@ const List = ({navigation, passIDToApp}) => {
   const searchBarAnim = useRef(new Animated.Value(0)).current;
 
   function setToggleSearchBarHandler(text) {
-    // console.log('passed to parent App');
     if (text === 'true') {
       setToggleSearchBar(true);
     } else {
@@ -133,7 +132,6 @@ const List = ({navigation, passIDToApp}) => {
           <View
             style={{
               flex: 1,
-              // backgroundColor: 'purple',
             }}>
             <ModalZoom
               imgUrl={imgArr}

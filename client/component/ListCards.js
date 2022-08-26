@@ -1,5 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {View, Text, FlatList, StyleSheet, Platform} from 'react-native';
+// import 'react-native-get-random-values';
+import {v4 as uuidv4} from 'uuid';
 
 import Card from './Card';
 
@@ -30,6 +32,10 @@ const ListCards = props => {
     // changes state when new prop is passed down
     setFetchState(props.onStateChange);
   }, [props.onStateChange]);
+
+  const uid = function () {
+    uuidv4();
+  };
 
   async function getWaterfalls() {
     try {
@@ -98,14 +104,17 @@ const ListCards = props => {
   return (
     <View>
       <FlatList
-        contentInset={{top: 0, bottom: 100, left: 0, right: 0}}
-        contentInsetAdjustmentBehavior="automatic"
+        contentInset={{top: 0, bottom: 0, left: 0, right: 0}}
+        // contentInsetAdjustmentBehavior="automatic"
         // maxToRenderPerBatch={20}
         // pagingEnabled={true}
         centerContent={true}
         data={waterfalls}
         renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
+        listKey={uid}
+        keyExtractor={(item, index) => {
+          item.id;
+        }}
         onScrollBeginDrag={() => {
           // console.log('drag');
           onDragHandler('false');

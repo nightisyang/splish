@@ -12,7 +12,7 @@ const ModalZoom = ({imgUrl, setModalVisibility, startWith}) => {
   };
 
   let images = [];
-  console.log(imgUrl);
+  //   console.log(imgUrl);
 
   imgUrl.forEach((val, i, arr) => {
     const {uri} = val;
@@ -20,7 +20,7 @@ const ModalZoom = ({imgUrl, setModalVisibility, startWith}) => {
     images.push({url: uri});
   });
 
-  console.log(images);
+  //   console.log(images);
 
   return (
     <ImageViewer
@@ -28,9 +28,11 @@ const ModalZoom = ({imgUrl, setModalVisibility, startWith}) => {
       enableSwipeDown={true}
       onCancel={swipeDownHandler}
       index={startWith}
-      //   useNativeDriver={true}
+      useNativeDriver={true}
       enablePreload={true}
       doubleClickInterval={500}
+      flipThreshold={60}
+      swipeDownThreshold={8}
     />
   );
 };
