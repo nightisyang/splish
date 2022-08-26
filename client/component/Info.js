@@ -195,7 +195,12 @@ const Info = ({onRoute, navigate}) => {
       {isLoaded ? (
         <SafeAreaView style={styles.container}>
           <View style={styles.headerContainer}>
-            <Text style={styles.headerText}>{waterfall.name}</Text>
+            <Text
+              style={styles.headerText}
+              adjustsFontSizeToFit={true}
+              numberOfLines={1}>
+              {waterfall.name}
+            </Text>
             <View style={styles.subheadingContainer}>
               <IconButton icon="map-marker" style={styles.subheadingIcon} />
               <Text style={styles.subheadingText}>
@@ -278,54 +283,58 @@ const Info = ({onRoute, navigate}) => {
                   <View style={styles.profileBottomSeperator}>
                     <View style={styles.flex}>
                       <Text style={styles.profileTextTitle}>Distance</Text>
-                      <Text style={styles.profileTextContent}>
+                      <Text
+                        style={styles.profileTextContent}
+                        textAlign={'center'}>
                         {distance} km
                       </Text>
                     </View>
                     <View style={styles.profileMiddleSeperator} />
-                  </View>
-                  <View style={styles.profileBottomSeperator}>
-                    <View style={styles.flex}>
-                      <Text style={styles.profileTextTitle}>Accessibility</Text>
-                      <Text style={styles.profileTextContent}>
-                        {waterfall.accessibility}
-                      </Text>
-                    </View>
-                    <View style={styles.profileMiddleSeperator} />
-                  </View>
-                  <View style={styles.profileBottomSeperator}>
-                    <View style={styles.flex}>
-                      <Text style={styles.profileTextTitle}>Difficulty</Text>
-                      <Text style={styles.profileTextContent}>
-                        {waterfall.difficulty}
-                      </Text>
-                    </View>
-                    <View style={styles.profileMiddleSeperator} />
-                  </View>
-                </View>
-                <View style={styles.flex}>
-                  <View style={styles.profileBottomSeperator}>
                     <View style={styles.flex}>
                       <Text style={styles.profileTextTitle}>
                         Waterfall Profile
                       </Text>
-                      <Text style={styles.profileTextContent}>
+                      <Text
+                        style={styles.profileTextContent}
+                        textAlign={'center'}>
                         {waterfall.waterfallProfile}
                       </Text>
                     </View>
                   </View>
                   <View style={styles.profileBottomSeperator}>
                     <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>Accessibility</Text>
+                      <Text
+                        style={styles.profileTextContent}
+                        textAlign={'center'}>
+                        {waterfall.accessibility}
+                      </Text>
+                    </View>
+                    <View style={styles.profileMiddleSeperator} />
+                    <View style={styles.flex}>
                       <Text style={styles.profileTextTitle}>Water source</Text>
-                      <Text style={styles.profileTextContent}>
+                      <Text
+                        style={styles.profileTextContent}
+                        textAlign={'center'}>
                         {waterfall.waterSource}
                       </Text>
                     </View>
                   </View>
                   <View style={styles.profileBottomSeperator}>
                     <View style={styles.flex}>
+                      <Text style={styles.profileTextTitle}>Difficulty</Text>
+                      <Text
+                        style={styles.profileTextContent}
+                        textAlign={'center'}>
+                        {waterfall.difficulty}
+                      </Text>
+                    </View>
+                    <View style={styles.profileMiddleSeperator} />
+                    <View style={styles.flex}>
                       <Text style={styles.profileTextTitle}>Last update</Text>
-                      <Text style={styles.profileTextContent}>
+                      <Text
+                        style={styles.profileTextContent}
+                        textAlign={'center'}>
                         {waterfall.lastUpdate}
                       </Text>
                     </View>
@@ -405,22 +414,27 @@ const styles = StyleSheet.create({
   },
 
   headerContainer: {
-    flex: 2,
+    // flex: 2,
     alignContent: 'center',
-    marginBottom: 5,
+    // paddingBottom: 5,
+    height: 65,
   },
 
   headerText: {
+    width: Dimensions.get('window').width,
     paddingHorizontal: 15,
     fontWeight: '600',
     fontSize: 30,
   },
 
   subheadingContainer: {
+    paddingTop: 3,
     flex: 1,
     flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent: 'flex-start',
+    // alignContent: 'center',
+    // justifyContent: 'flex-start',
+    // backgroundColor: 'red',
+    // marginBottom: 20,
   },
 
   subheadingIcon: {
@@ -430,7 +444,9 @@ const styles = StyleSheet.create({
 
   subheadingText: {
     alignSelf: 'center',
-    marginLeft: -12,
+    marginLeft: -15,
+    // paddingBottom: 3,
+    // backgroundColor: 'purple',
   },
 
   mediaContainer: {
