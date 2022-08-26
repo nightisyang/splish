@@ -56,6 +56,7 @@ const FetchImages = ({
               }}
               resizeMode={FastImage.resizeMode.contain}
               onLoad={e =>
+                // useful to set width and height of images, instead of calling getSize which will result in two calls.
                 console.log(e.nativeEvent.width, e.nativeEvent.height)
               }
             />
