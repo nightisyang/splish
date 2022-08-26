@@ -263,7 +263,7 @@ const Info = ({onRoute, navigate}) => {
                         reqSource={'info'}
                         item={val}
                         onPress={() => {
-                          setSelectedId(i);
+                          // setSelectedId(i);
                           setModalVisible(true);
                           setImgArr(waterfall.imgFilenameArr);
                           setImgStartIndex(i);
@@ -281,56 +281,46 @@ const Info = ({onRoute, navigate}) => {
               <View style={[styles.flexRow, {paddingTop: 5}]}>
                 <View style={styles.flex}>
                   <View style={styles.profileBottomSeperator}>
-                    <View style={styles.flex}>
+                    <View style={styles.detailsTextContainer}>
                       <Text style={styles.profileTextTitle}>Distance</Text>
-                      <Text
-                        style={styles.profileTextContent}
-                        textAlign={'center'}>
+                      <Text style={styles.profileTextContent}>
                         {distance} km
                       </Text>
                     </View>
                     <View style={styles.profileMiddleSeperator} />
-                    <View style={styles.flex}>
+                    <View style={styles.detailsTextContainer}>
                       <Text style={styles.profileTextTitle}>
                         Waterfall Profile
                       </Text>
-                      <Text
-                        style={styles.profileTextContent}
-                        textAlign={'center'}>
+                      <Text style={styles.profileTextContent}>
                         {waterfall.waterfallProfile}
                       </Text>
                     </View>
                   </View>
                   <View style={styles.profileBottomSeperator}>
-                    <View style={styles.flex}>
+                    <View style={styles.detailsTextContainer}>
                       <Text style={styles.profileTextTitle}>Accessibility</Text>
-                      <Text
-                        style={styles.profileTextContent}
-                        textAlign={'center'}>
+                      <Text style={styles.profileTextContent}>
                         {waterfall.accessibility}
                       </Text>
                     </View>
                     <View style={styles.profileMiddleSeperator} />
-                    <View style={styles.flex}>
+                    <View style={styles.detailsTextContainer}>
                       <Text style={styles.profileTextTitle}>Water source</Text>
-                      <Text
-                        style={styles.profileTextContent}
-                        textAlign={'center'}>
+                      <Text style={styles.profileTextContent}>
                         {waterfall.waterSource}
                       </Text>
                     </View>
                   </View>
                   <View style={styles.profileBottomSeperator}>
-                    <View style={styles.flex}>
+                    <View style={styles.detailsTextContainer}>
                       <Text style={styles.profileTextTitle}>Difficulty</Text>
-                      <Text
-                        style={styles.profileTextContent}
-                        textAlign={'center'}>
+                      <Text style={styles.profileTextContent}>
                         {waterfall.difficulty}
                       </Text>
                     </View>
                     <View style={styles.profileMiddleSeperator} />
-                    <View style={styles.flex}>
+                    <View style={styles.detailsTextContainer}>
                       <Text style={styles.profileTextTitle}>Last update</Text>
                       <Text
                         style={styles.profileTextContent}
@@ -507,6 +497,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
+  detailsTextContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
   profileTextTitle: {
     fontSize: 12,
     alignSelf: 'center',
@@ -515,8 +511,8 @@ const styles = StyleSheet.create({
 
   profileTextContent: {
     fontSize: 16,
-    alignSelf: 'center',
     paddingVertical: 2,
+    textAlign: 'center',
   },
 
   profileBottomSeperator: {

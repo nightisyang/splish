@@ -33,7 +33,7 @@ const ListCards = props => {
   }, [props.onStateChange]);
 
   const uid = function () {
-    uuidv4();
+    return uuidv4();
   };
 
   async function getWaterfalls() {
