@@ -16,8 +16,6 @@ import {v4 as uuidv4} from 'uuid';
 import FetchImages from './FetchImages';
 
 const Card = ({id, name, imgArr, desc, onCardClick}) => {
-  const [selectedId, setSelectedId] = useState(null);
-
   const navigation = useNavigation();
 
   const onImagePress = uri => {
@@ -34,9 +32,7 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
           item={item}
           containerHeight={150}
           onPress={() => {
-            // setSelectedId(index);
             onImagePress(item);
-            // console.log(item);
           }}
         />
       </View>
@@ -44,9 +40,7 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   };
 
   const onCardClickHandler = _id => {
-    // console.log('click on item', item);
     console.log('id of waterfall:', _id);
-    // onCardClick(_id);
     navigation.navigate('Info', {waterfallID: _id});
   };
 
@@ -75,7 +69,6 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
               item.uri.split('/').slice(-1)[0];
             }}
             listKey={uuid}
-            // extraData={selectedId}
           />
         </View>
 

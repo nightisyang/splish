@@ -7,16 +7,13 @@ const ModalZoom = ({imgUrl, setModalVisibility, startWith}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const swipeDownHandler = () => {
-    // console.log('swiping down');
     setModalVisibility();
   };
 
   let images = [];
-  //   console.log(imgUrl);
 
   imgUrl.forEach((val, i, arr) => {
     const {uri} = val;
-    // console.log(uri);
     images.push({url: uri});
   });
 

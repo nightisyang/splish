@@ -32,11 +32,9 @@ import {
 import Dropdown from './Dropdown';
 import ListCards from './ListCards';
 import StatusBarTheme from './StatusBarTheme';
-import FetchImages from './FetchImages';
 import ModalZoom from './ModalZoom';
 
 const window = Dimensions.get('window');
-const {width, height} = window;
 
 const List = ({navigation, passIDToApp}) => {
   const [nightMode, setNightmode] = useState(false);

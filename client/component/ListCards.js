@@ -18,7 +18,6 @@ const ListCards = props => {
     {name: '', summary: '', imgFilename: [{uri: ''}]},
   ]);
   const [fetchState, setFetchState] = useState('');
-  // const fetchState = useRef('');
 
   function onDragHandler(text) {
     props.onDrag(text);
@@ -64,7 +63,6 @@ const ListCards = props => {
           imgFilename => {
             const obj = {};
             obj.uri = `http://${localhost}/images/${imgFilename}`;
-            // obj.height = 140;
 
             return obj;
           },
@@ -79,8 +77,6 @@ const ListCards = props => {
       console.log(err);
     }
   }
-
-  // console.log(`No of waterfalls in ${fetchState}`, waterfalls.length);
 
   // render each card in flatlist
   const renderItem = ({item}) => {
@@ -104,8 +100,8 @@ const ListCards = props => {
   return (
     <View>
       <FlatList
-        contentInset={{top: 0, bottom: 0, left: 0, right: 0}}
-        // contentInsetAdjustmentBehavior="automatic"
+        // contentInset={{top: 0, bottom: 0, left: 0, right: 0}}
+        contentInsetAdjustmentBehavior="automatic"
         // maxToRenderPerBatch={20}
         // pagingEnabled={true}
         centerContent={true}

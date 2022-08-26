@@ -7,7 +7,6 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import ZoomableImage from './ZoomableImage';
 
 const FetchImages = ({
   reqSource,
@@ -34,9 +33,7 @@ const FetchImages = ({
       setWidthReady(true);
     };
 
-    // if (!refWidth.current) {
     getImageSize();
-    // }
   }, [item]);
 
   return (
