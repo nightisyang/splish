@@ -15,87 +15,36 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import List from './component/List';
 import Maps from './component/Maps';
 import Info from './component/Info';
-// import GeoExample from './component/Geolocation';
-
+import About from './component/About';
 const Tab = createMaterialBottomTabNavigator();
 
-// function HomeScreen({navigation}) {
-//   return (
-//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-//       <Text>Home Screen</Text>
-//       <Button
-//         title="Go to Details"
-//         onPress={() => navigation.navigate('Info')}
-//       />
-//     </View>
-//   );
-// }
-
-// function DetailsScreen() {
-//   return (
-//     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-//       <Text>Details Screen</Text>
-//     </View>
-//   );
-// }
-
-function MapRoute() {
+function MapScreen() {
   return <Maps />;
 }
 
-function WaterfallRoute(rotue, navigate) {
+function WaterfallScreen(route, navigation) {
   return <List />;
 }
-function InfoRoute({route, navigate}) {
-  console.log(route);
+function InfoScreen({route, navigation}) {
+  // console.log(route);
   return <Info onRoute={route} />;
 }
 
-// function GeoExampleRoute() {
-//   return <GeoExample />;
-// }
+function AboutScreen({route, navigation}) {
+  // console.log(route);
+  return <About />;
+}
 
 const App = () => {
   const [nightMode, setNightmode] = useState(false);
-  // const waterfallIDRef = useRef(null);
-
-  // const navigateWaterfallDetails = useCallback(function (id) {
-  //   waterfallIDRef.current = id;
-  //   console.log('passed id to parent:', waterfallIDRef.current);
-  // });
-
-  // const UpdateInfo = () => {
-  //   console.log(`In UpdateInfo: ${waterfallIDRef.current}`);
-  //   return <Info waterfallID={waterfallIDRef.current} />;
-  // };
-
-  // useEffect(() => {
-  //   UpdateInfo();
-  // }, [navigateWaterfallDetails]);
-
-  // useEffect(() => {
-  //   navigation.navigate('Info');
-  // }, [waterfallID]);
-  // const setWaterfallDetails = function () {
-  //   return <Info waterfallID={waterfallID} />;
-  // };
-
-  // useEffect(() => {
-  //   setWaterfallDetails;
-  // }, [waterfallID]);
-
-  // const WaterfallRoute = () => <List passIDToApp={navigateWaterfallDetails} />;
-  // const MapRoute = () => <Maps onReceiveID={navigateWaterfallDetails} />;
-  // const InfoRoute = () => <UpdateInfo />;
-  // const Info2Route = () => <Info2 waterfallID={waterfallID} />;
 
   return (
-    <Tab.Navigator initialRouteName="Waterfalls">
+    <Tab.Navigator initialRouteName="Waterfalls" backBehavior="history">
       {/* <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Details" component={DetailsScreen} /> */}
       <Tab.Screen
         name="Map"
-        component={MapRoute}
+        component={MapScreen}
         options={{
           tabBarLabel: 'Map',
           tabBarIcon: ({color}) => (
@@ -105,7 +54,7 @@ const App = () => {
       />
       <Tab.Screen
         name="Waterfalls"
-        component={WaterfallRoute}
+        component={WaterfallScreen}
         options={{
           tabBarLabel: 'Waterfalls',
           tabBarIcon: ({color}) => (
@@ -115,7 +64,7 @@ const App = () => {
       />
       <Tab.Screen
         name="Info"
-        component={InfoRoute}
+        component={InfoScreen}
         options={{
           tabBarLabel: 'Info',
           tabBarIcon: ({color}) => (
@@ -127,16 +76,20 @@ const App = () => {
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Geolocation"
-        component={GeoExampleRoute}
+      <Tab.Screen
+        name="About"
+        component={AboutScreen}
         options={{
-          tabBarLabel: 'Geolocation',
+          tabBarLabel: 'About',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="target" color={color} size={26} />
+            <MaterialCommunityIcons
+              name="comment-question-outline"
+              color={color}
+              size={26}
+            />
           ),
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 };

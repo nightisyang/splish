@@ -98,19 +98,17 @@ const ListCards = props => {
   }, [fetchState]);
 
   return (
-    <View>
+    <View style={Platform.OS === 'android' ? {marginBottom: 60} : null}>
       <FlatList
-        // contentInset={{top: 0, bottom: 0, left: 0, right: 0}}
-        contentInsetAdjustmentBehavior="automatic"
+        contentInset={{top: 0, bottom: 30, left: 0, right: 0}}
+        // contentInsetAdjustmentBehavior="automatic"
         // maxToRenderPerBatch={20}
         // pagingEnabled={true}
         centerContent={true}
         data={waterfalls}
         renderItem={renderItem}
         listKey={uid}
-        keyExtractor={(item, index) => {
-          item.id;
-        }}
+        keyExtractor={(item, index) => item.id}
         onScrollBeginDrag={() => {
           // console.log('drag');
           onDragHandler('false');

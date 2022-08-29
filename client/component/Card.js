@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
   FlatList,
   StyleSheet,
   TouchableOpacity,
@@ -10,6 +9,7 @@ import {
   Pressable,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {Text} from 'react-native-paper';
 // import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
 
@@ -41,6 +41,7 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
 
   const onCardClickHandler = _id => {
     console.log('id of waterfall:', _id);
+    // navigation.pop();
     navigation.navigate('Info', {waterfallID: _id});
   };
 

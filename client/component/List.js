@@ -36,7 +36,7 @@ import ModalZoom from './ModalZoom';
 
 const window = Dimensions.get('window');
 
-const List = ({navigation, passIDToApp}) => {
+const List = ({passIDToApp}) => {
   const [nightMode, setNightmode] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const [state, setState] = useState(null);
@@ -63,7 +63,7 @@ const List = ({navigation, passIDToApp}) => {
       }).start();
     } else {
       Animated.timing(searchBarAnim, {
-        toValue: -65,
+        toValue: -70,
         duration: 200,
         useNativeDriver: true,
       }).start();
@@ -88,27 +88,27 @@ const List = ({navigation, passIDToApp}) => {
 
   return (
     <StatusBarTheme style={{zIndex: 1}}>
-      <Appbar.Header style={{zIndex: 1}}>
-        {/* <Appbar.BackAction /> */}
-        <Appbar.Content title="Search.." />
-        {/* <Appbar.Action
+      <Surface style={styles.appContainer}>
+        <Appbar.Header style={{zIndex: 1}}>
+          {/* <Appbar.BackAction /> */}
+          <Appbar.Content title="Search.." />
+          {/* <Appbar.Action
           icon={nightMode ? 'brightness-7' : 'brightness-3'}
           onPress={() => setNightmode(!nightMode)}
         /> */}
-        <Appbar.Action
-          icon="magnify"
-          onPress={() => setToggleSearchBar(!toggleSearchBar)}
-        />
-        {/* <Appbar.Action icon="dots-vertical" /> */}
-      </Appbar.Header>
-      <Surface style={styles.appContainer}>
+          <Appbar.Action
+            icon="magnify"
+            onPress={() => setToggleSearchBar(!toggleSearchBar)}
+          />
+          {/* <Appbar.Action icon="dots-vertical" /> */}
+        </Appbar.Header>
         <Animated.View
           style={{
             transform: [{translateY: searchBarAnim}],
             paddingHorizontal: 10,
             paddingTop: 2,
             paddingBottom: 3,
-            zIndex: -1,
+            // zIndex: -1,
           }}>
           <Dropdown onStateChange={filterStateHandler} />
         </Animated.View>
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // position: 'absolute',
     // flexDirection: 'column',
-    backgroundColor: 'grey',
+    backgroundColor: '#ECF0F1',
     // alignContent: 'stretch',
     // margin: 20,
   },

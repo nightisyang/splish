@@ -10,6 +10,7 @@ import {
   Modal,
 } from 'react-native';
 import {Appbar, IconButton, Text} from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
 
 import StatusBarTheme from './StatusBarTheme';
 import MapComponent from './MapComponent';
@@ -51,6 +52,8 @@ const Info = ({onRoute, navigate}) => {
   const [imgArr, setImgArr] = useState(null);
   const [imgStartIndex, setImgStartIndex] = useState(null);
 
+  const navigation = useNavigation();
+
   useEffect(() => {
     // if no params recieved return immediately
     if (!onRoute.params) {
@@ -73,11 +76,11 @@ const Info = ({onRoute, navigate}) => {
 
   useEffect(() => {
     if (!onRoute.params) {
-      console.log('no route params received.');
+      // console.log('no route params received.');
       return;
     } else {
       getWaterfall();
-      console.log('retriving waterfall');
+      // console.log('retriving waterfall');
     }
   }, [waterfallID]);
 
@@ -186,7 +189,7 @@ const Info = ({onRoute, navigate}) => {
   return (
     <StatusBarTheme>
       <Appbar.Header>
-        <Appbar.BackAction />
+        <Appbar.BackAction onPress={() => navigation.goBack()} />
         {/* <Appbar.Content title="Info" /> */}
         {/* <Appbar.Action /> */}
         {/* <Appbar.Action icon="magnify" /> */}
@@ -285,7 +288,7 @@ const Info = ({onRoute, navigate}) => {
                     <View style={styles.detailsTextContainer}>
                       <Text style={styles.profileTextTitle}>Distance</Text>
                       <Text style={styles.profileTextContent}>
-                        {distance} km
+                        {!distance ? 'N/A - select from Map' : `${distance} km`}
                       </Text>
                     </View>
                     <View style={styles.profileMiddleSeperator} />
@@ -343,7 +346,10 @@ const Info = ({onRoute, navigate}) => {
       ) : (
         <SafeAreaView style={styles.container}>
           <View style={styles.loadingContainer}>
-            <Text style={styles.loadingText}>Loading...</Text>
+            {/* <Text style={styles.loadingText}>Loading...</Text> */}
+            <Text style={styles.loadingText}>
+              Select a waterfall from the Map or List!
+            </Text>
           </View>
         </SafeAreaView>
       )}
