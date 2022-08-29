@@ -42,6 +42,7 @@ const Info = ({onRoute, navigate}) => {
   const scrollRef = useRef(null);
   const screenIndex = useRef(0);
   const viewHeight = useRef(null);
+  const viewWidth = useRef(null);
   const [waterfall, setWaterfall] = useState(null);
   const [waterfallID, setWaterfallID] = useState('');
   const [latlng, setLatLng] = useState('');
@@ -160,8 +161,9 @@ const Info = ({onRoute, navigate}) => {
 
   const onLayoutImage = event => {
     if (!viewHeight.current) {
-      const {height} = event.nativeEvent.layout;
-      viewHeight.current = Math.floor(height);
+      const {height, width} = event.nativeEvent.layout;
+      viewHeight.current = height;
+      viewWidth.current = width;
     }
     setLayoutReady(true);
   };
@@ -170,7 +172,7 @@ const Info = ({onRoute, navigate}) => {
     if (screenIndex.current < imgLength) {
       screenIndex.current += 1;
       scrollRef.current?.scrollTo({
-        x: calcWidth * screenIndex.current,
+        x: viewWidth.current * screenIndex.current,
         animated: true,
       });
     }
@@ -179,7 +181,7 @@ const Info = ({onRoute, navigate}) => {
   const scrollPrev = () => {
     if (screenIndex.current > 0) {
       scrollRef.current?.scrollTo({
-        x: calcWidth * (screenIndex.current - 1),
+        x: viewWidth.current * (screenIndex.current - 1),
         animated: true,
       });
       screenIndex.current -= 1;
@@ -235,12 +237,12 @@ const Info = ({onRoute, navigate}) => {
               onLayout={onLayoutImage}
               onMomentumScrollEnd={event => {
                 let contentOffset = event.nativeEvent.contentOffset.x;
-                screenIndex.current = contentOffset / calcWidth;
+                screenIndex.current = contentOffset / viewWidth.current;
               }}>
               <View
                 style={{
                   flex: 1,
-                  width: calcWidth,
+                  width: viewWidth.current,
                   height: '100%',
                   // backgroundColor: 'purple',
                 }}>
@@ -261,7 +263,10 @@ const Info = ({onRoute, navigate}) => {
                 waterfall.imgFilenameArr.map((val, i, arr) => {
                   return (
                     <View
-                      style={[styles.flex, {width: calcWidth, height: '100%'}]}
+                      style={[
+                        styles.flex,
+                        {width: viewWidth.current, height: '100%'},
+                      ]}
                       key={i.toString()}>
                       <FetchImages
                         reqSource={'info'}
@@ -450,6 +455,11 @@ const styles = StyleSheet.create({
     flex: 9,
     flexDirection: 'row',
     justifyContent: 'center',
+    marginHorizontal: 10,
+    borderRadius: 10,
+    // borderWidth: 5,
+    overflow: 'hidden',
+    shadowRadius: 10,
   },
 
   arrowLeft: {
