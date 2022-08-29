@@ -192,7 +192,7 @@ const Info = ({onRoute, navigate}) => {
     <StatusBarTheme>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        {/* <Appbar.Content title="Info" /> */}
+        <Appbar.Content title="Info" />
         {/* <Appbar.Action /> */}
         {/* <Appbar.Action icon="magnify" /> */}
         {/* <Appbar.Action icon="dots-vertical" /> */}
