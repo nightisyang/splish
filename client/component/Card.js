@@ -9,7 +9,7 @@ import {
   Pressable,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Text} from 'react-native-paper';
+import {Text, Card as RNPaperCard} from 'react-native-paper';
 // import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
 
@@ -53,30 +53,32 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   return (
     <TouchableOpacity onPress={() => onCardClickHandler(id)}>
       <View style={styles.cardContainer}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>{name}</Text>
-        </View>
+        <RNPaperCard elevation={1}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>{name}</Text>
+          </View>
 
-        {/* horizontal scroll box for images */}
-        <View style={styles.imageScrollContainer}>
-          <FlatList
-            horizontal
-            pagingEnabled={true}
-            showsHorizontalScrollIndicator={false}
-            data={imgArr}
-            renderItem={renderImages}
-            keyExtractor={(item, index) =>
-              // console.log(item.uri.split('/').slice(-1)[0]);
-              item.uri.split('/').slice(-1)[0]
-            }
-            listKey={uuid}
-          />
-        </View>
+          {/* horizontal scroll box for images */}
+          <View style={styles.imageScrollContainer}>
+            <FlatList
+              horizontal
+              pagingEnabled={true}
+              showsHorizontalScrollIndicator={false}
+              data={imgArr}
+              renderItem={renderImages}
+              keyExtractor={(item, index) =>
+                // console.log(item.uri.split('/').slice(-1)[0]);
+                item.uri.split('/').slice(-1)[0]
+              }
+              listKey={uuid}
+            />
+          </View>
 
-        <View style={styles.descContainer}>
-          {/* <Text style={styles.descTitle}>Description</Text> */}
-          <Text style={styles.descText}>{desc}</Text>
-        </View>
+          <View style={styles.descContainer}>
+            {/* <Text style={styles.descTitle}>Description</Text> */}
+            <Text style={styles.descText}>{desc}</Text>
+          </View>
+        </RNPaperCard>
       </View>
     </TouchableOpacity>
   );
@@ -89,12 +91,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-evenly',
     // alignItems: 'center',
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     // borderWidth: 1,
     // borderColor: 'black',
-    // borderRadius: 10,
-    marginTop: 5,
-    // padding: 5,
+    borderRadius: 10,
+    marginTop: 12,
+    paddingHorizontal: 5,
     // height: 350,
   },
 

@@ -114,7 +114,7 @@ const List = ({passIDToApp}) => {
         </Animated.View>
         <SafeAreaView>
           <Animated.View style={{transform: [{translateY: searchBarAnim}]}}>
-            <View>
+            <View style={styles.listContainer}>
               {state ? (
                 <ListCards
                   showModal={showModalHandler}
@@ -164,81 +164,8 @@ const styles = StyleSheet.create({
     // margin: 20,
   },
 
-  header: {
-    // position: 'absolute',
-    // right: 0,
-    // top: 0,
-    // bottom: 0,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // paddingHorizontal: 20,
-  },
-
-  dropdownContainer: {
-    // flex: 1,
-    // justifyContent: 'space-between',
-    // alignItems: 'center',
-    // backgroundColor: 'pink',
-    // height: 150,
-    // padding: 20,
-    // margin: 50,
-    // paddingHorizontal: 10,
-  },
-
-  listCards: {
-    // flex: 2,
-  },
-
-  safeContainerStyle: {
-    // flex: 1,
-    // margin: 10,
-    // justifyContent: 'center',
-    // alignSelf: 'stretch',
-    // backgroundColor: 'green',
-  },
-
-  centeredView: {
-    flex: 1,
-    flexShrink: 1,
-    justifyContent: 'center',
-    // alignItems: 'center',
-    // marginTop: 22,
-    // backgroundColor: 'purple',
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
+  listContainer: {
+    // paddingHorizontal: 5,
   },
 });
 
