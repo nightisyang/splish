@@ -53,7 +53,7 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   return (
     <TouchableOpacity onPress={() => onCardClickHandler(id)}>
       <View style={styles.cardContainer}>
-        <RNPaperCard elevation={1}>
+        <RNPaperCard elevation={5}>
           <View style={styles.titleContainer}>
             <Text style={styles.titleText}>{name}</Text>
           </View>

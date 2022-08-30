@@ -15,7 +15,7 @@ let localhost = '192.168.101.24:3000';
 
 const ListCards = props => {
   const [waterfalls, setWaterfalls] = useState([
-    {name: '', summary: '', imgFilename: [{uri: ''}]},
+    {id: '', name: '', summary: '', imgFilename: [{uri: ''}]},
   ]);
   const [fetchState, setFetchState] = useState('');
 
