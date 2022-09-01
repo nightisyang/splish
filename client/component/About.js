@@ -150,7 +150,7 @@ const About = () => {
               flexDirection: 'row',
               justifyContent: 'space-evenly',
               marginTop: 5,
-              paddingHorizontal: 100,
+              paddingHorizontal: 70,
               //   backgroundColor: 'red',
             }}>
             <Pressable
