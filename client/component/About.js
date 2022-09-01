@@ -85,7 +85,17 @@ const About = () => {
     <StatusBarTheme>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="About" />
+        <Appbar.Content
+          style={{
+            marginLeft: 0,
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            zIndex: -1,
+          }}
+          titleStyle={{textAlign: 'center'}}
+          title="About"
+        />
         {/* <Appbar.Action /> */}
         {/* <Appbar.Action icon="magnify" /> */}
         {/* <Appbar.Action icon="dots-vertical" /> */}

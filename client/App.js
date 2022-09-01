@@ -8,7 +8,7 @@
 
 import React, {useEffect, useState} from 'react';
 // import {Node} from 'react';
-import {StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -16,7 +16,14 @@ import List from './component/List';
 import Maps from './component/Maps';
 import Info from './component/Info';
 import About from './component/About';
+import Home from './component/Home';
+import Icon from './component/Icon';
+
 const Tab = createMaterialBottomTabNavigator();
+
+function HomeScreen() {
+  return <Home />;
+}
 
 function MapScreen() {
   return <Maps />;
@@ -44,13 +51,13 @@ function WaterfallScreen({route, navigation}) {
   return <List onScreenChange={screenStatus} />;
 }
 function InfoScreen({route, navigation}) {
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      console.log('Info in focus');
-    });
+  // useEffect(() => {
+  //   const unsubscribe = navigation.addListener('focus', () => {
+  //     console.log('Info in focus');
+  //   });
 
-    return unsubscribe;
-  }, [navigation]);
+  //   return unsubscribe;
+  // }, [navigation]);
 
   // console.log(route);
   return <Info onRoute={route} />;
@@ -102,6 +109,27 @@ const App = () => {
           ),
         }}
       />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color}) => (
+            <View style={{marginTop: -8}}>
+              <Icon
+                name="SplishLogo"
+                height="38"
+                width="38"
+                viewBox="10 26 180 148"
+                stroke="#80DDD9"
+                strokeWidth="4"
+                // fill="purple"
+              />
+            </View>
+          ),
+        }}
+      />
+
       <Tab.Screen
         name="Info"
         component={InfoScreen}

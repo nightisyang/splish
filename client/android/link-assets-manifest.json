@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/FredokaOne-Regular.ttf",
+      "sha1": "c4377bea37b4f84e6d2183741664025d5cecef3e"
+    },
+    {
+      "path": "assets/fonts/OFL.txt",
+      "sha1": "1a821896843ac02d6614d9b695fc5555b98c219d"
+    }
+  ]
+}

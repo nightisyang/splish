@@ -192,7 +192,17 @@ const Info = ({onRoute, navigate}) => {
     <StatusBarTheme>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Info" />
+        <Appbar.Content
+          style={{
+            marginLeft: 0,
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            zIndex: -1,
+          }}
+          titleStyle={{textAlign: 'center'}}
+          title="Info"
+        />
         {/* <Appbar.Action /> */}
         {/* <Appbar.Action icon="magnify" /> */}
         {/* <Appbar.Action icon="dots-vertical" /> */}

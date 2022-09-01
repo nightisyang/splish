@@ -92,7 +92,17 @@ const List = ({passIDToApp, onScreenChange}) => {
       <Surface style={styles.appContainer}>
         <Appbar.Header style={{zIndex: 1}}>
           {/* <Appbar.BackAction /> */}
-          <Appbar.Content title="Search.." />
+          <Appbar.Content
+            style={{
+              marginLeft: 0,
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              zIndex: -1,
+            }}
+            titleStyle={{textAlign: 'center'}}
+            title="Search.."
+          />
           {/* <Appbar.Action
           icon={nightMode ? 'brightness-7' : 'brightness-3'}
           onPress={() => setNightmode(!nightMode)}
