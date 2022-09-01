@@ -29,12 +29,12 @@ function WaterfallScreen({route, navigation}) {
 
   useEffect(() => {
     const returning = navigation.addListener('focus', () => {
-      console.log('returning List');
+      // console.log('returning List');
       setScreenStatus('returning');
     });
 
     const leaving = navigation.addListener('blur', () => {
-      console.log('leaving List');
+      // console.log('leaving List');
       setScreenStatus('leaving');
     });
 

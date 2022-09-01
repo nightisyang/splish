@@ -23,7 +23,6 @@ const ListCards = props => {
   ]);
   const [fetchState, setFetchState] = useState('');
   const scrollPositionRef = useRef(0);
-  // const [, setScrollPosition] = useState(0);
   const flatListRef = useRef();
 
   console.log('ListCard re-render');
@@ -38,7 +37,7 @@ const ListCards = props => {
 
   const scrollHandler = function (event) {
     if (event.nativeEvent.contentOffset.y !== 0) {
-      console.log('scrollHandler:', event.nativeEvent.contentOffset.y);
+      // console.log('scrollHandler:', event.nativeEvent.contentOffset.y);
       scrollPositionRef.current = event.nativeEvent.contentOffset.y;
     }
     // return event.nativeEvent.contentOffset.y;
@@ -51,10 +50,10 @@ const ListCards = props => {
       props.onReceivingScreenChange,
     );
     if (props.onReceivingScreenChange === 'leaving') {
-      console.log('receiving leaving props');
+      // console.log('receiving leaving props');
     }
     if (props.onReceivingScreenChange === 'returning') {
-      console.log('scrollPosition:', scrollPositionRef.current);
+      // console.log('scrollPosition:', scrollPositionRef.current);
       flatListRef.current.scrollToOffset({
         offset: scrollPositionRef.current,
         animated: false,
@@ -65,7 +64,11 @@ const ListCards = props => {
   useEffect(() => {
     // changes state when new prop is passed down
     setFetchState(props.onStateChange);
+
+    // reassign value to 0 when new state is recieved
     scrollPositionRef.current = 0;
+
+    // and animate scroll to top
     flatListRef.current.scrollToOffset({
       offset: 0,
       animated: true,
