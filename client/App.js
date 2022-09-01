@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 // import {Node} from 'react';
 import {StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -22,10 +22,36 @@ function MapScreen() {
   return <Maps />;
 }
 
-function WaterfallScreen(route, navigation) {
-  return <List />;
+function WaterfallScreen({route, navigation}) {
+  const [screenStatus, setScreenStatus] = useState('');
+  // console.log(navigation);
+  // console.log(route);
+
+  useEffect(() => {
+    const returning = navigation.addListener('focus', () => {
+      console.log('returning List');
+      setScreenStatus('returning');
+    });
+
+    const leaving = navigation.addListener('blur', () => {
+      console.log('leaving List');
+      setScreenStatus('leaving');
+    });
+
+    // return unsubscribe;
+  }, [navigation]);
+
+  return <List onScreenChange={screenStatus} />;
 }
 function InfoScreen({route, navigation}) {
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      console.log('Info in focus');
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   // console.log(route);
   return <Info onRoute={route} />;
 }
@@ -39,7 +65,21 @@ const App = () => {
   const [nightMode, setNightmode] = useState(false);
 
   return (
-    <Tab.Navigator initialRouteName="Waterfalls" backBehavior="history">
+    <Tab.Navigator
+      initialRouteName="Waterfalls"
+      backBehavior="history"
+      // screenListeners={({navigation}) => ({
+      //   state: e => {
+      //     // Do something with the state
+      //     console.log('state changed', e.data);
+
+      //     // Do something with the `navigation` object
+      //     if (!navigation.canGoBack()) {
+      //       console.log("we're on the initial screen");
+      //     }
+      //   },
+      // })}
+    >
       {/* <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Details" component={DetailsScreen} /> */}
       <Tab.Screen

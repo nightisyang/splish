@@ -28,6 +28,7 @@ import {
   ThemeProvider,
   Alert,
 } from 'react-native-paper';
+import {useNavigation} from '@react-navigation/native';
 
 import Dropdown from './Dropdown';
 import ListCards from './ListCards';
@@ -36,7 +37,7 @@ import ModalZoom from './ModalZoom';
 
 const window = Dimensions.get('window');
 
-const List = ({passIDToApp}) => {
+const List = ({passIDToApp, onScreenChange}) => {
   const [nightMode, setNightmode] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const [state, setState] = useState(null);
@@ -120,6 +121,7 @@ const List = ({passIDToApp}) => {
                   showModal={showModalHandler}
                   onStateChange={state}
                   onDrag={setToggleSearchBarHandler}
+                  onReceivingScreenChange={onScreenChange}
                 />
               ) : null}
             </View>

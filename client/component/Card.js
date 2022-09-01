@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   FlatList,
@@ -17,6 +17,18 @@ import FetchImages from './FetchImages';
 
 const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const navigation = useNavigation();
+
+  useEffect(() => {
+    navigation.addListener('willBlur', () => {
+      console.log('will blur');
+      // const offset = this.state.scrollPosition;
+      // To prevent FlatList scrolls to top automatically,
+      // we have to delay scroll to the original position
+      // setTimeout(() => {
+      //   this.flatList.scrollToOffset({offset, animated: false});
+      // }, 500);
+    });
+  });
 
   const onImagePress = uri => {
     const info = [imgArr, uri];
