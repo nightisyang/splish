@@ -368,7 +368,12 @@ const Info = ({onRoute, navigate}) => {
           </View>
         </SafeAreaView>
       )}
-      <Modal animationType="fade" transparent={true} visible={modalVisible}>
+      <Modal
+        animationType="slide"
+        // transparent={true}
+        visible={modalVisible}
+        presentationStyle={'pageSheet'}
+        onRequestClose={closeModal}>
         <View
           style={{
             flex: 1,

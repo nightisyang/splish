@@ -18,17 +18,25 @@ import FetchImages from './FetchImages';
 const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const navigation = useNavigation();
 
-  useEffect(() => {
-    navigation.addListener('willBlur', () => {
-      console.log('will blur');
-      // const offset = this.state.scrollPosition;
-      // To prevent FlatList scrolls to top automatically,
-      // we have to delay scroll to the original position
-      // setTimeout(() => {
-      //   this.flatList.scrollToOffset({offset, animated: false});
-      // }, 500);
-    });
-  });
+  console.log(
+    typeof id,
+    typeof name,
+    typeof imgArr,
+    typeof desc,
+    typeof onCardClick,
+  );
+
+  // useEffect(() => {
+  //   navigation.addListener('willBlur', () => {
+  //     console.log('will blur');
+  //     // const offset = this.state.scrollPosition;
+  //     // To prevent FlatList scrolls to top automatically,
+  //     // we have to delay scroll to the original position
+  //     // setTimeout(() => {
+  //     //   this.flatList.scrollToOffset({offset, animated: false});
+  //     // }, 500);
+  //   });
+  // });
 
   const onImagePress = uri => {
     const info = [imgArr, uri];
@@ -78,10 +86,12 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
               showsHorizontalScrollIndicator={false}
               data={imgArr}
               renderItem={renderImages}
-              keyExtractor={(item, index) =>
+              keyExtractor={(item, index) => {
+                const key = item.uri.split('/').slice(-1)[0];
+                // console.log(key);
                 // console.log(item.uri.split('/').slice(-1)[0]);
-                item.uri.split('/').slice(-1)[0]
-              }
+                return key;
+              }}
               listKey={uuid}
             />
           </View>

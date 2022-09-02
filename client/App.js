@@ -18,6 +18,7 @@ import Info from './component/Info';
 import About from './component/About';
 import Home from './component/Home';
 import Icon from './component/Icon';
+import Test from './component/Test';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -67,13 +68,17 @@ function AboutScreen({route, navigation}) {
   // console.log(route);
   return <About />;
 }
+function TestScreen({route, navigation}) {
+  // console.log(route);
+  return <Test />;
+}
 
 const App = () => {
   const [nightMode, setNightmode] = useState(false);
 
   return (
     <Tab.Navigator
-      initialRouteName="Waterfalls"
+      initialRouteName="Home"
       backBehavior="history"
       // screenListeners={({navigation}) => ({
       //   state: e => {
@@ -149,6 +154,20 @@ const App = () => {
         component={AboutScreen}
         options={{
           tabBarLabel: 'About',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons
+              name="comment-question-outline"
+              color={color}
+              size={26}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Test"
+        component={TestScreen}
+        options={{
+          tabBarLabel: 'Test',
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons
               name="comment-question-outline"

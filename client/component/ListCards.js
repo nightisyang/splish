@@ -137,7 +137,7 @@ const ListCards = props => {
   useEffect(() => {
     // runs function when new state has changed
     getWaterfalls();
-    console.log('filtered state:', fetchState);
+    // console.log('filtered state:', fetchState);
     // scrollPositionRef.current = 0;
   }, [fetchState]);
 
