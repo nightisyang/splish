@@ -163,7 +163,7 @@ const App = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Test"
         component={TestScreen}
         options={{
@@ -176,7 +176,7 @@ const App = () => {
             />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

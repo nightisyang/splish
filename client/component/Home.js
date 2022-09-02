@@ -118,8 +118,8 @@ const Home = () => {
               //   flex: 2,
               height: 130,
               backgroundColor: DefaultTheme.colors.background,
-              borderTopEndRadius: 20,
-              borderTopStartRadius: 20,
+              borderRadius: 20,
+              marginHorizontal: 5,
             }}>
             <Text
               style={{
@@ -210,63 +210,60 @@ const Home = () => {
           <View
             style={{
               flex: 3,
-              backgroundColor: DefaultTheme.colors.background,
+              backgroundColor: DefaultTheme.colors.primary,
             }}>
             <Text
               style={{
                 fontSize: 22,
                 fontWeight: '700',
+                paddingTop: 10,
                 paddingLeft: 15,
+                color: 'white',
+                marginBottom: -10,
               }}>
               Featured
             </Text>
-            <View style={{backgroundColor: 'pink'}}>
-              <Card
-                onCardClick={cardClickHandler}
-                id={'62e257d0a55e10ce13603aa6'}
-                name={'Usun Apau'}
-                imgArr={[
-                  {
-                    uri: 'http://192.168.101.24:3000/images/kotak_telangusan.JPG',
-                  },
-                  {
-                    uri: 'http://192.168.101.24:3000/images/selio_telangusan-1.jpg',
-                  },
-                  {uri: 'http://192.168.101.24:3000/images/usun_apau.JPG'},
-                  {uri: 'http://192.168.101.24:3000/images/western_julan.jpg'},
-                  {uri: 'http://192.168.101.24:3000/images/eastern_julan.jpg'},
-                  {
-                    uri: 'http://192.168.101.24:3000/images/Julan_eastern_danny.jpg',
-                  },
-                  {
-                    uri: 'http://192.168.101.24:3000/images/Julan_eastern_ash.jpg',
-                  },
-                  {
-                    uri: 'http://192.168.101.24:3000/images/julan_jee_mui_lan.jpg',
-                  },
-                  {uri: 'http://192.168.101.24:3000/images/selio_GE.JPG'},
-                  {
-                    uri: 'http://192.168.101.24:3000/images/lower_selio_telangusan.JPG',
-                  },
-                  {uri: 'http://192.168.101.24:3000/images/Julan_GE.JPG'},
-                  {
-                    uri: 'http://192.168.101.24:3000/images/eastern_julan_upper.jpg',
-                  },
-                  {uri: 'http://192.168.101.24:3000/images/julan_Topo.JPG'},
-                  {
-                    uri: 'http://192.168.101.24:3000/images/julan_hazebroek.JPG',
-                  },
-                  {uri: 'http://192.168.101.24:3000/images/IMG_9408_Chua.JPG'},
-                ]}
-                desc={
-                  'Remote waterfalls with difficult access. The Julan fall is the tallest fall of Sarawak'
-                }
-              />
-              <Text>hello</Text>
-              <View style={{backgroundColor: 'black'}}>
-                <Text>what's up with this</Text>
-              </View>
-            </View>
+            <Card
+              onCardClick={cardClickHandler}
+              id={'62e257d0a55e10ce13603aa6'}
+              name={'Usun Apau'}
+              imgArr={[
+                {
+                  uri: 'http://192.168.101.24:3000/images/kotak_telangusan.JPG',
+                },
+                {
+                  uri: 'http://192.168.101.24:3000/images/selio_telangusan-1.jpg',
+                },
+                {uri: 'http://192.168.101.24:3000/images/usun_apau.JPG'},
+                {uri: 'http://192.168.101.24:3000/images/western_julan.jpg'},
+                {uri: 'http://192.168.101.24:3000/images/eastern_julan.jpg'},
+                {
+                  uri: 'http://192.168.101.24:3000/images/Julan_eastern_danny.jpg',
+                },
+                {
+                  uri: 'http://192.168.101.24:3000/images/Julan_eastern_ash.jpg',
+                },
+                {
+                  uri: 'http://192.168.101.24:3000/images/julan_jee_mui_lan.jpg',
+                },
+                {uri: 'http://192.168.101.24:3000/images/selio_GE.JPG'},
+                {
+                  uri: 'http://192.168.101.24:3000/images/lower_selio_telangusan.JPG',
+                },
+                {uri: 'http://192.168.101.24:3000/images/Julan_GE.JPG'},
+                {
+                  uri: 'http://192.168.101.24:3000/images/eastern_julan_upper.jpg',
+                },
+                {uri: 'http://192.168.101.24:3000/images/julan_Topo.JPG'},
+                {
+                  uri: 'http://192.168.101.24:3000/images/julan_hazebroek.JPG',
+                },
+                {uri: 'http://192.168.101.24:3000/images/IMG_9408_Chua.JPG'},
+              ]}
+              desc={
+                'Remote waterfalls with difficult access. The Julan fall is the tallest fall of Sarawak'
+              }
+            />
           </View>
         </View>
       </SafeAreaView>
