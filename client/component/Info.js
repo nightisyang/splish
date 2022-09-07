@@ -192,7 +192,17 @@ const Info = ({onRoute, navigate}) => {
     <StatusBarTheme>
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
-        <Appbar.Content title="Info" />
+        <Appbar.Content
+          style={{
+            marginLeft: 0,
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            zIndex: -1,
+          }}
+          titleStyle={{textAlign: 'center'}}
+          title="Info"
+        />
         {/* <Appbar.Action /> */}
         {/* <Appbar.Action icon="magnify" /> */}
         {/* <Appbar.Action icon="dots-vertical" /> */}
@@ -358,7 +368,12 @@ const Info = ({onRoute, navigate}) => {
           </View>
         </SafeAreaView>
       )}
-      <Modal animationType="fade" transparent={true} visible={modalVisible}>
+      <Modal
+        animationType="slide"
+        // transparent={true}
+        visible={modalVisible}
+        presentationStyle={'pageSheet'}
+        onRequestClose={closeModal}>
         <View
           style={{
             flex: 1,

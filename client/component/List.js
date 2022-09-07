@@ -46,6 +46,7 @@ const List = ({passIDToApp, onScreenChange}) => {
   const [imgStartIndex, setImgStartIndex] = useState(null);
 
   const searchBarAnim = useRef(new Animated.Value(0)).current;
+  const navigation = useNavigation();
 
   function setToggleSearchBarHandler(text) {
     if (text === 'true') {
@@ -91,13 +92,24 @@ const List = ({passIDToApp, onScreenChange}) => {
     <StatusBarTheme style={{zIndex: 1}}>
       <Surface style={styles.appContainer}>
         <Appbar.Header style={{zIndex: 1}}>
-          {/* <Appbar.BackAction /> */}
-          <Appbar.Content title="Search.." />
+          <Appbar.BackAction onPress={() => navigation.goBack()} />
+          <Appbar.Content
+            style={{
+              marginLeft: 0,
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              zIndex: -1,
+            }}
+            titleStyle={{textAlign: 'center'}}
+            title="Search.."
+          />
           {/* <Appbar.Action
           icon={nightMode ? 'brightness-7' : 'brightness-3'}
           onPress={() => setNightmode(!nightMode)}
         /> */}
           <Appbar.Action
+            style={{position: 'absolute', right: 10}}
             icon="magnify"
             onPress={() => setToggleSearchBar(!toggleSearchBar)}
           />
@@ -127,7 +139,12 @@ const List = ({passIDToApp, onScreenChange}) => {
             </View>
           </Animated.View>
         </SafeAreaView>
-        <Modal animationType="fade" transparent={true} visible={modalVisible}>
+        <Modal
+          animationType="slide"
+          // transparent={true}
+          visible={modalVisible}
+          onRequestClose={closeModal}
+          presentationStyle={'pageSheet'}>
           <View
             style={{
               flex: 1,
