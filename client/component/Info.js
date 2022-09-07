@@ -20,14 +20,7 @@ import Icon from './Icon';
 
 let localhost = '192.168.101.24:3000';
 
-// if (Platform.OS === 'ios') {
-//   localhost = '127.0.0.1:3000';
-// } else {
-//   localhost = '10.0.2.2:3000';
-// }
-
 let calcWidth = Dimensions.get('window').width;
-const halfcalcWidth = calcWidth / 2;
 
 const LATITUD_DELTA = 0.2;
 let LONGITUDE_DELTA;
@@ -38,8 +31,6 @@ let locLng;
 const Info = ({onRoute, navigate}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [onLayoutReady, setLayoutReady] = useState(false);
-  const mapRef = useRef(null);
-  const [isMapReady, setMapReady] = useState(false);
   const scrollRef = useRef(null);
   const screenIndex = useRef(0);
   const viewHeight = useRef(null);
@@ -48,7 +39,6 @@ const Info = ({onRoute, navigate}) => {
   const [waterfallID, setWaterfallID] = useState('');
   const [latlng, setLatLng] = useState('');
   const [distance, setDistance] = useState('');
-  const [selectedId, setSelectedId] = useState(null);
   const [imgLength, setImgLength] = useState(1);
   const [modalVisible, setModalVisible] = useState(false);
   const [imgArr, setImgArr] = useState(null);
@@ -56,27 +46,36 @@ const Info = ({onRoute, navigate}) => {
 
   const navigation = useNavigation();
 
+  // update state when new params recieved though navigation route
   useEffect(() => {
     // if no params recieved return immediately
     if (!onRoute.params) {
       return;
     }
 
+    // set ID and rerender component
     setWaterfallID(onRoute?.params?.waterfallID);
 
+    // if user location is available in params, update state
     if (onRoute.params.userLoc) {
       setLatLng(
         `${onRoute?.params?.userLoc?.latitude},${onRoute?.params?.userLoc?.longitude}`,
       );
     }
 
+    // reset screenIndex (image scrollview) when new params/waterfall recieved
     screenIndex.current = 0;
+
+    // scroll back to top when new params/waterfall recieved
     scrollRef.current?.scrollTo({
       x: 0,
+      animate: true,
     });
   }, [onRoute]);
 
+  // when new waterfallID is recieved
   useEffect(() => {
+    // call async getWaterfall function to call API
     if (!onRoute.params) {
       // console.log('no route params received.');
       return;
@@ -112,6 +111,7 @@ const Info = ({onRoute, navigate}) => {
       const val = json.data.waterfall;
       const info = {};
 
+      // reassign key to be more descriptive and store necessary info to be displayed
       info.name = val.name;
       info.description = val.description;
       info.state = val.state;
@@ -127,25 +127,33 @@ const Info = ({onRoute, navigate}) => {
       locLat = arrLat;
       locLng = arrLng;
 
+      // restructure obj to be used in FetchImage returns obj and assigned to imgFilenameArr
       info.imgFilenameArr = val.imgDetails.imgFullResFilename.map(
         imgFilename => {
           const obj = {};
           obj.uri = `http://${localhost}/images/${imgFilename}`;
-          // obj.height = 140;
 
           return obj;
         },
       );
 
+      // sets the total number of image for scroll view
       setImgLength(info.imgFilenameArr.length);
+
+      // sets distance of user to location - value called from API
       setDistance(json.data.distance);
+
+      // places all values required by UI in state
       setWaterfall(info);
+
+      // sets loaded is true, to re-render page when info for UI is ready/in state
       setIsLoaded(true);
     } catch (err) {
       console.log(err);
     }
   }
 
+  // specifies region for MapComponent
   const region = {
     latitude: locLat,
     longitude: locLng,
@@ -153,6 +161,7 @@ const Info = ({onRoute, navigate}) => {
     longitudeDelta: LONGITUDE_DELTA,
   };
 
+  // specifies animation location for MapComponent
   const animateTo = {
     latitude: locLat,
     longitude: locLng,
@@ -160,6 +169,7 @@ const Info = ({onRoute, navigate}) => {
     longitudeDelta: LONGITUDE_DELTA,
   };
 
+  // sets width and length of ScrollView
   const onLayoutImage = event => {
     if (!viewHeight.current) {
       const {height, width} = event.nativeEvent.layout;
@@ -169,6 +179,7 @@ const Info = ({onRoute, navigate}) => {
     setLayoutReady(true);
   };
 
+  // scroll to next image for scroll view
   const scrollNext = () => {
     if (screenIndex.current < imgLength) {
       screenIndex.current += 1;
@@ -179,6 +190,7 @@ const Info = ({onRoute, navigate}) => {
     }
   };
 
+  // scroll to previous image for scroll view
   const scrollPrev = () => {
     if (screenIndex.current > 0) {
       scrollRef.current?.scrollTo({
@@ -194,19 +206,10 @@ const Info = ({onRoute, navigate}) => {
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
         <Appbar.Content
-          style={{
-            marginLeft: 0,
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            zIndex: -1,
-          }}
+          style={styles.appBarTitle}
           titleStyle={{textAlign: 'center'}}
           title="Info"
         />
-        {/* <Appbar.Action /> */}
-        {/* <Appbar.Action icon="magnify" /> */}
-        {/* <Appbar.Action icon="dots-vertical" /> */}
       </Appbar.Header>
       {isLoaded ? (
         <SafeAreaView style={styles.container}>
@@ -255,15 +258,12 @@ const Info = ({onRoute, navigate}) => {
                   flex: 1,
                   width: viewWidth.current,
                   height: '100%',
-                  // backgroundColor: 'purple',
                 }}>
                 <MapComponent
                   type={'info'}
                   regionInput={region}
                   animateToInput={animateTo}
-                  styleInput={{
-                    flex: 1,
-                  }}
+                  styleInput={styles.flex}
                   coordInput={{latitude: locLat, longitude: locLng}}
                   zoomLevelInput={6}
                   liteModeInput={false}
@@ -298,7 +298,7 @@ const Info = ({onRoute, navigate}) => {
 
           <View style={styles.detailsContainer}>
             <ScrollView>
-              <View style={[styles.flexRow, {paddingTop: 5}]}>
+              <View style={styles.flexRow}>
                 <View style={styles.flex}>
                   <View style={styles.profileBottomSeperator}>
                     <View style={styles.detailsTextContainer}>
@@ -360,17 +360,8 @@ const Info = ({onRoute, navigate}) => {
           </View>
         </SafeAreaView>
       ) : (
-        <SafeAreaView style={styles.container}>
-          <View
-            style={{
-              flex: 1,
-              justifyContent: 'center',
-              alignSelf: 'center',
-              position: 'absolute',
-              height: '85%',
-              width: '85%',
-              marginTop: 150,
-            }}>
+        <View style={styles.container}>
+          <View style={styles.backgroundLogoContainer}>
             <Icon
               name="SplishLogo"
               height="100%"
@@ -382,13 +373,11 @@ const Info = ({onRoute, navigate}) => {
               fill="#80DDD9"
             />
           </View>
-
           <View style={styles.loadingContainer}>
-            {/* <Text style={styles.loadingText}>Loading...</Text> */}
-            <Text style={styles.loadingText}>
+            <Text>
               Select a waterfall from the {''}
               <Text
-                style={{color: 'blue', textDecorationLine: 'underline'}}
+                style={styles.screenNavigateLinkHighlight}
                 onPress={() => {
                   navigation.navigate('Map');
                 }}>
@@ -396,7 +385,7 @@ const Info = ({onRoute, navigate}) => {
               </Text>{' '}
               or {''}
               <Text
-                style={{color: 'blue', textDecorationLine: 'underline'}}
+                style={styles.screenNavigateLinkHighlight}
                 onPress={() => {
                   navigation.navigate('Waterfalls');
                 }}>
@@ -405,7 +394,7 @@ const Info = ({onRoute, navigate}) => {
               !
             </Text>
           </View>
-        </SafeAreaView>
+        </View>
       )}
       <Modal
         animationType="slide"
@@ -413,11 +402,7 @@ const Info = ({onRoute, navigate}) => {
         visible={modalVisible}
         presentationStyle={'pageSheet'}
         onRequestClose={closeModal}>
-        <View
-          style={{
-            flex: 1,
-            // backgroundColor: 'purple',
-          }}>
+        <View style={styles.flex}>
           <ModalZoom
             imgUrl={imgArr}
             setModalVisibility={closeModal}
@@ -437,14 +422,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#ECF0F1',
   },
 
+  appBarTitle: {
+    marginLeft: 0,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    zIndex: -1,
+  },
+
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
-  loadingText: {
-    textAlignVertical: 'center',
+  screenNavigateLinkHighlight: {
+    color: 'blue',
+    textDecorationLine: 'underline',
   },
 
   flex: {
@@ -454,25 +448,17 @@ const styles = StyleSheet.create({
   flexRow: {
     flex: 1,
     flexDirection: 'row',
+    paddingTop: 5,
   },
 
   map: {
     ...StyleSheet.absoluteFillObject,
     flex: 1,
-    // flex: 1,
-    // width: '100%',
-    // height: '100%',
-    // backgroundColor: 'black',
-    // position: 'absolute',
     width: Dimensions.get('window').width,
-    // height: Dimensions.get('window').height,
-    // flex: 1,
   },
 
   headerContainer: {
-    // flex: 2,
     alignContent: 'center',
-    // paddingBottom: 5,
     height: 65,
   },
 
@@ -487,10 +473,6 @@ const styles = StyleSheet.create({
     paddingTop: 3,
     flex: 1,
     flexDirection: 'row',
-    // alignContent: 'center',
-    // justifyContent: 'flex-start',
-    // backgroundColor: 'red',
-    // marginBottom: 20,
   },
 
   subheadingIcon: {
@@ -501,8 +483,6 @@ const styles = StyleSheet.create({
   subheadingText: {
     alignSelf: 'center',
     marginLeft: -15,
-    // paddingBottom: 3,
-    // backgroundColor: 'purple',
   },
 
   mediaContainer: {
@@ -511,7 +491,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 10,
     borderRadius: 10,
-    // borderWidth: 5,
     overflow: 'hidden',
     shadowRadius: 10,
   },
@@ -522,9 +501,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     zIndex: 1,
     left: 0,
-    // width: 50,
-    // height: '100%',
-    // backgroundColor: 'purple',
   },
 
   arrowRight: {
@@ -535,9 +511,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 1,
     right: 0,
-    // width: 50,
-    // height: '100%',
-    // backgroundColor: 'purple',
   },
 
   arrow: {
@@ -577,7 +550,6 @@ const styles = StyleSheet.create({
   profileTextTitle: {
     fontSize: 12,
     alignSelf: 'center',
-    // paddingVertical: 2,
   },
 
   profileTextContent: {
@@ -597,5 +569,15 @@ const styles = StyleSheet.create({
     borderRightColor: 'black',
     borderRightWidth: StyleSheet.hairlineWidth,
     marginVertical: 5,
+  },
+
+  backgroundLogoContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    position: 'absolute',
+    height: '85%',
+    width: '85%',
+    marginTop: 150,
   },
 });

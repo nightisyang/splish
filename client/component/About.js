@@ -86,13 +86,7 @@ const About = () => {
       <Appbar.Header>
         <Appbar.BackAction onPress={() => navigation.goBack()} />
         <Appbar.Content
-          style={{
-            marginLeft: 0,
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            zIndex: -1,
-          }}
+          style={styles.appBarTitle}
           titleStyle={{textAlign: 'center'}}
           title="About"
         />
@@ -101,47 +95,22 @@ const About = () => {
         {/* <Appbar.Action icon="dots-vertical" /> */}
       </Appbar.Header>
 
-      <SafeAreaView style={{flex: 1, backgroundColor: '#473FA8'}}>
-        <FadeInView
-          style={{
-            flex: 2,
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#473FA8',
-          }}>
+      <SafeAreaView style={styles.screenContainer}>
+        <FadeInView style={styles.logoContainer}>
           <Image
             source={require('../assets/splish_logo.png')}
             style={styles.imageStyle}
           />
         </FadeInView>
-        <Card
-          elevation={20}
-          style={{
-            flex: 3,
-            backgroundColor: '#ECF0F1',
-            borderRadius: 20,
-            padding: 20,
-            paddingTop: 30,
-            margin: 10,
-          }}>
+        <Card elevation={20} style={styles.textCardContainer}>
           <View>
-            <View
-              style={{
-                width: '70%',
-                borderWidth: 0.5,
-                borderRadius: 20,
-                marginHorizontal: 50,
-                marginTop: -20,
-                marginBottom: 20,
-                // borderColor: '#ECF0F2',
-              }}
-            />
-            <Text style={{textAlign: 'justify'}}>
+            <View style={styles.textContainer} />
+            <Text style={styles.textStyle}>
               An outdoor focused app, with small beginnings. A work in progress.{' '}
               {'\n\n'}
               Credits and acknowledgement to the good folks at{' '}
               <Text
-                style={{color: 'blue'}}
+                style={styles.textHighlight}
                 onPress={() => {
                   onPress('wom');
                 }}>
@@ -155,31 +124,17 @@ const About = () => {
             </Text>
           </View>
         </Card>
-        <View style={{flex: 1}}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              marginTop: 5,
-              paddingHorizontal: 70,
-              //   backgroundColor: 'red',
-            }}>
+        <View style={styles.flex}>
+          <View style={styles.linkContainer}>
             <Pressable
-              style={{
-                width: 50,
-                height: 50,
-              }}
+              style={styles.linkIcon}
               onPress={() => {
                 onPress('email');
               }}>
               <MaterialCommunityIcons name="at" size={53} />
             </Pressable>
             <Pressable
-              style={{
-                width: 50,
-                height: 50,
-              }}
+              style={styles.linkIcon}
               onPress={() => {
                 onPress('github');
               }}>
@@ -189,10 +144,7 @@ const About = () => {
               />
             </Pressable>
             <Pressable
-              style={{
-                width: 50,
-                height: 50,
-              }}
+              style={styles.linkIcon}
               onPress={() => {
                 onPress('instagram');
               }}>
@@ -202,13 +154,7 @@ const About = () => {
               />
             </Pressable>
           </View>
-          <View
-            style={{
-              flex: 1,
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-              paddingBottom: 5,
-            }}>
+          <View style={styles.versionText}>
             <Text>Version: 1.0.0</Text>
           </View>
         </View>
@@ -218,11 +164,62 @@ const About = () => {
 };
 
 const styles = StyleSheet.create({
+  screenContainer: {flex: 1, backgroundColor: '#473FA8'},
+  flex: {flex: 1},
+  appBarTitle: {
+    marginLeft: 0,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    zIndex: -1,
+  },
+  logoContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#473FA8',
+  },
   imageStyle: {
     flex: 1,
     resizeMode: 'center',
     width: 250,
     // backgroundColor: 'orange',
+  },
+  textCardContainer: {
+    flex: 3,
+    backgroundColor: '#ECF0F1',
+    borderRadius: 20,
+    padding: 20,
+    paddingTop: 30,
+    margin: 10,
+  },
+  textContainer: {
+    width: '70%',
+    borderWidth: 0.5,
+    borderRadius: 20,
+    marginHorizontal: 50,
+    marginTop: -20,
+    marginBottom: 20,
+    // borderColor: '#ECF0F2',
+  },
+  textStyle: {textAlign: 'justify'},
+  textHighlight: {color: 'blue', textDecorationLine: 'underline'},
+  linkContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: 5,
+    paddingHorizontal: 70,
+  },
+  linkIcon: {
+    width: 50,
+    height: 50,
+  },
+  versionText: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingBottom: 5,
   },
 });
 

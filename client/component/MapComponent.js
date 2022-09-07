@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect, memo} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
@@ -42,13 +42,6 @@ const MapComponent = ({
       setMarkerRender(null);
       setNewRegion(regionInput);
     }
-    // const animate = setTimeout(() => {
-    //   console.log('TRIGGGGERRR');
-    //   mapRef.current.animateToRegion(regionInput, 3500);
-    // }, 500);
-    // return () => {
-    //   clearTimeout(animate);
-    // };
   }, [coordInput, regionInput]);
 
   // animate to region, used in useEffect and is called when map is ready or region is changed
@@ -112,18 +105,18 @@ const MapComponent = ({
   }, [isRegionChange, newRegion, userCoords]);
 
   return (
-    <View style={{flex: 1, minHeight: 150, position: 'relative'}}>
+    <View style={styles.container}>
       <MapView
         ref={mapRef}
         region={newRegion}
-        style={{flex: 1}}
+        style={styles.flex}
         provider={PROVIDER_GOOGLE}
         mapType="terrain"
         minZoomLevel={zoomLevelInput}
         liteMode={liteModeInput}
         onRegionChangeComplete={(region, details) => {
           if (!details?.isGesture) {
-            console.log(`%%%%%%%%% REGION CHANGE COMPLETE %%%%%%%%%%`);
+            console.log('%%%%%%%%% REGION CHANGE COMPLETE %%%%%%%%%%');
             MarkerRender();
             setRegionChange(true);
           }
@@ -158,44 +151,8 @@ const MapComponent = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'relative',
-    // justifyContent: 'center',
-    backgroundColor: '#ECF0F1',
-  },
-  dotContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  dot: {
-    backgroundColor: 'rgb(0, 120, 255)',
-    width: 24,
-    height: 24,
-    borderWidth: 3,
-    borderColor: 'white',
-    borderRadius: 12,
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 1.5,
-    elevation: 4,
-  },
-  arrow: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderLeftWidth: 6,
-    borderRightWidth: 6,
-    borderBottomWidth: 10,
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: 'rgb(0, 120, 255)',
-  },
+  container: {flex: 1, minHeight: 150, position: 'relative'},
+  flex: {flex: 1},
 });
 
 export default MapComponent;
