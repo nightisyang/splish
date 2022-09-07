@@ -1,25 +1,14 @@
 import React, {useRef, useEffect, useState} from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Image,
-  StyleSheet,
-  TouchableHighlight,
-} from 'react-native';
+import {View, Image, StyleSheet, TouchableHighlight} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
-const FetchImages = ({
-  reqSource,
-  item,
-  onPress,
-  containerHeight,
-  windowWidth,
-}) => {
+const FetchImages = ({item, onPress, containerHeight}) => {
   const refWidth = useRef(null);
   const refHeight = useRef(null);
   const [isWidthReady, setWidthReady] = useState(false);
 
   useEffect(() => {
+    // fetches size of image and resizes image according to containerHeight
     const getImageSize = async () => {
       const {imgWidth, imgHeight} = await new Promise(resolve => {
         Image.getSize(item.uri, (_width, height) => {
@@ -27,12 +16,13 @@ const FetchImages = ({
         });
       });
 
+      // resizes width of image in ratio
       refWidth.current = Math.floor((imgWidth / imgHeight) * containerHeight);
       refHeight.current = containerHeight;
 
       setWidthReady(true);
     };
-
+    // calls function whenever a new item/uri is recieved
     getImageSize();
   }, [item]);
 
@@ -40,7 +30,7 @@ const FetchImages = ({
     <TouchableHighlight
       onPress={onPress}
       style={[{height: refHeight.current}, styles.itemContainer]}>
-      <View style={{flex: 1}}>
+      <View style={styles.flex}>
         {isWidthReady && (
           <View style={[styles.imgContainer]}>
             <FastImage
@@ -52,7 +42,6 @@ const FetchImages = ({
               style={{
                 width: refWidth.current,
                 height: refHeight.current,
-                alignSelf: 'center',
               }}
               resizeMode={FastImage.resizeMode.contain}
               // onLoad={e =>
@@ -73,24 +62,13 @@ const styles = StyleSheet.create({
     flex: 1,
     overflow: 'hidden',
     justifyContent: 'center',
-    // borderWidth: 1,
-    // borderColor: 'black',
-    // borderRadius: 3,
-    // width: '100%',
-    // padding: 20,
-    // margin: 8,
-    // width: 200,
+    alignItems: 'center',
   },
+  flex: {flex: 1},
 
   itemContainer: {
-    // flex: 1,
     justifyContent: 'center',
-    // alignItems: 'center',
     backgroundColor: 'black',
-    // padding: 20,
-    // marginRight: 5,
-    // width: 250,
-    // width: '100%',
   },
 });
 export default FetchImages;

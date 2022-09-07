@@ -7,14 +7,7 @@
  */
 
 import React, {useState, useRef, useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Animated,
-  View,
-  Modal,
-  ImageBackground,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, Animated, View, Modal} from 'react-native';
 import {Appbar, Text, Surface} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 
@@ -25,7 +18,6 @@ import ModalZoom from './ModalZoom';
 import Icon from './Icon';
 
 const List = ({passIDToApp, onScreenChange}) => {
-  const [nightMode, setNightmode] = useState(false);
   const [toggleSearchBar, setToggleSearchBar] = useState(true);
   const [state, setState] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -76,18 +68,12 @@ const List = ({passIDToApp, onScreenChange}) => {
   }
 
   return (
-    <StatusBarTheme style={{zIndex: 1}}>
+    <StatusBarTheme>
       <Surface style={styles.appContainer}>
         <Appbar.Header style={{zIndex: 1}}>
           <Appbar.BackAction onPress={() => navigation.goBack()} />
           <Appbar.Content
-            style={{
-              marginLeft: 0,
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              zIndex: -1,
-            }}
+            style={styles.appBarTitle}
             titleStyle={{textAlign: 'center'}}
             title="Search.."
           />
@@ -145,16 +131,7 @@ const List = ({passIDToApp, onScreenChange}) => {
         </Modal>
         {state ? null : (
           <>
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignSelf: 'center',
-                position: 'absolute',
-                height: '85%',
-                width: '85%',
-                marginTop: 150,
-              }}>
+            <View style={styles.backgroundLogoContainer}>
               <Icon
                 name="SplishLogo"
                 height="100%"
@@ -166,14 +143,7 @@ const List = ({passIDToApp, onScreenChange}) => {
                 fill="#80DDD9"
               />
             </View>
-            <View
-              style={{
-                flex: 1,
-                // backgroundColor: 'purple',
-                justifyContent: 'center',
-                alignItems: 'center',
-                // alignContent: 'center',
-              }}>
+            <View style={styles.loadingTextStyle}>
               <Text>Please select a state from the list above!</Text>
             </View>
           </>
@@ -186,15 +156,32 @@ const List = ({passIDToApp, onScreenChange}) => {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
-    // position: 'absolute',
-    // flexDirection: 'column',
     backgroundColor: '#ECF0F1',
-    // alignContent: 'stretch',
-    // margin: 20,
+  },
+  appBarTitle: {
+    marginLeft: 0,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    zIndex: -1,
   },
 
-  listContainer: {
-    // paddingHorizontal: 5,
+  listContainer: {},
+
+  backgroundLogoContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+    position: 'absolute',
+    height: '85%',
+    width: '85%',
+    marginTop: 150,
+  },
+
+  loadingTextStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

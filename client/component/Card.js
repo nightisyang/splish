@@ -1,13 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {
-  View,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-  Modal,
-  Alert,
-  Pressable,
-} from 'react-native';
+import React from 'react';
+import {View, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {Text, Card as RNPaperCard} from 'react-native-paper';
 // import 'react-native-get-random-values';
@@ -18,35 +10,17 @@ import FetchImages from './FetchImages';
 const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const navigation = useNavigation();
 
-  // console.log(
-  //   typeof id,
-  //   typeof name,
-  //   typeof imgArr,
-  //   typeof desc,
-  //   typeof onCardClick,
-  // );
-
-  // useEffect(() => {
-  //   navigation.addListener('willBlur', () => {
-  //     console.log('will blur');
-  //     // const offset = this.state.scrollPosition;
-  //     // To prevent FlatList scrolls to top automatically,
-  //     // we have to delay scroll to the original position
-  //     // setTimeout(() => {
-  //     //   this.flatList.scrollToOffset({offset, animated: false});
-  //     // }, 500);
-  //   });
-  // });
-
+  // passes imgArr and uri to Parent for Modal view
   const onImagePress = uri => {
     const info = [imgArr, uri];
 
     onCardClick(info);
   };
 
+  // renders each image in FlatList to be displayed in Card
   const renderImages = ({item, index}) => {
     return (
-      <View style={{flex: 1, paddingRight: 5}}>
+      <View style={styles.itemContainer}>
         <FetchImages
           reqSource={'card'}
           item={item}
@@ -60,8 +34,7 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   };
 
   const onCardClickHandler = _id => {
-    console.log('id of waterfall:', _id);
-    // navigation.pop();
+    // console.log('id of waterfall:', _id);
     navigation.navigate('Info', {waterfallID: _id});
   };
 
@@ -71,7 +44,9 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   };
 
   return (
-    <TouchableOpacity style={{flex: 1}} onPress={() => onCardClickHandler(id)}>
+    <TouchableOpacity
+      style={styles.flex}
+      onPress={() => onCardClickHandler(id)}>
       <View style={styles.cardContainer}>
         <RNPaperCard elevation={5}>
           <View style={styles.titleContainer}>
@@ -88,8 +63,6 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
               renderItem={renderImages}
               keyExtractor={(item, index) => {
                 const key = item.uri.split('/').slice(-1)[0];
-                // console.log(key);
-                // console.log(item.uri.split('/').slice(-1)[0]);
                 return key;
               }}
               listKey={uuid}
@@ -97,7 +70,6 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
           </View>
 
           <View style={styles.descContainer}>
-            {/* <Text style={styles.descTitle}>Description</Text> */}
             <Text style={styles.descText}>{desc}</Text>
           </View>
         </RNPaperCard>
@@ -112,19 +84,14 @@ const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     justifyContent: 'space-evenly',
-    // alignItems: 'center',
-    // backgroundColor: 'white',
-    // borderWidth: 1,
-    // borderColor: 'black',
     borderRadius: 10,
     marginTop: 12,
     paddingHorizontal: 5,
-    // height: 350,
   },
 
+  flex: {flex: 1},
+
   titleContainer: {
-    // backgroundColor: 'orange',
-    // height: 50,
     margin: 5,
     padding: 5,
   },
@@ -134,51 +101,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  imgContainer: {
-    overflow: 'hidden',
-    // borderWidth: 1,
-    // borderColor: 'black',
-    borderRadius: 3,
-    // padding: 20,
-    // margin: 8,
-    height: 150,
-    // width: 200,
-  },
-
   itemContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
-    // padding: 20,
-    marginRight: 5,
-    // width: 250,
+    paddingRight: 5,
   },
 
   imageScrollContainer: {
-    // width: '100%',
-    // backgroundColor: 'yellow',
     margin: 5,
-    // borderWidth: 1,
-    // borderColor: 'black',
-    // borderRadius: 10,
-    // height: 150,
-  },
-
-  imgCenter: {
-    // resizeMode: 'center',
-    // width: 250,
-  },
-
-  descTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
   },
 
   descContainer: {
-    // backgroundColor: 'purple',
     margin: 5,
-    // height: 100,
     padding: 5,
   },
 

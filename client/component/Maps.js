@@ -2,16 +2,12 @@ import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  Text,
   View,
   Dimensions,
   Platform,
   Alert,
-  Button,
   Linking,
   PermissionsAndroid,
-  ScrollView,
-  Switch,
   ToastAndroid,
 } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
@@ -19,7 +15,6 @@ import VIForegroundService from '@voximplant/react-native-foreground-service';
 import appConfig from '../app.json';
 
 import MapComponent from './MapComponent';
-
 import StatusBarTheme from './StatusBarTheme';
 
 const LATITUD_DELTA = 2;
@@ -262,14 +257,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: 'relative',
-    // justifyContent: 'center',
     backgroundColor: '#ECF0F1',
   },
   map: {
-    // flex: 1,
     width: '100%',
     height: '100%',
-    // backgroundColor: 'black',
   },
 });
 

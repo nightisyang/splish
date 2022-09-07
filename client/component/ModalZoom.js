@@ -1,11 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {Modal} from 'react-native';
+import React from 'react';
 import ImageViewer from 'react-native-image-zoom-viewer';
-import {transparent} from 'react-native-paper/lib/typescript/styles/colors';
 
 const ModalZoom = ({imgUrl, setModalVisibility, startWith}) => {
-  const [modalVisible, setModalVisible] = useState(false);
-
   const swipeDownHandler = () => {
     setModalVisibility();
   };
@@ -16,8 +12,6 @@ const ModalZoom = ({imgUrl, setModalVisibility, startWith}) => {
     const {uri} = val;
     images.push({url: uri});
   });
-
-  //   console.log(images);
 
   return (
     <ImageViewer
