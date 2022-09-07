@@ -10,32 +10,19 @@ import React, {useState, useRef, useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  useColorScheme,
   Animated,
-  StatusBar,
   View,
   Modal,
-  Pressable,
-  Dimensions,
+  ImageBackground,
 } from 'react-native';
-import {
-  Appbar,
-  Text,
-  DarkTheme,
-  DefaultTheme,
-  Provider,
-  Surface,
-  ThemeProvider,
-  Alert,
-} from 'react-native-paper';
+import {Appbar, Text, Surface} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 
 import Dropdown from './Dropdown';
 import ListCards from './ListCards';
 import StatusBarTheme from './StatusBarTheme';
 import ModalZoom from './ModalZoom';
-
-const window = Dimensions.get('window');
+import Icon from './Icon';
 
 const List = ({passIDToApp, onScreenChange}) => {
   const [nightMode, setNightmode] = useState(false);
@@ -157,16 +144,39 @@ const List = ({passIDToApp, onScreenChange}) => {
           </View>
         </Modal>
         {state ? null : (
-          <View
-            style={{
-              flex: 1,
-              // backgroundColor: 'purple',
-              justifyContent: 'center',
-              alignItems: 'center',
-              // alignContent: 'center',
-            }}>
-            <Text>Please select a state from the list</Text>
-          </View>
+          <>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignSelf: 'center',
+                position: 'absolute',
+                height: '85%',
+                width: '85%',
+                marginTop: 150,
+              }}>
+              <Icon
+                name="SplishLogo"
+                height="100%"
+                width="100%"
+                viewBox="10 26 180 148"
+                stroke="#80DDD9"
+                strokeWidth="4"
+                style={{opacity: 0.6}}
+                fill="#80DDD9"
+              />
+            </View>
+            <View
+              style={{
+                flex: 1,
+                // backgroundColor: 'purple',
+                justifyContent: 'center',
+                alignItems: 'center',
+                // alignContent: 'center',
+              }}>
+              <Text>Please select a state from the list above!</Text>
+            </View>
+          </>
         )}
       </Surface>
     </StatusBarTheme>

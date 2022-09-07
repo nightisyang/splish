@@ -137,6 +137,8 @@ const About = () => {
               }}
             />
             <Text style={{textAlign: 'justify'}}>
+              An outdoor focused app, with small beginnings. A work in progress.{' '}
+              {'\n\n'}
               Credits and acknowledgement to the good folks at{' '}
               <Text
                 style={{color: 'blue'}}
@@ -145,10 +147,10 @@ const About = () => {
                 }}>
                 waterfallsofmalaysia.com
               </Text>
-              {''} where the contents of the app are heavily appropriated from
-              with permission.{'\n\n'}
-              Information on the app is available on best effort basis and
-              should not be construded as sole truth. {'\n\n'}
+              {''} where contents of the app are heavily appropriated from with
+              permission.{'\n\n'}
+              Information on the app is made available on a best effort basis
+              and should not be construded as sole truth. {'\n\n'}
               Stay safe while making a splash!
             </Text>
           </View>
