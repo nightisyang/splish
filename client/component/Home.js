@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableHighlight,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {Appbar, Text} from 'react-native-paper';
@@ -77,7 +78,11 @@ const Home = () => {
                 justifyContent: 'center',
                 // alignContent: 'center',
               }}>
-              <View
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  navigation.navigate('About');
+                }}
                 style={{
                   flex: 1,
                   backgroundColor: 'yellow',
@@ -110,7 +115,7 @@ const Home = () => {
                   source={{uri: `http://${localhost}/ui/santai.jpeg`}}
                   resizeMode={FastImage.resizeMode.cover}
                 />
-              </View>
+              </TouchableOpacity>
             </ScrollView>
           </View>
           <View

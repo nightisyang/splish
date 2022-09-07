@@ -18,13 +18,13 @@ import FetchImages from './FetchImages';
 const Card = ({id, name, imgArr, desc, onCardClick}) => {
   const navigation = useNavigation();
 
-  console.log(
-    typeof id,
-    typeof name,
-    typeof imgArr,
-    typeof desc,
-    typeof onCardClick,
-  );
+  // console.log(
+  //   typeof id,
+  //   typeof name,
+  //   typeof imgArr,
+  //   typeof desc,
+  //   typeof onCardClick,
+  // );
 
   // useEffect(() => {
   //   navigation.addListener('willBlur', () => {

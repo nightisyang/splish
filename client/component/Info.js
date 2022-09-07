@@ -16,6 +16,7 @@ import StatusBarTheme from './StatusBarTheme';
 import MapComponent from './MapComponent';
 import FetchImages from './FetchImages';
 import ModalZoom from './ModalZoom';
+import Icon from './Icon';
 
 let localhost = '192.168.101.24:3000';
 
@@ -360,10 +361,48 @@ const Info = ({onRoute, navigate}) => {
         </SafeAreaView>
       ) : (
         <SafeAreaView style={styles.container}>
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignSelf: 'center',
+              position: 'absolute',
+              height: '85%',
+              width: '85%',
+              marginTop: 150,
+            }}>
+            <Icon
+              name="SplishLogo"
+              height="100%"
+              width="100%"
+              viewBox="10 26 180 148"
+              stroke="#80DDD9"
+              strokeWidth="4"
+              style={{opacity: 0.6}}
+              fill="#80DDD9"
+            />
+          </View>
+
           <View style={styles.loadingContainer}>
             {/* <Text style={styles.loadingText}>Loading...</Text> */}
             <Text style={styles.loadingText}>
-              Select a waterfall from the Map or List!
+              Select a waterfall from the {''}
+              <Text
+                style={{color: 'blue', textDecorationLine: 'underline'}}
+                onPress={() => {
+                  navigation.navigate('Map');
+                }}>
+                Map
+              </Text>{' '}
+              or {''}
+              <Text
+                style={{color: 'blue', textDecorationLine: 'underline'}}
+                onPress={() => {
+                  navigation.navigate('Waterfalls');
+                }}>
+                List
+              </Text>
+              !
             </Text>
           </View>
         </SafeAreaView>
