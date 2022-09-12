@@ -44,60 +44,66 @@ const Home = () => {
       </Appbar.Header>
 
       <SafeAreaView style={styles.screenContainer}>
-        <View style={styles.scrollViewContainer}>
-          <ScrollView
-            horizontal={true}
-            contentContainerStyle={styles.scrollViewStyle}>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => {
-                navigation.navigate('About');
-              }}
-              style={styles.aboutScreenJumpContainer}>
-              <View style={styles.splishTextContainer}>
-                <Text style={styles.splishTextStyle}>splish?</Text>
-              </View>
-              <FastImage
-                style={styles.scrollImgStyle}
-                source={{uri: `http://${localhost}/ui/santai.jpeg`}}
-                resizeMode={FastImage.resizeMode.cover}
-              />
-            </TouchableOpacity>
-          </ScrollView>
-        </View>
-        <View style={styles.activityContainer}>
-          <Text style={styles.activityTitleText}>Activity</Text>
-          <View style={styles.activityIconContainer}>
-            <TouchableHighlight
-              style={styles.activityIconStyle}
-              onPress={() => {
-                navigation.navigate('Waterfalls');
-              }}>
-              <View style={styles.viewFragStyle}>
+        <ScrollView style={styles.flex}>
+          <View style={styles.scrollViewContainer}>
+            <ScrollView
+              horizontal={true}
+              contentContainerStyle={styles.scrollViewStyle}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => {
+                  navigation.navigate('About');
+                }}
+                style={styles.aboutScreenJumpContainer}>
+                <View style={styles.splishTextContainer}>
+                  <Text style={styles.splishTextStyle}>splish?</Text>
+                </View>
                 <FastImage
-                  style={styles.gifIconStyle}
-                  source={{uri: `http://${localhost}/ui/home_waterfall.gif`}}
+                  style={styles.scrollImgStyle}
+                  source={{uri: `http://${localhost}/ui/santai.jpeg`}}
                   resizeMode={FastImage.resizeMode.cover}
                 />
-                <Text style={styles.activityTextStyle}>Waterfalls</Text>
+              </TouchableOpacity>
+            </ScrollView>
+          </View>
+          <View style={styles.activityContainer}>
+            <Text style={styles.activityTitleText}>Activity</Text>
+            <View style={styles.activityIconContainer}>
+              <TouchableHighlight
+                style={styles.activityIconStyle}
+                onPress={() => {
+                  navigation.navigate('Waterfalls');
+                }}>
+                <View style={styles.viewFragStyle}>
+                  <FastImage
+                    style={styles.gifIconStyle}
+                    source={{uri: `http://${localhost}/ui/home_waterfall.gif`}}
+                    resizeMode={FastImage.resizeMode.cover}
+                  />
+                  <Text style={styles.activityTextStyle}>Waterfalls</Text>
+                </View>
+              </TouchableHighlight>
+              <View
+                style={[styles.activityIconStyle, styles.tempIconBackgound]}>
+                <MaterialCommunityIcons name="tools" size={50} />
+                <Text>Trails</Text>
               </View>
-            </TouchableHighlight>
-            <View style={[styles.activityIconStyle, styles.tempIconBackgound]}>
-              <MaterialCommunityIcons name="tools" size={50} />
-              <Text>Trails</Text>
-            </View>
 
-            <View style={[styles.activityIconStyle, styles.tempIconBackgound]}>
-              <MaterialCommunityIcons name="tools" size={50} />
+              <View
+                style={[styles.activityIconStyle, styles.tempIconBackgound]}>
+                <MaterialCommunityIcons name="tools" size={50} />
 
-              <Text>Camp</Text>
-            </View>
+                <Text>Camp</Text>
+              </View>
 
-            <View style={[styles.activityIconStyle, styles.tempIconBackgound]}>
-              <MaterialCommunityIcons name="tools" size={50} />
-              <Text>Adventures</Text>
+              <View
+                style={[styles.activityIconStyle, styles.tempIconBackgound]}>
+                <MaterialCommunityIcons name="tools" size={50} />
+                <Text>Adventures</Text>
+              </View>
             </View>
           </View>
+<<<<<<< HEAD
         </View>
         <View style={styles.featuredContainer}>
           <Text style={styles.featuredTextStyle}>Featured</Text>
@@ -143,12 +149,60 @@ const Home = () => {
             }
           />
         </View>
+=======
+          <View style={styles.featuredContainer}>
+            <Text style={styles.featuredTextStyle}>Featured</Text>
+            <Card
+              onCardClick={cardClickHandler}
+              id={'62e257d0a55e10ce13603aa6'}
+              name={'Usun Apau'}
+              imgArr={[
+                {
+                  uri: 'http://chinup.rocks:8080/images/kotak_telangusan.JPG',
+                },
+                {
+                  uri: 'http://chinup.rocks:8080/images/selio_telangusan-1.jpg',
+                },
+                {uri: 'http://chinup.rocks:8080/images/usun_apau.JPG'},
+                {uri: 'http://chinup.rocks:8080/images/western_julan.jpg'},
+                {uri: 'http://chinup.rocks:8080/images/eastern_julan.jpg'},
+                {
+                  uri: 'http://chinup.rocks:8080/images/Julan_eastern_danny.jpg',
+                },
+                {
+                  uri: 'http://chinup.rocks:8080/images/Julan_eastern_ash.jpg',
+                },
+                {
+                  uri: 'http://chinup.rocks:8080/images/julan_jee_mui_lan.jpg',
+                },
+                {uri: 'http://chinup.rocks:8080/images/selio_GE.JPG'},
+                {
+                  uri: 'http://chinup.rocks:8080/images/lower_selio_telangusan.JPG',
+                },
+                {uri: 'http://chinup.rocks:8080/images/Julan_GE.JPG'},
+                {
+                  uri: 'http://chinup.rocks:8080/images/eastern_julan_upper.jpg',
+                },
+                {uri: 'http://chinup.rocks:8080/images/julan_Topo.JPG'},
+                {
+                  uri: 'http://chinup.rocks:8080/images/julan_hazebroek.JPG',
+                },
+                {uri: 'http://chinup.rocks:8080/images/IMG_9408_Chua.JPG'},
+              ]}
+              desc={
+                'Remote waterfalls with difficult access. The Julan fall is the tallest fall of Sarawak'
+              }
+            />
+          </View>
+        </ScrollView>
+>>>>>>> 2b85ba4 (minor UI update)
       </SafeAreaView>
     </StatusBarTheme>
   );
 };
 
 const styles = StyleSheet.create({
+  flex: {flex: 1},
   iconContainer: {flex: 1, flexDirection: 'row', justifyContent: 'center'},
   textTitleStyle: {
     fontFamily: 'FredokaOne-Regular',
@@ -188,10 +242,12 @@ const styles = StyleSheet.create({
   },
   scrollImgStyle: {width: 'auto', height: 200},
   activityContainer: {
-    height: 130,
+    // flex: 1.5,
+    minHeight: 130,
     backgroundColor: DefaultTheme.colors.background,
     borderRadius: 20,
     marginHorizontal: 5,
+    // overflow: 'visible',
   },
   activityTitleText: {
     fontSize: 22,
@@ -221,14 +277,20 @@ const styles = StyleSheet.create({
     bottom: 5,
   },
   tempIconBackgound: {backgroundColor: 'grey'},
-  featuredContainer: {flex: 3, backgroundColor: DefaultTheme.colors.primary},
+  featuredContainer: {
+    flex: 3,
+    backgroundColor: DefaultTheme.colors.primary,
+    justifyContent: 'space-around',
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
   featuredTextStyle: {
     fontSize: 22,
     fontWeight: '700',
-    paddingTop: 10,
+    // paddingTop: 10,
     paddingLeft: 15,
     color: 'white',
-    marginBottom: -10,
+    // marginBottom: -10,
   },
 });
 
