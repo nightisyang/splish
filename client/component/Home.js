@@ -103,53 +103,6 @@ const Home = () => {
               </View>
             </View>
           </View>
-<<<<<<< HEAD
-        </View>
-        <View style={styles.featuredContainer}>
-          <Text style={styles.featuredTextStyle}>Featured</Text>
-          <Card
-            onCardClick={cardClickHandler}
-            id={'62e257d0a55e10ce13603aa6'}
-            name={'Usun Apau'}
-            imgArr={[
-              {
-                uri: 'http://chinup.rocks:8080/images/kotak_telangusan.JPG',
-              },
-              {
-                uri: 'http://chinup.rocks:8080/images/selio_telangusan-1.jpg',
-              },
-              {uri: 'http://chinup.rocks:8080/images/usun_apau.JPG'},
-              {uri: 'http://chinup.rocks:8080/images/western_julan.jpg'},
-              {uri: 'http://chinup.rocks:8080/images/eastern_julan.jpg'},
-              {
-                uri: 'http://chinup.rocks:8080/images/Julan_eastern_danny.jpg',
-              },
-              {
-                uri: 'http://chinup.rocks:8080/images/Julan_eastern_ash.jpg',
-              },
-              {
-                uri: 'http://chinup.rocks:8080/images/julan_jee_mui_lan.jpg',
-              },
-              {uri: 'http://chinup.rocks:8080/images/selio_GE.JPG'},
-              {
-                uri: 'http://chinup.rocks:8080/images/lower_selio_telangusan.JPG',
-              },
-              {uri: 'http://chinup.rocks:8080/images/Julan_GE.JPG'},
-              {
-                uri: 'http://chinup.rocks:8080/images/eastern_julan_upper.jpg',
-              },
-              {uri: 'http://chinup.rocks:8080/images/julan_Topo.JPG'},
-              {
-                uri: 'http://chinup.rocks:8080/images/julan_hazebroek.JPG',
-              },
-              {uri: 'http://chinup.rocks:8080/images/IMG_9408_Chua.JPG'},
-            ]}
-            desc={
-              'Remote waterfalls with difficult access. The Julan fall is the tallest fall of Sarawak'
-            }
-          />
-        </View>
-=======
           <View style={styles.featuredContainer}>
             <Text style={styles.featuredTextStyle}>Featured</Text>
             <Card
@@ -195,7 +148,6 @@ const Home = () => {
             />
           </View>
         </ScrollView>
->>>>>>> 2b85ba4 (minor UI update)
       </SafeAreaView>
     </StatusBarTheme>
   );
