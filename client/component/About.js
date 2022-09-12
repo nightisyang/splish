@@ -13,6 +13,7 @@ import {Appbar, Text, Card} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Clipboard from '@react-native-clipboard/clipboard';
+import configData from '../config.json';
 
 import StatusBarTheme from './StatusBarTheme';
 
@@ -155,7 +156,7 @@ const About = () => {
             </Pressable>
           </View>
           <View style={styles.versionText}>
-            <Text>Version: 1.0.0</Text>
+            <Text>Version: {configData.APP_VERSION} </Text>
           </View>
         </View>
       </SafeAreaView>
