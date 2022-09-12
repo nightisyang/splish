@@ -17,8 +17,9 @@ import MapComponent from './MapComponent';
 import FetchImages from './FetchImages';
 import ModalZoom from './ModalZoom';
 import Icon from './Icon';
+import configData from '../config.json';
 
-let localhost = '192.168.101.24:3000';
+let localhost = configData.API_URL;
 
 let calcWidth = Dimensions.get('window').width;
 

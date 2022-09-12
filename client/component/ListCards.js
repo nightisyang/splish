@@ -5,8 +5,9 @@ import {View, FlatList, Platform} from 'react-native';
 import {v4 as uuidv4} from 'uuid';
 
 import Card from './Card';
+import configData from '../config.json';
 
-let localhost = '192.168.101.24:3000';
+let localhost = configData.API_URL;
 
 const ListCards = props => {
   const [waterfalls, setWaterfalls] = useState([
@@ -70,6 +71,10 @@ const ListCards = props => {
         `http://${localhost}/api/v1/waterfalls/?state=${fetchState}`,
         {
           method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
         },
       );
 
