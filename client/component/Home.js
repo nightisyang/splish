@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   scrollViewStyle: {flex: 1, justifyContent: 'center'},
   aboutScreenJumpContainer: {
     flex: 1,
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
     borderRadius: 10,
     margin: 20,
     overflow: 'hidden',
