@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 
   itemContainer: {
     justifyContent: 'center',
-    // backgroundColor: 'black',
+    backgroundColor: 'black',
   },
 });
 export default FetchImages;
