@@ -3,16 +3,12 @@ const waterfallController = require('../controllers/waterfallController');
 
 const router = express.Router();
 
-router
-  .route('/')
-  .get(waterfallController.getAllWaterfalls)
-  .post(waterfallController.createWaterfall);
+router.route('/').get(waterfallController.getAllWaterfalls);
+// .post(waterfallController.createWaterfall);
 
-router
-  .route('/:id')
-  .get(waterfallController.getWaterfall)
-  .patch(waterfallController.updateWaterfall)
-  .delete(waterfallController.deleteWaterfall);
+router.route('/:id').get(waterfallController.getWaterfall);
+// .patch(waterfallController.updateWaterfall)
+// .delete(waterfallController.deleteWaterfall);
 
 router.get(
   '/waterfalls-within/:distance/center/:latlng/unit/:unit',
