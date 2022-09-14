@@ -47,7 +47,7 @@ const MapComponent = ({
   // animate to region, used in useEffect and is called when map is ready or region is changed
   const animateToRegionHolder = animateTime => {
     if (!mapRef.current) {
-      console.log('Map ref is undefined');
+      // console.log('Map ref is undefined');
     }
 
     if (mapRef.current) {
@@ -116,13 +116,13 @@ const MapComponent = ({
         liteMode={liteModeInput}
         onRegionChangeComplete={(region, details) => {
           if (!details?.isGesture) {
-            console.log('%%%%%%%%% REGION CHANGE COMPLETE %%%%%%%%%%');
+            // console.log('%%%%%%%%% REGION CHANGE COMPLETE %%%%%%%%%%');
             MarkerRender();
             setRegionChange(true);
           }
         }}
         onMapReady={e => {
-          console.log('########### ONMAPREADY #############');
+          // console.log('########### ONMAPREADY #############');
           handleMapReady();
           setMarkerRender(null);
         }}

@@ -66,9 +66,7 @@ const About = () => {
     if (dest === 'email') {
       Clipboard.setString('example@example.com');
 
-      Alert.alert('Email copied', '', [
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
-      ]);
+      Alert.alert('Email copied', '', [{text: 'OK'}]);
 
       //   const mailto = 'mailto:example@example.com';
       //   await Linking.canOpenURL(mailto);

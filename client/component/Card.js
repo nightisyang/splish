@@ -39,7 +39,7 @@ const Card = ({id, name, imgArr, desc, onCardClick}) => {
   };
 
   const uuid = function () {
-    console.log('uuid called:', Date.now());
+    // console.log('uuid called:', Date.now());
     return uuidv4();
   };
 
