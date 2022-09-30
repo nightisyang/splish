@@ -4,13 +4,6 @@ const waterfallController = require('../controllers/waterfallController');
 const router = express.Router();
 
 <<<<<<< HEAD
-router.route('/').get(waterfallController.getAllWaterfalls);
-// .post(waterfallController.createWaterfall);
-
-router.route('/:id').get(waterfallController.getWaterfall);
-// .patch(waterfallController.updateWaterfall)
-// .delete(waterfallController.deleteWaterfall);
-=======
 router
   .route('/')
   .get(waterfallController.getAllWaterfalls)
@@ -21,7 +14,14 @@ router
   .get(waterfallController.getWaterfall)
   // .patch(waterfallController.updateWaterfall)
   // .delete(waterfallController.deleteWaterfall);
->>>>>>> de0d888 (production config for backend)
+=======
+router.route('/').get(waterfallController.getAllWaterfalls);
+// .post(waterfallController.createWaterfall);
+
+router.route('/:id').get(waterfallController.getWaterfall);
+// .patch(waterfallController.updateWaterfall)
+// .delete(waterfallController.deleteWaterfall);
+>>>>>>> 77a9aaff4cffed861d85635604cdd8fb07e4f47c
 
 router.get(
   '/waterfalls-within/:distance/center/:latlng/unit/:unit',
