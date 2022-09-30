@@ -12,13 +12,16 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
 const waterfallRouter = require('./routes/waterfallRoutes');
+const splishSupportRouter = require('./routes/splishSupportRoutes');
+
 
 dotenv.config({ path: './config.env' });
 
 const app = express();
 
-// app.set('view engine', 'pug');
-// app.set('views', path.join(__dirname, 'views'));
+// view engine
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 // 1) GLOBAL MIDDLEWARES
 // serving static files
@@ -125,6 +128,8 @@ app.use((req, res, next) => {
 
 // 3) ROUTES
 app.use('/api/v1/waterfalls', waterfallRouter);
+app.use('/splish', splishSupportRouter);
+
 // app.use('/', viewRouter);
 // app.use('/api/v1/users', userRouter);
 // app.use('/api/v1/reviews', reviewRouter);
