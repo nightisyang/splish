@@ -1,4 +1,4 @@
-package com.client.newarchitecture.modules;
+package com.splish14092022.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
