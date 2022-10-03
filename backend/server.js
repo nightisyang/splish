@@ -1,5 +1,6 @@
+const config = require('./config');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
 // const app = express();
 
@@ -11,12 +12,12 @@ process.on('uncaughtException', err => {
 });
 
 const app = require('./app');
-dotenv.config({ path: './config.env' });
+// dotenv.config({ path: './config.env' });
+console.log(process.env.NODE_ENV);
+console.log(`NODE_ENV=${config.NODE_ENV}`);
+console.log(config);
 
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+const DB = config.DATABASE.replace('<PASSWORD>', config.DATABASE_PASSWORD);
 
 mongoose
   .connect(DB, {
@@ -27,8 +28,8 @@ mongoose
   // eslint-disable-next-line no-console
   .then(() => console.log('DB connection successful!'));
 
-const hostname = '192.168.101.2';
-const port = process.env.PORT || 3000;
+const hostname = config.HOST;
+const port = config.PORT;
 const server = app.listen(port, hostname, () => {
   console.log(`App running at http://${hostname}:${port}/`);
 });
