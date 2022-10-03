@@ -1,4 +1,4 @@
 {
-  "API_URL": "localhost:3000",
+  "API_URL": "chinup.rocks:8080",
   "APP_VERSION": "1.0.0"
 }
