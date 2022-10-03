@@ -401,7 +401,7 @@ const Info = ({onRoute, navigate}) => {
         animationType="slide"
         // transparent={true}
         visible={modalVisible}
-        presentationStyle={'pageSheet'}
+        // presentationStyle={'pageSheet'}
         onRequestClose={closeModal}>
         <View style={styles.flex}>
           <ModalZoom

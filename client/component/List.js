@@ -116,8 +116,8 @@ const List = ({passIDToApp, onScreenChange}) => {
           animationType="slide"
           // transparent={true}
           visible={modalVisible}
-          onRequestClose={closeModal}
-          presentationStyle={'pageSheet'}>
+          // presentationStyle={'pageSheet'}
+          onRequestClose={closeModal}>
           <View
             style={{
               flex: 1,
