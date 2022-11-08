@@ -1,10 +1,10 @@
 # splish
-Fullstack application
+Fullstack mobile application
 
 ## Client
-React Native Application available on Android and iOS (links below).  
+Developed using React Native, available on Android and iOS (links below).  
   
-An outdoor focused application, current functionality allows for users to browse waterfalls sorted by state, or through a map view.  
+An outdoor focused application, current functionality allows for users to browse waterfalls sorted by state, or through a map view. View detailed information of a waterfall, including distance from current location.  
   
 Detailed information of waterfalls is obtained via API calls to backend server.  
   
