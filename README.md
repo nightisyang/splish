@@ -6,9 +6,9 @@ Developed using React Native, available on Android and iOS (links below).
   
 An outdoor focused application, current functionality allows for users to browse waterfalls sorted by state, or through a map view. View detailed information of a waterfall, including distance from current location.  
   
-Detailed information of waterfalls is obtained via API calls to backend server.  
+Detailed information of waterfalls is obtained via API request to backend Nodejs server.  
   
-Content reproduced from [Waterfalls of Malaysia](https://waterfallsofmalaysia.com/d.php) with permission.  
+Content scrapped and reproduced from [Waterfalls of Malaysia](https://waterfallsofmalaysia.com/d.php) with permission.  
 
 
 ## Backend
