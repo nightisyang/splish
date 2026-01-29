@@ -16,8 +16,11 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.splish.app",
+      "buildNumber": "1",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Splish needs your location to show nearby waterfalls and calculate distances."
+        "NSLocationWhenInUseUsageDescription": "Splish needs your location to show nearby waterfalls and calculate distances.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Splish needs your location to show nearby waterfalls and calculate distances.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -26,7 +29,8 @@
         "backgroundColor": "#6200ee"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.splish.app",
+      "package": "com.splish14092022",
+      "versionCode": 3,
       "permissions": [
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION"
@@ -53,6 +57,18 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    },
+    "owner": "nightisyang",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/your-eas-project-id"
     }
   }
 }
