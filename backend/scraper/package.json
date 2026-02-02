@@ -1,0 +1,17 @@
+{
+  "name": "splish-scraper",
+  "version": "1.0.0",
+  "description": "Incremental scraper for waterfallsofmalaysia.com",
+  "main": "index.js",
+  "bin": {
+    "scraper": "./index.js"
+  },
+  "scripts": {
+    "sync": "node index.js sync --verbose",
+    "sync:dry": "node index.js sync --dry-run --verbose",
+    "stats": "node index.js stats",
+    "check-images": "node index.js check-images"
+  },
+  "author": "",
+  "license": "ISC"
+}
