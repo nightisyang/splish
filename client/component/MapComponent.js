@@ -39,7 +39,7 @@ const MapComponent = ({
 
   useEffect(() => {
     if (type === 'info') {
-      setMarkerRender(null);
+      // setMarkerRender(null);
       setNewRegion(regionInput);
     }
   }, [coordInput, regionInput]);
