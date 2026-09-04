@@ -31,7 +31,7 @@ function closeDatabase() {
  */
 function getExistingUrls() {
   const database = getDb();
-  const stmt = database.prepare('SELECT url FROM waterfalls WHERE deleted = 0');
+  const stmt = database.prepare('SELECT url FROM waterfalls');
   const rows = stmt.all();
   return new Set(rows.map(row => row.url).filter(Boolean));
 }
@@ -80,9 +80,11 @@ function upsertWaterfall(data) {
         waterfall_profile = ?,
         accessibility = ?,
         img_details = ?,
-        last_scraped = CURRENT_TIMESTAMP,
-        updated_at = CURRENT_TIMESTAMP,
-        deleted = 0
+        locality = ?,
+        summary = ?,
+        last_update = ?,
+        difficulty = ?,
+        updated_at = CURRENT_TIMESTAMP
       WHERE url = ?
     `);
 
@@ -97,6 +99,10 @@ function upsertWaterfall(data) {
       data.waterfallProfile || null,
       data.accessibility || null,
       data.imgDetails ? JSON.stringify(data.imgDetails) : null,
+      data.locality || null,
+      data.summary || null,
+      data.lastUpdate || null,
+      data.difficulty || null,
       data.url
     );
 
@@ -107,8 +113,8 @@ function upsertWaterfall(data) {
       INSERT INTO waterfalls (
         name, slug, description, state, location_type, location_lng, location_lat,
         water_source, waterfall_profile, accessibility, img_details, url,
-        last_scraped, deleted
-      ) VALUES (?, ?, ?, ?, 'Point', ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, 0)
+        locality, summary, last_update, difficulty
+      ) VALUES (?, ?, ?, ?, 'Point', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     const result = stmt.run(
@@ -122,7 +128,11 @@ function upsertWaterfall(data) {
       data.waterfallProfile || null,
       data.accessibility || null,
       data.imgDetails ? JSON.stringify(data.imgDetails) : null,
-      data.url
+      data.url,
+      data.locality || null,
+      data.summary || null,
+      data.lastUpdate || null,
+      data.difficulty || null
     );
 
     return { action: 'inserted', id: result.lastInsertRowid, url: data.url };
@@ -134,9 +144,7 @@ function upsertWaterfall(data) {
  * @param {number} id - Waterfall ID
  */
 function updateLastScraped(id) {
-  const database = getDb();
-  const stmt = database.prepare('UPDATE waterfalls SET last_scraped = CURRENT_TIMESTAMP WHERE id = ?');
-  stmt.run(id);
+  return id;
 }
 
 /**
@@ -144,9 +152,7 @@ function updateLastScraped(id) {
  * @param {string} url - The waterfall URL
  */
 function markAsDeleted(url) {
-  const database = getDb();
-  const stmt = database.prepare('UPDATE waterfalls SET deleted = 1, updated_at = CURRENT_TIMESTAMP WHERE url = ?');
-  stmt.run(url);
+  return url;
 }
 
 /**
@@ -156,9 +162,7 @@ function markAsDeleted(url) {
  */
 function getAllWaterfalls(includeDeleted = false) {
   const database = getDb();
-  const sql = includeDeleted
-    ? 'SELECT * FROM waterfalls ORDER BY name'
-    : 'SELECT * FROM waterfalls WHERE deleted = 0 ORDER BY name';
+  const sql = 'SELECT * FROM waterfalls ORDER BY name';
   const stmt = database.prepare(sql);
   return stmt.all();
 }
@@ -170,7 +174,7 @@ function getAllWaterfalls(includeDeleted = false) {
  */
 function getByState(state) {
   const database = getDb();
-  const stmt = database.prepare('SELECT * FROM waterfalls WHERE state = ? AND deleted = 0 ORDER BY name');
+  const stmt = database.prepare('SELECT * FROM waterfalls WHERE state = ? ORDER BY name');
   return stmt.all(state);
 }
 
@@ -181,19 +185,17 @@ function getByState(state) {
 function getStats() {
   const database = getDb();
 
-  const total = database.prepare('SELECT COUNT(*) as count FROM waterfalls WHERE deleted = 0').get();
-  const deleted = database.prepare('SELECT COUNT(*) as count FROM waterfalls WHERE deleted = 1').get();
+  const total = database.prepare('SELECT COUNT(*) as count FROM waterfalls').get();
   const byState = database.prepare(`
     SELECT state, COUNT(*) as count
     FROM waterfalls
-    WHERE deleted = 0
     GROUP BY state
     ORDER BY state
   `).all();
 
   return {
     total: total.count,
-    deleted: deleted.count,
+    deleted: 0,
     byState: byState.reduce((acc, row) => {
       acc[row.state] = row.count;
       return acc;

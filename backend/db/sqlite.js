@@ -1,6 +1,7 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 const slugify = require('slugify');
+const { getDescriptionFields } = require('../utils/curatedDescription');
 
 const DB_PATH = path.join(__dirname, 'waterfalls.db');
 
@@ -60,6 +61,13 @@ function initializeDatabase() {
     )
   `);
 
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS catalog_metadata (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL
+    )
+  `);
+
   // Create indexes for common queries
   db.exec(`
     CREATE INDEX IF NOT EXISTS idx_waterfalls_name ON waterfalls(name);
@@ -70,6 +78,12 @@ function initializeDatabase() {
 
   console.log('SQLite database initialized successfully');
   return db;
+}
+
+function getCatalogMetadata() {
+  const database = getDb();
+  const rows = database.prepare('SELECT key, value FROM catalog_metadata').all();
+  return Object.fromEntries(rows.map(row => [row.key, row.value]));
 }
 
 /**
@@ -98,12 +112,14 @@ function closeDatabase() {
 function rowToWaterfall(row) {
   if (!row) return null;
 
+  const stableId = row.mongo_id || row.id.toString();
+
   return {
-    _id: row.mongo_id || row.id.toString(),
+    _id: stableId,
     id: row.id,
     name: row.name,
     slug: row.slug,
-    description: row.description,
+    ...getDescriptionFields(stableId, row.description),
     state: row.state,
     location: {
       type: row.location_type || 'Point',
@@ -255,7 +271,7 @@ class WaterfallModel {
       slug,
       data.description,
       data.state,
-      data.location?.type || 'Point',
+      (data.location && data.location.type) || 'Point',
       lng,
       lat,
       data.waterSource || null,
@@ -512,5 +528,7 @@ module.exports = {
   closeDatabase,
   WaterfallModel,
   geoDistance,
-  DB_PATH
+  DB_PATH,
+  rowToWaterfall,
+  getCatalogMetadata
 };

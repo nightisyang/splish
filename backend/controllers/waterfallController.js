@@ -1,4 +1,4 @@
-const { WaterfallModel } = require('../db/sqlite');
+const { WaterfallModel, getCatalogMetadata } = require('../db/sqlite');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
@@ -30,21 +30,53 @@ exports.getAllWaterfalls = catchAsync(async (req, res, next) => {
 
   // Handle pagination
   const page = req.query.page * 1 || 1;
-  const limit = req.query.limit * 1 || 200;
+  const limit = Math.min(req.query.limit * 1 || 200, 500);
   options.limit = limit;
   options.skip = (page - 1) * limit;
 
   // Get waterfalls using SQLite
   const start = Date.now();
   const waterfalls = WaterfallModel.find(queryObj, options);
+  const total = WaterfallModel.count(queryObj);
   console.log(`Query took ${Date.now() - start} milliseconds!`);
+
+  // The catalog version changes when a newly promoted source snapshot becomes active.
+  res.set('Cache-Control', 'public, max-age=300, stale-while-revalidate=3600');
+  res.set('X-Splish-Catalog-Version', getCatalogMetadata().catalog_version || 'unknown');
 
   // send response
   res.status(200).json({
     status: 'success',
     results: waterfalls.length,
+    pagination: {
+      page,
+      limit,
+      total,
+      pages: Math.ceil(total / limit)
+    },
     data: {
       waterfalls
+    }
+  });
+});
+
+exports.getCatalogManifest = catchAsync(async (req, res) => {
+  const metadata = getCatalogMetadata();
+  const total = WaterfallModel.count();
+  res.set('Cache-Control', 'public, max-age=60, stale-while-revalidate=300');
+  res.status(200).json({
+    status: 'success',
+    data: {
+      catalog: {
+        version: metadata.catalog_version || null,
+        refreshedAt: metadata.source_snapshot_at || null,
+        source: metadata.source_url || 'https://waterfallsofmalaysia.com',
+        activeRecords: total,
+        endpoints: {
+          waterfalls: '/api/v1/waterfalls?limit=500&sort=name',
+          detail: '/api/v1/waterfalls/{id}'
+        }
+      }
     }
   });
 });
@@ -68,6 +100,9 @@ exports.getWaterfall = catchAsync(async (req, res, next) => {
     distance = geoDistance(userLat, userLng, waterfallLat, waterfallLng);
     distance = Math.round(distance * 10) / 10;
   }
+
+  res.set('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
+  res.set('X-Splish-Catalog-Version', getCatalogMetadata().catalog_version || 'unknown');
 
   res.status(200).json({
     status: 'success',

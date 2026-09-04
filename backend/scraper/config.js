@@ -12,12 +12,12 @@ module.exports = {
     1: 'Johor',
     2: 'Kedah',
     3: 'Kelantan',
-    4: 'Malacca',
-    5: 'Negri Sembilan',
+    4: 'Melaka',
+    5: 'Negeri Sembilan',
     6: 'Pahang',
     7: 'Perak',
     8: 'Perlis',
-    9: 'Penang',
+    9: 'Pulau Penang',
     10: 'Sabah',
     11: 'Sarawak',
     12: 'Selangor',
@@ -29,11 +29,14 @@ module.exports = {
     'Johor': 1,
     'Kedah': 2,
     'Kelantan': 3,
+    'Melaka': 4,
     'Malacca': 4,
+    'Negeri Sembilan': 5,
     'Negri Sembilan': 5,
     'Pahang': 6,
     'Perak': 7,
     'Perlis': 8,
+    'Pulau Penang': 9,
     'Penang': 9,
     'Sabah': 10,
     'Sarawak': 11,
@@ -42,7 +45,7 @@ module.exports = {
   },
 
   // Polite scraping delay (ms)
-  requestDelayMs: 2000,
+  requestDelayMs: 750,
 
   // Retry settings
   maxRetries: 3,
@@ -51,19 +54,9 @@ module.exports = {
   // Paths
   paths: {
     database: path.join(__dirname, '..', 'db', 'waterfalls.db'),
-    images: path.join(__dirname, '..', 'public', 'images')
+    images: path.join(__dirname, '..', 'public', 'images'),
+    staging: path.join(__dirname, 'staging')
   },
-
-  // Known problematic pages that require Claude CLI parsing
-  problematicPages: [
-    '164ayerputeri.php',
-    '98kotatinggi.php',
-    '58ledang.php',
-    '99pulai.php',
-    '128takamelor.php',
-    '159asahan.php',
-    '161jeramtinggi.php'
-  ],
 
   // Boilerplate text to remove from descriptions
   boilerplateStrings: [

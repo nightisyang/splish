@@ -18,8 +18,17 @@ function sleep(ms) {
  * @returns {boolean} True if file exists
  */
 function imageExists(filename) {
-  const filepath = path.join(config.paths.images, filename);
+  const filepath = resolveImagePath(filename);
   return fs.existsSync(filepath);
+}
+
+function resolveImagePath(filename) {
+  const root = path.resolve(config.paths.images);
+  const filepath = path.resolve(root, filename);
+  if (filepath !== root && !filepath.startsWith(`${root}${path.sep}`)) {
+    throw new Error(`Unsafe image filename: ${filename}`);
+  }
+  return filepath;
 }
 
 /**
@@ -31,7 +40,8 @@ function imageExists(filename) {
  */
 async function downloadImage(url, filename, options = {}) {
   const { force = false, retries = config.maxRetries } = options;
-  const filepath = path.join(config.paths.images, filename);
+  const filepath = resolveImagePath(filename);
+  const temporaryPath = `${filepath}.part-${process.pid}`;
 
   // Skip if exists and not forcing
   if (!force && imageExists(filename)) {
@@ -46,19 +56,30 @@ async function downloadImage(url, filename, options = {}) {
         url,
         method: 'GET',
         responseType: 'stream',
-        timeout: 30000
+        timeout: 30000,
+        headers: { 'User-Agent': 'SplishCatalogRefresh/2.0' }
       });
 
+      const contentType = String(response.headers['content-type'] || '');
+      if (!contentType.startsWith('image/')) {
+        response.data.destroy();
+        throw new Error(`Expected an image but received ${contentType || 'an unknown content type'}`);
+      }
+
+      fs.mkdirSync(path.dirname(filepath), { recursive: true });
+
       await new Promise((resolve, reject) => {
-        const writer = fs.createWriteStream(filepath);
+        const writer = fs.createWriteStream(temporaryPath);
         response.data.pipe(writer);
         writer.on('error', reject);
         writer.on('finish', resolve);
       });
+      fs.renameSync(temporaryPath, filepath);
 
       return { status: 'downloaded', filename };
     } catch (err) {
       lastError = err;
+      if (fs.existsSync(temporaryPath)) fs.unlinkSync(temporaryPath);
       if (attempt < retries) {
         const delay = config.retryDelayMs * Math.pow(2, attempt - 1); // Exponential backoff
         await sleep(delay);
@@ -113,27 +134,33 @@ async function downloadWaterfallImages(waterfall, options = {}) {
     details: []
   };
 
-  if (!waterfall.imgDetails || !waterfall.imgDetails.imgUrl) {
+  if (!waterfall.imgDetails) {
     return stats;
   }
 
-  const { imgUrl, imgFilename } = waterfall.imgDetails;
+  const details = waterfall.imgDetails;
+  const assets = [];
+  if (details.listingImageUrl && details.listingImageFilename) {
+    assets.push({ url: details.listingImageUrl, filename: details.listingImageFilename, kind: 'listing' });
+  }
+  for (let i = 0; i < (details.imgUrl || []).length; i++) {
+    assets.push({ url: details.imgUrl[i], filename: details.imgFilename[i], kind: 'thumbnail' });
+  }
+  for (let i = 0; i < (details.imgFullResUrl || []).length; i++) {
+    assets.push({ url: details.imgFullResUrl[i], filename: details.imgFullResFilename[i], kind: 'full' });
+  }
 
-  // Download thumbnail images
-  for (let i = 0; i < imgUrl.length; i++) {
-    const url = imgUrl[i];
-    const filename = imgFilename[i] || url.split('/').pop();
+  for (let i = 0; i < assets.length; i++) {
+    const { url, filename, kind } = assets[i];
+    if (!url || !filename) continue;
 
-    // Add delay between downloads
-    if (i > 0) {
-      await sleep(500);
-    }
+    if (i > 0) await sleep(150);
 
     const result = await downloadImage(url, filename, { force });
 
     if (result.status === 'downloaded') {
       stats.downloaded++;
-      if (verbose) console.log(`  Downloaded: ${filename}`);
+      if (verbose) console.log(`  Downloaded ${kind}: ${filename}`);
     } else if (result.status === 'skipped') {
       stats.skipped++;
       if (verbose) console.log(`  Skipped: ${filename} (already exists)`);
@@ -145,6 +172,107 @@ async function downloadWaterfallImages(waterfall, options = {}) {
     stats.details.push(result);
   }
 
+  return stats;
+}
+
+function listCatalogAssets(records) {
+  const assets = [];
+  for (const record of records) {
+    const details = record.imgDetails || {};
+    if (details.listingImageUrl && details.listingImageFilename) {
+      assets.push({ url: details.listingImageUrl, filename: details.listingImageFilename });
+    }
+    for (let i = 0; i < (details.imgUrl || []).length; i++) {
+      if (details.imgUrl[i] && details.imgFilename?.[i]) {
+        assets.push({
+          url: details.imgUrl[i],
+          filename: details.imgFilename[i],
+          fallbackFilename: details.imgFullResFilename?.[i]
+        });
+      }
+    }
+    for (let i = 0; i < (details.imgFullResUrl || []).length; i++) {
+      if (details.imgFullResUrl[i] && details.imgFullResFilename?.[i]) {
+        assets.push({ url: details.imgFullResUrl[i], filename: details.imgFullResFilename[i] });
+      }
+    }
+  }
+  return [...new Map(assets.map(asset => [asset.filename, asset])).values()];
+}
+
+function reuseLegacyAssets(assets) {
+  const basenameCounts = new Map();
+  for (const asset of assets) {
+    const basename = path.basename(asset.filename);
+    basenameCounts.set(basename, (basenameCounts.get(basename) || 0) + 1);
+  }
+  let linked = 0;
+  for (const asset of assets) {
+    if (imageExists(asset.filename)) continue;
+    const basename = path.basename(asset.filename);
+    if (basenameCounts.get(basename) !== 1) continue;
+    const legacyPath = resolveImagePath(basename);
+    if (!fs.existsSync(legacyPath)) continue;
+    const targetPath = resolveImagePath(asset.filename);
+    fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+    try {
+      fs.linkSync(legacyPath, targetPath);
+    } catch {
+      fs.copyFileSync(legacyPath, targetPath);
+    }
+    linked++;
+  }
+  return linked;
+}
+
+async function downloadCatalogImages(records, options = {}) {
+  const assets = listCatalogAssets(records);
+  const stats = {
+    total: assets.length,
+    reused: reuseLegacyAssets(assets),
+    downloaded: 0,
+    skipped: 0,
+    failed: 0,
+    sourceFallbacks: 0,
+    failures: []
+  };
+  let nextIndex = 0;
+  let processed = 0;
+  async function worker() {
+    while (nextIndex < assets.length) {
+      const asset = assets[nextIndex++];
+      let result;
+      if (!options.force && imageExists(asset.filename)) {
+        result = { status: 'skipped', filename: asset.filename, reason: 'exists' };
+      } else {
+        await sleep(options.delayMs ?? 75);
+        result = await downloadImage(asset.url, asset.filename, options);
+      }
+      if (result.status === 'downloaded') stats.downloaded++;
+      else if (result.status === 'skipped') stats.skipped++;
+      else if (asset.fallbackFilename && imageExists(asset.fallbackFilename)) {
+        const fallbackPath = resolveImagePath(asset.fallbackFilename);
+        const targetPath = resolveImagePath(asset.filename);
+        fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+        try {
+          fs.linkSync(fallbackPath, targetPath);
+        } catch {
+          fs.copyFileSync(fallbackPath, targetPath);
+        }
+        stats.sourceFallbacks++;
+      }
+      else {
+        stats.failed++;
+        stats.failures.push({ ...result, url: asset.url });
+      }
+      processed++;
+      if (options.verbose && processed % 100 === 0) {
+        console.log(`Assets ${processed}/${assets.length}: ${stats.downloaded} downloaded, ${stats.reused} reused, ${stats.failed} failed`);
+      }
+    }
+  }
+  const concurrency = Math.max(1, Math.min(options.concurrency ?? 3, 4));
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
   return stats;
 }
 
@@ -168,24 +296,17 @@ async function downloadFullResImages(waterfall, options = {}) {
   }
 
   const fullResUrls = waterfall.imgDetails.imgFullResUrl;
+  const fullResFilenames = waterfall.imgDetails.imgFullResFilename || [];
 
   for (let i = 0; i < fullResUrls.length; i++) {
-    const pageUrl = fullResUrls[i];
+    const imageUrl = fullResUrls[i];
 
     // Add delay between requests
     if (i > 0) {
       await sleep(1000);
     }
 
-    // Get the actual image URL from the page
-    const imageUrl = await getFullResImageUrl(pageUrl);
-    if (!imageUrl) {
-      stats.failed++;
-      stats.details.push({ status: 'failed', url: pageUrl, error: 'Could not find image URL' });
-      continue;
-    }
-
-    const filename = imageUrl.split('/').pop();
+    const filename = fullResFilenames[i] || imageUrl.split('/').pop();
     const result = await downloadImage(imageUrl, filename, { force });
 
     if (result.status === 'downloaded') {
@@ -232,8 +353,13 @@ function verifyImages(waterfalls) {
 
     const waterfallMissing = [];
 
-    if (imgDetails.imgFilename) {
-      for (const filename of imgDetails.imgFilename) {
+    const filenames = [
+      imgDetails.listingImageFilename,
+      ...(imgDetails.imgFilename || []),
+      ...(imgDetails.imgFullResFilename || [])
+    ].filter(Boolean);
+    if (filenames.length) {
+      for (const filename of filenames) {
         results.total++;
         if (imageExists(filename)) {
           results.exists++;
@@ -267,19 +393,23 @@ function getImageStats() {
     return { count: 0, size: 0 };
   }
 
-  const files = fs.readdirSync(imagesDir);
   let totalSize = 0;
-
-  for (const file of files) {
-    const filepath = path.join(imagesDir, file);
-    const stat = fs.statSync(filepath);
-    if (stat.isFile()) {
-      totalSize += stat.size;
+  let count = 0;
+  const pending = [imagesDir];
+  while (pending.length) {
+    const directory = pending.pop();
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const filepath = path.join(directory, entry.name);
+      if (entry.isDirectory()) pending.push(filepath);
+      else if (entry.isFile()) {
+        count++;
+        totalSize += fs.statSync(filepath).size;
+      }
     }
   }
 
   return {
-    count: files.length,
+    count,
     size: totalSize,
     sizeFormatted: formatBytes(totalSize)
   };
@@ -302,6 +432,8 @@ module.exports = {
   downloadImage,
   downloadWaterfallImages,
   downloadFullResImages,
+  downloadCatalogImages,
+  listCatalogAssets,
   imageExists,
   verifyImages,
   getImageStats,

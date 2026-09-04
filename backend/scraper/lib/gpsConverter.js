@@ -17,6 +17,9 @@ function parseCoordinates(coordinateString) {
   cleaned = cleaned.replace(/^coordinates?:?\s*/i, '');
   cleaned = cleaned.replace(/\s*\(.*\)$/, ''); // Remove trailing parenthetical notes
 
+  const directional = parseDirectionalDegreesMinutes(cleaned);
+  if (directional) return directional;
+
   try {
     const result = convert(cleaned);
 
@@ -51,6 +54,41 @@ function parseCoordinates(coordinateString) {
 
   // Try manual parsing for common formats
   return parseManually(cleaned);
+}
+
+/**
+ * Parse the degree/minute variants used by the source site. The direction
+ * tokens are authoritative, so latitude and longitude can appear in either
+ * order without guessing based on their magnitude.
+ */
+function parseDirectionalDegreesMinutes(str) {
+  const normalized = str
+    .replace(/\uFFFD|�|º/g, '°')
+    .replace(/\bNorth\b/gi, 'N')
+    .replace(/\bSouth\b/gi, 'S')
+    .replace(/\bEast\b/gi, 'E')
+    .replace(/\bWest\b/gi, 'W');
+  const pattern = /([NSEW])\s*(\d{1,3})\s*(?:°\s*)?(\d{1,3}(?:\.\d+)?)\s*['’]?/gi;
+  const values = {};
+  let match;
+  while ((match = pattern.exec(normalized))) {
+    const direction = match[1].toUpperCase();
+    const degrees = Number(match[2]);
+    const minutes = Number(match[3]);
+    if (!Number.isFinite(degrees) || !Number.isFinite(minutes) || minutes >= 60) continue;
+    let decimal = degrees + minutes / 60;
+    if (direction === 'S' || direction === 'W') decimal *= -1;
+    values[direction === 'N' || direction === 'S' ? 'latitude' : 'longitude'] = decimal;
+  }
+  const { latitude, longitude } = values;
+  if (latitude >= 0 && latitude <= 10 && longitude >= 99 && longitude <= 120) {
+    return {
+      type: 'Point',
+      coordinates: [longitude, latitude],
+      verbatimCoordinates: str
+    };
+  }
+  return null;
 }
 
 /**
@@ -123,5 +161,6 @@ function formatCoordinates(lng, lat) {
 
 module.exports = {
   parseCoordinates,
+  parseDirectionalDegreesMinutes,
   formatCoordinates
 };

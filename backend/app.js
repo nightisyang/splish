@@ -24,6 +24,15 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // 1) GLOBAL MIDDLEWARES
+// Waterfall media changes only when a new catalog snapshot is promoted. Keep it
+// browser/CDN cacheable without declaring filenames permanently immutable.
+app.use('/images', express.static(path.join(__dirname, 'public/images'), {
+  maxAge: '7d',
+  setHeaders(res) {
+    res.set('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
+  }
+}));
+
 // serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -6,6 +6,8 @@ const router = express.Router();
 router.route('/').get(waterfallController.getAllWaterfalls);
 // .post(waterfallController.createWaterfall);
 
+router.route('/manifest').get(waterfallController.getCatalogManifest);
+
 router.route('/:id').get(waterfallController.getWaterfall);
 // .patch(waterfallController.updateWaterfall)
 // .delete(waterfallController.deleteWaterfall);

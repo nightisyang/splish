@@ -19,7 +19,7 @@ try {
   process.exit(1);
 }
 
-const hostname = '192.168.101.2';
+const hostname = process.env.HOST || '127.0.0.1';
 const port = process.env.PORT || 8081;
 const server = app.listen(port, hostname, () => {
   console.log(`App running at http://${hostname}:${port}/`);
@@ -49,7 +49,8 @@ process.on('unhandledRejection', err => {
   const errmsgStart = 0;
   const newline = /\n/;
   const errmsgStop = fullMessage.search(newline);
-  const errmsgLen = errmsgStop > 0 ? errmsgStop - errmsgStart : fullMessage.length;
+  const errmsgLen =
+    errmsgStop > 0 ? errmsgStop - errmsgStart : fullMessage.length;
   const errorText = fullMessage.substr(errmsgStart, errmsgLen);
   console.log(`Error Name: ${err.name}`);
   console.log(`Error Text: ${errorText}`);

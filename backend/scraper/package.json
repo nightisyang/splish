@@ -7,10 +7,15 @@
     "scraper": "./index.js"
   },
   "scripts": {
+    "stage": "node index.js stage --verbose",
+    "assets": "node index.js assets --verbose",
+    "promote:preview": "node index.js promote",
+    "publish-assets:preview": "node index.js publish-assets",
     "sync": "node index.js sync --verbose",
     "sync:dry": "node index.js sync --dry-run --verbose",
     "stats": "node index.js stats",
-    "check-images": "node index.js check-images"
+    "check-images": "node index.js check-images",
+    "test": "node --test test/*.test.js"
   },
   "author": "",
   "license": "ISC"

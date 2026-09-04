@@ -4,12 +4,134 @@ const { program } = require('commander');
 const { sync, scrapeSingle } = require('./lib/scraper');
 const db = require('./lib/database');
 const { verifyImages, getImageStats } = require('./lib/imageHandler');
+const fs = require('fs');
+const path = require('path');
 const config = require('./config');
+require('dotenv').config({ path: path.join(__dirname, '..', 'config.env') });
 
 program
   .name('scraper')
   .description('Splish Waterfall Scraper - Incremental sync tool for waterfallsofmalaysia.com')
   .version('1.0.0');
+
+program
+  .command('stage')
+  .description('Build and validate a source snapshot without changing the live database')
+  .option('--state <name>', 'Stage only one state')
+  .option('--limit <count>', 'Stop after this many records', value => Number.parseInt(value, 10))
+  .option('--llm', 'Use Codex only for descriptions flagged by deterministic validation')
+  .option('--verbose', 'Show progress')
+  .action(async (options) => {
+    try {
+      const { stageCatalog } = require('./lib/stage');
+      const result = await stageCatalog({
+        stateFilter: options.state,
+        limit: options.limit,
+        useLlm: options.llm,
+        verbose: options.verbose
+      });
+      console.log('\nStaging complete:');
+      console.log(`  Source listings: ${result.listingCount}`);
+      console.log(`  Parsed records: ${result.recordCount}`);
+      console.log(`  LLM reviews: ${result.llmReviews}`);
+      console.log(`  Errors: ${result.report.totals.withErrors}`);
+      console.log(`  Warnings: ${result.report.totals.withWarnings}`);
+      console.log(`  Needs LLM review: ${result.report.totals.needingLlmReview}`);
+      console.log(`  Catalog: ${result.catalogPath}`);
+      console.log(`  Report: ${result.reportPath}`);
+      process.exit(result.report.totals.withErrors || result.report.totals.failedFetches ? 1 : 0);
+    } catch (error) {
+      console.error('Staging failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('assets')
+  .description('Download listing thumbnails, detail thumbnails, and full-size images for the staged catalog')
+  .option('--force', 'Re-download files that already exist')
+  .option('--verbose', 'Show progress')
+  .action(async (options) => {
+    try {
+      const { downloadCatalogImages } = require('./lib/imageHandler');
+      const catalogPath = path.join(config.paths.staging, 'catalog.json');
+      if (!fs.existsSync(catalogPath)) throw new Error('No staged catalog found; run the stage command first');
+      const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+      const result = await downloadCatalogImages(catalog.records, {
+        force: options.force,
+        verbose: options.verbose
+      });
+      const reportPath = path.join(config.paths.staging, 'asset-report.json');
+      fs.writeFileSync(reportPath, `${JSON.stringify({
+        generatedAt: new Date().toISOString(),
+        ...result
+      }, null, 2)}\n`);
+      console.log('\nAsset refresh complete:');
+      console.log(`  Total: ${result.total}`);
+      console.log(`  Reused from legacy assets: ${result.reused}`);
+      console.log(`  Downloaded: ${result.downloaded}`);
+      console.log(`  Already present: ${result.skipped}`);
+      console.log(`  Source thumbnail fallbacks: ${result.sourceFallbacks}`);
+      console.log(`  Failed: ${result.failed}`);
+      console.log(`  Report: ${reportPath}`);
+      process.exit(result.failed ? 1 : 0);
+    } catch (error) {
+      console.error('Asset refresh failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('promote')
+  .description('Validate and promote the staged catalog into the live SQLite database')
+  .option('--apply', 'Create a backup and apply the promotion; otherwise only show the plan')
+  .action(async (options) => {
+    try {
+      const { promoteCatalog } = require('./lib/promote');
+      const result = await promoteCatalog({ dryRun: !options.apply });
+      console.log(options.apply ? '\nCatalog promoted:' : '\nPromotion preview:');
+      console.log(`  Existing records updated: ${result.updated}`);
+      console.log(`  New records inserted: ${result.inserted}`);
+      console.log(`  Existing unlisted records preserved: ${result.preservedUnlisted}`);
+      if (result.backupPath) console.log(`  Backup: ${result.backupPath}`);
+      if (result.total) console.log(`  Database records: ${result.total}`);
+    } catch (error) {
+      console.error('Promotion failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('publish-assets')
+  .description('Publish staged catalog images to R2 or another S3-compatible object store')
+  .option('--apply', 'Upload objects; otherwise show a local preview')
+  .option('--force', 'Upload objects even when their checksum is unchanged')
+  .option('--verbose', 'Show progress')
+  .action(async (options) => {
+    try {
+      const { publishCatalogAssets } = require('./lib/objectStorage');
+      const catalogPath = path.join(config.paths.staging, 'catalog.json');
+      if (!fs.existsSync(catalogPath)) throw new Error('No staged catalog found; run the stage command first');
+      const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
+      const result = await publishCatalogAssets(catalog.records, options);
+      const reportPath = path.join(config.paths.staging, 'object-storage-report.json');
+      fs.writeFileSync(reportPath, `${JSON.stringify({ generatedAt: new Date().toISOString(), ...result }, null, 2)}\n`);
+      console.log(options.apply ? '\nAsset publication complete:' : '\nAsset publication preview:');
+      console.log(`  Objects: ${result.objects}`);
+      console.log(`  Bytes: ${result.totalBytes}`);
+      if (options.apply) {
+        console.log(`  Uploaded: ${result.uploaded}`);
+        console.log(`  Unchanged: ${result.skipped}`);
+        console.log(`  Failed: ${result.failed}`);
+        console.log(`  Public base URL: ${result.publicBaseUrl}`);
+      }
+      console.log(`  Report: ${reportPath}`);
+      process.exit(result.failed ? 1 : 0);
+    } catch (error) {
+      console.error('Asset publication failed:', error.message);
+      process.exit(1);
+    }
+  });
 
 // Sync command
 program
@@ -153,7 +275,6 @@ program
       console.log('\nConfiguration:');
       console.log(`  Base URL: ${config.baseUrl}`);
       console.log(`  Request delay: ${config.requestDelayMs}ms`);
-      console.log(`  Problematic pages: ${config.problematicPages.length}`);
 
       db.closeDatabase();
     } catch (err) {

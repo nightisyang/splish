@@ -1,7 +1,7 @@
 const axios = require('axios');
 const config = require('../config');
-const { parseWaterfallPage, parseStatePage, needsClaudeParsing } = require('./parser');
-const { parseWithClaude, isClaudeAvailable } = require('./claudeParser');
+const { parseWaterfallPage, parseStatePage, needsLlmReview } = require('./parser');
+const { reviewDescriptionWithCodex, isCodexAvailable } = require('./codexReview');
 const db = require('./database');
 const { downloadWaterfallImages } = require('./imageHandler');
 
@@ -65,7 +65,7 @@ async function fetchStateUrls(stateId) {
  * @returns {Object|null} Scraped waterfall data or null
  */
 async function scrapeWaterfall(urlPath, options = {}) {
-  const { verbose = false, useClaudeOnFail = true } = options;
+  const { verbose = false, useLlmOnFail = false } = options;
   const fullUrl = urlPath.startsWith('http') ? urlPath : `${config.baseUrl}/${urlPath}`;
 
   if (verbose) {
@@ -80,18 +80,17 @@ async function scrapeWaterfall(urlPath, options = {}) {
   // Try standard parsing first
   let parsed = parseWaterfallPage(html, urlPath);
 
-  // Check if we need Claude CLI fallback
-  if (useClaudeOnFail && needsClaudeParsing(parsed, urlPath)) {
-    if (isClaudeAvailable()) {
+  // Optional prose-only repair. Structured fields always remain deterministic.
+  if (useLlmOnFail && needsLlmReview(parsed)) {
+    if (isCodexAvailable()) {
       if (verbose) {
-        console.log(`  Using Claude CLI for problematic page: ${urlPath}`);
+        console.log(`  Using Codex for flagged description: ${urlPath}`);
       }
-      const claudeParsed = await parseWithClaude(html, urlPath);
-      if (claudeParsed) {
-        parsed = claudeParsed;
-      }
+      const review = reviewDescriptionWithCodex(parsed);
+      if (review.changed) parsed.description = review.description;
+      parsed.descriptionReview = { provider: 'codex', ...review };
     } else if (verbose) {
-      console.log(`  Warning: Claude CLI not available for fallback parsing`);
+      console.log('  Warning: Codex CLI not available for optional prose review');
     }
   }
 
